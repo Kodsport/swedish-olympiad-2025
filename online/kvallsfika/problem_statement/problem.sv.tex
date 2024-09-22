@@ -1,0 +1,58 @@
+\problemname{Lördagsgodis}
+Enhörningen Omar älskar godis! Han har precis fått $P$ kronor av sina mamma för att köpa lördagsgodis.
+Eftersom Omar är smart kommer han att försöka spendera pengarna så bra som möjligt. I butiken han brukar
+handla godis i finns det $N$ stycken godispåsar. Varje godispåse har ett visst pris och en viss kategori.
+Eftersom Omar gillar godis väldigt mycket så tycker han \textit{nästan} att alla godispåsar är lika goda. 
+Han har nämligen ingen preferens för vilken kategori av godis han ska köpa, men han tycker att det blir 
+lite för enformigt om han köper mer än $K$ påsar av samma kategori. 
+
+Hjälp Omar att köpa så många godispåsar som möjligt, vars totala kostnad är mindre än eller lika med $P$.
+Se dessutom till att det inte finns mer än $K$ påsar av samma kategori bland de han köpte. Du behöver
+bara skriva ut hur många påsar han kan köpa, inte vilka.
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalet $N$ ($1 \leq N \leq 10^5$), antalet godispåsar som Omar
+kan välja mellan. 
+
+Nästa rad innehåller heltalet $P$ ($1 \leq P \leq 10^8$), antalet kronor som Omar har i godisbudget.
+
+Nästa rad innehåller heltalet $K$ ($1 \leq K \leq N$), antalet godistyper som Omar kan tänka sig
+äta av varje kategori.
+
+På nästa rad står heltalen $c_1, c_2, \dots, c_N$ ($1 \leq c_i \leq P$), där $c_i$ betyder att
+godispåse $i$ kostar $c_i$ kronor.
+
+På sista raden står heltalen $t_1, t_2, \dots, t_N$ ($1 \leq t_i \leq 10^5$). Det finns exakt $10^5$
+kategorier av godispåsar, och vi benämner varje med ett heltal. Varje $t_i$ betyder att
+godispåse $i$ tillhör kategori $t_i$.
+
+\section*{Utdata}
+Skriv ut ett heltal: antalet godispåsar som Omar kan köpa om han använder sin budget optimalt.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & Affisch-sample. \\ \hline
+  $2$    & $5$        & $K=N$ och du har råd att köpa allt godis. \\ \hline
+  $3$    & $15$       & Du har råd att köpa allt godis. \\ \hline
+  $4$    & $5$        & $c_i=1$, det vill säga kostar varje sorts godis $1$ krona. \\ \hline
+  $5$    & $17$       & $K=N, N \leq 500$. \\ \hline
+  $6$    & $21$       & $K=N$ \\ \hline
+  $7$    & $9$        & $N \leq 500$. \\ \hline
+  $8$    & $8$        & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+I exempelfall 1 går det jättesnabbt att lösa problem, men tar jättelång tid att skapa nya. Optimala strategin
+är därmed att bara lösa problem. För att lösa mer än hälften måste han lösa $51$ stycken. Eftersom $A=51$ blir svaret
+$51$.
+
+I exempelfall 2 måste 2 problem lösas för att lösa mer än hälften.
+
+I exempelfall 3 är den optimala strategin att lösa 11 problem och skapa 1 problem. Detta tar sammanlagt $11 \cdot 7 + 1 \cdot 6=83$ sekunder.
+Det finns ingen annan strategi som är snabbare.

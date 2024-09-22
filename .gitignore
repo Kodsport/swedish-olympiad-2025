@@ -1,0 +1,7 @@
+*.out
+*.pdf
+*.aux
+*.log
+*.out
+.vscode/
+
