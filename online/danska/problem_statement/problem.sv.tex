@@ -1,0 +1,53 @@
+\problemname{Danska}
+
+\noindent
+
+Boschua ska flytta till Lund för att plugga på LTH. Du har upptäckt att Lund ligger i Skåne
+och har därför blivit väldigt orolig över att Boschua ska börja låta dansk.
+
+Du har hittat en gammal Dansk ordbok som har $M$ stycken ord i sig. Du vill nu visa för Boschua hur många
+ord det finns som inte alls låter danska. Tyvärr tar det lång tid att räkna alla för hand, så du
+behöver nu skriva ett program för detta.
+
+Mer exakt, ett ord består av endast små engelska bokstäver \texttt{a}-\texttt{z}. Du vill då räkna antalet ord
+av längd exakt $N$ som inte låter för danska. Ett ord låter för danskt ifall ordet innehåller minst en av orden
+från ordboken i sig.
+
+Exempelvis, anta att orboken endast består av ordet \texttt{knallert}. Då innehåller ordet \texttt{husknallertrumma}
+ordet knallert, och anses därför vara för danskt.
+
+Däremot innehåller ordet \texttt{knallerunt} \textbf{inte} ordet knallert på grund av förekomsten av ett \texttt{u},
+och anses därför inte vara för danskt.
+
+% Beräkna antalet strängar av längd $N$ som inte innehåller någon av de $M$ substrängarna modolu $10^9+7$.
+
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalen $N$ och $M$ ($1 \le N \le 100$, $0 \le M \le 100$),
+längden på orden vi betraktar och antalet ord i ordboken.
+
+Därefter följer $M$ rader, där varje rad innehåller ett ord från ordboken. Alla dessa orden har längd som mest $N$
+och består av bokstäver \texttt{a}-\texttt{z}. 
+
+
+\section*{Utdata}
+Skriv ut antalet ord av längd $N$ som inte låter för danskt. Eftersom detta talet kan bli väldigt stort,
+skriv ut det \href{https://en.wikipedia.org/wiki/Modulo}{modulo} $10^9+7$. 
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $M = 0$ \\ \hline
+  $2$    & $13$       & $N \leq 3, M \leq 10$ \\ \hline
+  $3$    & $23$       & $M = 1$ \\ \hline
+  $4$    & $32$       & $N, M \leq 50$ \\ \hline
+  $5$    & $22$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+I första fallet finns det $26^3$ olika ord. Eftersom den Danska ordboken är tom i detta fallet förbjuds inga av dessa.

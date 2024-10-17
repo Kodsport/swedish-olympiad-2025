@@ -1,0 +1,68 @@
+\problemname{Pingisturnering}
+\noindent
+
+Rulls är en sann entusiast av PO (Pingisolympiaden). 
+Han älskar att kolla och heja på sina favoritspelare när de spelar.
+
+PO (Pingisolympiaden) har en intressant turneringsformat. 
+I början av turneringen finns $N$ spelare, där alla spelare har varsin startposition. 
+Beroende på startposition kommer spelarna att parvist spela en match mot varandra. 
+Varje pingismatch har exakt en vinnare och en förlorare. 
+Den som förlorar blir eliminerad och kör aldrig en match igen, 
+medan den som vann går vidare och får möta vinnaren från en annan match.
+Detta upprepas till det endast är $1$ spelare kvar.
+
+Denna format kan representeras av ett träddiagram.
+% Visa bild av en bracket för första subtasken
+
+För att organisatörerna inte ska behöva krångla med jobbiga situationer kommer antalet spelare garanterat vara en tvåpotens.
+
+Nu är PO (Pingisolympiaden) över för den här säsongen, 
+men Rulls har glömt vilka matcher har spelats, 
+samt vilka startpositioner som varje spelare hade. 
+Däremot minns Rulls antalet matcher som vardera spelare har vunnit.
+
+Givet antalet vinster av de $N$ spelarna,
+skriv ut en möjlig ordning över startpositionerna för de $N$ spelarna.
+
+Rulls minns dock att ordningen för startpositionerna var lexikografiskt relativt liten. 
+För att få fullpoäng krävs det även att du hittar den lexikografiskt\footnote{https://sv.wikipedia.org/wiki/Lexikografisk_ordning} minsta möjliga startpositionen.
+
+
+\section*{Indata}
+Den första raden innehåller ett heltal $N$ ($1 \leq N \leq 2^19$), antalet spelare i turneringen. ($N$ är garanterat att vara en tvåpotens.)
+
+Den andra raden innehåller $N$ heltal, där $a_i$ ($0 \leq a_i \leq 10^9$ för alla $1 \leq i \leq N$) är antalet matcher som den $i$:te pingisspelaren har vunnit under turneringen.
+
+\section*{Utdata}
+Skriv ut $N$ heltal, en permutation av heltalen $1,2,\ldots, N$, där permutationen representerar startpositionerna i turneringen. 
+För att få fullpoäng krävs även att du skriver ut den lexikografiskt minsta permutationen.
+
+Om det är omöjligt att hitta startpositioner för dessa $N$ spelare, skriv ut $-1$.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+För varje testgrupp, ifall ditt program svarar korrekt om det går eller inte, 
+samt skriver ut en möjlig permutation som startposition, så får du $50\%$ av av testgruppens poäng.
+
+För att få alla poäng i en testgrupp behöver du skriva ut den lexikografiskt minsta permutationen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $8$        & $N \leq 4$ \\ \hline
+  $2$    & $12$       & $N \leq 8$ \\ \hline
+  $3$    & $18$       & $N \leq 2^7 = 128$ \\ \hline
+  $4$    & $12$       & $N \leq 2^11 = 2048$ \\ \hline
+  $5$    & $12$       & $a_i \leq a_{i+1}$ för alla $1 \leq N-1$. \\ \hline 
+  $6$    & $38$       & Inga ytterligare begränsningar. \\ \hline % N <= 2^19 ≈ 5*10^5 eller 2^18 ≈ 2*10^5
+\end{tabular}
+
+
+\section*{Förklaring av exempelfall}
+I första exempelfallet är en möjlig lösning att spelarna börjar i botten av turneringen i följande ordning: $1 3 2 4$. 
+Notera att spelare $1$ kommer att köra en pingismatch mot spelare $3$, men eftersom vi vet att $3$ har förlorat alla sina matcher så måste $1$ ha vunnit den matchen.
+
+% ha bilder för exempelfallet?

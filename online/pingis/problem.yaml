@@ -1,0 +1,13 @@
+author: Harry Zhang, Emil Sandberg
+source: Programmeringsolympiadens ...
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+
+grading:
+    show_test_data_groups: yes
+
+validation: custom score
+
+limits:
+  time_multiplier: 2

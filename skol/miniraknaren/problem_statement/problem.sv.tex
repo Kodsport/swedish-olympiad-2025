@@ -1,0 +1,40 @@
+\problemname{Miniräknaren}
+Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
+Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
+trycka på \texttt{=}-tecknet, så kommer miniräknaren att låsa upp flera
+stycken hemliga matematikfunktioner.
+Din kompis har lyckats lista ut vad kålnami-koden är, men han berättar för dig
+att du inte får gå tillväga hursomhelst för att skriva in koden i miniräknaren.
+Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
+\begin{itemize}
+  \item Multiplicera talet som visas med talet $m$.
+  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq m-1$.
+\end{itemize}
+Som tur är har din kompis även lyckats lista ut vad talet $m$ är. 
+Denna komplicerade process kommer endast att fungera om du gör så få operationer
+som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
+givet kålnami-koden och talet $m$.
+
+\section*{Indata}
+Den första raden innehåller heltalet $n$ ($1 \le n \le 10^9$), innehållet av kålnami-koden.
+
+Nästa rad innehåller siffran $m$ ($2 \leq m \leq 9$), som beskrivits ovan.
+
+\section*{Utdata}
+Skriv ut ett heltal: minsta antalet operationer som krävs för att få miniräknaren att visa
+kålnami-koden $n$.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $n \leq 10, m=3$. \\ \hline
+  $2$    & $20$       & $m=2$ \\ \hline
+  $3$    & $40$       & $n \leq 10^5$ \\ \hline
+  $4$    & $20$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
