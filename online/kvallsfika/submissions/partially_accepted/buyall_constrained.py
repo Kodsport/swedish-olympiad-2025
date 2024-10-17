@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#@EXPECTED_GRADES@ WA AC AC WA WA WA WA WA
 
 n = int(input())
 p = int(input())

@@ -15,7 +15,7 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = int(1e5)
+n = int(cmdlinearg("n", int(1e5)))
 k = int(cmdlinearg("k"))
 costs = [randint(1, 500) for i in range(n)]
 num_categories = int(cmdlinearg("num_categories"))

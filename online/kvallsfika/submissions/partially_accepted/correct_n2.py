@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+#@EXPECTED_GRADES@ AC TLE TLE TLE AC TLE AC TLE
 
 n = int(input())
 p = int(input())
@@ -17,13 +18,12 @@ for _ in range(n):
 ans = 0
 taken = {}
 
-for i in range(n):
-    item = items[i]
-    if not item[1] in taken:
-        taken[item[1]] = 0
-    if p >= item[0] and taken[item[1]] + 1 <= k:
-        taken[item[1]] += 1
-        p -= item[0]
+for cost, category in zip(costs, categories):
+    if not category in taken:
+        taken[category] = 0
+    if p >= cost and taken[category] + 1 <= k:
+        taken[category] += 1
+        p -= cost
         ans += 1
 
 print(ans)
