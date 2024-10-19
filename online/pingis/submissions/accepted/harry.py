@@ -39,7 +39,7 @@ ind = 0
 while tempN:
     tempN //= 2
     for i,x in enumerate(groups[ind]):
-        tree[i+tempN] = x
+        tree[i + tempN] = x
     ind += 1
 
 ans = [-1]*n
@@ -48,14 +48,14 @@ for i in range(n):
     size = 1
     
     antal = 0
-    best = curr//2
+    best = curr // 2
     while curr:
 
-        prevAdd = size-1 if curr%2==0 else 0
+        prevAdd = size - 1 if curr % 2 == 0 else 0
 
         curr //= 2
         size <<= 1
-        remain = size-i%size
+        remain = size - i % size
         if tree[curr] < 1e9:
             antal += 1
         antal += prevAdd
