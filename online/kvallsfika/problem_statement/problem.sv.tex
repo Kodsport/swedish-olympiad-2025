@@ -1,7 +1,7 @@
 \problemname{Kvällsfika}
 Sara älskar fika! Hon har precis fått $P$ kronor av sin mamma för att köpa lite kvällsfika.
-Eftersom Sara är smart kommer hon att försöka spendera pengarna så bra som möjligt. I butiken hon brukar
-handla fika i finns det $N$ stycken bakelser. Varje bakelse har ett visst pris och en viss kategori.
+Eftersom Sara är smart kommer hon att försöka spendera pengarna så bra som möjligt. I butiken Lugnbyrån
+finns det $N$ stycken bakelser. Varje bakelse har ett visst pris och en viss kategori.
 Eftersom Sara gillar fika väldigt mycket så tycker hon \textit{nästan} att alla sorters bakelser är lika goda. 
 Hon har nämligen ingen preferens för vilken kategori av bakelse hon ska köpa, men hon tycker att det blir 
 lite för enformigt om hon köper fler än $K$ av samma kategori. 
@@ -20,7 +20,8 @@ Nästa rad innehåller heltalet $K$ ($1 \leq K \leq N$), antalet bakelsetyper so
 äta som mest av varje kategori.
 
 På nästa rad står heltalen $c_1, c_2, \dots, c_N$ ($1 \leq c_i \leq P$), där $c_i$ betyder att
-bakelse $i$ kostar $c_i$ kronor.
+bakelse $i$ kostar $c_i$ kronor. Notera att totala kostnaden av alla bakelser inte nödvändigtvis
+får plats i ett 32-bitars heltal.
 
 På sista raden står heltalen $t_1, t_2, \dots, t_N$ ($1 \leq t_i \leq 10^5$). Det finns exakt $10^5$
 kategorier av bakelser, och vi benämner varje med ett heltal. Varje $t_i$ betyder att
@@ -37,7 +38,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $20$       & Gruppen består av ett enda testfall, det som finns på vår affisch (\url{https://www.progolymp.se/2025/affisch.pdf}). \\ \hline 
+  $1$    & $20$       & Gruppen består av ett enda testfall, det som finns på affischen (\url{https://www.progolymp.se/2025/affisch.pdf}). \\ \hline 
   $2$    & $5$        & $K=N$ och du har råd att köpa alla bakelser. \\ \hline
   $3$    & $15$       & Du har råd att köpa alla bakelser. \\ \hline
   $4$    & $5$        & $c_i=1$, det vill säga kostar varje sorts bakelse $1$ krona. \\ \hline
@@ -48,3 +49,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{tabular}
 
 \section*{Förklaring av exempelfall 1}
+I detta fallet har Sara råd att köpa alla bakelser, men alla är av samma kategori (kategori 1). Eftersom hon får köpa som mest 2 per kategori
+kan hon köpa 2 stycken.
+
+\section*{Förklaring av exempelfall 2}
+I detta fallet är kategorier inte ett problem eftersom $K$ är stort, men Sara har inte råd att köpa alla bakelser. Om hon köper bakelserna med
+pris $4, 3, 2, 1$ har hon precis råd med 4 stycken.
+
+\section*{Förklaring av exempelfall 3}
+En optimal lösning är att köpa bakelser med pris 1,1,4,5. Här hade Sara kunnat köpa fler bakelser om inte kategorierna begränsade.

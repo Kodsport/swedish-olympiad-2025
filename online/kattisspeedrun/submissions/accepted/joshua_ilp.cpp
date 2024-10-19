@@ -117,6 +117,9 @@ bool is_feasible(vd& x, vvd& A, vd& b, vi& integer_constraint)
 }
 
 double global_lb = -inf;
+vvd A;
+vd b, c;
+vi integer_constraint;
 struct node
 {
 	double ub;
@@ -124,7 +127,7 @@ struct node
 	int var_index;
 	int smaller;
 	bool pruned = 0;
-	node(int var_index, int smaller, vvd& A, vd& b, vd& c, vi& integer_constraint) : smaller(smaller), var_index(var_index)
+	node(int var_index, int smaller) : smaller(smaller), var_index(var_index)
 	{
 		x.resize(sz(c));
 		ub = LPSolver(A, b, c).solve(x);
@@ -159,13 +162,13 @@ struct node
 			rounded = x;
 			rep(i, sz(rounded)) rounded[i] = ceil(rounded[i]);
 			check_sol(rounded);
-			
+
 			rounded = x;
 			rep(i, sz(rounded)) rounded[i] = round(rounded[i]);
 			check_sol(rounded);
 		}
 	}
-	void bb(int d, vvd& A, vd& b, vd& c, vi& integer_constraint)
+	void branch(int d)
 	{
 		if (d > 250)
 		{
@@ -187,7 +190,7 @@ struct node
 				new_integrality[v] = 1;
 				b.push_back(floor(x[v]));
 				A.push_back(new_integrality);
-				children.emplace_back(new node(v, 1LL, A, b, c, integer_constraint));
+				children.emplace_back(new node(v, 1LL));
 				b.pop_back();
 				A.pop_back();
 
@@ -195,9 +198,10 @@ struct node
 				new_integrality[v] = -1;
 				b.push_back(-ceil(x[v]));
 				A.push_back(new_integrality);
-				children.emplace_back(new node(v, 0LL, A, b, c, integer_constraint));
+				children.emplace_back(new node(v, 0LL));
 				b.pop_back();
 				A.pop_back();
+				break;
 			}
 		}
 		// branch on largest children first
@@ -214,29 +218,28 @@ struct node
 			new_integrality[idx] = child->smaller ? 1 : -1;
 			b.push_back(child->smaller ? floor(x[idx]) : -ceil(x[idx]));
 			A.push_back(new_integrality);
-			child->bb(d + 1, A, b, c, integer_constraint);
+			child->branch(d + 1);
 			b.pop_back();
 			A.pop_back();
 		}
 	}
 };
 
-int s, p, a, b;
 signed main()
 {
 	fast();
 
-	cin >> s >> p >> a >> b;
+	int s, p, ca, cb;
+	cin >> s >> p >> ca >> cb;
 
-	vd c = { -a + 0.,-b + 0. };
+	c = { -ca + 0.,-cb + 0. };
 
-	vvd A;
 	A.push_back({ -1, -0.5 });
-	vd b = { s - 0.5 * p - 1e-6 };
-	vi integer_constraint(2, 1);
+	b = { s - 0.5 * p - 1e-6 };
+	integer_constraint.resize(2, 1);
 
-	node* root = new node(-1, -1, A, b, c, integer_constraint);
-	root->bb(0, A, b, c, integer_constraint);
+	node* root = new node(-1, -1);
+	root->branch(0);
 	cout << -global_lb;
 
 	return 0;
