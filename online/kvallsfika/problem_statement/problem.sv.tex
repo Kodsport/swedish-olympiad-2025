@@ -8,7 +8,7 @@ lite för enformigt om hon köper fler än $K$ av samma kategori.
 
 Hjälp Sara att köpa så många bakelser som möjligt, vars totala kostnad är mindre än eller lika med $P$.
 Se dessutom till att det inte finns mer än $K$ bakelser av samma kategori bland de hon köpte. Du behöver
-bara skriva ut hur många bakelser hon kan köpa, inte vilka.
+endast ange hur många bakelser hon kan köpa, inte vilka.
 
 \section*{Indata}
 Den första raden i indatan innehåller heltalet $N$ ($1 \leq N \leq 10^5$), antalet bakelser som Sara
@@ -17,14 +17,14 @@ kan välja mellan.
 Nästa rad innehåller heltalet $P$ ($1 \leq P \leq 10^8$), antalet kronor som Sara har i budget för kvällsfikat.
 
 Nästa rad innehåller heltalet $K$ ($1 \leq K \leq N$), antalet bakelsetyper som Sara kan tänka sig
-äta som mest av varje kategori.
+äta som mest av en specifik.
 
 På nästa rad står heltalen $c_1, c_2, \dots, c_N$ ($1 \leq c_i \leq P$), där $c_i$ betyder att
 bakelse $i$ kostar $c_i$ kronor. Notera att totala kostnaden av alla bakelser inte nödvändigtvis
 får plats i ett 32-bitars heltal.
 
 På sista raden står heltalen $t_1, t_2, \dots, t_N$ ($1 \leq t_i \leq 10^5$). Det finns exakt $10^5$
-kategorier av bakelser, och vi benämner varje med ett heltal. Varje $t_i$ betyder att
+kategorier av bakelser, och vi benämner varje med ett heltal. Talet $t_i$ betyder att
 bakelse $i$ tillhör kategori $t_i$.
 
 \section*{Utdata}
@@ -57,4 +57,4 @@ I detta fallet är kategorier inte ett problem eftersom $K$ är stort, men Sara 
 pris $4, 3, 2, 1$ har hon precis råd med 4 stycken.
 
 \section*{Förklaring av exempelfall 3}
-En optimal lösning är att köpa bakelser med pris 1,1,4,5. Här hade Sara kunnat köpa fler bakelser om inte kategorierna begränsade.
+En optimal lösning är att köpa bakelser med pris $1,1,4,5$. Här hade Sara kunnat köpa fler bakelser om inte kategorierna begränsade.
