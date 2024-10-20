@@ -27,6 +27,7 @@ tc g2-4 gen_afford n=20 k=20 num_categories=20 maxcost=9
 tc g2-5 gen_afford k=100000 num_categories=10
 tc g2-6 gen_afford k=100000 num_categories=1000
 tc g2-7 gen_afford k=100000 num_categories=100000
+tc_manual ../manual/exactg2-01.in
 
 group group3 15
 limits buyall=1
@@ -39,6 +40,7 @@ tc g3-5 gen_afford k=10 num_categories=10
 tc g3-6 gen_afford k=100000 num_categories=1
 tc g3-7 gen_afford k=1000 num_categories=10
 tc g3-8 gen_afford k=2 num_categories=100000
+tc_manual ../manual/exactg3-01.in
 
 group group4 5
 limits maxc=1
@@ -50,6 +52,7 @@ tc g4-5 gen_rand n=100000 maxcost=1 k=10 num_categories=10
 tc g4-6 gen_rand n=100000 maxcost=1 k=100000 num_categories=1
 tc g4-7 gen_rand n=100000 maxcost=1 k=1000 num_categories=10
 tc g4-8 gen_rand n=100000 maxcost=1 k=2 num_categories=100000
+tc_manual ../manual/exactg4-01.in
 
 group group5 17
 limits nocategories=1 maxn=500
@@ -63,6 +66,8 @@ tc g5-5 gen_rand n=500 k=500 num_categories=1      maxcost=10
 tc g5-6 gen_rand n=500 k=500 num_categories=100000 maxcost=100    
 tc g5-7 gen_rand n=500 k=500 num_categories=100000 maxcost=1000   
 tc g5-8 gen_rand n=500 k=500 num_categories=100000 maxcost=100000 
+tc_manual ../manual/exactg5-01.in
+
 
 group group6 21
 limits nocategories=1
@@ -72,6 +77,8 @@ tc g6-1 gen_rand n=100000 k=100000 num_categories=1      maxcost=10
 tc g6-2 gen_rand n=100000 k=100000 num_categories=100000 maxcost=100    
 tc g6-3 gen_rand n=100000 k=100000 num_categories=100000 maxcost=1000   
 tc g6-4 gen_rand n=100000 k=100000 num_categories=100000 maxcost=100000 
+tc_manual ../manual/exactg6-02.in
+tc_manual ../manual/exactg6-03.in
 
 group group7 9
 limits maxn=500
@@ -84,6 +91,7 @@ tc g7-5 gen_rand n=500 k=100 num_categories=3  maxcost=10
 tc g7-6 gen_rand n=500 k=10 num_categories=100 maxcost=100    
 tc g7-7 gen_rand n=500 k=2 num_categories=500  maxcost=1000   
 tc g7-8 gen_rand n=500 k=10 num_categories=3 maxcost=100000 
+tc_manual ../manual/exactg7-01.in
 
 group group8 8
 include_group sample
@@ -96,3 +104,4 @@ tc g8-1 gen_rand n=100000 k=10 num_categories=10 maxcost=10
 tc g8-2 gen_rand n=100000 k=100000 num_categories=1 maxcost=100    
 tc g8-3 gen_rand n=100000 k=1000 num_categories=10 maxcost=1000   
 tc g8-4 gen_rand n=100000 k=2 num_categories=100000 maxcost=100000 
+tc_manual ../manual/exactg8-01.in
