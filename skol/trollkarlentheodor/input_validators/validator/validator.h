@@ -53,10 +53,10 @@ void AssertUnique(const Vec& v);
 
 namespace IO {
 	IntType Int(long long lo, long long hi);
-	double Float(double lo, double hi, int decimals, bool strict = true);
+	double Float(double lo, double hi, bool strict = true);
 	template<class T>
 	vector<T> SpacedInts(long long count, T lo, T hi);
-	vector<double> SpacedFloats(long long count, double lo, double hi, int decimals);
+	vector<double> SpacedFloats(long long count, double lo, double hi);
 	void Char(char expected);
 	char Char();
 	string Line();
@@ -66,12 +66,9 @@ namespace IO {
 };
 using namespace IO;
 
-void SetGeneratorMode();
-
 // INTERNALS
 
 bool _validator_initialized;
-bool _generator_mode;
 struct _validator {
 	map<string, string> params;
 	set<string> used_params;
@@ -87,7 +84,6 @@ struct _validator {
 				die("Duplicate parameter " + before);
 			params[before] = after;
 		}
-		srand((int)Arg("seed", atoi(argv[argc-1])));
 	}
 
 	void destroy() {
@@ -96,7 +92,6 @@ struct _validator {
 			string name = params.begin()->first;
 			die("Unused parameter " + name);
 		}
-		if (_generator_mode) return;
 		IO::Eof();
 		_Exit(42);
 	}
@@ -116,9 +111,6 @@ struct _validator {
 		return res;
 	}
 } _validator_inst;
-
-[[noreturn]]
-void die_line(const string& msg, const string& trailingMsg);
 
 void die(const string& msg) {
 	cerr << msg << endl;
@@ -192,25 +184,12 @@ string Arg(const string& name, const string& _default) {
 	return (string)Arg(name);
 }
 
-void SetGeneratorMode() {
-	_generator_mode = 1;
-}
-
 static int _lineno = 1, _consumed_lineno = -1, _hit_char_error = 0;
 char _peek1();
-void die_line(const string& msg, const string& trailingMsg) {
-	if (_generator_mode) die(msg);
-	string fullMsg = msg;
-	if (!_hit_char_error && _peek1() == -1) fullMsg = msg;
-	else if (_consumed_lineno == -1) fullMsg = msg + " (before reading any input)";
-	else fullMsg = msg + " on line " + to_string(_consumed_lineno);
-	if (!trailingMsg.empty()) {
-		fullMsg += "\n" + trailingMsg;
-	}
-	die(fullMsg);
-}
 void die_line(const string& msg) {
-	die_line(msg, "");
+	if (!_hit_char_error && _peek1() == -1) die(msg);
+	else if (_consumed_lineno == -1) die(msg + " (before reading any input)");
+	else die(msg + " on line " + to_string(_consumed_lineno));
 }
 
 static char _buffer = -2; // -2 = none, -1 = eof, other = that char
@@ -240,7 +219,7 @@ string _token() {
 	string ret;
 	for (;;) {
 		char ch = _peek1();
-		if (ch == ' ' || ch == '\n' || ch == '\r' || ch == -1) {
+		if (ch == ' ' || ch == '\n' || ch == -1) {
 			break;
 		}
 		_use_peek(ch);
@@ -302,18 +281,18 @@ vector<T> IO::SpacedInts(long long count, T lo, T hi) {
 	return res;
 }
 
-vector<double> IO::SpacedFloats(long long count, double lo, double hi, int decimals) {
+vector<double> IO::SpacedFloats(long long count, double lo, double hi) {
 	vector<double> res;
 	res.reserve(count);
 	for (int i = 0; i < count; i++) {
 		if (i != 0) IO::Space();
-		res.emplace_back(IO::Float(lo, hi, decimals));
+		res.emplace_back(IO::Float(lo, hi));
 	}
 	IO::Endl();
 	return res;
 }
 
-double IO::Float(double lo, double hi, int decimals, bool strict) {
+double IO::Float(double lo, double hi, bool strict) {
 	string s = _token();
 	if (s.empty()) die_line("Expected floating point number, saw " + _describe(_peek1()));
 	istringstream iss(s);
@@ -323,13 +302,6 @@ double IO::Float(double lo, double hi, int decimals, bool strict) {
 	if (!iss || iss >> dummy) die_line("Unable to parse " + s + " as a float");
 	if (res < lo || res > hi) die_line("Floating-point number " + s + " is out of range [" + to_string(lo) + ", " + to_string(hi) + "]");
 	if (res != res) die_line("Floating-point number " + s + " is NaN");
-    size_t dot = s.find('.');
-    if (dot != string::npos) {
-        int dec = (int)(s.size() - dot - 1);
-        if (dec > decimals) {
-            die_line("Number " + s + " has " + to_string(dec) + " decimals; " + to_string(decimals) + " is max");
-        }
-    }
 	if (strict) {
 		if (s.find('.') != string::npos && s.back() == '0' && s.substr(s.size() - 2) != ".0")
 			die_line("Number " + s + " has unnecessary trailing zeroes");
@@ -347,13 +319,7 @@ char IO::Char() {
 
 void IO::Char(char expected) {
 	char ret = _peek1();
-	if (ret != expected) {
-		string extra;
-		if (expected == '\n' && ret == '\r') {
-			extra = "Is the file using Windows line endings? Convert to Unix ones, e.g. using dos2unix.";
-		}
-		die_line("Expected " + _describe(expected) + ", saw " + _describe(ret), extra);
-	}
+	if (ret != expected) die_line("Expected " + _describe(expected) + ", saw " + _describe(ret));
 	_use_peek(ret);
 }
 

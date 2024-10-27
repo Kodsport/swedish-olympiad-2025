@@ -49,10 +49,7 @@ signed main()
 				uses += (h + dmgone - 1) / dmgone;
 			}
 		}
-		if (uses <= mid)
-		{
-			hi = mid;
-		}
+		if (uses <= mid) hi = mid;
 		else lo = mid;
 	}
 	cout << hi;

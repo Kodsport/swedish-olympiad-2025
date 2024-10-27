@@ -1,14 +1,36 @@
 #include "validator.h"
 
-
+#include <bits/stdc++.h>
 using namespace std;
+
+#define fo(i, n) for(ll i=0;i<((ll)n);i++)
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define trav(i, a) for(auto& i : a)
+#define all(x) begin(x), end(x)
+#define sz(x) (int)(x).size()
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+
 
 
 void run() {
-	int n = Int(1, Arg("maxn", int(1e9))); Endl();
-	int m = Int(2, 10); Endl();
+    ll n = Int(1, 10);
+    Space();
+    ll s = Int(1, (ll)1e9);
+    Space();
+    ll a = Int(0, (ll)1e9);
+    Endl();
 
-	int b = Arg("b",-1);
+    ll seta = Arg("seta", -1);
+    assert(seta == -1 || seta==a);
+    ll maxh = Arg("maxh", 1e9);
+    fo(i, n){
+        ll h = Int(0, maxh);
+        if(i<n-1) Space();
+    }
+    Endl();
 
-	Eof();
+    Eof();
 }
+
