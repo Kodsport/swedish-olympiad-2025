@@ -1,0 +1,7 @@
+author: Joshua Andersson
+source: EGOI 2024 kvaltävling 2
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+type: scoring
+grading:
+  show_test_data_groups: true
