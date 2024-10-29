@@ -15,16 +15,49 @@ typedef vector<int> vi;
 
 
 void run() {
-    int n = Int(1, Arg("nmax", 100));
+    int maxr = Arg("maxr");
+    int r = Int(1, maxr);
     Space();
-    int m = Int(Arg("mmin", 0), Arg("mmax", 100));
+    int c = Int(1, maxr);
+    Space();
+    int q = Int(1, Arg("maxq"));
     Endl();
 
-    fo(i, m){
-        string s = Line();
-        assert(s.length()<=n&&s.length()>0);
-        for(auto &c : s){
-            assert(c>='a'&&c<='z');
+    fo(i, r)
+    {
+        Line();
+    }
+
+    pii first_box, first_goal;
+    bool same_boxgoal = (int)Arg("sameboxgoal", 0);
+    fo(i, q)
+    {
+        pii start;
+        start.first = Int(1, r);
+        Space();
+        start.second = Int(1, c);
+        Space();
+        pii box;
+        box.first = Int(1, r);
+        Space();
+        box.second = Int(1, c);
+        Space();
+        pii goal;
+        goal.first = Int(1, r);
+        Space();
+        goal.second = Int(1, c);
+        Endl();
+        box.first--,box.second--,start.first--,start.second--,goal.first--,goal.second--;
+        assert(start!=box&&box!=goal&&start!=goal);
+        if (i==0)
+        {
+            first_box = box;
+            first_goal = goal;
+        }
+        if (same_boxgoal)
+        {
+            assert(box==first_box);
+            assert(goal==first_goal);
         }
     }
 

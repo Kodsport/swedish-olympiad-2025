@@ -19,6 +19,9 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 r = int(cmdlinearg('r'))
 c = int(cmdlinearg('c'))
 q = int(cmdlinearg('q'))
+samebox = int(cmdlinearg('samebox', 0))
+samegoal = int(cmdlinearg('samegoal', 0))
+
 p = random.random()
 grid = []
 unblocked_positions = []
@@ -44,6 +47,22 @@ while len(unblocked_positions)<3:
 print(r, c, q)
 for row in grid:
     print("".join(row))
+
+def unique_choice(choices):
+    while True:
+        pos = random.choice(unblocked_positions)
+        if pos not in choices:
+            return pos
+
+sbox, sgoal = random.sample(unblocked_positions, 2)
 for i in range(q):
-    start, box, goal = random.sample(unblocked_positions, 3)
+    if samebox:
+        box = sbox
+    else:
+        box = random.choice(unblocked_positions)
+    if samegoal:
+        goal = sgoal
+    else:
+        goal = unique_choice([box])
+    start = unique_choice([box, goal])
     print(start[0], start[1], box[0], box[1], goal[0], goal[1])
