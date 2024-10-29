@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ WA WA WA WA WA WA
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -121,7 +122,6 @@ int cangoto(int a, int b, int c) // is there path a <-> b if we remove c?
 	a = which_block[a];
 	b = which_block[b];
 	c = which_block[c];
-	if (a == -1 || b == -1) return false; // a or b is isolated
 	bool anc_a = is_ancestor(c, a);
 	bool anc_b = is_ancestor(c, b);
 	if (anc_a != anc_b) return false;

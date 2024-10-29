@@ -52,8 +52,6 @@ void bcc(vvi& adj) {
 	rep(i, sz(adj)) {
 		if (!num[i]) {
 			dfs(i, i, timer, adj);
-			timer = 0;
-			stk.resize(0);
 		}
 	}
 }

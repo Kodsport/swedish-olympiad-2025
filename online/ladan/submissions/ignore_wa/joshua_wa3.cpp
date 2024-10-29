@@ -1,3 +1,4 @@
+@EXPECTED_GRADES@ WA WA WA WA WA WA
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -141,12 +142,20 @@ void toposort(int u, vi& vis, vi& order, vvi& adj)
 	order.push_back(u);
 }
 
-void dfs(int u, vi& vis, vi& comp, vvi& adj)
+void dfs2(int u, vi& vis, vi& comp, vvi& adj)
 {
 	if (vis[u]) return;
 	vis[u] = 1;
 	comp.push_back(u);
-	repe(e, adj[u]) dfs(e, vis, comp, adj);
+	repe(e, adj[u]) dfs2(e, vis, comp, adj);
+}
+
+void dfs4(int u, int c, vi& vis, vi& which_comp, vvi& adj)
+{
+	if (vis[u]) return;
+	vis[u] = 1;
+	which_comp[u] = c;
+	repe(e, adj[u]) dfs4(e, c, vis, which_comp, adj);
 }
 
 signed main()
@@ -158,13 +167,13 @@ signed main()
 	vector<string> grid(r);
 	rep(i, r) cin >> grid[i];
 
-	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
-
 	auto isgood = [&](p2 x)
 	{
 		if (x.first < 0 || x.second < 0 || x.first >= r || x.second >= c || grid[x.first][x.second] == '#') return false;
 		return true;
 	};
+
+	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
 
 	auto flatten = [&](p2 x)
 	{
@@ -185,13 +194,21 @@ signed main()
 		}
 	}
 
+	vi vis(r * c);
+	vi which_comp(r * c);
+	int cnt = 0;
+	rep(i, r * c)
+	{
+		if (vis[i]) continue;
+		dfs4(i, cnt++, vis, which_comp, adj);
+	}
 
 	bcc(adj);
 
 	vvi block_adj = block_cut_tree();
 	dfs3(0, 0, block_adj);
 
-	
+
 	vvi box_adj(4 * r * c);
 	vvi r_box_adj(4 * r * c);
 
@@ -228,25 +245,25 @@ signed main()
 		}
 	}
 
-	vi vis(r* c * 4);
+	vis.assign(r * c * 4, 0);
 	vi order;
-	rep(i, r* c * 4)
+	rep(i, r * c * 4)
 	{
 		toposort(i, vis, order, box_adj);
 	}
 	reverse(all(order));
-	vi which_scc(r* c * 4, -1);
+	vi which_scc(r * c * 4, -1);
 	vvi scc;
-	vis.assign(r* c * 4, 0);
+	vis.assign(r * c * 4, 0);
 	repe(u, order)
 	{
 		if (which_scc[u] != -1) continue;
 		vi comp;
-		dfs(u, vis, comp, r_box_adj);
+		dfs2(u, vis, comp, r_box_adj);
 		repe(v, comp) which_scc[v] = sz(scc);
 		scc.push_back(comp);
 	}
-	vector<bitset<4*maxr*maxr>> transitive_closure(sz(scc));
+	vector<bitset<4 * maxr * maxr>> transitive_closure(sz(scc));
 	vvi scc_adj(sz(scc));
 	rep(i, sz(scc_adj)) transitive_closure[i][i] = 1;
 	rep(i, sz(box_adj))
@@ -255,7 +272,7 @@ signed main()
 		{
 			int me = which_scc[i];
 			int they = which_scc[e];
-			if (me!=they)
+			if (me != they)
 			{
 				transitive_closure[me][they] = 1;
 				scc_adj[me].push_back(they);
@@ -283,6 +300,15 @@ signed main()
 		p2 start = p2(query[0], query[1]);
 		p2 box = p2(query[2], query[3]);
 		p2 goal = p2(query[4], query[5]);
+
+		int fstart = flatten(start);
+		int fbox = flatten(box);
+		int fgoal = flatten(goal);
+		if (which_comp[fstart] != which_comp[fbox] || which_comp[fbox] != which_comp[fgoal])
+		{
+			cout << "Nej\n";
+			continue;
+		}
 
 		bool possible = 0;
 		rep(d, 4)

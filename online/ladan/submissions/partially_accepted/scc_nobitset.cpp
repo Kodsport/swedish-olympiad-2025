@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ AC AC AC AC TLE TLE
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -80,12 +81,14 @@ vvi block_cut_tree() {
 	return block_adj;
 }
 
+int dfs3_vis[maxn];
 int tin[maxn];
 int tout[maxn];
 int timer = 0;
 int up[20][maxn];
 void dfs3(int u, int p, vvi& adj)
 {
+	dfs3_vis[u] = 1;
 	tin[u] = timer++;
 	up[0][u] = p;
 	repp(d, 1, 20) up[d][u] = up[d - 1][up[d - 1][u]];
@@ -141,12 +144,27 @@ void toposort(int u, vi& vis, vi& order, vvi& adj)
 	order.push_back(u);
 }
 
-void dfs2(int u, vi& vis, vi& comp, vvi& adj)
+void dfs(int u, vi& vis, vi& comp, vvi& adj)
 {
 	if (vis[u]) return;
 	vis[u] = 1;
 	comp.push_back(u);
-	repe(e, adj[u]) dfs2(e, vis, comp, adj);
+	repe(e, adj[u]) dfs(e, vis, comp, adj);
+}
+
+vi dfs2_vis;
+int dfs2_ver = 10;
+bool dfs2(int u, vi& they, vvi& adj)
+{
+	if (dfs2_vis[u] == dfs2_ver) return false;
+	dfs2_vis[u] = dfs2_ver;
+	if (find(all(they), u) != they.end())
+	{
+		return true;
+	}
+
+	repe(e, adj[u]) if (dfs2(e, they, adj)) return true;
+	return false;
 }
 
 void dfs4(int u, int c, vi& vis, vi& which_comp, vvi& adj)
@@ -166,13 +184,13 @@ signed main()
 	vector<string> grid(r);
 	rep(i, r) cin >> grid[i];
 
+	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
+
 	auto isgood = [&](p2 x)
 	{
 		if (x.first < 0 || x.second < 0 || x.first >= r || x.second >= c || grid[x.first][x.second] == '#') return false;
 		return true;
 	};
-
-	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
 
 	auto flatten = [&](p2 x)
 	{
@@ -193,6 +211,7 @@ signed main()
 		}
 	}
 
+
 	vi vis(r * c);
 	vi which_comp(r * c);
 	int cnt = 0;
@@ -205,8 +224,11 @@ signed main()
 	bcc(adj);
 
 	vvi block_adj = block_cut_tree();
-	dfs3(0, 0, block_adj);
-
+	memset(dfs3_vis, 0, sizeof(dfs3_vis));
+	rep(i, sz(block_adj))
+	{
+		if (!dfs3_vis[i]) dfs3(i, i, block_adj);
+	}
 
 	vvi box_adj(4 * r * c);
 	vvi r_box_adj(4 * r * c);
@@ -258,13 +280,11 @@ signed main()
 	{
 		if (which_scc[u] != -1) continue;
 		vi comp;
-		dfs2(u, vis, comp, r_box_adj);
+		dfs(u, vis, comp, r_box_adj);
 		repe(v, comp) which_scc[v] = sz(scc);
 		scc.push_back(comp);
 	}
-	vector<bitset<4 * maxr * maxr>> transitive_closure(sz(scc));
 	vvi scc_adj(sz(scc));
-	rep(i, sz(scc_adj)) transitive_closure[i][i] = 1;
 	rep(i, sz(box_adj))
 	{
 		repe(e, box_adj[i])
@@ -273,25 +293,12 @@ signed main()
 			int they = which_scc[e];
 			if (me != they)
 			{
-				transitive_closure[me][they] = 1;
 				scc_adj[me].push_back(they);
 			}
 		}
 	}
-	vis.assign(sz(vis), 0);
-	order.resize(0);
-	rep(i, sz(scc_adj))
-	{
-		toposort(i, vis, order, scc_adj);
-	}
-	repe(u, order)
-	{
-		repe(e, scc_adj[u])
-		{
-			transitive_closure[u] |= transitive_closure[e];
-		}
-	}
 
+	dfs2_vis.resize(sz(scc_adj));
 	while (Q--)
 	{
 		vi query(6);
@@ -316,12 +323,22 @@ signed main()
 			if (!isgood(t)) continue;
 			if (!cangoto(flatten(start), flatten(t), flatten(box))) continue;
 			int me = which_scc[flatten_2(box, d)];
+			vi they;
 			rep(d2, 4)
 			{
 				p2 p = p2(goal.first + dirs[d2].first, goal.second + dirs[d2].second);
 				if (!isgood(p)) continue;
-				int they = which_scc[flatten_2(goal, d2)];
-				if (transitive_closure[me][they])
+				they.push_back(which_scc[flatten_2(goal, d2)]);
+			}
+			if (find(all(they), me) != they.end())
+			{
+				possible = 1;
+				break;
+			}
+			else
+			{
+				dfs2_ver++;
+				if (dfs2(me, they, scc_adj))
 				{
 					possible = 1;
 					break;

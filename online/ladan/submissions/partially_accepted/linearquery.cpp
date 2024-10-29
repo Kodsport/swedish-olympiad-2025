@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ AC AC AC TLE TLE TLE
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,7 +22,7 @@ inline void fast() { ios::sync_with_stdio(0); cin.tie(0); }
 #define assert(x) if (!(x)) __debugbreak()
 #endif
 
-const int maxr = 200;
+const int maxr = 500;
 const int maxn = maxr * maxr;
 vector<vector<int>> comps;
 vi is_cutvertex, low, num, stk;
@@ -80,12 +81,14 @@ vvi block_cut_tree() {
 	return block_adj;
 }
 
+int dfs3_vis[maxn];
 int tin[maxn];
 int tout[maxn];
 int timer = 0;
 int up[20][maxn];
 void dfs3(int u, int p, vvi& adj)
 {
+	dfs3_vis[u] = 1;
 	tin[u] = timer++;
 	up[0][u] = p;
 	repp(d, 1, 20) up[d][u] = up[d - 1][up[d - 1][u]];
@@ -131,37 +134,12 @@ int cangoto(int a, int b, int c) // is there path a <-> b if we remove c?
 	return true;
 }
 
-void toposort(int u, vi& vis, vi& order, vvi& adj)
+void dfs4(int u, int c, vi& vis, vi& which_comp, vvi& adj)
 {
 	if (vis[u]) return;
 	vis[u] = 1;
-
-	repe(e, adj[u]) toposort(e, vis, order, adj);
-
-	order.push_back(u);
-}
-
-void dfs(int u, vi& vis, vi& comp, vvi& adj)
-{
-	if (vis[u]) return;
-	vis[u] = 1;
-	comp.push_back(u);
-	repe(e, adj[u]) dfs(e, vis, comp, adj);
-}
-
-vi dfs2_vis;
-int dfs2_ver = 10;
-bool dfs2(int u, vi& they, vvi& adj)
-{
-	if (dfs2_vis[u] == dfs2_ver) return false;
-	dfs2_vis[u] = dfs2_ver;
-	if (find(all(they),u)!=they.end())
-	{
-		return true;
-	}
-
-	repe(e, adj[u]) if (dfs2(e, they, adj)) return true;
-	return false;
+	which_comp[u] = c;
+	repe(e, adj[u]) dfs4(e, c, vis, which_comp, adj);
 }
 
 signed main()
@@ -200,82 +178,48 @@ signed main()
 		}
 	}
 
+	vi vis(r * c);
+	vi which_comp(r * c);
+	int cnt = 0;
+	rep(i, r * c)
+	{
+		if (vis[i]) continue;
+		dfs4(i, cnt++, vis, which_comp, adj);
+	}
 
 	bcc(adj);
 
 	vvi block_adj = block_cut_tree();
-	dfs3(0, 0, block_adj);
-
-	
-	vvi box_adj(4 * r * c);
-	vvi r_box_adj(4 * r * c);
-
-	auto flatten_2 = [&](p2 pos, int d)
+	memset(dfs3_vis, 0, sizeof(dfs3_vis));
+	rep(i, sz(block_adj))
 	{
-		return pos.first + pos.second * r + d * r * c;
+		if (!dfs3_vis[i]) dfs3(i, i, block_adj);
+	}
+
+	auto bfs = [&](p2 start, p2 box)
+	{
+		queue<p2> q;
+		q.emplace(start);
+		vvi vis(r, vi(c));
+		while (sz(q))
+		{
+			p2 p = q.front();
+			q.pop();
+			if (vis[p.first][p.second]) continue;
+			vis[p.first][p.second] = 1;
+
+			repe(dir, dirs)
+			{
+				p2 np = p2(p.first + dir.first, p.second + dir.second);
+				if (!isgood(np)) continue;
+				if (np == box) continue;
+				q.emplace(np);
+			}
+		}
+		return vis;
 	};
 
-	rep(i, r) rep(j, c)
-	{
-		p2 box = p2(i, j);
-		rep(d, 4)
-		{
-			p2 my_pos = p2(box.first + dirs[d].first, box.second + dirs[d].second);
-			if (!isgood(my_pos)) continue;
-			// change side
-			rep(d2, 4)
-			{
-				p2 new_side = p2(box.first + dirs[d2].first, box.second + dirs[d2].second);
-				if (!isgood(new_side)) continue;
-				if (cangoto(flatten(my_pos), flatten(new_side), flatten(box)))
-				{
-					box_adj[flatten_2(box, d)].push_back(flatten_2(box, d2));
-					r_box_adj[flatten_2(box, d2)].push_back(flatten_2(box, d));
-				}
-			}
-
-			// push box
-			{
-				p2 np = p2(box.first - dirs[d].first, box.second - dirs[d].second);
-				if (isgood(np)) box_adj[flatten_2(box, d)].push_back(flatten_2(np, d));
-				if (isgood(np)) r_box_adj[flatten_2(np, d)].push_back(flatten_2(box, d));
-			}
-		}
-	}
-
-	vi vis(r* c * 4);
-	vi order;
-	rep(i, r* c * 4)
-	{
-		toposort(i, vis, order, box_adj);
-	}
-	reverse(all(order));
-	vi which_scc(r* c * 4, -1);
-	vvi scc;
-	vis.assign(r* c * 4, 0);
-	repe(u, order)
-	{
-		if (which_scc[u] != -1) continue;
-		vi comp;
-		dfs(u, vis, comp, r_box_adj);
-		repe(v, comp) which_scc[v] = sz(scc);
-		scc.push_back(comp);
-	}
-	vvi scc_adj(sz(scc));
-	rep(i, sz(box_adj))
-	{
-		repe(e, box_adj[i])
-		{
-			int me = which_scc[i];
-			int they = which_scc[e];
-			if (me!=they)
-			{
-				scc_adj[me].push_back(they);
-			}
-		}
-	}
-
-	dfs2_vis.resize(sz(scc_adj));
+	
 	while (Q--)
 	{
 		vi query(6);
@@ -284,32 +228,62 @@ signed main()
 		p2 box = p2(query[2], query[3]);
 		p2 goal = p2(query[4], query[5]);
 
-		bool possible = 0;
+		int fstart = flatten(start);
+		int fbox = flatten(box);
+		int fgoal = flatten(goal);
+		if (which_comp[fstart] != which_comp[fbox] || which_comp[fbox] != which_comp[fgoal])
+		{
+			cout << "Nej\n";
+			continue;
+		}
+
+		queue<pair<p2, int>> q;
+		vvi vis = bfs(start, box);
 		rep(d, 4)
 		{
-			p2 t = p2(box.first + dirs[d].first, box.second + dirs[d].second);
-			if (!isgood(t)) continue;
-			if (!cangoto(flatten(start), flatten(t), flatten(box))) continue;
-			int me = which_scc[flatten_2(box, d)];
-			vi they;
-			rep(d2, 4)
+			p2 dir = dirs[d];
+			p2 np = p2(box.first + dir.first, box.second + dir.second);
+			if (!isgood(np)) continue;
+			if (vis[np.first][np.second])
 			{
-				p2 p = p2(goal.first + dirs[d2].first, goal.second + dirs[d2].second);
-				if (!isgood(p)) continue;
-				they.push_back(which_scc[flatten_2(goal, d2)]);
+				q.emplace(box, d);
 			}
-			if (find(all(they),me)!=they.end())
+		}
+
+		vector<vvi> dp(4, vvi(r, vi(c)));
+		bool possible = 0;
+		while (sz(q))
+		{
+			p2 box;
+			int d;
+			tie(box, d) = q.front();
+			q.pop();
+
+			if (dp[d][box.first][box.second]) continue;
+			dp[d][box.first][box.second] = 1;
+
+			if (box == goal)
 			{
 				possible = 1;
 				break;
 			}
-			else
+
+			p2 my_pos = p2(box.first + dirs[d].first, box.second + dirs[d].second);
+			rep(d2, 4)
 			{
-				dfs2_ver++;
-				if (dfs2(me, they, scc_adj))
+				p2 new_side = p2(box.first + dirs[d2].first, box.second + dirs[d2].second);
+				if (!isgood(new_side)) continue;
+				if (cangoto(flatten(my_pos), flatten(new_side), flatten(box)))
 				{
-					possible = 1;
-					break;
+					q.emplace(box, d2);
+				}
+			}
+
+			{
+				p2 np = p2(box.first - dirs[d].first, box.second - dirs[d].second);
+				if (isgood(np))
+				{
+					q.emplace(np, d);
 				}
 			}
 		}

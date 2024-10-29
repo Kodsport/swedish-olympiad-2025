@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ WA WA AC AC WA WA
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -22,7 +23,7 @@ inline void fast() { ios::sync_with_stdio(0); cin.tie(0); }
 #endif
 
 const int maxr = 500;
-const int maxn = maxr*maxr;
+const int maxn = maxr * maxr;
 vector<vector<int>> comps;
 vi is_cutvertex, low, num, stk;
 void dfs(int u, int p, int& timer, vvi& adj) {
@@ -80,12 +81,14 @@ vvi block_cut_tree() {
 	return block_adj;
 }
 
+int dfs3_vis[maxn];
 int tin[maxn];
 int tout[maxn];
 int timer = 0;
 int up[20][maxn];
 void dfs3(int u, int p, vvi& adj)
 {
+	dfs3_vis[u] = 1;
 	tin[u] = timer++;
 	up[0][u] = p;
 	repp(d, 1, 20) up[d][u] = up[d - 1][up[d - 1][u]];
@@ -131,6 +134,13 @@ int cangoto(int a, int b, int c) // is there path a <-> b if we remove c?
 	return true;
 }
 
+void dfs4(int u, int c, vi& vis, vi& which_comp, vvi& adj)
+{
+	if (vis[u]) return;
+	vis[u] = 1;
+	which_comp[u] = c;
+	repe(e, adj[u]) dfs4(e, c, vis, which_comp, adj);
+}
 
 signed main()
 {
@@ -168,11 +178,23 @@ signed main()
 		}
 	}
 
+	vi vis(r * c);
+	vi which_comp(r * c);
+	int cnt = 0;
+	rep(i, r * c)
+	{
+		if (vis[i]) continue;
+		dfs4(i, cnt++, vis, which_comp, adj);
+	}
 
 	bcc(adj);
 
 	vvi block_adj = block_cut_tree();
-	dfs3(0, 0, block_adj);
+	memset(dfs3_vis, 0, sizeof(dfs3_vis));
+	rep(i, sz(block_adj))
+	{
+		if (!dfs3_vis[i]) dfs3(i, i, block_adj);
+	}
 
 
 	int dp[4][4][maxr][maxr];
@@ -223,9 +245,18 @@ signed main()
 		}
 	}
 
-	repe(query,queries)
+	repe(query, queries)
 	{
 		p2 start = p2(query[0], query[1]);
+
+		int fstart = flatten(start);
+		int fbox = flatten(box);
+		int fgoal = flatten(goal);
+		if (which_comp[fstart] != which_comp[fbox] || which_comp[fbox] != which_comp[fgoal])
+		{
+			cout << "Nej\n";
+			continue;
+		}
 
 
 		bool possible = 0;

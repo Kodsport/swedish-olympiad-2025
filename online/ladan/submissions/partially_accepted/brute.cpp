@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ AC TLE RTE RTE RTE RTE
 #include <bits/stdc++.h>
 using namespace std;
 
