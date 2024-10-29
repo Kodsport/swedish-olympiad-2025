@@ -30,6 +30,7 @@ void run() {
 
     pii first_box, first_goal;
     bool same_boxgoal = (int)Arg("sameboxgoal", 0);
+    bool same_goal = (int)Arg("samegoal", 0);
     fo(i, q)
     {
         pii start;
@@ -59,6 +60,7 @@ void run() {
             assert(box==first_box);
             assert(goal==first_goal);
         }
+        if (same_goal) assert(goal==first_goal);
     }
 
     Eof();

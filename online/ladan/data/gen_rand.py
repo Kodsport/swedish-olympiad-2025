@@ -56,13 +56,14 @@ def unique_choice(choices):
 
 sbox, sgoal = random.sample(unblocked_positions, 2)
 for i in range(q):
-    if samebox:
-        box = sbox
-    else:
-        box = random.choice(unblocked_positions)
     if samegoal:
         goal = sgoal
     else:
-        goal = unique_choice([box])
+        goal = unique_choice([])
+    if samebox:
+        box = sbox
+    else:
+        box = unique_choice([goal])
+    
     start = unique_choice([box, goal])
     print(start[0], start[1], box[0], box[1], goal[0], goal[1])
