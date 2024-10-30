@@ -239,6 +239,9 @@ for i in range(r):
                         connected = 0
                 
                 if connected:
+                    if i == 14 and j == 27:
+                        print(d1,d2)
+                        print(c2i(i,j)*4 + d1,i,j)
                     mainGraph[c2i(i,j)*4 + d1].append(c2i(i,j)*4 + d2)
                     mainGraph[c2i(i,j)*4 + d2].append(c2i(i,j)*4 + d1)
         
@@ -249,7 +252,7 @@ for i in range(r):
                 if grid[i+di][j+dj] == "#" or grid[i-di][j-dj] == "#":
                     continue
                 mainGraph[c2i(i,j)*4 + d].append(c2i(i-di,j-dj)*4 + d)
-
+print(mainGraph[c2i(14,27)*4+1],c2i(14,27)*4+1, grid[14][27])
 # Create the same graph, but with the edges reversed
 revGraph = [[] for _ in range(len(mainGraph))]
 for i in range(len(mainGraph)):
@@ -300,6 +303,8 @@ for _ in range(q):
                     if depths[tree2ind[(t,treeLCA[t](i1,ii))]] <= depths[indb]:
                         connected = 0
                 
+                print(connected, d,di,dj)
+
                 if connected:
                     currNode = c2i(xb,yb)*4 + d
 

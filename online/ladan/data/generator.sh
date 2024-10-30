@@ -12,6 +12,7 @@ compile gen_rand.py
 group group1 5
 limits maxr=30 maxq=1
 tc_manual ../manual/kill_harry
+tc_manual ../manual/kill_harry_oneshot
 tc_manual ../manual/kill_joshua
 tc g1-1 gen_rand r=30 c=30 q=100
 tc g1-2 gen_rand r=30 c=30 q=100
@@ -36,7 +37,9 @@ tc g2-8 gen_rand r=30 c=30 q=1000
 
 group group3 40
 limits maxr=100 maxq=1
+#include_group group1
 tc kill_harry
+tc kill_harry_oneshot
 tc kill_joshua
 tc g3-1 gen_rand r=100 c=100 q=1
 tc g3-2 gen_rand r=100 c=100 q=1
@@ -50,6 +53,7 @@ tc g3-8 gen_rand r=100 c=100 q=1
 # Same box and goal
 group group4 10
 limits maxr=100 sameboxgoal=1 maxq=100000
+include_group group3
 tc g4-1 gen_rand r=100 c=100 q=100000 samebox=1 samegoal=1
 tc g4-2 gen_rand r=100 c=100 q=100000 samebox=1 samegoal=1
 tc g4-3 gen_rand r=100 c=100 q=100000 samebox=1 samegoal=1
