@@ -135,8 +135,39 @@ for i in range(r):
 
 
 #Divide up the graph into components before running cut_tree 
-newGraph = cut_tree(graph,notEmpty)
+newGraph = [[] for _ in range(len(graph))]
 
+
+visited = [0]*len(graph)
+for i in range(len(graph)):
+    if visited[i]:
+        continue
+    visited[i] = 1
+    BFS = [i]
+    for curr in BFS:
+        for nei in graph[curr]:
+            if visited[nei]:
+                continue
+            visited[nei] = 1
+            BFS.append(nei)
+    
+    ind2temp = {x:i for i,x in enumerate(BFS)}
+    #print(ind2temp)
+    
+    #print(BFS,graph)
+    tempGraph = [[ind2temp[node] for node in graph[x]] for x in BFS]
+
+    tempNewGraph = cut_tree(tempGraph)
+    #print(tempGraph,"tempgraph")
+    #print(tempNewGraph)
+
+    for ii in range(len(tempGraph),len(tempNewGraph)):
+        BFS.append(len(newGraph))
+        newGraph.append([])
+    
+    for ii,adj in enumerate(tempNewGraph):
+        newGraph[BFS[ii]] += [BFS[x] for x in adj]
+    #print(newGraph,"newgraph")
 
 
 depths = [-1]*len(newGraph)
@@ -172,7 +203,7 @@ for start in range(len(newGraph)):
         ind2Tree[x] = (t,i)
     
     tempTree = [[node2newInd[node] for node in newGraph[x]] for x in BFS]
-    print(tempTree)
+    #print(tempTree)
     treeLCA.append(LCA(0,tempTree))
     
     #print(t,start,depths)
