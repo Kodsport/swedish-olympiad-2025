@@ -1,0 +1,46 @@
+\problemname{Triangel Fabriken}
+\noindent
+
+Tristian jobbar på en triangelfabrik.
+Hans arbete är att klassifiera olika sorters trianglar som produceras i fabriken.
+Tristian ber nu dig att skriva ett program som kan ersätta honom.
+
+Tristian kommer bara att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vinklarna av olika hörn på en och samma triangel.
+
+Ditt program ska göra det följande:
+\begin{itemize}
+  \item Om triangeln är trubbig, så ska programmet skriva ut ``Trubbig Triangel''.
+  \item Om triangeln är spetsig, så ska programmet skriva ut ``Spetsig Triangel''.
+  \item Om triangeln är rätvinklig, så ska programmet skriva ut ``Ratvinklig Triangel''. (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår endast ifall du skriver ``Ratvinklig Triangel'' och inte om du skriver med ``ä'' i ordet ``Rätvinklig'').
+\end{itemize}
+
+För att påminna om vad definitionen av en trubbig, spetsig eller en rätvinklig triangel innebär:
+\begin{itemize}
+  \item En triangel är trubbig om triangeln innehåller någon vinkel som är strikt större än $90$ grader.
+  \item En triangel är spetsig om triangelns alla vinklar är strikt mindre än $90$ grader.
+  \item En triangel är rätvinklig om en av triangelns vinklar är exakt $90$ grader.
+\end{itemize}
+
+\section*{Indata}
+Indatan består av tre rader, där varje rad består av ett heltal.
+
+Den första raden innehåller ett heltal $a$ $(1 \leq a < 180)$, som beskriver vinkeln i antal grader på det första hörnet i triangeln.
+Den andra raden innehåller ett heltal $b$ $(1 \leq b < 180)$, som beskriver vinkeln i antal grader på det andra hörnet i triangeln.
+Den tredje raden innehåller ett heltal $c$ $(1 \leq c < 180)$, som beskriver vinkeln i antal grader på det tredje hörnet i triangeln.
+
+Det är garanterat att indatan är en triangel, alltså att $a + b + c = 180$.
+
+\section*{Utdata}
+Skriv ut det klassifieringen av triangeln på en rad. Svaret måste antingen vara ``Trubbig Triangel'', ``Spetsig Triangel'', eller ``Ratvinklig Triangel''.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $100$  & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
