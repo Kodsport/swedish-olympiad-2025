@@ -146,31 +146,6 @@ void BCC(int u, int last = -1){
     }
 }
 
-ll heuristic(ll u, ll goal) {
-    ll ux = u%c, uy = u/c;
-    ll gx = goal%c, gy = goal/c;
-    return abs(gx-ux)+abs(gy-uy); 
-}
-
-ll currQuery = 1;
-ll dfs(ll start, ll goal){
-    priority_queue<pl> pq;
-    pq.push({0, start});
-
-    while(!pq.empty()){
-        ll u = pq.top().S;
-        pq.pop();
-        if(seen[u] == currQuery) continue;
-        seen[u] = currQuery;
-        for(auto &v : adj[u]){
-            if(seen[v] == currQuery) continue;
-            if(v == goal) return u;
-            pq.push({-heuristic(v, goal), v});
-        }
-    }
-    return -1;
-}
-
 vl topo;
 set<ll> vis;
 vector<set<ll>> adjSCC;
@@ -267,15 +242,15 @@ struct Node{
     }
 
     void walk(){
+        for(auto &ed : elements) dynamicConnectivity.unite(ed/INF, ed%INF);
         if(r-l == 1){
             for(auto &[from, to] : toQuery[l]){
                 connectedRes[l][from*INF+to] = dynamicConnectivity.same(from, to);
             }
-            return;
+        }else{
+            lnode->walk();
+            rnode->walk();
         }
-        for(auto &ed : elements) dynamicConnectivity.unite(ed/INF, ed%INF);
-        lnode->walk();
-        rnode->walk();
         fo(_, elements.size()) dynamicConnectivity.rollback();
     }
 };
@@ -414,6 +389,8 @@ int main() {
 
     fo(i, r-1){
         fo(j, c){
+            if(grid[i][j] == '#') continue;
+            if(grid[i+1][j] == '#') continue;
             st.update(0, toIndex(i, j), toIndex(i, j)*INF+toIndex(i+1, j));
             st.update(toIndex(i, j)+1, toIndex(i+1, j), toIndex(i, j)*INF+toIndex(i+1, j));
             st.update(toIndex(i+1, j)+1, r*c, toIndex(i, j)*INF+toIndex(i+1, j));
@@ -421,8 +398,10 @@ int main() {
     }
     fo(i, r){
         fo(j, c-1){
-            st.update(0, toIndex(i, j), toIndex(i, j)*INF+toIndex(i+1, j));
-            st.update(toIndex(i, j)+2, r*c, toIndex(i, j)*INF+toIndex(i+1, j));
+            if(grid[i][j] == '#') continue;
+            if(grid[i][j+1] == '#') continue;
+            st.update(0, toIndex(i, j), toIndex(i, j)*INF+toIndex(i, j+1));
+            st.update(toIndex(i, j)+2, r*c, toIndex(i, j)*INF+toIndex(i, j+1));
         }
     }
 
@@ -438,8 +417,18 @@ int main() {
             continue;
         }
 
-        currQuery = i+1;
-        ll starting = dfs(startPos, boxPos);
+        ll starting = -1;
+        for(auto &[aa, bb] : dirs){
+            ll x = xBox+aa;
+            ll y = yBox+bb;
+            if(x<0 || y<0 || x>=c || y>=r) continue;
+            if(grid[y][x] == '#') continue;
+            
+            if(connectedRes[boxPos][startPos*INF+toIndex(y, x)]){
+                starting = toIndex(y, x);
+                break;
+            }
+        }
         
         bool possible = 0;
         for(auto &[aa, bb] : dirs){
