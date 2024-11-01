@@ -21,18 +21,35 @@ c = int(cmdlinearg('c'))
 q = int(cmdlinearg('q'))
 samebox = int(cmdlinearg('samebox', 0))
 samegoal = int(cmdlinearg('samegoal', 0))
+snake = int(cmdlinearg('snake', 0))
+pockets = int(cmdlinearg('pockets', 0))
 
 p = random.random()
 grid = []
 unblocked_positions = []
 for i in range(r):
     row = []
-    for j in range(c):
-        if random.random()>p:
-            row.append('#')
-        else:
-            unblocked_positions.append((i+1,j+1))
-            row.append('.')
+    if snake:
+        for j in range(c):
+            if i%2 == 0 and ((j>0 and j<c-1) or (i%4==0 and j==0) or (i%4==2 and j==c-1)):
+                row.append('#')
+            else:
+                unblocked_positions.append((i+1,j+1))
+                row.append('.')
+    elif pockets:
+        for j in range(c):
+            if (i//pockets+j)%2 == 0:
+                row.append('#')
+            else:
+                unblocked_positions.append((i+1,j+1))
+                row.append('.')
+    else:
+        for j in range(c):
+            if random.random()>p:
+                row.append('#')
+            else:
+                unblocked_positions.append((i+1,j+1))
+                row.append('.')
     grid.append(row)
 
 while len(unblocked_positions)<3:
