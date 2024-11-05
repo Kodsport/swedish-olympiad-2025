@@ -20,13 +20,16 @@ void run() {
     int m = Int(Arg("mmin", 0), Arg("mmax", 100));
     Endl();
 
+    set<string> seen;
     fo(i, m){
         string s = Line();
+        seen.insert(s);
         assert(s.length()<=n&&s.length()>0);
         for(auto &c : s){
             assert(c>='a'&&c<='z');
         }
     }
+    assert(seen.size() == m);
 
     Eof();
 }

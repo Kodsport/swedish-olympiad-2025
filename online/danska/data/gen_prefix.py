@@ -47,7 +47,15 @@ r = bool(cmdlinearg('r', False))
 print(n, m)
 t = trie()
 
+seen = set()
+
 t.initReal()
 for i in range(m):
-    prefix = "".join(random.choice(ascii_lowercase) for _ in range(prefix_len))
-    print((prefix+t.query(randint(prefix_len,n)-prefix_len, p))[::(-1 if r else 1)])
+    while True:
+        prefix = "".join(random.choice(ascii_lowercase) for _ in range(prefix_len))
+        s = (prefix+t.query(randint(prefix_len+1,n)-prefix_len, p))[::(-1 if r else 1)]
+        if s in seen:
+            continue
+        seen.add(s)
+        print(s)
+        break

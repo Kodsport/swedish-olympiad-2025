@@ -2,24 +2,24 @@
 
 \noindent
 
-Boschua ska flytta till Lund för att plugga på LTH. Du har upptäckt att Lund ligger i Skåne
-och har därför blivit väldigt orolig över att Boschua ska börja låta dansk.
+Boschua ska flytta till Lund för att plugga vid LTH. Du har fått reda på att Lund ligger i Skåne
+och är nu orolig att Boschua ska börja låta dansk.
 
-Du har hittat en gammal Dansk ordbok som har $M$ stycken ord i sig. Du vill nu visa för Boschua hur många
-ord det finns som inte alls låter danska. Tyvärr tar det lång tid att räkna alla för hand, så du
-behöver nu skriva ett program för detta.
+För att förhindra detta vill du visa Boschua hur många ord det finns som inte alls
+låter danska. Enligt dig låter ett ord danskt om det innehåller minst ett ord från den danska ordboken.
+Tyvärr äger du inte den officiella danska ordboken, men den gamla ordboken du hittade i din källare får duga.
 
-Mer exakt, ett ord består av endast små engelska bokstäver \texttt{a}-\texttt{z}. Du vill då räkna antalet ord
-av längd exakt $N$ som inte låter för danska. Ett ord låter för danskt ifall ordet innehåller minst en av orden
-från ordboken i sig.
+Exempelvis, anta att orboken endast innehåller ordet \texttt{knallert}. Då anser du att ordet \texttt{husknallertrumma}
+låter danskt eftersom det innehåller ordet knallert. Däremot anser du att att ordet \texttt{knallerunt} \textbf{inte} låter
+danskt eftersom det inte innehåller \texttt{knallert}.
 
-Exempelvis, anta att orboken endast består av ordet \texttt{knallert}. Då innehåller ordet \texttt{husknallertrumma}
-ordet knallert, och anses därför vara för danskt.
+Du inser snabbt att det finns för många ord som inte låter danska för att skriva ner dem alla.
+Därför tänker du att det räcker med att räkna säga antalet ord som inte låter danska och berätta det för Boschua.
+Även detta visar sig vara svårt, eftersom det finns så många ord som inte låter danska.
 
-Däremot innehåller ordet \texttt{knallerunt} \textbf{inte} ordet knallert på grund av förekomsten av ett \texttt{u},
-och anses därför inte vara för danskt.
-
-% Beräkna antalet strängar av längd $N$ som inte innehåller någon av de $M$ substrängarna modolu $10^9+7$.
+Till slut nöjer du dig med att räkna antalet ord som består av endast små engelska bokstäver
+\texttt{a}-\texttt{z}, har exakt $N$ bokstäver och inte låter danska. Ett ord låter för danskt ifall ordet innehåller minst
+en av orden från ordboken som en delsträng.
 
 
 \section*{Indata}
@@ -27,7 +27,7 @@ Den första raden i indatan innehåller heltalen $N$ och $M$ ($1 \le N \le 100$,
 längden på orden vi betraktar och antalet ord i ordboken.
 
 Därefter följer $M$ rader, där varje rad innehåller ett ord från ordboken. Alla dessa orden har längd som mest $N$
-och består av bokstäver \texttt{a}-\texttt{z}. 
+och består av bokstäver \texttt{a}-\texttt{z}. Alla dessa orden är dessutom unika.
 
 
 \section*{Utdata}

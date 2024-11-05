@@ -19,8 +19,14 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n', 100))
 m = int(cmdlinearg('m', 100))
 
-
+seen = set()
 print(n, m)
 for i in range(m):
-    l = randint(1, n)
-    print("".join(random.choice(ascii_lowercase) for i in range(l)))
+    while True:
+        l = randint(1, n)
+        s = "".join(random.choice(ascii_lowercase) for i in range(l))
+        if s in seen:
+            continue
+        seen.add(s)
+        print(s)
+        break
