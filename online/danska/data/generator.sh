@@ -68,6 +68,9 @@ tc g5-10 gen_prefix n=96 m=100 p=0.07 r=True
 tc g5-11 gen_prefix n=100 m=95 p=0.2 r=True
 tc g5-12 gen_prefix n=99 m=99 p=0.03 l=15 r=True
 tc g5-13 gen_prefix n=100 m=100 p=0.1 l=7 r=True
+tc_manual ../manual/langa_ord
+tc_manual ../manual/ganska_langa_ord
+
 
 
 
