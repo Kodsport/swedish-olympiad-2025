@@ -70,7 +70,9 @@ tc g4-14 gen_samePref n=50 m=50
 tc g4-15 gen_samePref n=50 m=50 pref=mumsigt rev=1
 
 group group5 22
-include_group group1 group3 group4
+include_group group1 
+include_group group3 
+include_group group4
 tc g5-1 gen_rand n=100 m=100
 tc g5-2 gen_rand n=97 m=83
 tc g5-3 gen_rand n=94 m=97
