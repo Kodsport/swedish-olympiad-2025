@@ -1,10 +1,8 @@
 author: Joshua Andersson, Harry Zhang
-source: Programmeringsolympiadens ...
+source: Programmeringsolympiadens skolkval 2025
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
 type: scoring
 
 grading:
     show_test_data_groups: yes
-limits:
-  time_multiplier: 1

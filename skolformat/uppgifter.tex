@@ -1,0 +1,417 @@
+%\usepackage [ISO-8859-1]{inputenc}
+\input{Olympiad}
+
+\thispagestyle{fancy}
+\lstset{basicstyle=\ttfamily,
+  breaklines=true}
+% ----------------------------------------------------
+
+\begin{center}
+\Huge{Programmeringsolympiaden 2025}
+\end{center}
+\vspace{-1.2cm} 
+\specialsection*{Tävlingsregler för skolkvalet}
+\begin{lista}
+\item Tävlingen äger rum på av skolan bestämt datum under {\bf fyra
+    timmar. Ingen förlängning ges för lunch eller raster.} Eleven ska i förväg komma överens med läraren om att använda egen dator eller en som skolan tillhandahåller. I vilket fall som helst måste eleven befinna sig i avtalad lokal på skolan. 
+    %{\bf På grund av pandemin kan i undantagsfall tävling ske från annan plats godkänd av läraren, givet tillräcklig övervakning.}
+\item Tävlingen består av sju uppgifter som vardera ska lösas genom ett
+  datorprogram i valfritt programmeringsspråk.
+\item {\bf Indata kan läsas in i programmet på valfritt sätt}, t.ex. genom att programmet för en dialog med användaren (som i körningsexemplena i uppgifterna), att de skrivs in i ett grafiskt gränssnitt eller att datafiler skickas till {\em standard input}. Kom bara överens med din lärare om hur programmet ska testas.
+\item Dina lösningar kommer att testköras med förpreparerade
+  indata. Varje uppgift testas normalt med 5 testfall, som vardera ger
+  1 poäng om ditt program skriver ut korrekt svar inom en exekveringstidsgräns av
+  {\bf 3 sekunder}. Ingen test av indata behöver göras, den följer specifikationerna 
+i uppgiften.
+\item Det är ofta olika begränsningar på de olika testfallen, t.ex.\ storleken på
+indata eller andra inskränkningar. Detta anges i uppgiften. {\bf Observera att det kan vara
+helt olika svårighetsgrad på en uppgift beroende på dessa skillnader. Det kan därför vara
+lättare att få delpoäng på en uppgift som verkar svår än att få full
+poäng på en uppgift som verkar lättare.} Informationen om delpoäng är
+därför extremt viktig för att planera sin
+tävling.
+\item Rättningen utförs på samma eller likvärdig dator. Ändringar
+  i källkoden tillåts ej efter tävlingen. Om programmet
+  inte kan kompileras ges 0 p.\ på uppgiften. 
+\item Om något av följande inträffar ger
+  det {\em testfallet} 0 poäng, men programmet fortsätter testas med övriga testfall.
+\begin{lista}
+\item Exekveringstiden överstiger 3 sekunder \vspace{-0.2cm}
+\item Exekveringsfel (run time error) \vspace{-0.2cm}
+\item Fel svar \vspace{-0.2cm}
+\end{lista}
+
+\item Deltagandet är individuellt vilket bland annat innebär att inget utbyte av idéer eller 
+filer får ske under tävlingen.  
+\item Hjälpmedel: Valfritt skriftligt material, material som finns installerat på datorn samt material som finns tillgängligt på internet.
+Det är \ku{inte} tillåtet att aktivt kommunicera på internet (t.ex. chatta eller ställa frågor till ett forum) utan endast att söka efter information.
+{\bf Det är heller inte tillåtet att använda generativ AI såsom ChatGPT eller Github Copilot.}
+Räknedosa är tillåten.
+\item Tävlingsbidraget ska lämnas in i form av källkodsfiler (uppg1...uppg7 med passande filtillägg) som läggs på överenskommen plats. Ingen hänsyn tas till andra filer. Var noga 
+med att lämna in den korrekta versionen av ditt program.  
+\end{lista}
+
+%De högst placerade i kvalet går vidare till finalen i Göteborg där landslagsplatser till BOI i Polen och IOI i Bolivia står på spel.
+\begin{center}
+\Large Lycka till!
+\end{center}
+%\end{document}
+
+\newpage
+\specialsection*{Uppgift 1 -- Reduplikation}
+
+Reduplikation är när man upprepar ett ord flera gånger, ofta för att förstärka eller ändra betydelsen.
+I vissa språk som indonesiska är reduplikation väldigt vanligt, och där har det många olika
+grammatiska funktioner. Även i svenska används reduplikation ibland, till exempel är det vanligt
+att man säger \texttt{"hej hej"} istället för \texttt{"hej"}.
+
+Rama är en flitig användare av reduplikation när han chattar med sina kompisar. Han skriver ibland samma ord
+upp till nio gånger, vilket tar lång tid. Därför brukar han istället skriva ordet en gång, åtföljt av en
+siffra som visar hur många gånger ordet ska upprepas.
+
+Skriv ett program som läser in ett ord som Rama tänker upprepa (som består av som mest 9 bokstäver)
+och hur många gånger det ska upprepas (som mest 9). 
+Programmet ska sedan skriva ut ordet upprepat rätt antal gånger.
+
+
+\fe{Poängsättning:} För testfall värda $1$ poäng (utav $5$ möjliga) gäller att antalet gånger ordet ska upprepas är $1$.
+
+\vspace{1cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Ordet ? hej
+Antal upprepningar ? 3 
+
+Svar: hejhejhej
+\end{verbatim}
+
+\vspace{1cm}
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Ordet ? ha
+Antal upprepningar ? 4 
+  
+Svar: hahahaha
+\end{verbatim}
+
+
+
+\newpage
+\specialsection*{Uppgift 2 -- Tre i rad}
+
+
+%\begin{center}
+%  \includegraphics[width=12cm]{sifferkrypto.pdf} \\ ~\\
+%  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
+%\end{center}
+
+\vspace{1cm}
+
+Matematikern Lenore Oljer har gjort så mycket matte att hon har tröttnat på primtal. 
+Hon har nu börjat studera så kallade trevliga tripletter. 
+Det är väldigt lätt att skapa en trevlig triplett. 
+Börja med ett heltal $a$ som är
+större än noll och skapa sedan tripletten $(a,a+1,a+2)$. 
+Alla tripletter som skapats på detta sätt är trevliga. 
+Några exempel på trevliga tripletter är $(4,5,6)$ och $(15,16,17)$.
+
+För att lära sig mer om trevliga tripletter vill Lenore hitta hur 
+många tal som kan skrivas som produkten av
+alla talen i en trevlig triplett. Hon kallar dessa tal ``treiga tal''. 
+Några exempel på treiga tal är $24=2 \cdot 3 \cdot 4$
+och $336 = 6 \cdot 7 \cdot 8$. Lenore vill nu veta hur många treiga tal det 
+finns som är mindre än talet $N$.
+
+Skriv ett program som läser in talet $N$ och skriver ut hur många tal som är mindre än
+$N$ och är treiga.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\begin{enumerate}
+\item  $\;\;\;\;N \le 25 $    
+\item  $\;\;\;\;N \le 80 $ 
+\item  $\;\;\;\;N \le 1000 $   
+\item  $\;\;\;\;N \le 10^5 $   
+\item  $\;\;\;\;N \le 10^9 $   
+\end{enumerate}
+
+
+\vspace{1cm}
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N ? 75
+
+Svar: 3
+\end{verbatim}
+
+\fe{Förklaring:} De treiga talen mindre än 75 är 6, 24 och 60.
+
+\vspace{0.5cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N ? 24
+
+Svar: 1
+\end{verbatim}
+
+\fe{Förklaring:} Eftersom det treiga talet $24$ inte är mindre än $N$ räknar vi bara 6.
+
+\vspace{0.5cm}
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+N ? 1234
+
+Svar: 9
+\end{verbatim}
+
+
+
+\newpage
+\specialsection*{Uppgift 3 -- Meddelande}
+
+I staden som Paula bor i finns ett stort torg. Torget kan representeras av ett 
+rutnät med $n$ rader och $m$ kolumner. I vissa av rutorna finns en bokstav 
+inristad. 
+
+Enligt legenden så bildar dessa bokstäver ett meddelande om man 
+går på rutorna i en viss ordning. För att det ska bli rätt måste man börja 
+i det övre vänstra hörnet och sluta i det nedre högra hörnet, och man får bara gå steg åt höger 
+och nedåt. Om man lyckas besöka alla bokstavsrutorna på det här viset så bildas 
+det hemliga meddelandet.
+
+Paula har beslutat sig för att en gång för alla knäcka gåtan, och hitta meddelandet.
+
+Skriv ett program som först läser in antalet rader ($n$) och kolumner ($m$) som rutnätet har. Läs sedan
+in $n$ rader, som innehåller alla rutnätets rader. För alla testfall håller det att $1 \leq n,m \leq 6$.
+
+Programmet ska sedan skriva ut det hemliga meddelandet som står på torget.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)]   $\;\;\;\;$ $n=1$    
+    \item[(2-3)] $\;\;\;\;$ Antalet bokstäver är $n+m-1$ 
+    \item[(4-5)] $\;\;\;\;$ Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{1cm}
+\fe{Körningsexempel 1}\\
+\begin{verbatim}
+n ? 5
+m ? 6
+Rad 1 ? pa....
+Rad 2 ? ......
+Rad 3 ? .u.l..
+Rad 4 ? .....a
+Rad 5 ? ......
+
+Svar: paula
+\end{verbatim}
+
+\begin{center}
+  %\includegraphics[width=6cm]{meddelande.png} \\ ~\\
+  \ku{Illustration av rutnätet i körningsexempel 1.}
+\end{center}
+
+
+\fe{Körningsexempel 2}\\
+\begin{verbatim}
+n ? 3
+m ? 3
+Rad 1 ? sn.
+Rad 2 ? .a.
+Rad 3 ? .ke
+
+Svar: snake
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Uppgift 4 -- Klippa protein}
+
+Din kompis Björn har nyligen påbörjat ett stort kemiexperiment, med målet att skapa ett hemligt protein. 
+Alla protein beskrivs med strängar av bokstäver från \texttt{a}-\texttt{z}, exempelvis \texttt{bcaa} och \texttt{hejsan}.
+Han behöver skapa ett flertal så kallade \textit{rena} proteiner. Dessa är proteiner som består av kopior av en och samma bokstav.
+För att göra detta har han mikroskopiska saxar som kallas CRISPR. Med hjälp av dessa kan han ta bort upp till $k$ bokstäver
+som ligger bredvid varandra. Med andra ord kan han välja ett intervall med upp till $k$ bokstäver att klippa bort.
+Om ett protein delas i två delas när det klipps kommer dessa delar sedan att sättas ihop där de klipptes av. 
+
+Eftersom han är väldigt lat vill han ha din hjälp att skriva ett program som beräknar det minsta antalet gånger han behöver klippa ett visst protein för
+att det ska bli rent. Notera att proteinet \textbf{inte} får bli en tom sträng, eftersom det isåfall inte längre kan användas för kemi.
+
+Programmet ska först läsa in Björns protein, som består av som mest $32$ bokstäver. Sedan ska det läsa in talet $k$ ($k \ge 1$).
+
+Programmet ska sedan skriva ut det minsta antalet klippningar som krävs för att göra proteinet rent.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ Strängen består endast av bokstäverna \texttt{a} och \texttt{b}.    
+    \item[(2)] $\;\;\;\;k=1$ 
+    \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{1cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Björns protein ? exempelfall
+k ? 4
+
+Svar: 3
+\end{verbatim}
+
+\fe{Förklaring:}
+Ett möjligt sätt är först klippa bort bokstäverna \texttt{pe}. Vi får då strängen \texttt{exemlfall}. \\
+Sedan kan vi klippa bort \texttt{fa} och får \texttt{exemlll}. \\
+Till sist klippa vi bort \texttt{exem} och får \texttt{lll}. 
+
+\vspace{3cm}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Björns protein ? aabbabbba
+k ? 3
+
+Svar: 2
+\end{verbatim}
+
+
+\begin{center}
+  %\includegraphics[width=12cm]{klippaprotein.png} \\ ~\\
+  \ku{Illustration av hur Björn kan klippa proteinet optimalt i körningsexempel 2.}
+\end{center}
+
+\newpage
+\specialsection*{Uppgift 5 -- Miniräknaren}
+
+Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
+Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
+trycka på \texttt{=}-tecknet, så kommer miniräknaren att låsa upp flera
+stycken hemliga matematikfunktioner.
+
+Din kompis har lyckats lista ut vad kålnami-koden är, men han berättar för dig
+att du inte får gå tillväga hursomhelst för att skriva in koden i miniräknaren.
+Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
+\begin{itemize}
+  \item Multiplicera talet som visas med talet $m$.
+  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq m-1$.
+\end{itemize}
+
+Som tur är har din kompis även lyckats lista ut vad talet $m$ är. 
+Denna komplicerade process kommer endast att fungera om du gör så få operationer
+som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
+givet kålnami-koden och talet $m$.
+
+Programmet ska först läsa in heltalet $n$ ($1 \le n \le 10^9$), innehållet av kålnami-koden.
+På nästa rad ska det läsa in siffran $m$ ($2 \leq m \leq 9$), som beskrivits ovan.
+
+Programmet ska sedan skriva ut ett heltal: minsta antalet operationer som krävs för att få miniräknaren att visa
+kålnami-koden $n$.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;n \leq 10, m=3$ 
+    \item[(2)] $\;\;\;\;m=2$ 
+    \item[(3)] $\;\;\;\;n \leq 10^5$
+    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+n ? 4
+m ? 2
+
+Svar: 3
+\end{verbatim}
+
+\fe{Förklaring:}
+Ett sätt att skriva in koden med minsta antalet operationer är att göra som följande:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 2$
+  \item $\times 2$
+\end{enumerate}
+
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+n ? 33
+m ? 3
+
+Svar: 8
+\end{verbatim}
+\fe{Förklaring:}
+En optimal lösning är att utföra följande operationer:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 3$
+  \item $\times 3$
+  \item $+2$
+  \item $\times 3$
+\end{enumerate}
+
+
+\newpage
+\specialsection*{Uppgift 6 -- Christians piano}
+Christian vill lära sig spela piano, men klarar bara av att spela med pekfingret.
+Just nu håller han på att öva hårt för att lära sig ett stycke.
+Ett stycke beskrivs av en sekvens tangenter som ska tryckas i ordning. Exempelvis beskriver
+stycket \texttt{abdaa} att han ska trycka på tangenterna
+\texttt{a}, \texttt{b}, \texttt{d}, \texttt{a}, \texttt{a} i ordning. 
+Du märker dock att han har svårt att röra pekfingret snabbt nog mellan tangenterna.
+Märkvärdigt nog tar det honom alltid exakt en sekund att flytta fingret en tangent åt sidan, men
+noll sekunder att trycka ner en tangent.
+För att hjälpa honom tänker du ändra om ordningen på pianots tangenter så att totala tiden
+det tar att spela stycket blir så litet som möjligt.
+
+Till exempel, om stycket han försöker lära sig är \texttt{abdaa} och pianot har ordningen
+\texttt{abd} $\cdots$ (resten av pianot visas inte då detta inte påverkar svaret)
+kommer det totalt ta 4 sekunder att spela stycket.
+Avstånden när han spelar stycket blir följande:
+\begin{itemize}
+  \item \texttt{a} till \texttt{b} tar en sekund.
+  \item \texttt{b} till \texttt{d} tar en sekund.
+  \item \texttt{d} till \texttt{a} tar två sekunder.
+  \item \texttt{a} till \texttt{a} tar noll sekunder.
+\end{itemize}
+Vilket innebär att det totalt tar fyra sekunder att spela stycket \texttt{abdaa} på ett piano
+med ordningen \texttt{abd} $\cdots$.
+
+Skriv ett program som läser in ett stycke och skriver ut den totala tiden det tar för Christian att
+spela stycket på pianot med bästa möjliga ordning på tangenter. Det är garanterat att stycket
+består av som mest 32 bokstäver och innehåller som mest 15 olika sorters bokstäver.
+Alla bokstäver i stycket är mellan \texttt{a}-\texttt{z}.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;$ Stycket innehåller som mest 8 olika sorters bokstäver. 
+    \item[(2-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Stycket ? abdaa
+
+Svar: 4
+\end{verbatim}
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Stycket ? abdaadbc
+
+Svar: 7
+\end{verbatim}
+
+\fe{Förklaring:}
+En möjlig optimal ordning på pianots tangenter är \texttt{adbc}.
+
+\end{document}
