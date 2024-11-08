@@ -8,7 +8,7 @@ typedef long long ll;
 typedef vector<ll> vi;
 
 const ll mod = 1000000007;
-const ll maxn = 100100;
+const ll maxn = 200100;
 
 ll euclid(ll a, ll b, ll &x, ll &y) {
 	if (!b) return x = 1, y = 0, a;
