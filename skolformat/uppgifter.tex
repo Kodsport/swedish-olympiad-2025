@@ -391,59 +391,59 @@ En optimal lösning är att utföra följande operationer:
 
 
 \newpage
-\specialsection*{Uppgift 6 -- Christians piano}
-Christian vill lära sig spela piano, men klarar bara av att spela med pekfingret.
-Just nu håller han på att öva hårt för att lära sig ett stycke.
-Ett stycke beskrivs av en sekvens tangenter som ska tryckas i ordning. Exempelvis beskriver
-stycket \texttt{abdaa} att han ska trycka på tangenterna
-\texttt{a}, \texttt{b}, \texttt{d}, \texttt{a}, \texttt{a} i ordning. 
-Du märker dock att han har svårt att röra pekfingret snabbt nog mellan tangenterna.
-Märkvärdigt nog tar det honom alltid exakt en sekund att flytta fingret en tangent åt sidan, men
-noll sekunder att trycka ner en tangent.
-För att hjälpa honom tänker du ändra om ordningen på pianots tangenter så att totala tiden
-det tar att spela stycket blir så litet som möjligt.
+\specialsection*{Uppgift 6 -- Trollkarlen Theodor}
 
-Till exempel, om stycket han försöker lära sig är \texttt{abdaa} och pianot har ordningen
-\texttt{abd} $\cdots$ (resten av pianot visas inte då detta inte påverkar svaret)
-kommer det totalt ta 4 sekunder att spela stycket.
-Avstånden när han spelar stycket blir följande:
+En mindre armé med $N$ monster befinner sig precis utanför Tästerås! Nu är det upp
+till Trollkarlen Theodor att besegra den och rädda staden. Varje monster har en viss
+mängd liv. För att skada monster kan
+Theodor avfyra magiska explosioner. Varje gång han avfyrar en explosion siktar han på ett
+särskilt monster. Sen händer följande:
 \begin{itemize}
-  \item \texttt{a} till \texttt{b} tar en sekund.
-  \item \texttt{b} till \texttt{d} tar en sekund.
-  \item \texttt{d} till \texttt{a} tar två sekunder.
-  \item \texttt{a} till \texttt{a} tar noll sekunder.
+  \item Alla monster förlorar $A$ liv av explosionen.
+  \item Monstret som Theodor siktade på förlorar $S$ liv
+  till, eftersom det befinner sig i mitten av explosionen. Alltså förlorar monstret han siktar
+  på $S+A$ liv sammanlagt av just den explosionen.
 \end{itemize}
-Vilket innebär att det totalt tar fyra sekunder att spela stycket \texttt{abdaa} på ett piano
-med ordningen \texttt{abd} $\cdots$.
+Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
+Eftersom det är jobbigt att avfyra explosioner vill han veta minsta antalet
+explosioner han behöver skjuta iväg för att döda alla monster om han siktar på monster optimalt.
 
-Skriv ett program som läser in ett stycke och skriver ut den totala tiden det tar för Christian att
-spela stycket på pianot med bästa möjliga ordning på tangenter. Det är garanterat att stycket
-består av som mest 32 bokstäver och innehåller som mest 15 olika sorters bokstäver.
-Alla bokstäver i stycket är mellan \texttt{a}-\texttt{z}.
+Skriv ett program som läser in heltalen, $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
+vars betydelse beskrivs ovan. På nästa rad ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som beskriver antalet liv som vardera monster har.
+
+Programmet ska sedan skriva ut minsta antalet explosioner som Theodor behöver avfyra för att döda
+alla monster.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1)] $\;\;\;\;$ Stycket innehåller som mest 8 olika sorters bokstäver. 
-    \item[(2-5)] $\;\;\;\; $Inga särskilda begränsningar.
+    \item[(1)] $\;\;\;\; A=0$. 
+    \item[(2-3)] $\;\;\;\; h_i \leq 100$. 
+    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-Stycket ? abdaa
+N, S, A ? 3 2 1
+Monstrenas liv ? 7 2 3
 
-Svar: 4
+Svar: 3
 \end{verbatim}
+Ett optimalt sätt att avfyra explosioner är följande:
+\begin{enumerate}
+  \item Avfyra en explosion på monstret med 7 liv. Monstrena har nu \verb+4,1,2+ liv kvar.
+  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med liv 1 dör. De resternade monstrena har \verb+1,1+ liv kvar. 
+  \item Avfyra en explosion på vilket som helst av monstrena. Nu har alla monster dött och Theodor är klar.
+\end{enumerate}
+
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-Stycket ? abdaadbc
+N, S, A ? 4 3 2
+Monstrenas liv ? 7 8 9 10
 
-Svar: 7
+Svar: 4  
 \end{verbatim}
-
-\fe{Förklaring:}
-En möjlig optimal ordning på pianots tangenter är \texttt{adbc}.
 
 \end{document}
