@@ -1,0 +1,35 @@
+\problemname{Theodor, Trollkarlen}
+
+\noindent
+
+Dett problem bygger på problemet Trollkarlen Theodor.
+
+Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
+Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
+Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
+Olle vill nu räkna antalet sätt han kan ge olikka mängder liv till sina olika monster, 
+så att Theodor behöver exakt $K$ magiska explosioner för att döda alla.
+Precis som i problemet Trollkarlen Theodor gör Theodor först $S$ skada på monstret han siktar på, och sedan $A$ skada på alla monster (även det han siktade på).
+
+
+\section*{Indata}
+Den första raden innehåller fyra tal, $N$ ($1 \leq N \leq 10^6$), $K$ ($1 \leq K \leq 10^6$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), vilket är de fyra talen som nämns ovan.
+
+\section*{Utdata}
+Skriv ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |} % nu är poängen skolkval format
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $A = 0$, $N, K, S \leq 5$ \\ \hline
+  $2$    & $20$       & $A = 0$, $S \leq 10$, $N, K \leq 10^3$ \\ \hline
+  $3$    & $20$       & $N, K, S, A \leq 10^3$ \\ \hline
+  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
