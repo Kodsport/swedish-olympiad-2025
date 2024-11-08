@@ -1,3 +1,4 @@
+//@EXPECTED_GRADES@ AC AC AC TLE TLE
 // O(NK^2)
 #include <bits/stdc++.h>
 using namespace std;
@@ -39,7 +40,7 @@ int count(int i, int blasts_left)
 
     int global_damage = k * a;
     // monsters with health [0, global_damage] are already dead
-    ret += (global_damage + 1) * count(i + 1, blasts_left);
+    ret += global_damage * count(i + 1, blasts_left);
     ret %= mod;
 
     repp(new_blasts, 1, k+1)

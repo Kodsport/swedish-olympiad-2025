@@ -79,7 +79,7 @@ Mod amnt(ll K) {
     for (ll i = 0; i <= min(K,n); i++) {
         Mod res = choose(Mod(n), Mod(i));
 
-        res = res * pow(Mod(a * K + 1), Mod(n - i));
+        res = res * pow(Mod(a * K), Mod(n - i));
 
         res = res * choose(Mod(K), Mod(i));
 

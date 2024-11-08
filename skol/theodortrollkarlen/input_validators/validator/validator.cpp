@@ -15,13 +15,14 @@ typedef vector<int> vi;
 
 
 void run() {
-    ll n = Int(1, 200000);
+    ll maxnk = Arg("maxnk");
+    ll n = Int(1, maxnk);
     Space();
-    ll k = Int(1, 200000);
+    ll k = Int(1, maxnk);
     Space();
-    ll s = Int(1, 200000);
+    ll s = Int(1, Arg("maxs"));
     Space();
-    ll a = Int(0, 200000);
+    ll a = Int(0, Arg("maxa"));
     Endl();
     Eof();
 }

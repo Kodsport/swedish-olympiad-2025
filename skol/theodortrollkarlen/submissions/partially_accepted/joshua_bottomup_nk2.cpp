@@ -1,3 +1,5 @@
+//@EXPECTED_GRADES@ AC AC AC TLE TLE
+// O(NK^2)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -21,7 +23,7 @@ inline void fast() { cin.tie(0)->sync_with_stdio(0); }
 #define assert(x) if (!(x)) __debugbreak()
 #endif
 
-int dp[2010][2010];
+int dp[1010][1010];
 int n, k, s, a;
 const int mod = int(1e9 + 7);
 
@@ -35,7 +37,7 @@ int count_bottomup()
     {
         rep(j, k+1)
         {
-            dp[i][j] += dp[i - 1][j] * (global_damage+1);
+            dp[i][j] += dp[i - 1][j] * global_damage;
             dp[i][j] %= mod;
 
             rep(l, j)

@@ -1,3 +1,5 @@
+//@EXPECTED_GRADES@ AC WA WA WA WA
+// O(NSK^2), has overflow issues
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,7 +41,7 @@ int count(int i, int blasts_left)
 
     int global_damage = k * a;
     // monsters with health [0, global_damage] are already dead
-    rep(hp, global_damage + 1)
+    repp(hp, 1, global_damage + 1)
     {
         ret += count(i + 1, blasts_left);
     }

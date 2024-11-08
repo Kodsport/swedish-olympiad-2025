@@ -1,3 +1,5 @@
+//@EXPECTED_GRADES@ AC AC AC AC TLE
+// O(NK)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -35,7 +37,7 @@ int count_bottomup()
     {
         rep(j, k+1)
         {
-            dp[i][j] += dp[i - 1][j] * (global_damage+1);
+            dp[i][j] += dp[i - 1][j] * global_damage;
             dp[i][j] %= mod;
         }
         repp(j, 1, k + 1) dp[i - 1][j] = (dp[i - 1][j] + dp[i - 1][j - 1]) % mod;

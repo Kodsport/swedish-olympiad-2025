@@ -1,3 +1,4 @@
+// print all solutions, not just count
 using namespace std;
 #include <bits/stdc++.h>
 
@@ -40,7 +41,7 @@ void recur(vector<ll> & count, vector<ll> & arr, int i, bool changed) {
 
 int main() {
     cin >> n >> k >> s >> a;
-    vector<ll> arr(n, 0);
+    vector<ll> arr(n, 1);
     vector<ll> count(k+2, 0);
     recur(count, arr, 0, true);
     for (auto sol : allans)
