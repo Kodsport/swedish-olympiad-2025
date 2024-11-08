@@ -2,13 +2,14 @@
 
 \noindent
 
-Dett problem bygger på problemet Trollkarlen Theodor.
+Detta problem bygger på problemet Trollkarlen Theodor.
 
 Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
 Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
 Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
-Olle vill nu räkna antalet sätt han kan ge olikka mängder liv till sina olika monster, 
-så att Theodor behöver exakt $K$ magiska explosioner för att döda alla.
+Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika monster, 
+så att Theodor behöver exakt avfyra $K$ magiska explosioner för att döda alla monster. Anta att Theodor väljer monstrena han
+siktar på så att han minimerar antalet explosioner han behöver avfyra.
 Precis som i problemet Trollkarlen Theodor gör Theodor först $S$ skada på monstret han siktar på, och sedan $A$ skada på alla monster (även det han siktade på).
 
 
@@ -24,12 +25,13 @@ Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \noindent
-\begin{tabular}{| l | l | p{12cm} |} % nu är poängen skolkval format
+\begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $20$       & $A = 0$, $N, K, S \leq 5$ \\ \hline
-  $2$    & $20$       & $A = 0$, $S \leq 10$, $N, K \leq 10^3$ \\ \hline
-  $3$    & $20$       & $N, K, S, A \leq 10^3$ \\ \hline
-  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+  $2$    & $20$       & $A = 0$, $S \leq 10$, $N, K \leq 200$ \\ \hline
+  $3$    & $20$       & $N, K, S, A \leq 500$ \\ \hline
+  $4$    & $20$       & $N, K, S, A \leq 2000$ \\ \hline
+  $5$    & $20$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
