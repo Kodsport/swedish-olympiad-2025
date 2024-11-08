@@ -2,23 +2,24 @@
 \noindent
 
 Tristian jobbar på en triangelfabrik.
-Hans arbete är att klassifiera olika sorters trianglar som produceras i fabriken.
+Hans arbete är att klassificera olika sorters trianglar som produceras i fabriken.
 Tristian ber nu dig att skriva ett program som kan ersätta honom.
 
-Tristian kommer bara att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vinklarna av olika hörn på en och samma triangel.
+Tristian kommer att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vinklarna i en triangel.
 
-Ditt program ska göra det följande:
+Ditt program ska göra följande:
 \begin{itemize}
   \item Om triangeln är trubbig, så ska programmet skriva ut ``Trubbig Triangel''.
   \item Om triangeln är spetsig, så ska programmet skriva ut ``Spetsig Triangel''.
-  \item Om triangeln är rätvinklig, så ska programmet skriva ut ``Ratvinklig Triangel''. (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår endast ifall du skriver ``Ratvinklig Triangel'' och inte om du skriver med ``ä'' i ordet ``Rätvinklig'').
+  \item Om triangeln är rätvinklig, så ska programmet skriva ut ``Ratvinklig Triangel''.
+  (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår inte om du skriver ut ``Rätvinklig'' med ett ``ä''. Han förstår bara ``Ratvinklig Triangel'').
 \end{itemize}
 
-För att påminna om vad definitionen av en trubbig, spetsig eller en rätvinklig triangel innebär:
+För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
 \begin{itemize}
-  \item En triangel är trubbig om triangeln innehåller någon vinkel som är strikt större än $90$ grader.
-  \item En triangel är spetsig om triangelns alla vinklar är strikt mindre än $90$ grader.
-  \item En triangel är rätvinklig om en av triangelns vinklar är exakt $90$ grader.
+  \item En triangel är trubbig om någon av dess vinklar är större än $90$ grader.
+  \item En triangel är spetsig om alla dess vinklar är mindre än $90$ grader.
+  \item En triangel är rätvinklig om en av dess vinklar är exakt $90$ grader.
 \end{itemize}
 
 \section*{Indata}
@@ -31,7 +32,7 @@ Den tredje raden innehåller ett heltal $c$ $(1 \leq c < 180)$, som beskriver vi
 Det är garanterat att indatan är en triangel, alltså att $a + b + c = 180$.
 
 \section*{Utdata}
-Skriv ut det klassifieringen av triangeln på en rad. Svaret måste antingen vara ``Trubbig Triangel'', ``Spetsig Triangel'', eller ``Ratvinklig Triangel''.
+Skriv ut vilken sorts triangel det är. Svaret måste antingen vara ``Trubbig Triangel'', ``Spetsig Triangel'', eller ``Ratvinklig Triangel''.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.

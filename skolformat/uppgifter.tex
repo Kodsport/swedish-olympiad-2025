@@ -58,42 +58,74 @@ med att lämna in den korrekta versionen av ditt program.
 %\end{document}
 
 \newpage
-\specialsection*{Uppgift 1 -- Reduplikation}
+\specialsection*{Uppgift 1 -- Triangelfabriken}
 
-Reduplikation är när man upprepar ett ord flera gånger, ofta för att förstärka eller ändra betydelsen.
-I vissa språk som indonesiska är reduplikation väldigt vanligt, och där har det många olika
-grammatiska funktioner. Även i svenska används reduplikation ibland, till exempel är det vanligt
-att man säger \texttt{"hej hej"} istället för \texttt{"hej"}.
+Tristian jobbar på en triangelfabrik.
+Hans arbete är att klassificera olika sorters trianglar som produceras i fabriken.
+Tristian ber nu dig att skriva ett program som kan ersätta honom.
 
-Rama är en flitig användare av reduplikation när han chattar med sina kompisar. Han skriver ibland samma ord
-upp till nio gånger, vilket tar lång tid. Därför brukar han istället skriva ordet en gång, åtföljt av en
-siffra som visar hur många gånger ordet ska upprepas.
+Tristian kommer att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vinklarna i en triangel.
 
-Skriv ett program som läser in ett ord som Rama tänker upprepa (som består av som mest 9 bokstäver)
-och hur många gånger det ska upprepas (som mest 9). 
-Programmet ska sedan skriva ut ordet upprepat rätt antal gånger.
+Ditt program ska göra följande:
+\begin{itemize}
+  \item Om triangeln är trubbig, så ska programmet skriva ut ``Trubbig Triangel''.
+  \item Om triangeln är spetsig, så ska programmet skriva ut ``Spetsig Triangel''.
+  \item Om triangeln är rätvinklig, så ska programmet skriva ut ``Ratvinklig Triangel''.
+  (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår inte om du skriver ut ``Rätvinklig'' med ett ``ä''. Han förstår bara ``Ratvinklig Triangel'').
+\end{itemize}
 
+För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
+\begin{itemize}
+  \item En triangel är trubbig om någon av dess vinklar är större än $90$ grader.
+  \item En triangel är spetsig om alla dess vinklar är mindre än $90$ grader.
+  \item En triangel är rätvinklig om en av dess vinklar är exakt $90$ grader.
+\end{itemize}
 
-\fe{Poängsättning:} För testfall värda $1$ poäng (utav $5$ möjliga) gäller att antalet gånger ordet ska upprepas är $1$.
+Ditt program ska först läsa in de tre vinklarna $a$, $b$, $c$.
+
+$a$ kommer stå på första raden.
+
+$b$ kommer stå på andra raden.
+
+$c$ kommer stå på tredje raden.
+
+Det är garanterat att $(1 \leq a, b, c < 180)$ håller. Det är också garanterat att indatan är en triangel, alltså att $a + b + c = 180$.
+
+Sen ska programmet skriva ut om triangeln som utgörs av vinklarna $a$, $b$, $c$ är spetsig, trubbig eller rätvinklig. Var noga
+med att det du skriver ut är samma som det där uppe! Det vill säga, ``Trubbig Triangel'' om den är trubbig, etc.
+
+\fe{Poängsättning:} Programmet kommer att köras på 5 testfall, vardera värt $1$ poäng.
 
 \vspace{1cm}
 \fe{Körningsexempel 1}
 \begin{verbatim}
-Ordet ? hej
-Antal upprepningar ? 3 
+Vinkel 1 ? 100
+Vinkel 2 ? 40
+Vinkel 3 ? 40
 
-Svar: hejhejhej
+Svar: Trubbig Triangel
 \end{verbatim}
+Se nästa sida för fler körningsexempel.
 
-\vspace{1cm}
+\newpage
+
 \fe{Körningsexempel 2}
 \begin{verbatim}
-Ordet ? ha
-Antal upprepningar ? 4 
-  
-Svar: hahahaha
+Vinkel 1 ? 60
+Vinkel 2 ? 40
+Vinkel 3 ? 80
+
+Svar: Spetsig Triangel
 \end{verbatim}
 
+\fe{Körningsexempel 3}
+\begin{verbatim}
+Vinkel 1 ? 30
+Vinkel 2 ? 60
+Vinkel 3 ? 90
+
+Svar: Ratvinklig Triangel
+\end{verbatim}
 
 
 \newpage
