@@ -348,7 +348,7 @@ kålnami-koden $n$.
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1)] $\;\;\;\;n \leq 10, m=3$ 
+    \item[(1)] $\;\;\;\;m=3, n \leq 10$ 
     \item[(2)] $\;\;\;\;m=2$ 
     \item[(3)] $\;\;\;\;n \leq 10^5$
     \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
@@ -408,7 +408,7 @@ Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en
 Eftersom det är jobbigt att avfyra explosioner vill han veta minsta antalet
 explosioner han behöver skjuta iväg för att döda alla monster om han siktar på monster optimalt.
 
-Skriv ett program som läser in heltalen, $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
+Skriv ett program som läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
 vars betydelse beskrivs ovan. På nästa rad ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som beskriver antalet liv som vardera monster har.
 
 Programmet ska sedan skriva ut minsta antalet explosioner som Theodor behöver avfyra för att döda
@@ -417,8 +417,8 @@ alla monster.
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1)] $\;\;\;\; A=0$. 
-    \item[(2-3)] $\;\;\;\; h_i \leq 100$. 
+    \item[(1)] $\;\;\;\; A=0$
+    \item[(2-3)] $\;\;\;\; h_i \leq 100$
     \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
@@ -444,6 +444,73 @@ N, S, A ? 4 3 2
 Monstrenas liv ? 7 8 9 10
 
 Svar: 4  
+\end{verbatim}
+
+
+\specialsection*{Uppgift 7 -- Theodor, Trollkarlen}
+
+
+Detta problem bygger på problemet Trollkarlen Theodor.
+
+Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
+Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
+Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
+Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika monster, 
+så att Theodor behöver avfyra exakt $K$ magiska explosioner för att döda alla monster. Enda kravet på antalet liv
+för ett monster är att det ska vara större än $0$.
+
+Precis som i problemet Trollkarlen Theodor gör Theodor först $S$ skada på monstret han siktar på, och sedan $A$ skada på alla monster (även det han siktade på).
+Theodor väljer även hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
+
+
+Skriv ett program som läser in heltalen, $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
+
+Programmet ska sedan skriva ut minsta antalet explosioner som Theodor behöver avfyra för att döda
+alla monster. Eftersom detta talet kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
+första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
+
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\; A = 0$, $N, K, S \leq 5$
+    \item[(2)] $\;\;\;\; A = 0$, $S \leq 10$, $N, K \leq 70$
+    \item[(3)] $\;\;\;\; N, K, S, A \leq 150$
+    \item[(4)] $\;\;\;\; N, K, S, A \leq 1000$
+    \item[(5)] $\;\;\;\;$Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N, K, S, A ? 1 1 5 0
+
+Svar: 5
+\end{verbatim}
+Det finns ett monster, och de möjliga liv den kan ha så att Theodor dödar den med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+
+Se nästa sida för ett till körningsexempel.
+
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N, K, S, A ? 2 2 1 1
+
+Svar: 10
+\end{verbatim}
+De 10 möjliga fördelningarna av monsterliv så att Theodor dödar båda med exakt två explosioner är:
+\begin{verbatim}
+  1 3
+  1 4
+  2 2
+  2 3
+  2 4
+  3 1
+  3 2
+  3 3
+  4 1
+  4 2
 \end{verbatim}
 
 \end{document}
