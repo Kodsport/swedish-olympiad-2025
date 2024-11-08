@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def interpret(code):
     array = [0]*100
     ans = ""
