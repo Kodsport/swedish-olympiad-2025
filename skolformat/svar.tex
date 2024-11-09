@@ -153,38 +153,26 @@ sitta vid datorn.
 \end{tabular}
 }
 
-\subsection*{Uppgift 3 -- Meddelande}
+\subsection*{Uppgift 3 -- Virus}
+\textbf{NOTERA VID RÄTTNING}: för att förhindra att lösningar som alltid
+skriver ut ”Ja” eller alltid ”Nej” ska få poäng, så finns det fem par av testfall.
+Varje par innehåller alltså två testfall, och om programmet klarar båda dessa
+får det ett poäng, för upp till 5 poäng sammanlagt. Exempelvis, om programmet svarar
+korrekt på \texttt{Par 1, test 1}, men inte \texttt{Par 1, test 2}, så får det \textit{inte} poäng för det paret.
 ~\\
 {\tt 
-\begin{tabular}{||l||c|c|l||l||}\hline\hline
-& \multicolumn{3}{c||}{\fe{Indata}} & \fe{Utdata} \\
-& $n$ & $m$ & Rader & \\ \hline \hline
-\fe{Test 1} & 1 & 6 &	.he..j &	hej	\\ \hline
-\fe{Test 2} & 6 & 5 & r....	&	ratvinklig	\\
-&&&	a....	&	\\
-&&&	t....	&	\\ 
-&&&	v....	&	\\ 
-&&&	i....	&	\\ 
-&&&	nklig	&	\\ \hline
-\fe{Test 3} & 6 & 6 & tab...	&	tabortpunkt	\\
-&&&	..or..	&	\\
-&&&	...t..	&	\\
-&&&	...pu.	&	\\
-&&&	....nk	&	\\
-&&&	.....t	&	\\ \hline
-\fe{Test 4} & 5 & 6 &	......	&	center	\\
-&&&	......	&	\\ 
-&&&	center	&	\\
-&&&	......	&	\\ 
-&&&	......	&	\\ \hline
-\fe{Test 5} & 6 & 6 &	.s....	&	svar	\\
-&&&	......	& \\
-&&&	...v..	& \\
-&&&	.....a	& \\
-&&&	......	& \\
-&&&	.....r	& \\\hline \hline
+\begin{tabular}{||l||c|c||c||}\hline\hline
+& \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
+& F & H &  \\ \hline \hline
+\fe{Par 1, test 1} & adghl & abcdefgh.ijklmn & Ja \\ \hline
+\fe{Par 1, test 2} & abcdefg.h & abcdefgh.ijklmn & Nej \\ \hline
+\fe{Test 2} & 54581 & 2 & 24 \\ \hline
+\fe{Test 3} & 99896 & 7 & 11 \\ \hline
+\fe{Test 4} & 384463392 & 7 & 20 \\ \hline
+\fe{Test 5} & 488339432 & 9 & 16\\ \hline\hline
 \end{tabular}
 }
+\vspace{1cm}
 
 \subsection*{Uppgift 4 -- Klippa protein}
 ~\\

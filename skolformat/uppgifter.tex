@@ -200,123 +200,133 @@ Svar: 9
 \end{verbatim}
 
 
-
 \newpage
-\specialsection*{Uppgift 3 -- Meddelande}
+\specialsection*{Uppgift 3 -- Virus}
 
-I staden som Paula bor i finns ett stort torg. Torget kan representeras av ett 
-rutnät med $n$ rader och $m$ kolumner. I vissa av rutorna finns en bokstav 
-inristad. 
+Boschua är inte så bra på cybersäkerhet. Förra månaden stängda han av brandväggen för att den
+inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
+Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver till alla filnamn.
 
-Enligt legenden så bildar dessa bokstäver ett meddelande om man 
-går på rutorna i en viss ordning. För att det ska bli rätt måste man börja 
-i det övre vänstra hörnet och sluta i det nedre högra hörnet, och man får bara gå steg åt höger 
-och nedåt. Om man lyckas besöka alla bokstavsrutorna på det här viset så bildas 
-det hemliga meddelandet.
+Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
+Den kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
 
-Paula har beslutat sig för att en gång för alla knäcka gåtan, och hitta meddelandet.
+Han letar nu efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som tar emot $F$ och namnet på en fil $H$
+på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
+viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
-Skriv ett program som först läser in antalet rader ($n$) och kolumner ($m$) som rutnätet har. Läs sedan
-in $n$ rader, som innehåller alla rutnätets rader. För alla testfall håller det att $1 \leq n,m \leq 6$.
+Skriv ett program som först läser in $F$ på första raden. På nästa rad ska det läsa in $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
+Då gäller det att $H$ ($1 \le |F| \le |H| \le 32$). $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
+Viruset kan lägga till vilken av dessa bokstäver som helst.
 
-Programmet ska sedan skriva ut det hemliga meddelandet som står på torget.
+Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej" (utan citationstecken).
+
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+Låt $|F|$ vara antalet bokstäver i $F$. $|H|$ är definierad likadant.
+I detta problem finns det fem par av testfall. I det ena är svaret Ja, i det andra Nej för att
+förhindra att du får poäng för att alltid skriva ut ”Ja” eller alltid ”Nej”.
+
+De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1)]   $\;\;\;\;$ $n=1$    
-    \item[(2-3)] $\;\;\;\;$ Antalet bokstäver är $n+m-1$ 
-    \item[(4-5)] $\;\;\;\;$ Inga särskilda begränsningar.
-\end{itemize}
-
-\vspace{1cm}
-\fe{Körningsexempel 1}\\
-\begin{verbatim}
-n ? 5
-m ? 6
-Rad 1 ? pa....
-Rad 2 ? ......
-Rad 3 ? .u.l..
-Rad 4 ? .....a
-Rad 5 ? ......
-
-Svar: paula
-\end{verbatim}
-
-\begin{center}
-  %\includegraphics[width=6cm]{meddelande.png} \\ ~\\
-  \ku{Illustration av rutnätet i körningsexempel 1.}
-\end{center}
-
-
-\fe{Körningsexempel 2}\\
-\begin{verbatim}
-n ? 3
-m ? 3
-Rad 1 ? sn.
-Rad 2 ? .a.
-Rad 3 ? .ke
-
-Svar: snake
-\end{verbatim}
-
-
-\newpage
-\specialsection*{Uppgift 4 -- Klippa protein}
-
-Din kompis Björn har nyligen påbörjat ett stort kemiexperiment, med målet att skapa ett hemligt protein. 
-Alla protein beskrivs med strängar av bokstäver från \texttt{a}-\texttt{z}, exempelvis \texttt{bcaa} och \texttt{hejsan}.
-Han behöver skapa ett flertal så kallade \textit{rena} proteiner. Dessa är proteiner som består av kopior av en och samma bokstav.
-För att göra detta har han mikroskopiska saxar som kallas CRISPR. Med hjälp av dessa kan han ta bort upp till $k$ bokstäver
-som ligger bredvid varandra. Med andra ord kan han välja ett intervall med upp till $k$ bokstäver att klippa bort.
-Om ett protein delas i två delas när det klipps kommer dessa delar sedan att sättas ihop där de klipptes av. 
-
-Eftersom han är väldigt lat vill han ha din hjälp att skriva ett program som beräknar det minsta antalet gånger han behöver klippa ett visst protein för
-att det ska bli rent. Notera att proteinet \textbf{inte} får bli en tom sträng, eftersom det isåfall inte längre kan användas för kemi.
-
-Programmet ska först läsa in Björns protein, som består av som mest $32$ bokstäver. Sedan ska det läsa in talet $k$ ($k \ge 1$).
-
-Programmet ska sedan skriva ut det minsta antalet klippningar som krävs för att göra proteinet rent.
-
-\vspace{0.5cm}
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
-\begin{itemize}
-    \item[(1)] $\;\;\;\;$ Strängen består endast av bokstäverna \texttt{a} och \texttt{b}.    
-    \item[(2)] $\;\;\;\;k=1$ 
-    \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+    \item[(Par 1)] $\;\;\;\;$Varje bokstav dyker upp som mest en gång i vardera sträng.    
+    \item[(Par 2)] $\;\;\;\;|H| = |F|+1$ 
+    \item[(Par 3-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
 \vspace{1cm}
 \fe{Körningsexempel 1}
 \begin{verbatim}
-Björns protein ? exempelfall
-k ? 4
+H ? kattegatto.ping
+F ? katt.png
 
-Svar: 3
+Svar: Ja
 \end{verbatim}
-
-\fe{Förklaring:}
-Ett möjligt sätt är först klippa bort bokstäverna \texttt{pe}. Vi får då strängen \texttt{exemlfall}. \\
-Sedan kan vi klippa bort \texttt{fa} och får \texttt{exemlll}. \\
-Till sist klippa vi bort \texttt{exem} och får \texttt{lll}. 
-
-\vspace{3cm}
+Viruset kan ha gjort följande förändring för att få $H$ från $F$: \texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-Björns protein ? aabbabbba
-k ? 3
+H ? aaantivisiiruis.egxe
+F ? antivirus.exe
 
-Svar: 2
+Svar: Ja
+\end{verbatim}
+Viruset kan ha gjort följande förändring för att få $H$ från $F$: \\
+\texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+H ? kaaatttenmilly.pgn
+F ? kattenmilly.png
+
+Svar: Nej
+\end{verbatim}
+De skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
+kan $H$ inte skapats från $F$ av viruset. 
+
+
+
+\newpage
+\specialsection*{Uppgift 4 -- Siffersumma}
+
+Siffrid älskar att leka med tal! Just nu sitter hon och leker med heltalet $N$.
+
+Just nu undrar hon hur man kan skapa det minsta och största talet som har samma siffersumma och antal siffror som $N$.
+Kan du hjälpa henne?
+Siffersumman av ett tal är definierat som summan av alla siffror i talet. 
+
+\noindent
+Till exempel är siffersumman av talet $1234$: 
+$$
+1 + 2 + 3 + 4 = 10,
+$$
+
+och siffersumman av talet $220$:
+$$
+2 + 2 + 0 = 4.
+$$
+
+Skriv ett program som först läser in heltalet $N$ ($1 \leq N \leq 10^9$), talet som Siffrid leker runt med.
+
+Programmet ska sedan skriva det minsta och det största talet som har samma siffersumma och antal siffror som talet $N$.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1-2)] $\;\;\;\;$ $n=1$    
+    \item[(3-5)] $\;\;\;\;$ Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{0.5cm}
+\fe{Körningsexempel 1}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 101
+
+Svar: 101 200
+\end{verbatim}
+Vi kan inte få ett tal mindre än 101. Tal som 11 och 2 har samma siffersumma som $N$ och är mindre än 101, men de har inte
+lika många siffror som $N$.
+
+\vspace{0.3cm}
+\fe{Körningsexempel 2}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 878
+
+Svar: 599 995
+\end{verbatim}
+\vspace{0.3cm}
+
+\fe{Körningsexempel 3}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 137
+
+Svar: 1049 9500
 \end{verbatim}
 
-
-\begin{center}
-  %\includegraphics[width=12cm]{klippaprotein.png} \\ ~\\
-  \ku{Illustration av hur Björn kan klippa proteinet optimalt i körningsexempel 2.}
-\end{center}
 
 \newpage
 \specialsection*{Uppgift 5 -- Miniräknaren}
