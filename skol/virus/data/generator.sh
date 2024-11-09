@@ -11,33 +11,33 @@ use_solution victor.cpp
 compile gen_rand.py
 
 samplegroup
-limits maxlen=32 maxdiff=-1 unique=0
+limits maxlen=32 diff=-1 unique=0
 sample 1
 sample 2
 sample 3
 
 group group1 20
-limits maxlen=32 maxdiff=-1 unique=1
+limits maxlen=32 diff=-1 unique=1
 tc_manual ../manual_data/secret_11.in
 tc_manual ../manual_data/secret_12.in
 
 group group2 20
-limits maxlen=32 maxdiff=1 unique=0
+limits maxlen=32 diff=1 unique=0
 tc_manual ../manual_data/secret_21.in
 tc_manual ../manual_data/secret_22.in
 
 group group3 20
-limits maxlen=32 maxdiff=-1 unique=0
+limits maxlen=32 diff=2 unique=0
 tc_manual ../manual_data/secret_31.in
 tc_manual ../manual_data/secret_32.in
 
 group group4 20
-limits maxlen=32 maxdiff=-1 unique=0
+limits maxlen=32 diff=-1 unique=0
 tc_manual ../manual_data/secret_41.in
 tc_manual ../manual_data/secret_42.in
 
 group group5 20
-limits maxlen=32 maxdiff=-1 unique=0
+limits maxlen=32 diff=-1 unique=0
 tc_manual ../manual_data/secret_51.in
 tc_manual ../manual_data/secret_52.in
 

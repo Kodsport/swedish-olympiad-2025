@@ -48,7 +48,7 @@
 % Huvud och Fot
 %\fancypagestyle{}{
 \fancyhf{}\fancyhead[c]{\small{\textit{Svar och rättningsanvisningar
-      till Programmeringsolympiadens skolkval 2024}}}
+      till Programmeringsolympiadens skolkval 2025}}}
 \fancyfoot[c]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -155,7 +155,7 @@ sitta vid datorn.
 
 \subsection*{Uppgift 3 -- Virus}
 \textbf{NOTERA VID RÄTTNING}: för att förhindra att lösningar som alltid
-skriver ut ”Ja” eller alltid ”Nej” ska få poäng, så finns det fem par av testfall.
+skriver ut ”Ja” eller alltid ”Nej” ska få poäng, så finns det fem \textit{par} av testfall.
 Varje par innehåller alltså två testfall, och om programmet klarar båda dessa
 får det ett poäng, för upp till 5 poäng sammanlagt. Exempelvis, om programmet svarar
 korrekt på \texttt{Par 1, test 1}, men inte \texttt{Par 1, test 2}, så får det \textit{inte} poäng för det paret.
@@ -164,12 +164,16 @@ korrekt på \texttt{Par 1, test 1}, men inte \texttt{Par 1, test 2}, så får de
 \begin{tabular}{||l||c|c||c||}\hline\hline
 & \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
 & F & H &  \\ \hline \hline
-\fe{Par 1, test 1} & adghl & abcdefgh.ijklmn & Ja \\ \hline
-\fe{Par 1, test 2} & abcdefg.h & abcdefgh.ijklmn & Nej \\ \hline
-\fe{Test 2} & 54581 & 2 & 24 \\ \hline
-\fe{Test 3} & 99896 & 7 & 11 \\ \hline
-\fe{Test 4} & 384463392 & 7 & 20 \\ \hline
-\fe{Test 5} & 488339432 & 9 & 16\\ \hline\hline
+\fe{Par 1} & adghl & abcdefgh.ijklmn & Ja \\ \hline
+\fe{Par 1} & abcdefg.h & abcdefgh.ijklmn & Nej \\ \hline
+\fe{Par 2} & mummanavkardesumman.in & mummanaavkardesumman.in & Ja \\ \hline
+\fe{Par 2} & mummanavkardesumman.in & mummanakvardesumman.ine & Nej \\ \hline
+\fe{Par 3} & summanavkardemumman.mat & susummanavkardemumman.mat & Ja \\ \hline
+\fe{Par 3} & summanavkardemumman.mat & sumemanavkardemmumaen.mat & Nej \\ \hline
+\fe{Par 4} & kattenwinston.png & kkaatttteennwwiinnssttoonn..png & Ja \\ \hline
+\fe{Par 4} & antivirus.exe & antiivrus.exe & Nej \\ \hline
+\fe{Par 5} & svarastetestfallet.in & svarastetesvarastetestfallet.in & Ja \\ \hline
+\fe{Par 5} & svarastetestfallet.in & svarastetestfallet.ans & Nej \\ \hline\hline
 \end{tabular}
 }
 \vspace{1cm}

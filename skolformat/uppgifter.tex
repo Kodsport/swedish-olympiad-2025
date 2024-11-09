@@ -68,10 +68,10 @@ Tristian kommer att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vin
 
 Ditt program ska göra följande:
 \begin{itemize}
-  \item Om triangeln är trubbig, så ska programmet skriva ut ``Trubbig Triangel''.
-  \item Om triangeln är spetsig, så ska programmet skriva ut ``Spetsig Triangel''.
-  \item Om triangeln är rätvinklig, så ska programmet skriva ut ``Ratvinklig Triangel''.
-  (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår inte om du skriver ut ``Rätvinklig'' med ett ``ä''. Han förstår bara ``Ratvinklig Triangel'').
+  \item Om triangeln är trubbig, så ska programmet skriva ut ”Trubbig Triangel”.
+  \item Om triangeln är spetsig, så ska programmet skriva ut ”Spetsig Triangel”.
+  \item Om triangeln är rätvinklig, så ska programmet skriva ut ”Ratvinklig Triangel”.
+  (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår inte om du skriver ut ”Rätvinklig” med ett ”ä”. Han förstår bara ”Ratvinklig Triangel”).
 \end{itemize}
 
 För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
@@ -231,7 +231,8 @@ De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar
 \begin{itemize}
     \item[(Par 1)] $\;\;\;\;$Varje bokstav dyker upp som mest en gång i vardera sträng.    
     \item[(Par 2)] $\;\;\;\;|H| = |F|+1$ 
-    \item[(Par 3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+    \item[(Par 3)] $\;\;\;\;|H| = |F|+2$ 
+    \item[(Par 4-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
 \vspace{1cm}
@@ -475,8 +476,8 @@ Theodor väljer även hur han siktar på monster så att han minimerar antalet e
 
 Skriv ett program som läser in heltalen, $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
 
-Programmet ska sedan skriva ut minsta antalet explosioner som Theodor behöver avfyra för att döda
-alla monster. Eftersom detta talet kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
+Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
+Eftersom detta talet kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
 första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
 
 

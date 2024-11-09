@@ -30,7 +30,7 @@ signed main()
     fast();
 
     string a, b;
-    cin >> a >> b;
+    cin >> b >> a;
 
     int i = 0;
     int j = 0;

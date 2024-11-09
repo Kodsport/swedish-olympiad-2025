@@ -26,7 +26,7 @@ void run() {
     assert(m >= 1 && m <= maxlen);
     ll max=Arg("maxdiff");
 
-    if(max!=-1) assert(n-m<=max);
+    if(max!=-1) assert(n-m==max);
 
     bool unique=Arg("unique");
     if(unique) {
