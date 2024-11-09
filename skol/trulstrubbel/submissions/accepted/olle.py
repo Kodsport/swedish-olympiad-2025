@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 s = input()
 
 h, t = 0, 0
