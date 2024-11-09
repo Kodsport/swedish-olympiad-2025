@@ -129,7 +129,7 @@ Svar: Ratvinklig Triangel
 
 
 \newpage
-\specialsection*{Uppgift 2 -- Tre i rad}
+\specialsection*{Uppgift 2 -- Truls trubbel}
 
 
 %\begin{center}
@@ -137,73 +137,94 @@ Svar: Ratvinklig Triangel
 %  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
 %\end{center}
 
-\vspace{1cm}
+Truls och Henry spelar en pingismatch mot varandra.
 
-Matematikern Lenore Oljer har gjort så mycket matte att hon har tröttnat på primtal. 
-Hon har nu börjat studera så kallade trevliga tripletter. 
-Det är väldigt lätt att skapa en trevlig triplett. 
-Börja med ett heltal $a$ som är
-större än noll och skapa sedan tripletten $(a,a+1,a+2)$. 
-Alla tripletter som skapats på detta sätt är trevliga. 
-Några exempel på trevliga tripletter är $(4,5,6)$ och $(15,16,17)$.
+Både Truls och Henry starkt ogillar matematik, 
+speciellt att räkna på antalet poäng som vardera person har under tävlingen.
+För att förenkla poängräkningen har de kommit på en egen lösning:
 
-För att lära sig mer om trevliga tripletter vill Lenore hitta hur 
-många tal som kan skrivas som produkten av
-alla talen i en trevlig triplett. Hon kallar dessa tal ``treiga tal''. 
-Några exempel på treiga tal är $24=2 \cdot 3 \cdot 4$
-och $336 = 6 \cdot 7 \cdot 8$. Lenore vill nu veta hur många treiga tal det 
-finns som är mindre än talet $N$.
+Istället för att hålla koll på hur många poäng de har, skriver de helt
+enkelt ner ett \texttt{”T”} om Truls får poäng och ett \texttt{”H”} om Henry
+får poäng, direkt efter varje vunnen boll.
 
-Skriv ett program som läser in talet $N$ och skriver ut hur många tal som är mindre än
-$N$ och är treiga.
+När Truls och Henry kör pingis, så fungerar poängsystemet på följande vis:
+\begin{itemize}
+  \item Vid varje boll får en och endast en spelare poäng.
+  \item Vinnaren utses till den första personen som har minst 2 poäng mer än 
+  dess motståndare SAMTIDIGT som den personen har som minst $11$ poäng.
+  \item Om någon vinner, så nollställs poängen direkt och de startar en ny match. 
+  De fortsätter spela tills en ny vinnare utses.
+\end{itemize}
+
+Till exempel, om Truls har 11 poäng och Henry har 8 poäng, utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng är det ännu ingen vinnare.
+
+Men oj! Truls och Henry hamnade i trubbel. 
+De har kört väldigt länge, 
+och båda vill veta hur många poängen ser ut.
+Eftersom de båda hatar matematik vill de inte räkna
+ihop poängen själva. De ber dig att skriva ett program som
+kan räkna ut aktuell poängställning åt dem, baserat på deras anteckningar.
+
+Ditt program ska först läsa in poängställningen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
+Varje bokstav kommer antingen vara \texttt{”T”} eller \texttt{”H”}.
+
+Programmet ska sedan skriva ut $T$-$H$, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
-\begin{enumerate}
-\item  $\;\;\;\;N \le 25 $    
-\item  $\;\;\;\;N \le 80 $ 
-\item  $\;\;\;\;N \le 1000 $   
-\item  $\;\;\;\;N \le 10^5 $   
-\item  $\;\;\;\;N \le 10^9 $   
-\end{enumerate}
-
+\begin{itemize}
+  \item[(1-2)] $\;\;\;\;$En vinnare utses alltid så fort någon får 11 poäng. 
+  \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
 
 \vspace{1cm}
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-N ? 75
+Anteckningarna ? TTTHHHTHH
 
-Svar: 3
+Svar: 4-5
 \end{verbatim}
 
-\fe{Förklaring:} De treiga talen mindre än 75 är 6, 24 och 60.
+Se nästa sida för fler körningsexempel
 
-\vspace{0.5cm}
+
+\newpage
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-N ? 24
+Anteckningarna ? TTTTTTTTTTT
 
-Svar: 1
+Svar: 0-0
 \end{verbatim}
 
-\fe{Förklaring:} Eftersom det treiga talet $24$ inte är mindre än $N$ räknar vi bara 6.
+\fe{Förklaring:} Eftersom Truls vann matchen nollställdes poängen.
 
 \vspace{0.5cm}
 
 \fe{Körningsexempel 3}
 \begin{verbatim}
-N ? 1234
+Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTH
 
-Svar: 9
+Svar: 12-12
 \end{verbatim}
+\fe{Förklaring:} Även om båda har mer än 11 poängen leder ingen med 2 poäng. Därför har en vinnare inte utsetts ännu.
+
+
+\fe{Körningsexempel 4}
+\begin{verbatim}
+Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTHHHH
+
+Svar: 0-1
+\end{verbatim}
+\fe{Förklaring:} Detta spelet är en fortsättning på körningsexempel 3. Henry vinner 2 till bollar, och vinner matchen.
+Efter nollställningen vinner han en till boll, och därför står det \texttt{0-1}.
 
 
 \newpage
 \specialsection*{Uppgift 3 -- Virus}
 
-Boschua är inte så bra på cybersäkerhet. Förra månaden stängda han av brandväggen för att den
+Boschua är inte så bra på cybersäkerhet. Förra månaden stängde han av brandväggen för att den
 inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
 Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver till alla filnamn.
 
@@ -215,15 +236,14 @@ på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill
 viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 Skriv ett program som först läser in $F$ på första raden. På nästa rad ska det läsa in $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
-Då gäller det att $H$ ($1 \le |F| \le |H| \le 32$). $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
+Då håller $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
 Viruset kan lägga till vilken av dessa bokstäver som helst.
 
-Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej" (utan citationstecken).
+Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej” (utan citationstecken).
 
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
-Låt $|F|$ vara antalet bokstäver i $F$. $|H|$ är definierad likadant.
 I detta problem finns det fem par av testfall. I det ena är svaret Ja, i det andra Nej för att
 förhindra att du får poäng för att alltid skriva ut ”Ja” eller alltid ”Nej”.
 
@@ -235,35 +255,38 @@ De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar
     \item[(Par 4-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
-\vspace{1cm}
+\vspace{0.5cm}
 \fe{Körningsexempel 1}
 \begin{verbatim}
-H ? kattegatto.ping
 F ? katt.png
+H ? kattegatto.ping
 
 Svar: Ja
 \end{verbatim}
-Viruset kan ha gjort följande förändring för att få $H$ från $F$: \texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+\fe{Förklaring:} Viruset kan ha gjort följande förändring för göra om $F$ till $H$: \texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+
+Se nästa sida för fler körningsexempel.
+\newpage
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-H ? aaantivisiiruis.egxe
 F ? antivirus.exe
+H ? aaantivisiiruis.egxe
 
 Svar: Ja
 \end{verbatim}
-Viruset kan ha gjort följande förändring för att få $H$ från $F$: \\
+\fe{Förklaring:} Viruset kan ha gjort följande förändring för att göra om $F$ till $H$: \\
 \texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
 
 \fe{Körningsexempel 3}
 \begin{verbatim}
-H ? kaaatttenmilly.pgn
 F ? kattenmilly.png
+H ? kaaatttenmilly.pgn
 
 Svar: Nej
 \end{verbatim}
-De skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
-kan $H$ inte skapats från $F$ av viruset. 
+\fe{Förklaring:} De skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
+kan det inte ha ändrat $F$ till $H$. 
 
 
 
@@ -307,7 +330,7 @@ N ? 101
 
 Svar: 101 200
 \end{verbatim}
-Vi kan inte få ett tal mindre än 101. Tal som 11 och 2 har samma siffersumma som $N$ och är mindre än 101, men de har inte
+\fe{Förklaring:} Vi kan inte få ett tal mindre än 101. Tal som 11 och 2 har samma siffersumma som $N$ och är mindre än 101, men de har inte
 lika många siffror som $N$.
 
 \vspace{0.3cm}
@@ -382,6 +405,9 @@ Ett sätt att skriva in koden med minsta antalet operationer är att göra som f
   \item $\times 2$
 \end{enumerate}
 
+Se nästa sida för ett till körningsexempel.
+
+\newpage
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
@@ -441,7 +467,7 @@ Monstrenas liv ? 7 2 3
 
 Svar: 3
 \end{verbatim}
-Ett optimalt sätt att avfyra explosioner är följande:
+\fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
 \begin{enumerate}
   \item Avfyra en explosion på monstret med 7 liv. Monstrena har nu \verb+4,1,2+ liv kvar.
   \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med liv 1 dör. De resternade monstrena har \verb+1,1+ liv kvar. 
@@ -498,7 +524,7 @@ N, K, S, A ? 1 1 5 0
 
 Svar: 5
 \end{verbatim}
-Det finns ett monster, och de möjliga liv den kan ha så att Theodor dödar den med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+\fe{Förklaring:} Det finns ett monster, och de möjliga liv den kan ha så att Theodor dödar den med exakt en explosion är \verb+1, 2, 3, 4, 5+.
 
 Se nästa sida för ett till körningsexempel.
 
@@ -510,7 +536,7 @@ N, K, S, A ? 2 2 1 1
 
 Svar: 10
 \end{verbatim}
-De 10 möjliga fördelningarna av monsterliv så att Theodor dödar båda med exakt två explosioner är:
+\fe{Förklaring:} De 10 möjliga fördelningarna av monsterliv så att Theodor dödar båda med exakt två explosioner är:
 \begin{verbatim}
   1 3
   1 4
