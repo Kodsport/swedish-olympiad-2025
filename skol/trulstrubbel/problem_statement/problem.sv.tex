@@ -6,9 +6,9 @@ Truls och Henry kör en pingismatch mot varandra.
 Då både Truls och Henry starkt ogillar matematik, och speciellt att räkna på antalet poäng som vardera person har under tävlingen, så har de kommit på följande idé:
 
 Istället för att hålla koll på hur många poäng de har, så skriver de ner personen som fick ett poäng på ett papper efter varje gång som en person har gjort fått ett poäng. 
-De skriver alltså ``T'' ifall Truls får ett poäng, och ``H'' ifall Henry får ett poäng.
+De skriver alltså \texttt{``T''} ifall Truls får ett poäng, och \texttt{``H''} ifall Henry får ett poäng.
 
-I pingis fungerar poängsystemet på följande vis:
+När Truls och Henry kör pingis, så fungerar poängsystemet på följande vis:
 \begin{itemize}
   \item Varje boll som körs så kommer en och endast en person få ett poäng.
   \item Vinnaren utses till den första personen som har minst 2 poäng mer än dess motståndare SAMTIDIGT som den personen har som minst $11$ poäng.
@@ -23,11 +23,11 @@ Nu ger de dig pappret med deras anteckningar, och de ber dig att lista ut hur po
 
 
 \section*{Indata}
-Indatan består av en rad med en sträng $S$, där längden av strängen är mellan 1 och 30. Varje bokstav i strängen kommer antingen vara ``T'' eller ``H''.
+Indatan består av en rad med en sträng $S$, där längden av strängen är mellan 1 och 30. Varje bokstav i strängen kommer antingen vara \texttt{``T''} eller \texttt{``H''}.
 
 \section*{Utdata}
 Skriv ut två heltal på samma rad, antal poäng som Truls har samt antal poäng som Henry har i den nuvarande matchen.
-Mellan Truls och Henrys poäng ska det stå ett bindestreck ``-''. %Behövs det här?
+Mellan Truls och Henrys poäng ska det stå ett bindestreck \texttt{``-''}. %Behövs det här?
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -37,7 +37,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $40$       & En vinnare utses alltid så fort en person får 11 poäng. \\ \hline
+  $1$    & $40$       & En vinnare utses alltid så fort någon får 11 poäng. \\ \hline
   $2$    & $60$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
