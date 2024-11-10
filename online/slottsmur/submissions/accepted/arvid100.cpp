@@ -49,47 +49,65 @@ void initialize_arrBIT(){
     for (ll i = 1; i <= n; i++)update_arrBIT(i, arr[i]);
 }
 
-unordered_map<ll, ll> BIT1[4*MAXN], BIT2[4*MAXN];
-unordered_map<ll, ll> memBIT1[4*MAXN], memBIT2[4*MAXN];
+
+ll lastr = -1;
+
+ll BIT1[10*MAXN], BIT2[10*MAXN];
+pair<ll, ll> BITp[MAXN];
+ll leftOf[4*MAXN], rightOf[4*MAXN];
+ll idToNode[4*MAXN];
+
+
+
 
 void update_BIT1(ll id, ll node, ll value){
-    while (node < MAXN){
-        BIT1[id][node] += value;
+    node += -leftOf[idToNode[id]]+1;
+    ll extra = BITp[id].first;
+    ll maxin = BITp[id].second;
+    while (node <= maxin-extra+1){
+        BIT1[node+extra] += value;
         node += node&(~node+1);
     }
 }
 
 void update_BIT2(ll id, ll node, ll value){
-    while (node < MAXN){
-        BIT2[id][node] += value;
+    node += -leftOf[idToNode[id]]+1;
+    ll extra = BITp[id].first;
+    ll maxin = BITp[id].second;
+    while (node <= maxin-extra+1){
+        BIT2[node+extra] += value;
         node += node&(~node+1);
     }
 }
 
 ll internal_query_BIT1(ll id, ll node){
     ll sum = 0;
+    ll extra = BITp[id].first;
+    if (node > BITp[id].second-extra+1)node = BITp[id].second-extra+1;
     while (node){
-        sum += BIT1[id][node];
+        sum += BIT1[node+extra];
         node -= node&(~node+1);
     }
     return sum;
 }
 
 ll query_BIT1(ll id, ll l, ll r){
-    return internal_query_BIT1(id, r)-internal_query_BIT1(id, l);
+    return internal_query_BIT1(id, r-leftOf[idToNode[id]]+1)-internal_query_BIT1(id, l-leftOf[idToNode[id]]+1);
 }
 
 ll internal_query_BIT2(ll id, ll node){
     ll sum = 0;
+    ll extra = BITp[id].first;
+    if (node > BITp[id].second-extra+1)node = BITp[id].second-extra+1;
     while (node){
-        sum += BIT2[id][node];
+        sum += BIT2[node+extra];
         node -= node&(~node+1);
     }
     return sum;
 }
 
 ll query_BIT2(ll id, ll l, ll r){
-    return internal_query_BIT2(id, r)-internal_query_BIT2(id, l);
+    return internal_query_BIT2(id, r-leftOf[idToNode[id]]+1)-internal_query_BIT2(id, l-leftOf[idToNode[id]]+1);
 }
 
 struct Node {
@@ -99,7 +117,6 @@ struct Node {
 };
 
 Node ST[4*MAXN];
-ll leftOf[4*MAXN], rightOf[4*MAXN];
 ll indexToNode[MAXN];
 ll counter = 1;
 
@@ -124,7 +141,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = p.second-last.second;
             update_BIT1(N.id, p.second, val*diff);
-            memBIT1[N.id][p.second] = val*diff;
             last = p;
         }
         last = {-1, -1};
@@ -138,7 +154,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = last.second - p.second;
             update_BIT2(N.id, p.second, val*diff);
-            memBIT2[N.id][p.second] = val*diff;
             last = p;
         }
     }
@@ -165,7 +180,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = p.second-last.second;
             update_BIT1(N.id, p.second, val*diff);
-            memBIT1[N.id][p.second] = val*diff;
             last = p;
         }
         last = {-1, -1};
@@ -179,7 +193,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = last.second - p.second;
             update_BIT2(N.id, p.second, val*diff);
-            memBIT2[N.id][p.second] = val*diff;
             last = p;
         }
 
@@ -207,7 +220,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = p.second - last.second;
             update_BIT1(N.id, p.second, val*diff);
-            memBIT1[N.id][p.second] = val*diff;
             last = p;
         }
         last = {-1, -1};
@@ -221,7 +233,6 @@ Node merge(Node n1, Node n2, ll id){
             ll val = last.first;
             ll diff = last.second - p.second;
             update_BIT2(N.id, p.second, val*diff);
-            memBIT2[N.id][p.second] = val*diff;
             last = p;
         }
     }
@@ -232,16 +243,25 @@ Node merge(Node n1, Node n2, ll id){
 void init_ST(ll l = 1, ll r = n, ll node = 1){
     leftOf[node] = l; rightOf[node] = r;
     if (l == r){
-        ST[node].id = counter++;
+        ST[node].id = ++counter;
+        idToNode[counter] = node;
+
         ST[node].LS.insert({arr[l], l});
         ST[node].RS.insert({arr[l], -l});
         indexToNode[l] = node;
+        BITp[ST[node].id] = {lastr+1, lastr+r-l+1};
+        lastr = lastr+r-l+1;
+
         return;
     }
     ll mid = (l+r)>>1;
     init_ST(l, mid, 2*node);
     init_ST(mid+1, r, 2*node+1);
-    ST[node] = merge(ST[2*node], ST[2*node+1], counter++);
+    counter++;
+    idToNode[counter] = node;
+    BITp[counter] = {lastr+1, lastr+r-l+1};
+    lastr = lastr+r-l+1;
+    ST[node] = merge(ST[2*node], ST[2*node+1], counter);
 }
 
 ll mother_sauce = 0;
@@ -262,9 +282,7 @@ vector<Node*> find_mother_nodes(ll l, ll r, ll node = 1){
 
 ll query(ll l, ll r){ //inklusive
     vector<Node*> mothers = find_mother_nodes(l, r); 
-
     ll first = 0, second = 0, third = 0;
-
 
     ll maxi = -1;
     for (Node* N : mothers){ //logN
@@ -467,7 +485,6 @@ void update(ll index, ll increment){
         else {
             ll mb2 = query_BIT2(ST[node].id, index-1, index);
             update_BIT2(ST[node].id, index, -mb2);
-            memBIT2[ST[node].id][index] = 0;
             auto does_exist = ST[node].RS.find({oldval, -index});
             if (does_exist != ST[node].RS.end()) ST[node].RS.erase(does_exist);
             ST[node].RS.insert({nval, -index});
@@ -522,6 +539,7 @@ void update(ll index, ll increment){
                     it--;
                     pair<ll, ll> toleft = *it;
                     update_BIT2(ST[node].id, index, abs(index+toleft.second)*toleft.first);
+                    it++;
                 }
                 if ((*it).first > lsmax.first){
                     ST[node].LS.insert({nval, index});
@@ -537,7 +555,8 @@ void update(ll index, ll increment){
                 if (it != ST[node].RS.begin()){
                     it--;
                     pair<ll, ll> toleft = *it;
-                    update_BIT2(ST[node].id, index, abs(index+toleft.second)*toleft.first);                }
+                    update_BIT2(ST[node].id, index, abs(index+toleft.second)*toleft.first);                
+                }
             } 
         }
     }
@@ -551,8 +570,6 @@ int main(){
     initialize_arrBIT();
     init_ST();
 
-    ll query_count = q;
-    ll tot_count = 3;
 
     while (q--){
         ll k, l, r; cin >> k >> l >> r;
@@ -563,10 +580,6 @@ int main(){
             else cout << query(l, r) << endl;
         }
     }
-
- 
-    
-
 
     return 0;
 }

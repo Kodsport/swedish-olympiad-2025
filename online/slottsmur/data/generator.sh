@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited
 
-use_solution nq.cpp
+use_solution arvid100.cpp
 
 compile gen_rand.py 
 
