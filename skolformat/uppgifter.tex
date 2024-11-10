@@ -291,7 +291,7 @@ kan det inte ha ändrat $F$ till $H$.
 
 
 \newpage
-\specialsection*{Uppgift 4 -- Siffersumma}
+\specialsection*{Uppgift 4 -- Siffrids siffersumma}
 
 Siffrid älskar att leka med tal! Just nu sitter hon och leker med heltalet $N$.
 
@@ -318,7 +318,7 @@ Programmet ska sedan skriva det minsta och det största talet som har samma siff
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1-2)] $\;\;\;\;$ $n=1$    
+    \item[(1-2)] $\;\;\;\;$ $N \leq 10^5$    
     \item[(3-5)] $\;\;\;\;$ Inga särskilda begränsningar.
 \end{itemize}
 
@@ -487,7 +487,7 @@ Svar: 4
 \specialsection*{Uppgift 7 -- Theodor, Trollkarlen}
 
 
-Detta problem bygger på problemet Trollkarlen Theodor.
+Detta problem bygger på problemet \textit{Trollkarlen Theodor}.
 
 Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
 Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
@@ -496,14 +496,14 @@ Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika 
 så att Theodor behöver avfyra exakt $K$ magiska explosioner för att döda alla monster. Enda kravet på antalet liv
 för ett monster är att det ska vara större än $0$.
 
-Precis som i problemet Trollkarlen Theodor gör Theodor först $S$ skada på monstret han siktar på, och sedan $A$ skada på alla monster (även det han siktade på).
+Precis som i problemet \textit{Trollkarlen Theodor} gör Theodor först så att monstret han siktar på förlorar $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var.
 Theodor väljer även hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
 
 
 Skriv ett program som läser in heltalen, $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
 
 Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
-Eftersom detta talet kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
+Eftersom detta tal kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
 första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
 
 

@@ -5,4 +5,5 @@
 *.out
 *.dvi
 .vscode/
-
+__pycache__/
+*.gch
