@@ -19,16 +19,19 @@ tc g1-2 generate n=100 k=510 mode=random
 
 group group02 11
 limits n=100 k=410
+include_group group01
 tc g2-1 generate n=100 k=410 mode=random
 tc g2-2 generate n=100 k=410 mode=random
 
 group group03 16
 limits n=100 k=310
+include_group group02
 tc g3-1 generate n=100 k=310 mode=random
 tc g3-2 generate n=100 k=310 mode=random
 
 group group04 15
 limits n=100 k=275
+include_group group03
 tc g4-1 generate n=100 k=275 mode=random
 tc g4-2 generate n=100 k=275 mode=random
 
@@ -50,11 +53,16 @@ tc g7-3 generate n=100 k=250 mode=size1
 
 group group08 21
 limits n=100 k=250
+include_group group04
+include_group group05
+include_group group06
+include_group group07
 tc g8-1 generate n=100 k=250 mode=random
 tc g8-2 generate n=100 k=250 mode=random
 
 group group09 15
 limits n=100 k=225
+include_group group08
 tc g9-1 generate n=100 k=225 mode=random
 tc g9-2 generate n=100 k=225 mode=random
 tc g9-3 generate n=100 k=225 mode=size1
