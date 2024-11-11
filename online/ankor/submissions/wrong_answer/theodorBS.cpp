@@ -28,11 +28,10 @@ vpl points;
 ll splitAmount(double b){
     int am = 0;
     for(auto &[x, y] : points) {
-        if(y > lutning * x + b) am++;
+        if(y > lutning * (x+1ll) + b) am++;
     }
     return am;
 }
-
 
 
 int main() {
@@ -44,12 +43,12 @@ int main() {
     points.resize(2*n);
     for(auto &[x, y] : points) cin >> x >> y;
 
-    long double lo = -1e10+lutning, hi = 1e10+lutning;
+    long double lo = -1e10, hi = 1e10;
     while(true){
         long double mid = (lo + hi) / 2;
         ll res = splitAmount(mid);
         if(res == n) {
-            cout << mid << " " << res << "\n";
+            cout << mid-lutning << " " << res << "\n";
             exit(0);
         }
         if(res > n) hi = mid;

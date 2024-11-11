@@ -18,6 +18,7 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n', 1))
 mode = cmdlinearg('mode', "random")
 x_max = int(cmdlinearg('xmax', 1000000000))
+y_max = int(cmdlinearg('ymax', 1000000000))
 force_x = int(cmdlinearg('x', -1))
 
 points = set()
@@ -26,8 +27,8 @@ def generate_point():
     if force_x != -1:
         x = force_x
     else:
-        x = random.randint(0, min(x_max, 1000000000))
-    y = random.randint(0, 1000000000)
+        x = random.randint(0, x_max)
+    y = random.randint(0, y_max)
     return (x, y)
 
 

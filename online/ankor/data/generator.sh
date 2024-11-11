@@ -22,6 +22,9 @@ sample 1
 group group1 15
 limits n=1
 tc 1
+tc_manual ../manual/g1_line1
+tc_manual ../manual/g1_line2
+tc_manual ../manual/g1_line3
 tc g1-1 gen_rand n=1
 tc g1-2 gen_rand n=1
 tc g1-3 gen_rand n=1
@@ -45,6 +48,9 @@ tc g3-5 gen_rand n=100000 xmax=1
 
 group group4 15
 limits n=2
+tc_manual ../manual/g4_line1
+tc_manual ../manual/g4_line2
+tc_manual ../manual/g4_line3
 tc g4-1 gen_rand n=2
 tc g4-2 gen_rand n=2
 tc g4-3 gen_rand n=2
@@ -60,6 +66,7 @@ tc g5-2 gen_rand n=1000
 tc g5-3 gen_rand n=1000
 tc g5-4 gen_rand n=1000
 tc g5-5 gen_rand n=1000
+tc g5-6 gen_rand n=1000 xmax=100 ymax=100
 
 group group6 20
 include_group group5
@@ -68,3 +75,5 @@ tc g6-2 gen_rand n=100000
 tc g6-3 gen_rand n=100000
 tc g6-4 gen_rand n=100000
 tc g6-5 gen_rand n=100000
+tc g6-6 gen_rand n=100000 xmax=1000 ymax=1000
+tc g6-7 gen_rand n=100000 xmax=500 ymax=500
