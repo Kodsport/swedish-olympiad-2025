@@ -5,4 +5,4 @@ using namespace std;
 
 string encode(string S);
 
-string decode(string M);
+string decode(string E);

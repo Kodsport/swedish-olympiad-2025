@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 def encode(S: str) -> str:
     E = []
     for c in S:
