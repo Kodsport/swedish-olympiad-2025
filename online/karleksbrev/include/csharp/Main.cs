@@ -95,14 +95,14 @@ public class main {
 			UriBuilder uri = new UriBuilder(codeBase);
 			string path = Uri.UnescapeDataString(uri.Path);
 			Process enc = new Process();
-			enc.StartInfo.FileName = "/usr/bin/mono";
+			enc.StartInfo.FileName = "dotnet";
 			enc.StartInfo.Arguments = "\"" + path + "\" encoder";
 			enc.StartInfo.UseShellExecute = false;
 			enc.StartInfo.RedirectStandardOutput = true;
 			enc.Start();
 
 			Process dec = new Process();
-			dec.StartInfo.FileName = "/usr/bin/mono";
+			dec.StartInfo.FileName = "dotnet";
 			dec.StartInfo.Arguments = "\"" + path + "\" decoder";
 			dec.StartInfo.UseShellExecute = false;
 			dec.StartInfo.RedirectStandardInput = true;
