@@ -1,9 +1,8 @@
 behöver include för alla följande språk:
-c#
-java
-c++
-python
+
 rust
 
 sample-domare och lösningar i attachments som är ass
+output validator
+
 innan skicka till fredrik: ändra /usr/bin/mono till dotnet

@@ -10,7 +10,7 @@ import subprocess
 test_case_dir = '../../data/secret'
 stderr_outputs = []
 
-lang = ["cpp", "py", "cs", "java"][1]
+lang = ["cpp", "py", "cs", "java", "rust"][4]
 
 if lang == "py":
     directory = "python3"
@@ -24,7 +24,11 @@ if lang == "cs":
 if lang == "java":
     directory = "java"
     runcommand = ["java", "Main"]
+if lang=="rust":
+    directory = "rust"
+    runcommand = ["./out"]
 
+origdir = os.getcwd()
 os.chdir(directory)
 unique_q = {}
 for root, _, files in os.walk(test_case_dir):
@@ -53,6 +57,8 @@ for tc_path in testcases:
         # Store the stderr output
         stderr_outputs.append((file, result.stderr))
         print("another one")
+
+os.chdir(origdir)
 
 # Write all stderr outputs to a file
 with open(f'{lang}_hashes.txt', 'w') as f:
