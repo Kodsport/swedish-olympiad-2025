@@ -1,8 +1,4 @@
-behöver include för alla följande språk:
-
-rust
-
-sample-domare och lösningar i attachments som är ass
 output validator
+fixa output validator + team message alla språk
 
 innan skicka till fredrik: ändra /usr/bin/mono till dotnet
