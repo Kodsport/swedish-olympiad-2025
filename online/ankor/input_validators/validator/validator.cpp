@@ -16,11 +16,13 @@ typedef vector<int> vi;
 
 
 void run() {
+    int setN = Arg("n", -1);
     int maxN = Arg("nmax", 100000);
     int maxX = Arg("xmax", 1000000000);
-    int forceX = Arg("x", 0);
+    int forceX = Arg("x", -1);
 
     int N = Int(1, maxN);
+    if(setN != -1) assert(N == setN);
     Endl();
 
     set<pair<int,int>> points;

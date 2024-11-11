@@ -23,12 +23,21 @@ typedef vector<vl> vvl;
 typedef vector<vpl> vvpl;
 
 
-
-
-
 int main() {
+    cout << fixed << setprecision(10);
     cin.tie(0)->sync_with_stdio(0);
 
 
+    double lutning = 0.123954323562;
+    ll n, x, y;
+    cin >> n;
+    vector<long double> dis;
+    fo(i, n*2){
+        cin >> x >> y;
+        dis.pb(-lutning*x+y);
+    }
+    sort(all(dis));
+    cout << lutning << " " << (dis[n]+dis[n-1])/2 << "\n";
+    
     return 0;
 }

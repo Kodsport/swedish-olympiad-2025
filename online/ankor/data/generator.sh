@@ -3,16 +3,21 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-# ulimit -s unlimited # vad gör detta?
+ulimit -s unlimited # vad gör detta?
 
 use_solution theodor.cpp
+
+# Möjligen Jobbiga testfall
+# cpp rand() lutning intersectar 2
+# gör grader adaptiv???
+# ha punkter på x=0 och y=0 där lösningen skulle kunna vara (float problem)
+# det folk har skrivit här https://github.com/Kodsport/swedish-olympiad-problemsetting/issues/80
+
 
 compile gen_rand.py
 
 samplegroup
 sample 1
-sample 2
-sample 3
 
 group group1 15
 limits n=1
@@ -24,7 +29,6 @@ tc g1-4 gen_rand n=1
 
 group group2 15
 limits x=0
-include_group group1
 tc g2-1 gen_rand n=10 x=0
 tc g2-2 gen_rand n=100 x=0
 tc g2-3 gen_rand n=1000 x=0
@@ -33,7 +37,6 @@ tc g2-5 gen_rand n=100000 x=0
 
 group group3 15
 limits xmax=1
-include_group group2
 tc g3-1 gen_rand n=10 xmax=1
 tc g3-2 gen_rand n=100 xmax=1
 tc g3-3 gen_rand n=1000 xmax=1
