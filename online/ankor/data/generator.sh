@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited # vad gör detta?
 
-use_solution theodor.cpp
+use_solution theodorSafe.cpp
 
 # Möjligen Jobbiga testfall
 # cpp rand() lutning intersectar 2
