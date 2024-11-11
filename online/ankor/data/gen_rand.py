@@ -1,0 +1,48 @@
+#!/usr/bin/python3
+
+import sys
+import random
+from random import randint
+
+def cmdlinearg(name, default=None):
+    for arg in sys.argv:
+        if arg.startswith(name + "="):
+            return arg.split("=")[1]
+    if default is None:
+        print("missing parameter", name)
+        sys.exit(1)
+    return default
+
+random.seed(int(cmdlinearg('seed', sys.argv[-1])))
+
+n = int(cmdlinearg('n', 1))
+mode = cmdlinearg('mode', "random")
+x_max = int(cmdlinearg('xmax', 1000000000))
+force_x = int(cmdlinearg('x', -1))
+
+points = set()
+
+def generate_point():
+    if force_x != -1:
+        x = force_x
+    else:
+        x = random.randint(0, min(x_max, 1000000000))
+    y = random.randint(0, 1000000000)
+    return (x, y)
+
+
+if mode == "random":
+    while len(points) < 2*n:
+        point = generate_point()
+        points.add(point)
+
+   
+points = list(points)
+
+print(n)
+for x, y in points:
+    print(x, y)
+
+
+
+
