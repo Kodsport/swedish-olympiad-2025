@@ -22,8 +22,8 @@ c = int(cmdlinearg('c', 2))
 
 hi = 10**9
 print(n,q)
-hights = [randint(1, hi) for i in range(n)]
-print(*hights)
+heights = [randint(1, hi) for i in range(n)]
+print(*heights)
 
 
 for i in range(q):
@@ -31,11 +31,12 @@ for i in range(q):
     if t==2:
         while True:
             pos = randint(1, n)
-            if hights[pos-1] < hi:
+            if heights[pos-1] < hi:
                 break
-        value = randint(1, hi-hights[pos-1])
-        hights[pos-1] += value
+        value = randint(1, hi-heights[pos-1])
+        heights[pos-1] += value
         print(t, pos, value)
     else:
-        l = randint(1, n)
-        print(t, l, randint(l, n))
+        length = randint(0, n-1)
+        start = randint(1, n-length)
+        print(t, start, start+length)
