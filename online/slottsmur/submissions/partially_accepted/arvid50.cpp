@@ -77,6 +77,7 @@ ll right_query(ll l, ll r, ll v){ //last stricly bigger than v in range l -> r
     if (l > r)return -1;
 
     vector<ll> mothers = find_mothers(l, r);
+    reverse(all(mothers));
     for (ll x : mothers){
         if (ST[x].first > v)return rightest(x, v);
     }
@@ -102,7 +103,6 @@ void update(ll index, ll increment){
 
 int main(){
     scoobydoobydoo();
-    freopen("inl.in", "r", stdin);
     ll n, q; cin >> n >> q;
     for (int i = 0; i < n; i++)cin >> vals[i];
     init_ST(0, n-1);
@@ -128,6 +128,7 @@ int main(){
 
             last = -1;
             ll maxi = -1;
+
 
             for (ll x : s){
                 maxi = max(maxi, vals[x]);
