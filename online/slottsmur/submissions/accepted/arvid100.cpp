@@ -387,7 +387,6 @@ void update(ll index, ll increment){
         lastwhereis = where_is;
 
         if (where_is == 1){ //mitten
-            //cout << "MITTEN" << endl;
             if (nval > lsmax.first){
                 ST[node].LS.insert({nval, index});
                 update_BIT1(ST[node].id, index, abs(index-lsmax.second)*lsmax.first);

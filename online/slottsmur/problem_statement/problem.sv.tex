@@ -1,39 +1,32 @@
-\problemname{Danska}
+\problemname{Slottsmur}
 
 \noindent
 
-Boschua ska flytta till Lund för att plugga på LTH. Du har upptäckt att Lund ligger i Skåne
-och har därför blivit väldigt orolig över att Boschua ska börja låta dansk.
+Ägaren av slottet Drakfjälls Kastell har det tufft ekonomiskt, men istället för att vända sig till en kvacksalvare
+som gör om honom till en groda har han tänkt att riva delar av slottsmuren. \\
+Slottsmuren kan beskrivas med $N$ olika värden $h_i$, vilket representerar höjden på den $i$:te murbiten.
+Slottsägaren älskar dessutom regnvatten som samlas på den två dimensionella muren när det regnar och känner därför
+behovet att ställa lite frågor till dig om just det. Det kan också vara i hans intresse att undersöka vad som händer om man minskar någon murbitshöjd.
+Slottsägaren kommer därfö att ge två ordrar:\\
+\begin{enumerate}
+  \item Givet två värden $l, r$, om vi endast använder murbitarna i det intervallet. Skriv i konsolen hur mycket regnvatten som då hade samlats.
+  \item Givet två värden $i, w$, låt höjden av det $i$:te murbiten minska med $w$. (det är garanterat att höjden på alla murbitar alltid är större än 1)
+\end{enumerate}
 
-Du har hittat en gammal Dansk ordbok som har $M$ stycken ord i sig. Du vill nu visa för Boschua hur många
-ord det finns som inte alls låter danska. Tyvärr tar det lång tid att räkna alla för hand, så du
-behöver nu skriva ett program för detta.
-
-Mer exakt, ett ord består av endast små engelska bokstäver \texttt{a}-\texttt{z}. Du vill då räkna antalet ord
-av längd exakt $N$ som inte låter för danska. Ett ord låter för danskt ifall ordet innehåller minst en av orden
-från ordboken i sig.
-
-Exempelvis, anta att orboken endast består av ordet \texttt{knallert}. Då innehåller ordet \texttt{husknallertrumma}
-ordet knallert, och anses därför vara för danskt.
-
-Däremot innehåller ordet \texttt{knallerunt} \textbf{inte} ordet knallert på grund av förekomsten av ett \texttt{u},
-och anses därför inte vara för danskt.
-
-% Beräkna antalet strängar av längd $N$ som inte innehåller någon av de $M$ substrängarna modolu $10^9+7$.
-
+Hjälp slottsägaren med sitt trubbel.
 
 \section*{Indata}
-Den första raden i indatan innehåller heltalen $N$ och $Q$ ($1 \le N, Q \le 2 \cdot 10^5$),
+Den första raden i indatan innehåller heltalen $N$ och $Q$ ($1 \le N, Q \le 2 \cdot 2\cdot10^5$),
 antalet höjder och antalet frågor.
 
-Därefter följer $N$ heltal $h_1, h_2, \dots, h_N$ ($1 \leq h_i \leq N$), höjden på varje stapel.
+Därefter följer $N$ heltal $h_1, h_2, \dots, h_N$ ($1 \leq h_i \leq 10^9$), höjden på varje stapel.\\
 
-Till sist följer $Q$
-
+Sedan följer $Q$ rader med tre heltal vardera. Dessa kan ha två former:\\
+$1, l, r$ om slottsägaren ger en order av form $1$ som beskrivet ovan\\
+$2, i, w$ om slottsägaren ger en order av form $2$ som beskrivet ovan
 
 \section*{Utdata}
-Skriv ut antalet ord av längd $N$ som inte låter för danskt. Eftersom detta talet kan bli väldigt stort,
-skriv ut det \href{https://en.wikipedia.org/wiki/Modulo}{modulo} $10^9+7$. 
+Skriv ut för varje order av form $1$ ut ett heltal, mängden vatten som samlas om man river allt som inte ligger i det intervallet
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -43,12 +36,14 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $10$       & $M = 0$ \\ \hline
-  $2$    & $13$       & $N \leq 3, M \leq 10$ \\ \hline
-  $3$    & $23$       & $M = 1$ \\ \hline
-  $4$    & $32$       & $N, M \leq 50$ \\ \hline
-  $5$    & $22$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $13$       & $N, Q \leq 1000$ \\ \hline
+  $2$    & $17$       & $h_i$ och $w$ är genererade slumpmässigt \\ \hline
+  $3$    & $20$       & Inga ordrar på form $2$ \\ \hline
+  $4$    & $23$       & $N, M \leq 20000$ \\ \hline
+  $5$    & $27$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 \section*{Förklaring av exempelfall}
-I första fallet finns det $26^3$ olika ord. Eftersom den Danska ordboken är tom i detta fallet förbjuds inga av dessa.
+När muren kan beskrivas som $2, 1, 2$ kan det samlas $1$ vattenenhet på den andra murbiten mellan den första och tredje. \\
+Sedan ändras muren till $2, 3, 2$\\
+Det kan sedan inte samlas något vatten på muren som.
