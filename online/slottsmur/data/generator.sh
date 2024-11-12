@@ -18,7 +18,7 @@ group group1 13
 limits maxn=1000 maxq=1000
 tc 1
 tc g1-1 gen_rand n=10 q=10
-tc g1-2 gen_pyramid n=1000 q=1000
+tc g1-2 gen_pyramid n=1000 q=1000 c=1
 tc g1-3 gen_rand n=1000 q=1000
 tc g1-4 gen_pyramid n=1000 q=1000
 # tc g1-5 gen_rand n=1000 q=1000
@@ -33,9 +33,9 @@ tc g1-4 gen_pyramid n=1000 q=1000
 group group2 17
 limits maxn=200000 maxq=200000
 tc g2-1 gen_rand n=100000 q=100000
-tc g2-2 gen_rand n=10000 q=200000
+tc g2-2 gen_rand n=10000 q=200000 c=1
 tc g2-3 gen_rand n=200000 q=200000 
-tc g2-4 gen_rand n=200000 q=200000
+tc g2-4 gen_rand n=200000 q=200000 c=1
 # tc g2-5 gen_rand n=200000 q=200000
 # tc g2-6 gen_rand n=200000 q=200000
 # tc g2-7 gen_rand n=200000 q=200000
@@ -79,8 +79,8 @@ tc g4-5 gen_rand n=40000 q=40000
 group group5 27
 limits maxn=200000 maxq=200000
 tc g5-1 gen_pyramid n=100000 q=100000
-tc g5-2 gen_rand n=100000 q=200000
-tc g5-3 gen_pyramid n=200000 q=200000
+tc g5-2 gen_rand n=100000 q=200000 c=1
+tc g5-3 gen_pyramid n=200000 q=200000 c=1
 tc g5-4 gen_rand n=200000 q=200000
 tc g5-5 gen_pyramid n=200000 q=200000
 # tc g5-6 gen_rand n=200000 q=200000
