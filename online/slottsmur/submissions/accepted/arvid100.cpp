@@ -22,7 +22,7 @@ inline void scoobydoobydoo(){
     cin.tie(NULL); cout.tie(NULL);
 }
 
-const int MAXN = 3e5+1;
+const int MAXN = 2e5+1;
 ll arr[MAXN];
 ll arrBIT[MAXN];
 ll setarrBIT[MAXN];
@@ -52,8 +52,8 @@ void initialize_arrBIT(){
 
 ll lastr = -1;
 
-ll BIT1[10*MAXN], BIT2[10*MAXN];
-pair<ll, ll> BITp[MAXN];
+ll BIT1[20*MAXN], BIT2[20*MAXN];
+pair<ll, ll> BITp[4*MAXN];
 ll leftOf[4*MAXN], rightOf[4*MAXN];
 ll idToNode[4*MAXN];
 
@@ -64,7 +64,7 @@ void update_BIT1(ll id, ll node, ll value){
     node += -leftOf[idToNode[id]]+1;
     ll extra = BITp[id].first;
     ll maxin = BITp[id].second;
-    while (node <= maxin-extra+1){
+    while (node <= maxin-extra+1 && node < 10*MAXN){
         BIT1[node+extra] += value;
         node += node&(~node+1);
     }
@@ -74,7 +74,7 @@ void update_BIT2(ll id, ll node, ll value){
     node += -leftOf[idToNode[id]]+1;
     ll extra = BITp[id].first;
     ll maxin = BITp[id].second;
-    while (node <= maxin-extra+1){
+    while (node <= maxin-extra+1 && node < 10*MAXN){
         BIT2[node+extra] += value;
         node += node&(~node+1);
     }
@@ -387,6 +387,7 @@ void update(ll index, ll increment){
         lastwhereis = where_is;
 
         if (where_is == 1){ //mitten
+            //cout << "MITTEN" << endl;
             if (nval > lsmax.first){
                 ST[node].LS.insert({nval, index});
                 update_BIT1(ST[node].id, index, abs(index-lsmax.second)*lsmax.first);
@@ -579,6 +580,9 @@ int main(){
             else cout << query(l, r) << endl;
         }
     }
+ 
+    
+
 
     return 0;
 }

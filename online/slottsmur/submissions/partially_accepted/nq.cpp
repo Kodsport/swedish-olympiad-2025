@@ -34,12 +34,12 @@ signed main()
     {
         int t;
         cin >> t;
-        if (t == 1)
+        if (t == 2)
         {
             int i, v;
             cin >> i >> v;
             i--;
-            heights[i] = v;
+            heights[i] += v;
         }
         else
         {
