@@ -12,34 +12,33 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-
-
 void run() {
     int n = Int(1, Arg("maxn"));
     Space();
     int q = Int(1, Arg("maxq"));
     Endl();
 
-    SpacedInts(n, 1, int(1e9));
-    for (int i = 0; i < q; i++)
-    {
-        int t = Int(1,2);
+    vi h(n);
+    h = SpacedInts(n, 1, 1000000000);
+
+    for(int i = 0; i < q; i++){
+        int t = Int(1, 2);
         Space();
-        if (t==1)
-        {
-            Int(1, n);
-            Space();
-            Int(1, int(1e9));
-        }
-        else
-        {
+        if(t == 1){
             int l = Int(1, n);
             Space();
-            Int(l, n);
+            int r = Int(l, n);  
+        }else{
+            int idx = Int(1, n);
+            Space();
+
+            int max_w = 1000000000 - h[idx - 1];
+            assert(max_w >= 1); 
+            int w = Int(1, max_w);
+            h[idx - 1] += w; 
         }
         Endl();
     }
 
     Eof();
 }
-
