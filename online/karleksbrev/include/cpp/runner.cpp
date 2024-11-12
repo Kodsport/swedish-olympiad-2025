@@ -193,7 +193,6 @@ int main() {
 
 			if (decoded!=S)
 			{
-				cout << S << "    " << decoded << "    ." << endl;
 				cout << _SECRET_FAIL << "Decoder did not find S" << endl;
 				close(pipefds[1]);
 				exit(0);

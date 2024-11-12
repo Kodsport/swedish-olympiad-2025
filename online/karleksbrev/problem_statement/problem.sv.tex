@@ -78,8 +78,12 @@ Detta innebär att hur den väljer $S$ eller vilket intervall som ska fördärva
 \section*{Referensimplementationer}
 Alla referensimplementationer i attachments implementerar följande protokoll: \texttt{encode} skickar varje bokstav
 i $S$ 5 gånger på raken. \texttt{decode} tar sedan varje grupp av 5 bokstäver, och säger att värdet av bokstaven
-i $S$ är den som dyker upp flest gånger. Detta protokollet funkar inte, men borde visa hur hur implementationen ska
-se ut.
+i $S$ är i mitten av gruppen. Detta protokollet funkar inte, men visar hur implementationen av ett
+protokoll kan se ut.
+
+Det är viktigt att din lösning inte läser eller skriver från standard input/output. Om din lösning gör det
+kommer du troligtvis att få ett konstigt felmeddelande. För vissa språk är filnamnet viktigt, så ändra inte
+det. Ändra heller inte namnet på funktioner och klasser osv om dessa finns.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.

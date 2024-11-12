@@ -7,33 +7,58 @@ import os
 import subprocess
 
 
-test_case_dir = '../data/secret'
+test_case_dir = '../../data/secret'
 stderr_outputs = []
 
-lang = ["cpp", "py"][1]
+lang = ["cpp", "py", "cs", "java", "rust"][4]
 
 if lang == "py":
-    runcommand = ['pypy3', 'python3/main.py']
+    directory = "python3"
+    runcommand = ['pypy3', 'main.py']
 if lang == "cpp":
-    runcommand = ["./cpp/hasher"]
+    directory = "python3"
+    runcommand = ["./hasher"]
+if lang == "cs":
+    directory = "csharp"
+    runcommand = ["./bin/Debug/net8.0/kattis"]
+if lang == "java":
+    directory = "java"
+    runcommand = ["java", "Main"]
+if lang=="rust":
+    directory = "rust"
+    runcommand = ["./out"]
 
+origdir = os.getcwd()
+os.chdir(directory)
+unique_q = {}
 for root, _, files in os.walk(test_case_dir):
     for file in files:
         test_case_path = os.path.join(root, file)
         if test_case_path.split(".")[-1] != "in":
             continue
         
-        with open(test_case_path, 'r') as test_case:
-            result = subprocess.run(
-                runcommand,
-                stdin=test_case,
-                stderr=subprocess.PIPE,
-                text=True
-            )
-            
-            # Store the stderr output
-            stderr_outputs.append((file, result.stderr))
-            print("another one")
+        tc_name = test_case_path.split("/")[-1]
+        if tc_name not in unique_q:
+            unique_q[tc_name] = test_case_path
+
+testcases = list(unique_q.values())
+testcases.sort()
+
+
+for tc_path in testcases:
+    with open(tc_path, 'r') as test_case:
+        result = subprocess.run(
+            runcommand,
+            stdin=test_case,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        
+        # Store the stderr output
+        stderr_outputs.append((file, result.stderr))
+        print("another one")
+
+os.chdir(origdir)
 
 # Write all stderr outputs to a file
 with open(f'{lang}_hashes.txt', 'w') as f:
