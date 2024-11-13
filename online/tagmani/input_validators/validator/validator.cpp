@@ -25,6 +25,9 @@ void run() {
 	
 	int maxt = Arg("maxt");
 
+	int smalldeg = Arg("smalldeg", 0);
+	vector<int> deg(n);
+	long long tot_dist = 0;
 	UF uf(n);
 	for (int i = 0; i < n-1; i++)
 	{
@@ -32,12 +35,16 @@ void run() {
 		Space();
 		int b = Int(1,n);
 		Space();
-		Int(1, int(1e9));
+		tot_dist += (long long)Int(1, int(1e9));
 		Endl();
 		a--; b--;
+		if (smalldeg) assert(++deg[a-1]<=3);
+		if (smalldeg) assert(++deg[b-1]<=3);
 		assert(uf.join(a,b));
 	}
 	
+	
+	int latetrains = Arg("latetrains", 0);
 
 	set<int> used_times;
 	for (int i = 0; i < k; i++)
@@ -51,6 +58,15 @@ void run() {
 		int d = Int(1, int(1e9));
 		Endl();
 		assert(a!=b);
+		if (latetrains)
+		{
+			if (tot_dist+1>t)
+			{
+				cout << t << " " << tot_dist+1 << "\n";
+				assert(t > tot_dist+1);
+			}
+			
+		}
 		assert(used_times.find(t)==used_times.end());
 		used_times.insert(t);
 	}

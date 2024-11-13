@@ -19,6 +19,7 @@ n = int(cmdlinearg('n'))
 k = int(cmdlinearg('k'))
 t = int(cmdlinearg('t'))
 maxd = int(cmdlinearg("maxd"))
+late_trains = int(cmdlinearg("latetrains", 0))
 
 # Stolen from https://github.com/cheran-senthil/PyRival/blob/master/pyrival/data_structures/DisjointSetUnion.py
 class UF:
@@ -38,6 +39,7 @@ class UF:
 
 uf = UF(n)
 
+totdist = 0
 print(n, k)
 for i in range(n-1):
     while True:
@@ -45,13 +47,17 @@ for i in range(n-1):
         if a==b:continue
         if uf.find(a)==uf.find(b):continue
         uf.union(a,b)
-        print(a+1,b+1, randint(1, maxd))
+        d = randint(1, maxd)
+        totdist += d
+        print(a+1,b+1, d)
         break
 
 seen_times = set()
 for i in range(k):
     while 1:
         time = randint(0, t)
+        if late_trains:
+            time += totdist + 20
         if time in seen_times:
             continue
         seen_times.add(time)

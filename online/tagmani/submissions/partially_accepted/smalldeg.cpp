@@ -1,4 +1,4 @@
-// O(NlogN+NKlogN+K^2logN)
+// O(~(N+K)logNlogK*maxdeg)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -156,11 +156,15 @@ signed main()
     auto add_map = [&](map<int, int>& m, int t, int v)
         {
             if (t < 0) return;
-            auto it = m.upper_bound(t);
-            if (it != m.begin() && prev(it)->second > v) return;
-            while (it != m.end() && it->second <= v)
+            auto it = m.lower_bound(t);
+            if (it != m.end() && it->second >= v) return;
+            while (it != m.begin())
             {
-                it = m.erase(it);
+                if (prev(it)->second <= v)
+                {
+                    m.erase(prev(it));
+                }
+                else break;
             }
             m[t] = v;
         };
@@ -210,13 +214,10 @@ signed main()
         {
             add(a, t - d, best+1);
         }
-
     }
 
     rep(i, n)
     {
-        int ans = 0;
-
         cout << query(i,0) << " ";
     }
     cout << endl;

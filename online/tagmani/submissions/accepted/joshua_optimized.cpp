@@ -1,4 +1,4 @@
-// O(NlogN+NKlogN+K^2logN)
+// O((N+K)logNlogK)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -29,8 +29,8 @@ vector<vector<p2>> adj;
 struct centroid
 {
     vvi children;
-    vector<vi> par_dist;
     vi par;
+    vector<vi> par_dist;
     vi size;
     centroid() : children(sz(adj)), par(sz(adj)), par_dist(sz(adj)), size(sz(adj))
     {
@@ -81,38 +81,37 @@ struct fenwick
     fenwick(int n) : n(n), tree(n + 1) {}
     fenwick() {}
 
-    p2 f(const p2& a, const p2& b)
-    {
-        int max1 = 0, max2 = 0;
-
-        for (int val : {a.first, a.second, b.first, b.second}) {
-            if ((val & lomask) > (max1 & lomask)) {
-                if ((max1 >> 20) != (max2 >> 20))
-                {
-                    max2 = max1; // update second largest
-                }
-
-                max1 = val;  // update largest
-            }
-            else if ((val & lomask) > (max2 & lomask) && (val >> 20) != (max2 >> 20)) {
-                max2 = val;  // update second largest if it's not the largest
-            }
-        }
-
-        return p2(max1, max2);
-    }
-
-    void update(int r, p2 v)
+    void update(int r, int v)
     {
         r = n - 1 - r;
-        for (r++; r < sz(tree); r += (r & -r)) tree[r] = f(tree[r], v);
+        for (r++; r < sz(tree); r += (r & -r))
+        {
+            p2& t = tree[r];
+            if ((v & lomask) > (t.first & lomask))
+            {
+                if ((t.first >> 20) != (t.second >> 20))
+                {
+                    t.second = t.first;
+                }
+                t.first = v;
+            }
+            else if ((v&lomask)>(t.second&lomask) && (v >> 20) != (t.second >> 20))
+            {
+                t.second = v;
+            }
+        }
     }
 
-    p2 query(int l) // query [l, n)
+    int query(int l, int ignoreind) // query [l, n)
     {
-        p2 ret = p2(0, 0);
+        int ret = 0;
         int r = n - 1 - l;
-        for (r++; r > 0; r -= (r & -r)) ret = f(tree[r], ret);
+        for (r++; r > 0; r -= (r & -r))
+        {
+            p2& t = tree[r];
+            if ((t.first >> 20) != (ignoreind >> 20)) ret = max(ret, t.first & lomask);
+            if ((t.second >> 20) != (ignoreind >> 20)) ret = max(ret, t.second & lomask);
+        }
         return ret;
     }
 };
@@ -168,13 +167,11 @@ signed main()
     auto add_nodes = [&](int u, int t)
         {
             int c = u;
-            int prevc = -1;
             int i = 0;
             while (c != -1)
             {
                 unique_values[c]++;
                 values[c].push_back(t - par_dist[u][i]);
-                prevc = c;
                 c = par[c];
                 i++;
             }
@@ -206,7 +203,7 @@ signed main()
                 int realt = t - par_dist[u][i];
                 int ind = lower_bound(all(values[c]), realt) - values[c].begin();
                 int ignore_ind = lower_bound(all(child_index[c]), p2(prevc, inf)) - child_index[c].begin();
-                trees[c].update(ind, p2(dpv + (ignore_ind << 20), 0));
+                trees[c].update(ind, dpv + (ignore_ind << 20));
                 prevc = c;
                 c = par[c];
                 i++;
@@ -227,15 +224,7 @@ signed main()
 
                 if (ind != unique_values[c])
                 {
-                    p2 res = trees[c].query(ind);
-                    if ((res.first >> 20) != ignoreind)
-                    {
-                        ret = max(ret, res.first & lomask);
-                    }
-                    if ((res.second >> 20) != ignoreind)
-                    {
-                        ret = max(ret, res.second & lomask);
-                    }
+                    ret = max(ret,trees[c].query(ind, ignoreind));
                 }
 
                 prevc = c;

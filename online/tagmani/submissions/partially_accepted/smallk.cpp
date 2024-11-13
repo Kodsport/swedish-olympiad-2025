@@ -1,4 +1,4 @@
-// O(NlogN+NKlogN+K^2logN)
+// O(NlogN+K^2logN)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -57,7 +57,7 @@ int lca(int a, int b)
 
     for (int d = 18; d >= 0; d--)
     {
-        if (!isancestor(up[d][a],b))
+        if (!isancestor(up[d][a], b))
         {
             a = up[d][a];
         }
@@ -95,7 +95,7 @@ signed main()
         int a, b, t, d;
         cin >> a >> b >> t >> d;
         a--; b--;
-        trains.emplace_back(t+d, a, b, d);
+        trains.emplace_back(t + d, a, b, d);
     }
     sort(all(trains));
     reverse(all(trains));
@@ -113,7 +113,7 @@ signed main()
         {
             int ptime, pnode, pdp;
             tie(ptime, pnode, pdp) = p;
-            if (dist(pnode,b) + t <= ptime)
+            if (dist(pnode, b) + t <= ptime)
             {
                 best = max(best, 1 + pdp);
             }
@@ -126,19 +126,19 @@ signed main()
 
     }
 
+    int ans = 0;
+
+    repe(p, prev_states)
+    {
+        int ptime, pnode, pdp;
+        tie(ptime, pnode, pdp) = p;
+        if (dist(pnode, 0) <= ptime)
+        {
+            ans = max(ans, pdp);
+        }
+    }
     rep(i, n)
     {
-        int ans = 0;
-
-        repe(p, prev_states)
-        {
-            int ptime, pnode, pdp;
-            tie(ptime, pnode, pdp) = p;
-            if (dist(pnode,i) <= ptime)
-            {
-                ans = max(ans, pdp);
-            }
-        }
         cout << ans << " ";
     }
     cout << endl;

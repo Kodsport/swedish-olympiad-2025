@@ -1,4 +1,4 @@
-// O(NlogN+NKlogN+K^2logN)
+// O((N+K)logNlogK)
 #include <bits/stdc++.h>
 using namespace std;
 
