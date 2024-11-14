@@ -10,9 +10,10 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef long double ld;
 
-bool isAbove(ld m, ld b, ll x, ll y){
-    return y > m * x + b;
+bool isAbove(ld k, ld b, ll x, ll y){
+    return y > __float128(k) * x + b;
 }
+ld MAX_VAL = ld(5e9);
 
 int main(int argc, char **argv) {
     init_io(argc, argv);
@@ -26,26 +27,28 @@ int main(int argc, char **argv) {
     }
 
     auto check = [&](istream& sol, feedback_function feedback){
-		ld m, b;
-		if (!(sol >> m >> b)) { // borde typ göra checkar ifall den är för stor?? vad är max gräns på output?
+		ld k, b;
+		if (!(sol >> k >> b)) {
 			feedback("Expected two floating point numbers or 'impossible'");
 		}
-		string trailing;
-		if(sol >> trailing) feedback("Trailing output");
 		
+		if (abs(k) > MAX_VAL || abs(k) > MAX_VAL) feedback("Too large number");
+
 		int above = 0;
 		for (auto [x, y] : points) {
-			if (isAbove(m, b, x, y)) above++;
+			if (isAbove(k, b, x, y)) above++;
 		}
 		
 		if (above != n) {
 			feedback("Line does not split points equally (got %d points above, expected %d)", above, n);
 		}
+		string trailing;
+		if(sol >> trailing) feedback("Trailing output");
 	};
 
 	check(judge_ans, judge_error);
 	check(author_out, wrong_answer);
 
-    // accept_with_score(1.0);
+	cout << "W";
     accept();
 }

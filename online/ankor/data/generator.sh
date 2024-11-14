@@ -17,7 +17,9 @@ use_solution theodorSafe.cpp
 compile gen_rand.py
 
 samplegroup
-sample 1
+sample_manual 1
+sample_manual 2
+sample_manual 3
 
 group group1 15
 limits n=1
@@ -48,6 +50,7 @@ tc g3-5 gen_rand n=100000 xmax=1
 
 group group4 15
 limits n=2
+tc 2
 tc_manual ../manual/g4_line1
 tc_manual ../manual/g4_line2
 tc_manual ../manual/g4_line3
@@ -61,6 +64,7 @@ group group5 20
 limits nmax=1000
 include_group group1
 include_group group4
+tc 3
 tc g5-1 gen_rand n=100
 tc g5-2 gen_rand n=1000
 tc g5-3 gen_rand n=1000

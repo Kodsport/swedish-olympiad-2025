@@ -17,8 +17,8 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 n = int(cmdlinearg('n', 1))
 mode = cmdlinearg('mode', "random")
-x_max = int(cmdlinearg('xmax', 1000000000))
-y_max = int(cmdlinearg('ymax', 1000000000))
+x_max = int(cmdlinearg('xmax', int(1e6)))
+y_max = int(cmdlinearg('ymax', int(1e6)))
 force_x = int(cmdlinearg('x', -1))
 
 points = set()
