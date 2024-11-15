@@ -64,7 +64,7 @@ Tristian jobbar på en triangelfabrik.
 Hans arbete är att klassificera olika sorters trianglar som produceras i fabriken.
 Tristian ber nu dig att skriva ett program som kan ersätta honom.
 
-Tristian kommer att ge dig 3 positiva heltal, $a$, $b$ och $c$, som är de 3 vinklarna i en triangel.
+Tristian kommer att ge dig tre positiva heltal, $a$, $b$ och $c$, som är de tre vinklarna i en triangel, angivna i grader.
 
 Ditt program ska göra följande:
 \begin{itemize}
@@ -139,24 +139,27 @@ Svar: Ratvinklig Triangel
 
 Truls och Henry spelar en pingismatch mot varandra.
 
-Både Truls och Henry starkt ogillar matematik, 
+Både Truls och Henry ogillar starkt matematik, 
 speciellt att räkna på antalet poäng som vardera person har under tävlingen.
 För att förenkla poängräkningen har de kommit på en egen lösning:
 
 Istället för att hålla koll på hur många poäng de har, skriver de helt
-enkelt ner ett \texttt{”T”} om Truls får poäng och ett \texttt{”H”} om Henry
+enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
 får poäng, direkt efter varje vunnen boll.
 
-När Truls och Henry kör pingis, så fungerar poängsystemet på följande vis:
-\begin{itemize}
+När Truls och Henry kör pingis, så fungerar poängsystemet enligt dessa tre regler:
+\begin{enumerate}
   \item Vid varje boll får en och endast en spelare poäng.
-  \item Vinnaren utses till den första personen som har minst 2 poäng mer än 
-  dess motståndare SAMTIDIGT som den personen har som minst $11$ poäng.
-  \item Om någon vinner, så nollställs poängen direkt och de startar en ny match. 
-  De fortsätter spela tills en ny vinnare utses.
-\end{itemize}
+  \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
+  \begin{itemize}
+    \item Spelaren har minst 2 poängs marginal över sin motståndare.
+    \item Spelaren har minst 11 poäng.
+  \end{itemize}
+  Till exempel, om Truls har 11 poäng och Henry har 9 poäng, så utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng finns det ännu ingen vinnare.
 
-Till exempel, om Truls har 11 poäng och Henry har 8 poäng, utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng är det ännu ingen vinnare.
+  \item När en spelare har vunnit enligt ovanstående kriterier, så nollställs poängen för båda spelarna och en ny match startar.
+\end{enumerate}
+
 
 Men oj! Truls och Henry hamnade i trubbel. 
 De har kört väldigt länge, 
@@ -166,14 +169,14 @@ ihop poängen själva. De ber dig att skriva ett program som
 kan räkna ut aktuell poängställning åt dem, baserat på deras anteckningar.
 
 Ditt program ska först läsa in poängställningen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
-Varje bokstav kommer antingen vara \texttt{”T”} eller \texttt{”H”}.
+Varje bokstav kommer antingen vara ”\texttt{T}” eller ”\texttt{H}”.
 
 Programmet ska sedan skriva ut $T$-$H$, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
 \begin{itemize}
-  \item[(1-2)] $\;\;\;\;$En vinnare utses alltid så fort någon får 11 poäng. 
+  \item[(1-2)] $\;\;\;\;$Ingen spelare kommer aldrig få mer än 11 poäng. 
   \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
@@ -217,8 +220,8 @@ Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTHHHH
 
 Svar: 0-1
 \end{verbatim}
-\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3. Sedan vinner Henry 2 till bollar, och vinner på så sätt matchen.
-Efter nollställningen vinner han en till boll, och därför står det \texttt{0-1}.
+\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen med två bollar,
+poängen nollställs och Henry sedan vinner ytterligare en boll. Därför står det \texttt{0-1}.
 
 
 \newpage
@@ -229,7 +232,7 @@ inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått 
 Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver till alla filnamn.
 
 Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
-Den kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
+Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
 
 Han letar nu efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som tar emot $F$ och namnet på en fil $H$
 på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
@@ -237,7 +240,7 @@ viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 Skriv ett program som först läser in $F$ på första raden. På nästa rad ska det läsa in $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
 Då håller $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
-Viruset kan lägga till vilken av dessa bokstäver som helst.
+$F$ innehåller garanterat exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
 Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej” (utan citationstecken).
 
@@ -346,7 +349,7 @@ Svar: 599 995
 \fe{Körningsexempel 3}\\
 \vspace{-0.3cm}
 \begin{verbatim}
-N ? 137
+N ? 1337
 
 Svar: 1049 9500
 \end{verbatim}
@@ -361,7 +364,7 @@ trycka på \texttt{=}-tecknet, så kommer miniräknaren att låsa upp flera
 stycken hemliga matematikfunktioner.
 
 Din kompis har lyckats lista ut vad kålnami-koden är, men han berättar för dig
-att du inte får gå tillväga hursomhelst för att skriva in koden i miniräknaren.
+att du inte får gå tillväga hur som helst för att skriva in koden i miniräknaren.
 Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
 \begin{itemize}
   \item Multiplicera talet som visas med talet $m$.
@@ -369,14 +372,14 @@ Från början visar miniräknaren $0$. Sedan får du utföra följande operation
 \end{itemize}
 
 Som tur är har din kompis även lyckats lista ut vad talet $m$ är. 
-Denna komplicerade process kommer endast att fungera om du gör så få operationer
+Denna komplicerade process kommer endast fungera om du gör så få operationer
 som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
 givet kålnami-koden och talet $m$.
 
 Programmet ska först läsa in heltalet $n$ ($1 \le n \le 10^9$), innehållet av kålnami-koden.
 På nästa rad ska det läsa in siffran $m$ ($2 \leq m \leq 9$), som beskrivits ovan.
 
-Programmet ska sedan skriva ut ett heltal: minsta antalet operationer som krävs för att få miniräknaren att visa
+Programmet ska sedan skriva ut ett heltal: det minsta antalet operationer som krävs för att få miniräknaren att visa
 kålnami-koden $n$.
 
 \fe{Poängsättning:}\\
@@ -442,13 +445,13 @@ särskilt monster. Sen händer följande:
   på $S+A$ liv sammanlagt av just den explosionen.
 \end{itemize}
 Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
-Eftersom det är jobbigt att avfyra explosioner vill han veta minsta antalet
+Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
 explosioner han behöver skjuta iväg för att döda alla monster om han siktar på monster optimalt.
 
 Skriv ett program som läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
 vars betydelse beskrivs ovan. På nästa rad ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som beskriver antalet liv som vardera monster har.
 
-Programmet ska sedan skriva ut minsta antalet explosioner som Theodor behöver avfyra för att döda
+Programmet ska sedan skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att döda
 alla monster.
 
 \fe{Poängsättning:}\\
@@ -470,7 +473,7 @@ Svar: 3
 \fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
 \begin{enumerate}
   \item Avfyra en explosion på monstret med 7 liv. Monstrena har nu \verb+4,1,2+ liv kvar.
-  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med liv 1 dör. De resternade monstrena har \verb+1,1+ liv kvar. 
+  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv dör. De resterande monstrena har \verb+1,1+ liv kvar. 
   \item Avfyra en explosion på vilket som helst av monstrena. Nu har alla monster dött och Theodor är klar.
 \end{enumerate}
 
@@ -500,7 +503,7 @@ Precis som i problemet \textit{Trollkarlen Theodor} gör Theodor först så att 
 Theodor väljer även hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
 
 
-Skriv ett program som läser in heltalen, $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
+Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
 
 Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
 Eftersom detta tal kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
