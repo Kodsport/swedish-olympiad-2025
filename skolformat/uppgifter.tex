@@ -71,7 +71,7 @@ Ditt program ska göra följande:
   \item Om triangeln är trubbig, så ska programmet skriva ut ”Trubbig Triangel”.
   \item Om triangeln är spetsig, så ska programmet skriva ut ”Spetsig Triangel”.
   \item Om triangeln är rätvinklig, så ska programmet skriva ut ”Ratvinklig Triangel”.
-  (Tristian har inte lärt sig alla bokstäver i det svenska alfabetet än, så han förstår inte om du skriver ut ”Rätvinklig” med ett ”ä”.).
+  (Tristian har ännu inte lärt sig alla bokstäver i det svenska alfabetet, så han förstår inte om du skriver ut ”Rätvinklig” med ett ”ä”.).
 \end{itemize}
 
 För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
@@ -91,7 +91,7 @@ $c$ kommer stå på tredje raden.
 
 Det är garanterat att $(1 \leq a, b, c < 180)$ håller. Det är också garanterat att indatan är en triangel, alltså att $a + b + c = 180$.
 
-Sen ska programmet skriva ut om triangeln som utgörs av vinklarna $a$, $b$, $c$ är spetsig, trubbig eller rätvinklig. Var noga
+Sedan ska programmet skriva ut om triangeln som utgörs av vinklarna $a$, $b$, $c$ är spetsig, trubbig eller rätvinklig. Var noga
 med att det du skriver ut är exakt samma sträng som beskrivet ovan! Det vill säga, ``Trubbig Triangel'' om den är trubbig, osv.
 
 \fe{Poängsättning:} Programmet kommer att köras på 5 testfall, vardera värt $1$ poäng.
@@ -137,7 +137,7 @@ Svar: Ratvinklig Triangel
 %  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
 %\end{center}
 
-Truls och Henry spelar en pingismatch mot varandra.
+Truls och Henry spelar pingis mot varandra.
 
 Både Truls och Henry ogillar starkt matematik, 
 speciellt att räkna på antalet poäng som vardera person har under tävlingen.
@@ -147,12 +147,12 @@ Istället för att hålla koll på hur många poäng de har, skriver de helt
 enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
 får poäng, direkt efter varje vunnen boll.
 
-När Truls och Henry kör pingis, så fungerar poängsystemet enligt dessa tre regler:
+När Truls och Henry kör pingis fungerar poängsystemet enligt dessa tre regler:
 \begin{enumerate}
   \item Vid varje boll får en och endast en spelare poäng.
   \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
   \begin{itemize}
-    \item Spelaren har minst 2 poängs marginal över sin motståndare.
+    \item Spelaren leder med åtminstone 2 poäng över sin motståndare.
     \item Spelaren har minst 11 poäng.
   \end{itemize}
   Till exempel, om Truls har 11 poäng och Henry har 9 poäng, så utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng finns det ännu ingen vinnare.
@@ -162,11 +162,9 @@ När Truls och Henry kör pingis, så fungerar poängsystemet enligt dessa tre r
 
 
 Men oj! Truls och Henry hamnade i trubbel. 
-De har kört väldigt länge, 
-och båda vill veta hur poängen ser ut.
-Eftersom de båda hatar matematik vill de inte räkna
-ihop poängen själva. De ber dig att skriva ett program som
-kan räkna ut aktuell poängställning åt dem, baserat på deras anteckningar.
+De har kört väldigt länge och båda vill veta hur poängen ser ut.
+Eftersom de båda ogillar matematik ber de dig att skriva ett program som
+räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
 
 Ditt program ska först läsa in poängställningen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
 Varje bokstav kommer antingen vara ”\texttt{T}” eller ”\texttt{H}”.
@@ -229,17 +227,17 @@ poängen nollställs och Henry sedan vinner ytterligare en boll. Därför står 
 
 Boschua är inte så bra på cybersäkerhet. Förra månaden stängde han av brandväggen för att den
 inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
-Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver till alla filnamn.
+Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver i alla filnamn.
 
 Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
 Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
 
-Han letar nu efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som tar emot $F$ och namnet på en fil $H$
+Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som tar emot $F$ och namnet på en fil $H$
 på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
 viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 Skriv ett program som först läser in $F$ på första raden. På nästa rad ska det läsa in $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
-Då håller $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
+Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
 $F$ innehåller garanterat exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
 Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej” (utan citationstecken).
@@ -247,7 +245,7 @@ Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, 
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
-I detta problem finns det fem par av testfall. I det ena är svaret Ja, i det andra Nej för att
+I detta problem finns det fem par av testfall. I varje par är det ena svaret Ja och det andra Nej, för att
 förhindra att du får poäng för att alltid skriva ut ”Ja” eller alltid ”Nej”.
 
 De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
@@ -288,7 +286,7 @@ H ? kaaatttenmilly.pgn
 
 Svar: Nej
 \end{verbatim}
-\fe{Förklaring:} De skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
+\fe{Förklaring:} $F$ och $H$ skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
 kan det inte ha ändrat $F$ till $H$. 
 
 
@@ -298,9 +296,9 @@ kan det inte ha ändrat $F$ till $H$.
 
 Siffrid älskar att leka med tal! Just nu sitter hon och leker med heltalet $N$.
 
-Just nu undrar hon hur man kan skapa det minsta och största talet som har samma siffersumma och antal siffror som $N$.
+Hon undrar hur man kan skapa det minsta och största talet som har samma siffersumma och antal siffror som $N$.
 Kan du hjälpa henne?
-Siffersumman av ett tal är definierat som summan av alla siffror i talet. 
+Siffersumman av ett tal definieras som summan av alla siffror i talet. 
 
 \noindent
 Till exempel är siffersumman av talet $1234$: 
@@ -315,7 +313,7 @@ $$
 
 Skriv ett program som först läser in heltalet $N$ ($1 \leq N \leq 10^9$), talet som Siffrid leker runt med.
 
-Programmet ska sedan skriva det minsta och det största talet som har samma siffersumma och antal siffror som talet $N$.
+Programmet ska sedan skriva ut det minsta och det största talet som har samma siffersumma och antal siffror som talet $N$.
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
@@ -360,7 +358,7 @@ Svar: 1049 9500
 
 Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
 Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
-trycka på \texttt{=}-tecknet, så kommer miniräknaren att låsa upp flera
+trycka på ”\texttt{=}”-tecknet, så kommer miniräknaren att låsa upp flera
 stycken hemliga matematikfunktioner.
 
 Din kompis har lyckats lista ut vad kålnami-koden är, men han berättar för dig
@@ -376,7 +374,7 @@ Denna komplicerade process kommer endast fungera om du gör så få operationer
 som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
 givet kålnami-koden och talet $m$.
 
-Programmet ska först läsa in heltalet $n$ ($1 \le n \le 10^9$), innehållet av kålnami-koden.
+Programmet ska först läsa in heltalet $n$ ($1 \le n \le 10^9$), som utgör kålnami-koden.
 På nästa rad ska det läsa in siffran $m$ ($2 \leq m \leq 9$), som beskrivits ovan.
 
 Programmet ska sedan skriva ut ett heltal: det minsta antalet operationer som krävs för att få miniräknaren att visa
@@ -434,19 +432,19 @@ En optimal lösning är att utföra följande operationer:
 \specialsection*{Uppgift 6 -- Trollkarlen Theodor}
 
 En mindre armé med $N$ monster befinner sig precis utanför Tästerås! Nu är det upp
-till Trollkarlen Theodor att besegra den och rädda staden. Varje monster har en viss
-mängd liv. För att skada monster kan
+till Trollkarlen Theodor att besegra den och rädda staden. Varje monster har ett visst
+antal liv. För att skada monster kan
 Theodor avfyra magiska explosioner. Varje gång han avfyrar en explosion siktar han på ett
-särskilt monster. Sen händer följande:
+särskilt monster. Sedan händer följande:
 \begin{itemize}
   \item Alla monster förlorar $A$ liv av explosionen.
-  \item Monstret som Theodor siktade på förlorar $S$ liv
-  till, eftersom det befinner sig i mitten av explosionen. Alltså förlorar monstret han siktar
+  \item Monstret som Theodor siktade på förlorar ytterligare $S$ liv, 
+  eftersom det befinner sig i mitten av explosionen. Alltså förlorar monstret han siktar
   på $S+A$ liv sammanlagt av just den explosionen.
 \end{itemize}
 Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
 Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
-explosioner han behöver skjuta iväg för att döda alla monster om han siktar på monster optimalt.
+explosioner han behöver skjuta iväg för att döda alla monster om han siktar optimalt.
 
 Skriv ett program som läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
 vars betydelse beskrivs ovan. På nästa rad ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som beskriver antalet liv som vardera monster har.
