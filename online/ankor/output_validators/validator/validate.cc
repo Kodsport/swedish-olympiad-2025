@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
 			feedback("Expected two floating point numbers or 'impossible'");
 		}
 		
-		if (abs(k) > MAX_VAL || abs(k) > MAX_VAL) feedback("Too large number");
+		if (abs(k) > MAX_VAL) feedback("Too large number");
 
 		int above = 0;
 		for (auto [x, y] : points) {
