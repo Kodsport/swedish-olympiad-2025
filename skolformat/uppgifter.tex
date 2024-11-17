@@ -46,7 +46,7 @@ filer får ske under tävlingen.
 \item Hjälpmedel: Valfritt skriftligt material, material som finns installerat på datorn samt material som finns tillgängligt på internet.
 Det är \ku{inte} tillåtet att aktivt kommunicera på internet (t.ex. chatta eller ställa frågor till ett forum) utan endast att söka efter information.
 {\bf Det är heller inte tillåtet att använda generativ AI såsom ChatGPT eller Github Copilot.}
-Räknedosa är tillåten.
+Miniräknare är tillåten.
 \item Tävlingsbidraget ska lämnas in i form av källkodsfiler (uppg1...uppg7 med passande filtillägg) som läggs på överenskommen plats. Ingen hänsyn tas till andra filer. Var noga 
 med att lämna in den korrekta versionen av ditt program.  
 \end{lista}
@@ -81,18 +81,11 @@ För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
   \item En triangel är rätvinklig om en av dess vinklar är exakt $90$ grader.
 \end{itemize}
 
-Ditt program ska först läsa in de tre vinklarna $a$, $b$, $c$.
-
-$a$ kommer stå på första raden.
-
-$b$ kommer stå på andra raden.
-
-$c$ kommer stå på tredje raden.
+Ditt program ska läsa in de tre vinklarna $a$, $b$, $c$.
 
 Det är garanterat att $(1 \leq a, b, c < 180)$ håller. Det är också garanterat att indatan är en triangel, alltså att $a + b + c = 180$.
 
-Sedan ska programmet skriva ut om triangeln som utgörs av vinklarna $a$, $b$, $c$ är spetsig, trubbig eller rätvinklig. Var noga
-med att det du skriver ut är exakt samma sträng som beskrivet ovan! Det vill säga, ``Trubbig Triangel'' om den är trubbig, osv.
+Sedan ska programmet skriva ut om triangeln som utgörs av vinklarna $a$, $b$, $c$ är spetsig, trubbig eller rätvinklig. 
 
 \fe{Poängsättning:} Programmet kommer att köras på 5 testfall, vardera värt $1$ poäng.
 
@@ -147,7 +140,7 @@ Istället för att hålla koll på hur många poäng de har, skriver de helt
 enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
 får poäng, direkt efter varje vunnen boll.
 
-När Truls och Henry kör pingis fungerar poängsystemet enligt dessa tre regler:
+När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
 \begin{enumerate}
   \item Vid varje boll får en och endast en spelare poäng.
   \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
@@ -162,7 +155,7 @@ När Truls och Henry kör pingis fungerar poängsystemet enligt dessa tre regler
 
 
 Men oj! Truls och Henry hamnade i trubbel. 
-De har kört väldigt länge och båda vill veta hur poängen ser ut.
+De har spelat väldigt länge och båda vill veta hur poängen ser ut.
 Eftersom de båda ogillar matematik ber de dig att skriva ett program som
 räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
 
@@ -209,7 +202,7 @@ Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTH
 
 Svar: 12-12
 \end{verbatim}
-\fe{Förklaring:} Även om båda har mer än 11 poängen leder ingen med 2 poäng. Därför har ingen vinnare utsetts ännu.
+\fe{Förklaring:} Även om båda har fler än 11 poäng leder ingen med 2 poäng. Därför har ingen vinnare utsetts ännu.
 
 
 \fe{Körningsexempel 4}
@@ -236,16 +229,16 @@ Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du 
 på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
 viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
-Skriv ett program som först läser in $F$ på första raden. På nästa rad ska det läsa in $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
+Skriv ett program som läser in $F$ och $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
 Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
 $F$ innehåller garanterat exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
-Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej” (utan citationstecken).
+Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej”.
 
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
-I detta problem finns det fem par av testfall. I varje par är det ena svaret Ja och det andra Nej, för att
+I detta problem finns det fem \textit{par} av testfall. I varje par är svaret på det ena svaret Ja och det andra Nej, för att
 förhindra att du får poäng för att alltid skriva ut ”Ja” eller alltid ”Nej”.
 
 De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
@@ -464,22 +457,22 @@ De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöve
 \fe{Körningsexempel 1}
 \begin{verbatim}
 N, S, A ? 3 2 1
-Monstrenas liv ? 7 2 3
+Monstrens liv ? 7 2 3
 
 Svar: 3
 \end{verbatim}
 \fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
 \begin{enumerate}
-  \item Avfyra en explosion på monstret med 7 liv. Monstrena har nu \verb+4,1,2+ liv kvar.
-  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv dör. De resterande monstrena har \verb+1,1+ liv kvar. 
-  \item Avfyra en explosion på vilket som helst av monstrena. Nu har alla monster dött och Theodor är klar.
+  \item Avfyra en explosion på monstret med 7 liv. Monstren har nu \verb+4,1,2+ liv kvar.
+  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv dör. De resterande monstren har \verb+1,1+ liv kvar. 
+  \item Avfyra en explosion på vilket som helst av monstren. Nu har alla monster dött och Theodor är klar.
 \end{enumerate}
 
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
 N, S, A ? 4 3 2
-Monstrenas liv ? 7 8 9 10
+Monstrens liv ? 7 8 9 10
 
 Svar: 4  
 \end{verbatim}
@@ -501,7 +494,7 @@ Precis som i problemet \textit{Trollkarlen Theodor} gör Theodor först så att 
 Theodor väljer även hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
 
 
-Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), vilket är de fyra talen som beskrivits ovan.
+Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), som är de fyra talen som beskrivits ovan.
 
 Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
 Eftersom detta tal kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
@@ -525,7 +518,7 @@ N, K, S, A ? 1 1 5 0
 
 Svar: 5
 \end{verbatim}
-\fe{Förklaring:} Det finns ett monster, och de möjliga liv den kan ha så att Theodor dödar den med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+\fe{Förklaring:} Det finns ett monster, och de möjliga liv det kan ha så att Theodor dödar det med exakt en explosion är \verb+1, 2, 3, 4, 5+.
 
 Se nästa sida för ett till körningsexempel.
 
