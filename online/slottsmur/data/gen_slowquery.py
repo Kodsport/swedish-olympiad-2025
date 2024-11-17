@@ -27,8 +27,8 @@ print(*heights)
 
 
 for i in range(q):
-    t = randint(1, 100)
-    if t <= 1:
+    t = randint(1, c)
+    if t == 2:
         while True:
             pos = randint(1, n)
             if heights[pos-1] < hi:
@@ -37,6 +37,11 @@ for i in range(q):
         heights[pos-1] += value
         print(2, pos, value)
     else:
-        length = randint(0, n-1)
+        is_max = randint(1, 2)
+        length = randint(math.floor(n/1.5), n-1)
+
+        if is_max == 1:
+            length = n-randint(1, 14)
+
         start = randint(1, n-length)
         print(1, start, start+length)

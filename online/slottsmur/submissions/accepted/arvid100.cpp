@@ -282,7 +282,6 @@ vector<Node*> find_mother_nodes(ll l, ll r, ll node = 1){
 
 ll query(ll l, ll r){ //inklusive
     vector<Node*> mothers = find_mother_nodes(l, r); 
-    ll first = 0, second = 0, third = 0;
 
     ll maxi = -1;
     for (Node* N : mothers){ //logN
@@ -576,8 +575,8 @@ int main(){
         if (k == 2) update(l, r);
         else {
             ll ans = query(l, r);
-            if (ans <= -1)cout << 0 << endl;
-            else cout << ans << endl;
+            if (ans <= -1)cout << 0 << "\n";
+            else cout << ans << "\n";
         }
     }
  

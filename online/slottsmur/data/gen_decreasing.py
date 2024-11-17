@@ -35,7 +35,7 @@ for i in range(q):
         
         value = randint(1, 5)
         heights[pos-1] -= value
-        print(t, pos, value)
+        print(2, pos, value)
     else:
-        print(t, 1, r)
+        print(1, 1, r)
         r = min(r+1, n)

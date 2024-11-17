@@ -35,8 +35,8 @@ for i in range(q):
                 break
         value = randint(1, hi-heights[pos-1])
         heights[pos-1] += value
-        print(t, pos, value)
+        print(2, pos, value)
     else:
         length = randint(0, n-1)
         start = randint(1, n-length)
-        print(t, start, start+length)
+        print(1, start, start+length)

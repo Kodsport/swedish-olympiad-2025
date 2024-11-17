@@ -52,8 +52,8 @@ for i in range(q):
         if pos != n:
             value = randint(1, math.floor(1.2*abs(heights[pos]-heights[pos-1])+1))
         heights[pos-1] += value
-        print(t, pos, value)
+        print(2, pos, value)
     else:
         length = randint(0, n-1)
         start = randint(1, n-length)
-        print(t, start, start+length)
+        print(1, start, start+length)

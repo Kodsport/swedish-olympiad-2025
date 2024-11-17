@@ -27,8 +27,8 @@ print(*heights)
 
 
 for i in range(q):
-    t = randint(1, 100)
-    if t > 1:
+    t = randint(1, c)
+    if t != 2:
         while True:
             pos = randint(1, n)
             if heights[pos-1] < hi:
