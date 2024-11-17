@@ -577,7 +577,7 @@ int main(){
         else {
             ll ans = query(l, r);
             if (ans <= -1)cout << 0 << endl;
-            else cout << query(l, r) << endl;
+            else cout << ans << endl;
         }
     }
  

@@ -140,6 +140,6 @@ int main() {
             blocksR[pos/block_size].clear();
         }
     }
-   
+
     exit(0);
 }

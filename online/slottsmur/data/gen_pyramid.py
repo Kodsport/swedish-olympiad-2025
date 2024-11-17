@@ -18,7 +18,8 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
-c = int(cmdlinearg('c', 2))
+tlo = int(cmdlinearg('tlo', 1))
+thi = int(cmdlinearg('thi', 2))
 
 hi = 10**9
 extra_w = randint(10, 1000)
@@ -41,7 +42,7 @@ print(*heights_left)
 heights = heights_left.copy()
 
 for i in range(q):
-    t = randint(1,c)
+    t = random.randint(tlo, thi)
     if t==2:
         while True:
             pos = randint(1, n)
