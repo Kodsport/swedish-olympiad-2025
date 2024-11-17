@@ -36,6 +36,7 @@ int readint() {
 }
 
 int main() {
+	cin.tie(0)->sync_with_stdio(0);
 	int N = readint();
 	int Q = readint();
 	vi v(N);
