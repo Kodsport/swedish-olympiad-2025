@@ -22,8 +22,7 @@ tc g1-1 gen_rand n=10 q=10
 tc g1-2 gen_rand n=1000 q=1000
 tc g1-3 gen_decreasing n=1000 q=1000
 tc g1-4 gen_pyramid n=1000 q=1000
-tc g1-5 gen_pyramid n=1000 q=1000 tlo=2
-tc g1-6 gen_pyramid n=1000 q=1000 thi=1
+tc g1-5 gen_pyramid n=1000 q=1000 c=1
 # tc g1-5 gen_rand n=1000 q=1000
 # tc g1-6 gen_rand n=1000 q=1000
 # tc g1-7 gen_rand n=1000 q=1000
@@ -33,18 +32,18 @@ tc g1-6 gen_pyramid n=1000 q=1000 thi=1
 # tc g1-11 gen_rand n=1000 q=1000
 # tc g1-12 gen_rand n=1000 q=1000
 
-group group2 17
-limits maxn=200000 maxq=200000
+group group2 17 
+limits maxn=200000 maxq=200000 # random
 tc g2-1 gen_rand n=100000 q=100000
 tc g2-2 gen_rand n=10000 q=200000 c=1
 tc g2-3 gen_rand n=200000 q=200000 
 tc g2-4 gen_rand n=200000 q=200000 c=1
 
 group group3 20
-limits maxn=200000 maxq=200000
+limits maxn=200000 maxq=200000 c=1
 tc g3-1 gen_rand n=100000 q=100000 c=1
 tc g3-2 gen_rand n=200000 q=200000 c=1 
-tc g3-3 gen_pyramid n=200000 q=200000 tlo=2
+tc g3-3 gen_pyramid n=200000 q=200000 c=1
 tc g3-4 gen_decreasing n=200000 q=200000 c=1
 
 # tc g3-5 gen_rand n=200000 q=200000 c=1
@@ -63,8 +62,7 @@ tc g4-2 gen_rand n=40000 q=40000
 tc g4-3 gen_rand n=40000 q=40000
 tc g4-4 gen_decreasing n=40000 q=40000
 tc g4-5 gen_pyramid n=10000 q=20000
-tc g4-6 gen_pyramid n=40000 q=40000 tlo=2
-tc g4-7 gen_pyramid n=40000 q=40000 thi=1
+tc g4-6 gen_pyramid n=40000 q=40000 c=1
 
 # tc g4-6 gen_rand n=20000 q=20000
 # tc g4-7 gen_rand n=20000 q=20000
@@ -81,8 +79,7 @@ tc g5-1 gen_rand n=200000 q=200000 c=1
 tc g5-2 gen_rand n=200000 q=200000
 tc g5-3 gen_decreasing n=200000 q=200000
 tc g5-4 gen_pyramid n=200000 q=200000
-tc g5-5 gen_pyramid n=200000 q=200000 tlo=2
-tc g5-6 gen_pyramid n=200000 q=200000 thi=1
+tc g5-5 gen_pyramid n=200000 q=200000 c=1
 
 # tc g5-6 gen_rand n=200000 q=200000
 # tc g5-7 gen_rand n=200000 q=200000

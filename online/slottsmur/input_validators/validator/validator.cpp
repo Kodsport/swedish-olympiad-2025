@@ -21,8 +21,12 @@ void run() {
     vi h(n);
     h = SpacedInts(n, 1, 1000000000);
 
+    int queryType = Arg("c", 2);
+    bool onlyUpdate = 1;
+
     for(int i = 0; i < q; i++){
-        int t = Int(1, 2);
+        int t = Int(1, queryType);
+        if(t == 1) onlyUpdate = 0;
         Space();
         if(t == 1){
             int l = Int(1, n);
@@ -39,6 +43,6 @@ void run() {
         }
         Endl();
     }
-
+    assert(!onlyUpdate);
     Eof();
 }
