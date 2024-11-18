@@ -1,37 +1,38 @@
 \problemname{Truls trubbel}
 \noindent
 
-Truls och Henry spelar en pingismatch mot varandra.
+Truls och Henry spelar pingis mot varandra.
 
 Både Truls och Henry ogillar starkt matematik, 
 speciellt att räkna på antalet poäng som vardera person har under tävlingen.
 För att förenkla poängräkningen har de kommit på en egen lösning:
 
 Istället för att hålla koll på hur många poäng de har, skriver de helt
-enkelt ner ett \texttt{”T”} om Truls får poäng och ett \texttt{”H”} om Henry
+enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
 får poäng, direkt efter varje vunnen boll.
 
-När Truls och Henry kör pingis, så fungerar poängsystemet på följande vis:
-\begin{itemize}
+När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
+\begin{enumerate}
   \item Vid varje boll får en och endast en spelare poäng.
-  \item Vinnaren utses till den första personen som har minst 2 poäng mer än 
-  motståndaren SAMTIDIGT som den personen har som minst $11$ poäng.
-  \item Om någon vinner, så nollställs poängen direkt och de startar en ny match. 
-  De fortsätter spela tills en ny vinnare utses.
-\end{itemize}
+  \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
+  \begin{itemize}
+    \item Spelaren leder med åtminstone 2 poäng över sin motståndare.
+    \item Spelaren har minst 11 poäng.
+  \end{itemize}
+  Till exempel, om Truls har 11 poäng och Henry har 9 poäng, så utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng finns det ännu ingen vinnare.
 
-Till exempel, om Truls har 11 poäng och Henry har 8 poäng, utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng är det ännu ingen vinnare.
+  \item När en spelare har vunnit enligt ovanstående kriterier, så nollställs poängen för båda spelarna och en ny match startar.
+\end{enumerate}
+
 
 Men oj! Truls och Henry hamnade i trubbel. 
-De har kört väldigt länge, 
-och båda vill veta hur poängen ser ut.
-Eftersom de båda hatar matematik vill de inte räkna
-ihop poängen själva. De ber dig att skriva ett program som
-kan räkna ut aktuell poängställning åt dem, baserat på deras anteckningar.
+De har spelat väldigt länge och båda vill veta hur poängen ser ut.
+Eftersom de båda ogillar matematik ber de dig att skriva ett program som
+räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
 
 
 \section*{Indata}
-Indatan består av en rad med en sträng $S$, där längden av strängen är mellan 1 och 30. 
+Indatan består av en rad med en sträng $S$ som består av mellan 1 och 30 bokstäver. 
 Varje bokstav i strängen kommer antingen vara \texttt{”T”} eller \texttt{”H”}.
 
 \section*{Utdata}
