@@ -22,12 +22,7 @@ int main(int argc, char **argv) {
   rep(i,0,n) judge_in >> wins[i];
 
   vi cnt(2*n+1,0);
-  /*
-  tempN = n
-  while tempN:
-    cnts.append((tempN+1)//2)
-    tempN //= 2
-  */
+
   int tempN = n;
   int num = 0;
   while (tempN > 0){
@@ -36,18 +31,13 @@ int main(int argc, char **argv) {
     num++;
   }
 
-  // ./a.out ../../data/secret/group3/025-g3-01.in  ../../data/secret/group3/025-g3-01.ans . < ../../data/secret/group3/025-g3-01.ans
-
   vi input_cnt(2*n+1,0);
   rep(i,0,n) input_cnt[min(wins[i],2*n)] += 1;
-
-  //rep(i,0,n) cout << cnt[i]  << "\n";
 
   bool possible = true;
   rep(i,0,2*n) {
     if (input_cnt[i] != cnt[i]) possible = false;
   }
-
 
   auto check = [&](istream& sol, feedback_function feedback){
     vi ans(n);
@@ -119,7 +109,7 @@ int main(int argc, char **argv) {
     accept_with_score(1.0);
   }
 
-  // Kolla vilken lösning som är lexografiskt minst
+  // Kolla vilken lösning som är lexikografiskt minst
 
   rep(i,0,n){
     if (judge_array[i] == author_array[i]) continue;
