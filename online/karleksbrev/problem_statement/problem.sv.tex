@@ -1,14 +1,14 @@
 \problemname{Kärleksbrev}
 \noindent
 
-Mio och Sara kommer från väldigt två olika familjer. I Mios familj har alla på sig hatter som
+Mio och Sara kommer från väldigt två olika familjer. I Mios familj har alla på sig hattar som
 är formade som rektanglar, medan i Saras familj har alla på sig triangelformade hattar. Denna
 smakskillnad har lett till bråk som varat flera generationer. Trots detta råkade Mio och Sara
 träffas en dag och blev förälskade vid första ögonkast.
 
-Eftersom det är svårt för dom att träffas brukar dom istället skicka meddelanden sinsemellan
-för att kommunicera. Eftersom dom är väldigt hemliga vet vi inte exakt hur apparaterna dom
-använder för att kommunicera fungerar. Vi vet dock lite: om Sara vill skicka ett meddelande
+Eftersom det är svårt för dem att träffas, brukar de istället skicka meddelanden sinsemellan för att kommunicera. 
+Eftersom de är väldigt hemliga, vet vi inte exakt hur apparatererna de använder för att kommunicera fungerar. 
+Vi vet dock lite: om Sara vill skicka ett meddelande
 skriver hon in det som en sekvens av ettor och nollor i apparaten, och den skickar sedan
 iväg meddelandet. Tyvärr kan oväder sätta käppar i hjulet (metaforiskt sett).
 När maskinen skickar iväg ettor och nollor under oväder, så skickas exakta motsatsen.
@@ -16,7 +16,7 @@ Exempelvis, om det är oväder och maskinen försöker skicka \texttt{0},
 så skickar den istället iväg \texttt{1}.
 Sara har dock observerat att varje gång hon skickar ett meddelande, så är det oväder
 exakt en gång under en sammanhängande period. Detta innebär att om hon försöker skicka
-iväg ett särskilt meddelande, så kan meddelandet som mottagaren tar emot vara fel på
+iväg ett särskilt meddelande, kan meddelandet som mottagaren tar emot vara fel på
 så sätt att i ett intervall (som kan vara av storlek 1, men inte noll), så har alla
 nollor blivit till ettor och alla ettor blivit nollor. Vi benämner detta med att
 intervall har \texttt{fördärvats}.
@@ -24,13 +24,13 @@ intervall har \texttt{fördärvats}.
 Ett exempel: om Sara skickar iväg \texttt{11101001}, så är det möjligt att vädret
 leder till följande fördärvning: \texttt{11101001} $\Rightarrow$ \texttt{11\textbf{01011}1}.
 
-Beteckna meddelandet som Sara vill skicka med $S$ och meddelandet som Mio mottar med $M$.
+Beteckna meddelandet som Sara vill skicka som $S$ och meddelandet som Mio mottar som $M$.
 $S$ är alltså inte nödvändigtvis lika med $M$ på grund av oväder. Sara och Mio vill nu utveckla
 ett system för att kunna kommunicera med varandra trots oväder. Det går att visa att om
 Sara skickar exakt $S$, så är det omöjligt för Mio att använda $M$ för att hitta $S$. Men det kanske
 går om Sara skickar ett meddelande som är lite längre än $S$? 
 
-Ditt jobb är att utveckla systemet åt Sara och Mio, så att dom kan kommunicera felfritt.
+Ditt jobb är att utveckla systemet åt Sara och Mio, så att de kan kommunicera felfritt.
 Detta gör du genom att implementera två funktioner, \texttt{encode} och \texttt{decode}.
 Funktionen \texttt{encode} kommer att anropas med $S$, och ska sedan returnerna $E$. Sara kommer
 sedan att skicka iväg $E$ med sin maskin.
@@ -42,8 +42,8 @@ kunna hitta $S$, oavsett hur oväder förändrar $E$. Du får mer poäng om $E$ 
 
 \section*{Implementation}
 Din lösning till problemet måste vara skriven i ett av följande språk: C++, C\#, Java, Python eller Rust.
-Vi ger här en beskrivning av hur implementationen ser ut för C++. I de flesta andra språken
-är det väldigt liknande, och du kan ladda ner en referensimplementation för ditt språk vid attachments.
+Nedan finns en beskrivning av hur implementationen ser ut för C++. I de flesta andra språken
+fungerar det på ett liknande sätt, och du kan ladda ner en referensimplementation för ditt språk vid attachments.
 
 Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följande funktioner:\\
 
@@ -51,10 +51,10 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
   \item \texttt{string encode(string S)}\\
   \begin{itemize}
     \item Parametern $S$ är meddelandet som Sara vill skicka till Mio. $S$ består
-    endast av bokstäverna \texttt{0} och \texttt{1}. I alla testfall håller det att
-    $S$ består av exakt 100 bokstäver.
+    endast av karaktärerna \texttt{0} och \texttt{1}. I alla testfall håller det att
+    $S$ består av exakt 100 karaktärer.
     \item Returvärdet ska vara $E$, meddelandet som du ska skicka igenom maskinen. $E$
-    måste innehålla minst en bokstav, och får endast bestå av bokstäverna \texttt{0} och \texttt{1}.
+    måste innehålla minst en bokstav, och får endast bestå av karaktärerna \texttt{0} och \texttt{1}.
   \end{itemize}
 
   \item Sedan skickas $E$. Medans den skickas kommer ett intervallet att fördärvas.
@@ -64,20 +64,20 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
     \item Parametern $N$ är längden på $S$ (inte längden på $E$ eller $M$).
     \item Parametern $M$ är meddelandet som Mio mottar. Detta kommer vara $E$
     efter att ett intervall har fördärvats. Alltså består $M$
-    endast av bokstäverna \texttt{0} och \texttt{1}.
+    endast av karaktärerna \texttt{0} och \texttt{1}.
     \item Returvärdet ska vara $S$, meddelandet som \texttt{encode} ursprungligen anropades med. Om
     returvärdet är samma som $S$ får du rätt svar på testfallet.
   \end{itemize}
 \end{itemize}
 
-\texttt{encode} och \texttt{decode} får \textbf{endast} kommunicera genom parametrarna dom anropas med $S$ och $M$.
+\texttt{encode} och \texttt{decode} får \textbf{endast} kommunicera genom parametrarna de anropas med $S$ och $M$.
 Därför kommer ditt program att startas om mellan anropat av vardera funktion. \texttt{encode} och \texttt{decode} 
 måste vara snabba nog för att kunna anropas 50 gånger vardera inom tidsgränsen. Dessutom är domaren inte \textit{adaptiv}.
 Detta innebär att hur den väljer $S$ eller vilket intervall som ska fördärvas inte beror på vad du väljer att skicka som $E$.
 
 \section*{Referensimplementationer}
 Alla referensimplementationer i attachments implementerar följande protokoll: \texttt{encode} skickar varje bokstav
-i $S$ 5 gånger på raken. \texttt{decode} tar sedan varje grupp av 5 bokstäver, och säger att värdet av bokstaven
+i $S$ 5 gånger på raken. \texttt{decode} tar sedan varje grupp av 5 karaktärer, och säger att värdet av bokstaven
 i $S$ är i mitten av gruppen. Detta protokollet funkar inte, men visar hur implementationen av ett
 protokoll kan se ut.
 
@@ -89,7 +89,7 @@ det. Ändra heller inte namnet på funktioner och klasser osv om dessa finns.
 Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
-Beteckna $E_{max}$ som längden på det $E$ med flest bokstäver
+Beteckna $E_{max}$ som längden på det $E$ med flest karaktärer
 i en viss testfallsgrupp. För att få poäng för ett testfall måste $E_{max}$ vara tillräckligt litet.
 Låt också $l$ och $r$ beteckna ändpunkterna för intervallet som fördärvas. Om $E$ är noll-indexerad kommer
 $E[l],E[l+1],\dots,E[r]$ att fördärvas.
