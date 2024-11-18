@@ -21,7 +21,9 @@ void run() {
     vi h(n);
     h = SpacedInts(n, 1, 1000000000);
 
-    int queryType = Arg("c", 2);
+    int queryType = Arg("c", 100);
+    queryType = (queryType == 0 ? 1 : 2);
+
     bool onlyUpdate = 1;
 
     for(int i = 0; i < q; i++){

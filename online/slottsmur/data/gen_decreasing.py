@@ -18,7 +18,7 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
-c = int(cmdlinearg('c', 2))
+c = int(cmdlinearg('c'))
 
 hi = 10**9
 print(n,q)
@@ -29,8 +29,8 @@ print(*heights)
 r = (n-1)//2+1
 
 for i in range(q):
-    t = randint(1,c)
-    if t==2:
+    t = randint(1,100)
+    if t<=c:
         pos = randint(1, n)
         
         value = randint(1, 5)

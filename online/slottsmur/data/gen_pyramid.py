@@ -42,8 +42,8 @@ print(*heights_left)
 heights = heights_left.copy()
 
 for i in range(q):
-    t = random.randint(1, c)
-    if t==2:
+    t = random.randint(1, 100)
+    if t<=c:
         while True:
             pos = randint(1, n)
             if heights[pos-1] < hi:

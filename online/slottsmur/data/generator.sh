@@ -21,10 +21,10 @@ limits maxn=1000 maxq=1000
 tc 1
 tc g1-1 gen_rand n=10 q=10
 tc g1-2 gen_rand n=1000 q=1000 c=100
-tc g1-3 gen_decreasing n=1000 q=1000
-tc g1-4 gen_pyramid n=1000 q=1000
-tc g1-5 gen_pyramid n=1000 q=1000 c=1
-tc g1-6 gen_slowquery n=1000 q=1000 c=1
+tc g1-3 gen_decreasing n=1000 q=1000 c=12
+tc g1-4 gen_pyramid n=1000 q=1000 c=50
+tc g1-5 gen_pyramid n=1000 q=1000 c=70
+tc g1-6 gen_slowquery n=1000 q=1000 c=20
 # tc g1-5 gen_rand n=1000 q=1000
 # tc g1-6 gen_rand n=1000 q=1000
 # tc g1-7 gen_rand n=1000 q=1000
@@ -36,19 +36,19 @@ tc g1-6 gen_slowquery n=1000 q=1000 c=1
 
 group group2 17 
 limits maxn=200000 maxq=200000 # random
-tc g2-1 gen_rand n=100000 q=100000
-tc g2-2 gen_rand n=10000 q=200000 c=1
-tc g2-3 gen_rand n=200000 q=200000 
-tc g2-4 gen_rand n=200000 q=200000 c=1
-tc g2-5 gen_slowquery n=200000 q=200000 c=1
+tc g2-1 gen_rand n=100000 q=100000 c=50
+tc g2-2 gen_rand n=10000 q=200000 c=0
+tc g2-3 gen_rand n=200000 q=200000 c=70
+tc g2-4 gen_rand n=200000 q=200000 c=90
+tc g2-5 gen_slowquery n=200000 q=200000 c=10
 
 group group3 20
-limits maxn=200000 maxq=200000 c=1
-tc g3-1 gen_rand n=100000 q=100000 c=1
-tc g3-2 gen_rand n=200000 q=200000 c=1 
-tc g3-3 gen_pyramid n=200000 q=200000 c=1
-tc g3-4 gen_decreasing n=200000 q=200000 c=1
-tc g3-5 gen_slowquery n=200000 q=200000 c=1
+limits maxn=200000 maxq=200000 c=0
+tc g3-1 gen_rand n=100000 q=100000 c=0
+tc g3-2 gen_rand n=200000 q=200000 c=0
+tc g3-3 gen_pyramid n=200000 q=200000 c=0
+tc g3-4 gen_decreasing n=200000 q=200000 c=0
+tc g3-5 gen_slowquery n=200000 q=200000 c=0
 
 # tc g3-5 gen_rand n=200000 q=200000 c=1
 # tc g3-6 gen_rand n=200000 q=200000 c=1
@@ -60,20 +60,20 @@ tc g3-5 gen_slowquery n=200000 q=200000 c=1
 # tc g3-12 gen_rand n=200000 q=200000 c=1
 
 group group4 23
-limits maxn=40000 maxq=40000
-tc g4-1 gen_rand n=10000 q=10000
-tc g4-2 gen_rand n=40000 q=40000 c=10
-tc g4-3 gen_rand n=40000 q=40000 c=100
-tc g4-4 gen_decreasing n=40000 q=40000
-tc g4-5 gen_pyramid n=10000 q=20000
-tc g4-6 gen_pyramid n=40000 q=40000 c=1
-tc g4-7 gen_decreasing n=40000 q=40000 c=100
-tc g4-8 gen_decreasing n=40000 q=40000 c=2
-tc g4-9 gen_rand n=40000 q=40000 c=1000
-tc g4-10 gen_pyramid n=40000 q=40000 c=100
-tc g4-11 gen_slowquery n=40000 q=40000 c=1000
-tc g4-12 gen_slowquery n=40000 q=40000 c=1
-tc g4-13 gen_slowquery n=40000 q=40000
+limits maxn=70000 maxq=70000
+tc g4-1 gen_rand n=10000 q=10000 c=50
+tc g4-2 gen_rand n=70000 q=70000 c=10
+tc g4-3 gen_rand n=70000 q=70000 c=1
+tc g4-4 gen_decreasing n=70000 q=70000 c=50
+tc g4-5 gen_pyramid n=10000 q=20000 c=50
+tc g4-6 gen_pyramid n=70000 q=70000 c=0
+tc g4-7 gen_decreasing n=70000 q=70000 c=99
+tc g4-8 gen_decreasing n=70000 q=70000 c=50
+tc g4-9 gen_rand n=70000 q=70000 c=1
+tc g4-10 gen_pyramid n=70000 q=70000 c=10
+tc g4-11 gen_slowquery n=70000 q=70000 c=0
+tc g4-12 gen_slowquery n=70000 q=70000 c=1
+tc g4-13 gen_slowquery n=70000 q=70000 c=80
 
 
 
@@ -89,15 +89,15 @@ tc g4-13 gen_slowquery n=40000 q=40000
 
 group group5 27
 limits maxn=200000 maxq=200000
-tc g5-1 gen_rand n=200000 q=200000 c=1
-tc g5-2 gen_rand n=200000 q=200000
-tc g5-3 gen_decreasing n=200000 q=200000
-tc g5-4 gen_pyramid n=200000 q=200000 c=1
-tc g5-5 gen_pyramid n=200000 q=200000 c=1
-tc g5-6 gen_pyramid n=200000 q=200000 
-tc g5-7 gen_rand n=200000 q=200000 c=1000
-tc g5-8 gen_decreasing n=200000 q=200000 c=100
-tc g5-9 gen_slowquery n=200000 q=200000 c=1000
+tc g5-1 gen_rand n=200000 q=200000 c=0
+tc g5-2 gen_rand n=200000 q=200000 c=1
+tc g5-3 gen_decreasing n=200000 q=200000 c=50
+tc g5-4 gen_pyramid n=200000 q=200000 c=10
+tc g5-5 gen_pyramid n=200000 q=200000 c=0
+tc g5-6 gen_pyramid n=200000 q=200000 c=70
+tc g5-7 gen_rand n=200000 q=200000 c=99
+tc g5-8 gen_decreasing n=200000 q=200000 c=15
+tc g5-9 gen_slowquery n=200000 q=200000 c=0
 
 
 
