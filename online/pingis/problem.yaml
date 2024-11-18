@@ -10,4 +10,4 @@ grading:
 validation: custom score
 
 limits:
-  time_multiplier: 2
+  time_multiplier: 1
