@@ -4,7 +4,7 @@
 Rulls är en sann entusiast av PO (Pingisolympiaden). 
 Han älskar att kolla och heja på sina favoritspelare när de spelar.
 
-PO (Pingisolympiaden) har en intressant turneringsformat. 
+PO (Pingisolympiaden) är en turnering inom pingis som har en intressant turneringsformat. 
 I början av turneringen finns $N$ spelare, där alla spelare har varsin startposition. 
 Beroende på startposition kommer spelarna att parvist spela en match mot varandra. 
 Varje pingismatch har exakt en vinnare och en förlorare. 
@@ -27,6 +27,18 @@ skriv ut en möjlig ordning över startpositionerna för de $N$ spelarna.
 
 Rulls minns dock att ordningen för startpositionerna var lexikografiskt relativt liten. 
 För att få fullpoäng krävs det även att du hittar den lexikografiskt\footnote{https://sv.wikipedia.org/wiki/Lexikografisk\_ordning} minsta möjliga startpositionen.
+
+En lösning $A$ är lexikografiskt mindre än en annan lösning $B$ om följande två villkor är uppfyllda:  
+\begin{enumerate}  
+    \item $A \neq B$.  
+    \item Vid den första positionen där $A$ och $B$ har olika element, är elementet i $A$ mindre än elementet i $B$.  
+\end{enumerate}  
+
+Till exempel, om vi har två lösningar:  
+$$
+A = [1, 2, 4, 3], \quad B = [1, 3, 2, 4],  
+$$  
+så är den första positionen där $A$ och $B$ skiljer sig på position 1. Där har $A[1] = 2$ och $B[1] = 3$. Eftersom $2 < 3$, är $A$ lexikografiskt mindre än $B$.  
 
 % lägg till kanske definiton av lexikografisk ordning - lösning A < lösning B om the first position where they differ number in A is smaller than the number in B.
 % Till exempel om vi har 2 lösningar $[1,3,2,4]$ och $[1,2,4,3]$. 
@@ -65,7 +77,7 @@ För att få alla poäng i en testgrupp behöver du skriva ut den lexikografiskt
 
 
 \section*{Förklaring av exempelfall}
-I första exempelfallet är en möjlig lösning att spelarna börjar i botten av turneringen i följande ordning: $1 3 2 4$. 
+I första exempelfallet är en möjlig lösning att spelarna börjar i botten av turneringen enligt ordningen $[1, 3, 2, 4]$. 
 Notera att spelare $1$ kommer att köra en pingismatch mot spelare $3$, men eftersom vi vet att $3$ har förlorat alla sina matcher så måste $1$ ha vunnit den matchen.
 
 % ha bilder för exempelfallet?
