@@ -2,31 +2,49 @@
 
 \noindent
 
-Ägaren av slottet Drakfjälls Kastell har det tufft ekonomiskt, men istället för att vända sig till en kvacksalvare
-som gör om honom till en groda har han tänkt att riva delar av slottsmuren. \\
-Slottsmuren kan beskrivas med $N$ olika värden $h_i$, vilket representerar höjden på den $i$:te murbiten.
-Slottsägaren älskar dessutom regnvatten som samlas på den två dimensionella muren när det regnar och känner därför
-behovet att ställa lite frågor till dig om just det. Det kan också vara i hans intresse att undersöka vad som händer om man ökar någon murbitshöjd.
-Slottsägaren kommer därför att ge två ordrar:\\
-\begin{enumerate}
-  \item Givet två värden $l, r$, om vi endast använder murbitarna i det intervallet. Skriv i konsolen hur mycket regnvatten som då hade samlats.
-  \item Givet två värden $i, w$, låt höjden av det $i$:te murbiten öka med $w$. (det är garanterat att höjden på alla murbitar alltid är större än 1)
-\end{enumerate}
+Ägaren av slottet Drakfjälls Kastell är rädd för att hans slott ska bli belägrat. Om detta sker vill
+han att muren ska vara tålig, så han planerar att bygga om den. Slottsmuren består av $N$ murbitar
+som står på en linje. Varje murbit har en viss höjd. Nedan visas ett exempel av hur muren kan se ut.
 
-Hjälp slottsägaren med sitt trubbel.
+\begin{center}
+  \includegraphics[scale=0.3]{mur1.png}
+\end{center}
+
+Slottsägaren är dock lite oroad för att hans mur ska drabbas av fuktskador när det regnar. När det
+regnar kommer alla murens tomrum att fyllas upp med vatten, så länge vattnet inte kan rinna av
+vid sidorna. Om det hade regnat på föregående exempelmur hade vatten samlats vid de blå rutorna.
+
+\begin{center}
+  \includegraphics[scale=0.3]{mur2.png}
+\end{center}
+
+För att kunna vara strategisk med sin ombyggnad vill han veta hur det kommer påverka mängden
+vatten som samlas om det regnar. Till sitt förfogande har han dig, slottets teoretiska datalog.
+Slottsägaren kommer att ställa dig två sorters frågor:
+\begin{itemize}
+  \item Givet två värden $l$ och $r$, ta reda på hur mycket regnvatten som hade samlats i muren
+  om vi river alla murbitar utanför intervallet $[l,r]$. Notera att muren inte
+  faktiskt rivs, så detta påverkar inte framtida frågor.
+  \item Givet två värden $i$ och $w$, öka höjden av den $i$:te murbiten med $w$. Detta är en
+  permanent förändring som kommer att påverka framtida frågor.
+\end{itemize}
+
 
 \section*{Indata}
 Den första raden i indatan innehåller heltalen $N$ och $Q$ ($1 \le N, Q \le 2 \cdot 2\cdot10^5$),
-antalet höjder och antalet frågor.
+antalet murbitar i muren och antalet frågor.
 
-Därefter följer $N$ heltal $h_1, h_2, \dots, h_N$ ($1 \leq h_i \leq 10^9$), höjden på varje stapel.\\
+Därefter följer $N$ heltal $h_1, h_2, \dots, h_N$ ($1 \leq h_i \leq 10^9$), höjden på varje murbit.\\
 
-Sedan följer $Q$ rader med tre heltal vardera. Dessa kan ha två former:\\
-$1, l, r$ om slottsägaren ger en order av form $1$ som beskrivet ovan\\
-$2, i, w$ om slottsägaren ger en order av form $2$ som beskrivet ovan
+De följande $Q$ raderna beskriver alla frågor. Varje fråga börjar med heltalet $T$ ($T \in \{1,2\}$).
+\begin{itemize}
+  \item Om $T=1$ följer $l, r$ ($1 \leq l, r \leq N$). Du ska då skriva ut svaret på frågor av form $1$ som beskrivet ovan.
+  \item Om $T=2$ följer $i, w$ ($1 \leq i \leq N$, $1 \leq w \leq 10^9$). Då ska du öka höjden av den $iu$:te murbiten med $w$.
+  Det är garanterat att höjden av murbiten förblir mindre än $10^9$ efter detta.
+\end{itemize}
 
 \section*{Utdata}
-Skriv ut för varje order av form $1$ ut ett heltal, mängden vatten som samlas om man river allt som inte ligger i det intervallet
+För varje fråga av sort $1$, skriv ut mängden vatten som samlas om man river alla murbitar som ligger utanför intervallet.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -43,7 +61,22 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $5$    & $27$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
-\section*{Förklaring av exempelfall}
-När muren kan beskrivas som $2, 3, 4$ kan det inte samlas något vatten, allt rinner av.\\
-Sedan ändras muren till $4, 3, 4$\\
-Då kan det samlas $1$ vattenenhet på den andra murbiten mellan den första och tredje. \\
+\section*{Förklaring av exempelfall 1}
+Vid första frågan ombes vi att beräkna mängden vatten som samlas om vi river allt utanför $[1,5]$. Eftersom
+$[1,5]$ utgör hela muren rivs inget.
+\begin{center}
+  \includegraphics[scale=0.2]{mur2.png}
+\end{center}
+
+Vid andra frågan undrar Slottsägaren vad som händer om vi river ändarna av muren.
+De murbitarna som hade rivits markeras med mörgrått. Rivningen hade lett till att allt vatten rinner av.
+
+\begin{center}
+  \includegraphics[scale=0.2]{mur3.png}
+\end{center}
+
+Vid tredje och fjärde frågan höjs en del av muren. Dessa påverkar femte frågan, som ser ut som följande.
+
+\begin{center}
+  \includegraphics[scale=0.2]{mur4.png}
+\end{center}
