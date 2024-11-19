@@ -20,7 +20,7 @@ group group1 13
 limits maxn=1000 maxq=1000
 tc 1
 tc g1-1 gen_rand n=10 q=10
-tc g1-2 gen_rand n=1000 q=1000 c=100
+tc g1-2 gen_rand n=1000 q=1000 c=99
 tc g1-3 gen_decreasing n=1000 q=1000 c=12
 tc g1-4 gen_pyramid n=1000 q=1000 c=50
 tc g1-5 gen_pyramid n=1000 q=1000 c=70

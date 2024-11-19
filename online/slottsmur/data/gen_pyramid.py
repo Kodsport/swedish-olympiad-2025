@@ -51,6 +51,7 @@ for i in range(q):
         value = 1
         if pos != n:
             value = randint(1, math.floor(1.2*abs(heights[pos]-heights[pos-1])+1))
+        value = min(int(1e9)-heights[pos-1], value)
         heights[pos-1] += value
         print(2, pos, value)
     else:
