@@ -38,6 +38,7 @@ tc g2-5 gen_pattern n=1 m=3
 tc g2-6 gen_pattern n=3 m=10
 tc g2-7 gen_samePref n=3 m=10 
 tc g2-8 gen_samePref n=3 m=10 pattern=po save=1
+tc_manual ../manual/kill_bug
 
 group group3 23
 limits mmin=1 mmax=1

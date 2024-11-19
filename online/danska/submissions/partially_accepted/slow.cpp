@@ -27,7 +27,7 @@ vvl b;
 vector<string> subStr;
 int co = 0;
 int n, m;
-ll memo[102][102][102];
+vector<vvl> memo;
 
 void preProcess(string in){
     int i = 0, j = -1; b[co][0] = -1;
@@ -79,7 +79,7 @@ int main() {
         co++;
     }
 
-    memset(memo, -1, sizeof(memo));
+    memo.assign(max(n, m)+2, vvl(max(n, m)+2, vl(max(n, m)+2, -1)));
     lengths.assign(n+2, vl(m+2, 0));
 
     cout << dp(0, 0, 0) << "\n";

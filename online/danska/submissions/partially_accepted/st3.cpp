@@ -26,7 +26,7 @@ typedef vector<vpl> vvpl;
 vl b;
 string subStr;
 int n, m;
-ll memo[101][101];
+vvl memo;
 
 void preProcess(string in){
     int i = 0, j = -1; b[0] = -1;
@@ -68,7 +68,7 @@ int main() {
     cin >> subStr;
     preProcess(subStr);
 
-    memset(memo, -1, sizeof(memo));
+    memo.assign(n+2, vl(n+2, -1));
     lengths.assign(n+2, 0);
 
     cout << dp(0, 0) << "\n";

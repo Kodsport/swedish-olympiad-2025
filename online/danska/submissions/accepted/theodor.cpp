@@ -31,7 +31,7 @@ vector<vvl> memo;
 
 void preProcess(string in){
     int i = 0, j = -1; b[co][0] = -1;
-    while(i<in.length()){
+    while(i<((ll)in.length())){
         while(j>=0&&in[i]!=in[j]) j = b[co][j];
         i++; j++;
         b[co][i] = j;
@@ -58,7 +58,7 @@ ll dp(int pos, int l, int ind){
                 int j = lengths[l][ind][k];
                 while(j>=0&& i+'a' != subStr[k][j]) j = b[k][j];
                 j++;
-                if(j==subStr[k].length()){
+                if(j==((ll)subStr[k].length())){
                     fail = 1;
                     break;
                 }
