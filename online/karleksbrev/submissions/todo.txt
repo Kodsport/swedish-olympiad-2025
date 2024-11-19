@@ -1,0 +1,7 @@
+C++:
+[X] AC solution
+[X] empty string
+[X] too long string
+[X] string containing invalid characters
+[X] WA solution
+[X] try to leak data by reading/writing from stdio

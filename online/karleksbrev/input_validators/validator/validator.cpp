@@ -13,10 +13,10 @@ typedef vector<int> vi;
 
 
 void run() {
-    int mink = (int)Arg("k");
+    int k_is = (int)Arg("k");
     int n_is = (int)Arg("n");
     int n = Int(n_is, n_is); Space();
-    int k = Int(mink, 1000); Endl();
+    int k = Int(k_is, k_is); Endl();
 
     int test_type = Int(0, 5); Space();
     Int(0, int(1e9)); Endl();

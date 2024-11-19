@@ -91,7 +91,7 @@ public class main {
 
 	public static int Main(string[] args) {
 		if (args.Length == 0) {
-			string codeBase = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+			string codeBase = "file://" + Assembly.GetExecutingAssembly().Location;
 			UriBuilder uri = new UriBuilder(codeBase);
 			string path = Uri.UnescapeDataString(uri.Path);
 			Process enc = new Process();

@@ -1,14 +1,14 @@
 \problemname{Kärleksbrev}
 \noindent
 
-Mio och Sara kommer från väldigt två olika familjer. I Mios familj har alla på sig hattar som
+Mio och Sara kommer från två väldigt olika familjer. I Mios familj har alla på sig hattar som
 är formade som rektanglar, medan i Saras familj har alla på sig triangelformade hattar. Denna
 smakskillnad har lett till bråk som varat flera generationer. Trots detta råkade Mio och Sara
 träffas en dag och blev förälskade vid första ögonkast.
 
-Eftersom det är svårt för dem att träffas, brukar de istället skicka meddelanden sinsemellan för att kommunicera. 
-Eftersom de är väldigt hemliga, vet vi inte exakt hur apparatererna de använder för att kommunicera fungerar. 
-Vi vet dock lite: om Sara vill skicka ett meddelande
+Eftersom det är svårt för dem att träffas, så brukar de istället skicka meddelanden sinsemellan
+för att kommunicera. Eftersom de är väldigt hemliga så vet vi inte exakt hur apparatererna de
+använder för att kommunicera fungerar.  Vi vet dock lite: om Sara vill skicka ett meddelande
 skriver hon in det som en sekvens av ettor och nollor i apparaten, och den skickar sedan
 iväg meddelandet. Tyvärr kan oväder sätta käppar i hjulet (metaforiskt sett).
 När maskinen skickar iväg ettor och nollor under oväder, så skickas exakta motsatsen.
@@ -16,12 +16,12 @@ Exempelvis, om det är oväder och maskinen försöker skicka \texttt{0},
 så skickar den istället iväg \texttt{1}.
 Sara har dock observerat att varje gång hon skickar ett meddelande, så är det oväder
 exakt en gång under en sammanhängande period. Detta innebär att om hon försöker skicka
-iväg ett särskilt meddelande, kan meddelandet som mottagaren tar emot vara fel på
-så sätt att i ett intervall (som kan vara av storlek 1, men inte noll), så har alla
+iväg ett särskilt meddelande, kommer meddelandet som mottagaren tar emot vara fel på
+så sätt att i ett intervall (som kan vara av storlek 1 eller mer, men inte noll), så har alla
 nollor blivit till ettor och alla ettor blivit nollor. Vi benämner detta med att
-intervall har \texttt{fördärvats}.
+intervallet har \texttt{fördärvats}.
 
-Ett exempel: om Sara skickar iväg \texttt{11101001}, så är det möjligt att vädret
+Till exempel: om Sara skickar iväg \texttt{11101001}, så är det möjligt att vädret
 leder till följande fördärvning: \texttt{11101001} $\Rightarrow$ \texttt{11\textbf{01011}1}.
 
 Beteckna meddelandet som Sara vill skicka som $S$ och meddelandet som Mio mottar som $M$.
@@ -59,9 +59,8 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
 
   \item Sedan skickas $E$. Medans den skickas kommer ett intervallet att fördärvas.
 
-  \item \texttt{string decode(int N, string M)}\\
+  \item \texttt{string decode(string M)}\\
   \begin{itemize}
-    \item Parametern $N$ är längden på $S$ (inte längden på $E$ eller $M$).
     \item Parametern $M$ är meddelandet som Mio mottar. Detta kommer vara $E$
     efter att ett intervall har fördärvats. Alltså består $M$
     endast av karaktärerna \texttt{0} och \texttt{1}.
@@ -83,7 +82,8 @@ protokoll kan se ut.
 
 Det är viktigt att din lösning inte läser eller skriver från standard input/output. Om din lösning gör det
 kommer du troligtvis att få ett konstigt felmeddelande. För vissa språk är filnamnet viktigt, så ändra \textbf{inte}
-det. Ändra heller inte namnet på funktioner och klasser osv. om dessa finns.
+det. Ändra heller inte namnet på funktioner och klasser osv. om dessa finns. Rust kräver extra steg för att funka,
+vilket du kan om läsa i filen rust/readme.txt i karleksbrev.zip.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -91,8 +91,11 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 Beteckna $E_{max}$ som längden på det $E$ med flest karaktärer
 i en viss testfallsgrupp. För att få poäng för ett testfall måste $E_{max}$ vara tillräckligt litet.
+
 Låt också $l$ och $r$ beteckna ändpunkterna för intervallet som fördärvas. Om $E$ är noll-indexerad kommer
 $E[l],E[l+1],\dots,E[r]$ att fördärvas.
+
+Det är även givet att $S$ alltid består av exakt 100 bokstäver.
 
 \noindent
 \begin{tabular}{| l | l | l | l |}
