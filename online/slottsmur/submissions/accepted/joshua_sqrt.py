@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# Complexity: let b=block_size
+# Update: ~O(6b)
+# Query: ~O(2b+N/b*log(b)) (in expectation, the query endpoints will be in the middle of the block)
+
 
 # Pyrival segment tree
 class SegmentTree:
