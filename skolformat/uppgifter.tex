@@ -71,7 +71,7 @@ Ditt program ska göra följande:
   \item Om triangeln är trubbig, så ska programmet skriva ut ”Trubbig Triangel”.
   \item Om triangeln är spetsig, så ska programmet skriva ut ”Spetsig Triangel”.
   \item Om triangeln är rätvinklig, så ska programmet skriva ut ”Ratvinklig Triangel”.
-  (Tristian har ännu inte lärt sig alla bokstäver i det svenska alfabetet, så han förstår inte om du skriver ut ”Rätvinklig” med ett ”ä”.).
+  (Eftersom det kan vara svårt att skriva ut bokstaven ”ä”, så är både ”Ratvinklig Triangel” och ”Rätvinklig Triangel” godtagbara svar).
 \end{itemize}
 
 För att påminna om vad trubbiga, spetsiga och rätvinkliga trianglar är:
@@ -231,15 +231,15 @@ viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 Skriv ett program som läser in $F$ och $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
 Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
-$F$ innehåller garanterat exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
+Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
 Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej”.
 
 
 \vspace{0.5cm}
 \fe{Poängsättning:}\\
-I detta problem finns det fem \textit{par} av testfall. I varje par är svaret på det ena svaret Ja och det andra Nej, för att
-förhindra att du får poäng för att alltid skriva ut ”Ja” eller alltid ”Nej”.
+I detta problem finns det fem \textit{par} av testfall. I varje par är svaret på det ena testfallet Ja och det andra Nej.
+Detta för att förhindra att du får poäng om ditt program alltid skriver ut ”Ja” eller alltid ”Nej”.
 
 De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
@@ -358,35 +358,35 @@ Din kompis har lyckats lista ut vad kålnami-koden är, men han berättar för d
 att du inte får gå tillväga hur som helst för att skriva in koden i miniräknaren.
 Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
 \begin{itemize}
-  \item Multiplicera talet som visas med talet $m$.
-  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq m-1$.
+  \item Multiplicera talet som visas med talet $M$.
+  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq M-1$.
 \end{itemize}
 
-Som tur är har din kompis även lyckats lista ut vad talet $m$ är. 
+Som tur är har din kompis även lyckats lista ut vad talet $M$ är. 
 Denna komplicerade process kommer endast fungera om du gör så få operationer
 som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
-givet kålnami-koden och talet $m$.
+givet kålnami-koden och talet $M$.
 
-Programmet ska först läsa in heltalet $n$ ($1 \le n \le 10^9$), som utgör kålnami-koden.
-På nästa rad ska det läsa in siffran $m$ ($2 \leq m \leq 9$), som beskrivits ovan.
+Skriv ett program som först läser in heltalet $N$ ($1 \le N \le 10^9$), som utgör kålnami-koden.
+Det ska sedan läsa in siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
 
 Programmet ska sedan skriva ut ett heltal: det minsta antalet operationer som krävs för att få miniräknaren att visa
-kålnami-koden $n$.
+kålnami-koden, $N$.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(1)] $\;\;\;\;m=3, n \leq 10$ 
-    \item[(2)] $\;\;\;\;m=2$ 
-    \item[(3)] $\;\;\;\;n \leq 10^5$
+    \item[(1)] $\;\;\;\;M=3, N \leq 10$ 
+    \item[(2)] $\;\;\;\;M=2$ 
+    \item[(3)] $\;\;\;\;N \leq 10^5$
     \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
 \end{itemize}
 
 
 \fe{Körningsexempel 1}
 \begin{verbatim}
-n ? 4
-m ? 2
+N ? 4
+M ? 2
 
 Svar: 3
 \end{verbatim}
@@ -405,8 +405,8 @@ Se nästa sida för ett till körningsexempel.
 
 \fe{Körningsexempel 2}
 \begin{verbatim}
-n ? 33
-m ? 3
+N ? 33
+M ? 3
 
 Svar: 8
 \end{verbatim}
@@ -439,8 +439,9 @@ Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en
 Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
 explosioner han behöver skjuta iväg för att döda alla monster om han siktar optimalt.
 
-Skriv ett program som läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
-vars betydelse beskrivs ovan. På nästa rad ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som beskriver antalet liv som vardera monster har.
+Skriv ett program som först läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
+vars betydelse beskrivs ovan. Därefter ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som
+beskriver antalet liv som vardera monster har.
 
 Programmet ska sedan skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att döda
 alla monster.
@@ -490,14 +491,14 @@ Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika 
 så att Theodor behöver avfyra exakt $K$ magiska explosioner för att döda alla monster. Enda kravet på antalet liv
 för ett monster är att det ska vara större än $0$.
 
-Precis som i problemet \textit{Trollkarlen Theodor} gör Theodor först så att monstret han siktar på förlorar $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var.
-Theodor väljer även hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
-
+Precis som i problemet \textit{Trollkarlen Theodor} skadar Theodor monster genom att sikta på ett särskilt monster och avfyra
+en explosion. Monstret han siktar på förlorar då $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var.
+Theodor väljer hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
 
 Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), som är de fyra talen som beskrivits ovan.
 
-Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver exakt $K$ rundor för att döda alla.
-Eftersom detta tal kan bli väldigt stort ska det skrivas ut modulo $10^9+7$. Om du bara vill lösa
+Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver avfyra exakt $K$ explosioner för att döda alla.
+Eftersom detta tal kan bli väldigt stort ska det skrivas ut \textit{modulo} $10^9+7$. Om du bara vill lösa
 första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
 
 
