@@ -1,0 +1,42 @@
+\problemname{Dalarna} % storyn skulle absolut kunna bytas ut
+
+\noindent
+Harry älskar Dalarna och drömmer om att det ska bli Sveriges högst rankade län. Efter noggrann analys har Harry 
+kommit fram till att om varje stad $i$ i Dalarna hade $p_i$ fler bilresor genom staden skulle Dalarna ta 
+förstaplatsen. För att uppnå detta planerar Harry att beställa taxibilar som kör mellan städerna där han kan 
+beställa att en bil ska ta kortaste vägen mellan två städer.
+
+Dalarnas vägnät kan representeras som ett träd med $N$ städer. För varje stad $i$ behöver Harry att minst 
+$p_i$ taxibilar passerar genom staden för att nå sitt mål. En taxibil kan köra längs en godtycklig väg i trädet.
+
+För att inte väcka misstankar vill Harry använda så få taxibilar som möjligt. Hjälp Harry att räkna ut det 
+minsta antalet taxibilar han behöver beställa för att uppnå sitt mål.
+
+\section*{Indata}
+Den första raden innehåller ett heltal $N$ ($1 \le N \le 5 \cdot 10^5$), antalet städer i Dalarna.
+
+Den andra raden innehåller $N$ heltal $p_1, p_2, ..., p_N$ ($0 \le p_i \le 10^9$), där $p_i$
+anger hur många taxibilar som måste passera genom stad $i$.
+
+De följande $N-1$ raderna beskriver vägarna mellan städerna. Varje rad innehåller två heltal $u$ och $v$
+($1 \le u, v \le N$), vilket betyder att det finns en väg mellan stad $u$ och stad $v$.
+Vägarna bildar ett träd.
+
+\section*{Utdata}
+Skriv ut ett heltal: det minsta antalet taxibilar som Harry behöver beställa.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & Trädet är en linje \\ \hline
+  $2$    & $20$       & $p_i \le 1$ för alla $i$ \\ \hline
+  $3$    & $20$       & $N \le 6$, $p_i \le 5$ för alla $i$ \\ \hline
+  $4$    & $20$       & $N \le 1000$, $p_i \le 1000$ för alla $i$ \\ \hline
+  $5$    & $20$       & $N \le 1000$ \\ \hline
+  $6$    & $20$       & Inga ytterligare begränsningar \\ \hline
+\end{tabular}
