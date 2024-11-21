@@ -73,7 +73,7 @@ int main() {
 
     needed.assign(n, 0);
     dfs(0);
-    cout << dfs2(0);
+    cout << dfs2(0) << "\n";
 
     return 0;
 }
