@@ -56,6 +56,8 @@ tc g5-4 gen_rand n=1000
 tc g5-5 gen_rand n=1000 
 
 group group6 30
+include_group group1
+include_group group2
 include_group group5
 tc g6-1 gen_rand 
 tc g6-2 gen_rand 
