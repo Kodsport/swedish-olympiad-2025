@@ -98,4 +98,4 @@ tc g5-16 gen_samePref n=100 m=100 pref=ok
 tc g5-17 gen_samePref n=100 m=100 pref=sussy
 tc g5-18 gen_samePref n=100 m=100
 tc g5-19 gen_samePref n=100 m=100 pref=programmering save=3 rev=1
-
+#tc_manual ../manual/langa_ord2.in
