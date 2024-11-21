@@ -24,5 +24,12 @@ print(" ".join(map(str, [randint(0, p) for _ in range(n)])))
 
 order = [i+1 for i in range(n)]
 random.shuffle(order)
+output = []
 for i in range(n-1):
-    print(order[i+1], order[randint(0, i)])
+    if randint(0, 1):
+        output.append([order[i+1], order[randint(0, i)]])
+    else:
+        output.append([order[randint(0, i)], order[i+1]])
+random.shuffle(output)
+for a, b in output:
+    print(a, b)

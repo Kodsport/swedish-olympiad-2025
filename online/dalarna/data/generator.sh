@@ -8,16 +8,21 @@ ulimit -s unlimited
 use_solution theodor.cpp
 
 compile gen_rand.py 
+compile gen_line.py 
 
 samplegroup
 sample 1
 
-group group1 10
+group group1 6
 limits line=1
 tc 1
+tc g1-1 gen_line n=8136 pmax=371268
+tc g1-2 gen_line n=2000
+tc g1-3 gen_line n=89127
+tc g1-4 gen_line
 
 
-group group2 13
+group group2 18
 limits pmax=1
 tc g2-1 gen_rand n=100 pmax=1
 tc g2-2 gen_rand n=20000 pmax=1
@@ -25,30 +30,33 @@ tc g2-3 gen_rand n=100000 pmax=1
 tc g2-4 gen_rand pmax=1
 tc g2-5 gen_rand pmax=1
 
-group group3 23
+group group3 12
 limits nmax=6 pmax=5
 tc g3-1 gen_rand n=4 pmax=5
 tc g3-2 gen_rand n=6 pmax=5
 tc g3-3 gen_rand n=6 pmax=5
 tc g3-4 gen_rand n=6 pmax=5
 
-group group4 23
+group group4 24
 limits nmax=1000 pmax=1000
+include_group group3
 tc g4-1 gen_rand n=1000 pmax=10
 tc g4-2 gen_rand n=10 pmax=1000
 tc g4-3 gen_rand n=1000 pmax=1000
 tc g4-4 gen_rand n=1000 pmax=1000
 tc g4-5 gen_rand n=1000 pmax=1000
 
-group group5 23
+group group5 10
 limits nmax=1000
+include_group group4
 tc g5-1 gen_rand n=500 pmax=10000
 tc g5-2 gen_rand n=1000 pmax=100000
 tc g5-3 gen_rand n=900 
 tc g5-4 gen_rand n=1000 
 tc g5-5 gen_rand n=1000 
 
-group group6 20
+group group6 30
+include_group group5
 tc g6-1 gen_rand 
 tc g6-2 gen_rand 
 tc g6-3 gen_rand 
