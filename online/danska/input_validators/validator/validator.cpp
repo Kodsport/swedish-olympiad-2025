@@ -17,7 +17,7 @@ typedef vector<int> vi;
 void run() {
     int n = Int(1, Arg("nmax", 100));
     Space();
-    int m = Int(Arg("mmin", 0), Arg("mmax", 100));
+    int m = Int(Arg("mmin", 0), Arg("mmax", 150));
     Endl();
 
     set<string> seen;

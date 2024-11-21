@@ -74,28 +74,31 @@ group group5 22
 include_group group1 
 include_group group3 
 include_group group4
-tc g5-1 gen_rand n=100 m=100
-tc g5-2 gen_rand n=97 m=83
-tc g5-3 gen_rand n=94 m=97
-tc g5-4 gen_prefix n=100 m=100 p=0.03
-tc g5-5 gen_prefix n=96 m=100 p=0.07
-tc g5-6 gen_prefix n=100 m=95 p=0.2
-tc g5-7 gen_prefix n=99 m=99 p=0.03 l=15
-tc g5-8 gen_prefix n=100 m=100 p=0.1 l=7
-tc g5-9 gen_prefix n=100 m=100 p=0.03 r=True
-tc g5-10 gen_prefix n=96 m=100 p=0.07 r=True
-tc g5-11 gen_prefix n=100 m=95 p=0.2 r=True
-tc g5-12 gen_prefix n=99 m=99 p=0.03 l=15 r=True
-tc g5-13 gen_prefix n=100 m=100 p=0.1 l=7 r=True
+tc g5-1 gen_rand n=100 m=150
+tc g5-2 gen_rand n=97 m=133
+tc g5-3 gen_rand n=94 m=147
+tc g5-4 gen_prefix n=100 m=150 p=0.03
+tc g5-5 gen_prefix n=96 m=150 p=0.07
+tc g5-6 gen_prefix n=100 m=145 p=0.2
+tc g5-7 gen_prefix n=99 m=149 p=0.03 l=15
+tc g5-8 gen_prefix n=100 m=150 p=0.1 l=7
+tc g5-9 gen_prefix n=100 m=150 p=0.03 r=True
+tc g5-10 gen_prefix n=96 m=150 p=0.07 r=True
+tc g5-11 gen_prefix n=100 m=145 p=0.2 r=True
+tc g5-12 gen_prefix n=99 m=149 p=0.03 l=15 r=True
+tc g5-13 gen_prefix n=100 m=150 p=0.1 l=7 r=True
 tc_manual ../manual/langa_ord
 tc_manual ../manual/ganska_langa_ord
-tc g5-14 gen_pattern n=100 m=100 pattern=kr
-tc g5-15 gen_pattern n=100 m=100 pattern=lwa
+tc g5-14 gen_pattern n=100 m=150 pattern=kr
+tc g5-15 gen_pattern n=100 m=150 pattern=lwa
 tc_manual ../manual/block_all02
 tc_manual ../manual/block_all03
 tc_manual ../manual/block_all05
-tc g5-16 gen_samePref n=100 m=100 pref=ok
-tc g5-17 gen_samePref n=100 m=100 pref=sussy
-tc g5-18 gen_samePref n=100 m=100
-tc g5-19 gen_samePref n=100 m=100 pref=programmering save=3 rev=1
+tc g5-16 gen_samePref n=100 m=150 pref=ok
+tc g5-17 gen_samePref n=100 m=150 pref=sussy
+tc g5-18 gen_samePref n=100 m=150
+tc g5-19 gen_samePref n=100 m=150 pref=programmering save=3 rev=1
+tc_manual ../manual/langa_ord3.in
 #tc_manual ../manual/langa_ord2.in
+
+
