@@ -157,7 +157,7 @@ Både ''Ratvinklig Triangel'' och ''Rätvinklig Triangel'' är godtagbara svar p
 \newpage
 
 \subsection*{Uppgift 3 -- Virus}
-\textbf{NOTERA VID RÄTTNING}: för att förhindra att lösningar som alltid
+\textbf{NOTERA VID RÄTTNING}: För att förhindra att lösningar som alltid
 skriver ut ”Ja” eller alltid ”Nej” ska få poäng, så finns det fem \textit{par} av testfall.
 Varje par innehåller alltså två testfall, och om programmet klarar båda dessa
 får det ett poäng, för upp till 5 poäng sammanlagt. Exempelvis, om programmet svarar
@@ -167,7 +167,7 @@ korrekt på \texttt{Par 1, test 1}, men inte \texttt{Par 1, test 2}, så får de
 \begin{tabular}{||l||c|c||c||}\hline\hline
 & \multicolumn{2}{c||}{\fe{Indata}} & \multicolumn{1}{c||}{\fe{Utdata}} \\ 
 & F & H &  \\ \hline \hline
-\fe{Par 1} & adghl & abcdefgh.ijklmn & Ja \\ \hline
+\fe{Par 1} & adgh.l & abcdefgh.ijklmn & Ja \\ \hline
 \fe{Par 1} & abcdefg.h & abcdefgh.ijklmn & Nej \\ \hline
 \fe{Par 2} & mummanavkardesumman.in & mummanaavkardesumman.in & Ja \\ \hline
 \fe{Par 2} & mummanavkardesumman.in & mummanakvardesumman.ine & Nej \\ \hline
@@ -182,6 +182,8 @@ korrekt på \texttt{Par 1, test 1}, men inte \texttt{Par 1, test 2}, så får de
 \vspace{1cm}
 
 \subsection*{Uppgift 4 -- Siffersumma}
+\textbf{NOTERA VID RÄTTNING}: Lösningen bör få rätt på både det minsta och det största talet, 
+för att få poäng för det testfallet. Exempelvis, om programmet endast svarar rätt på det ena svaret, men inte det andra, så får det \textit{inte} poäng för det paret. 
 ~\\
 {\tt 
 \begin{tabular}{||l||c||c|c||}\hline\hline
@@ -224,10 +226,10 @@ rekommenderat att klistra in testfallen digitalt så att du inte råkar skriva a
   \fe{Test 1} & 5 & 3 & 0 & 30 13 26 16 23 & 38 \\ \hline
   \fe{Test 2} & 8 & 9 & 19 & 77 86 44 75 13 87 99 27 & 5 \\ \hline
   \fe{Test 3} & 10 & 9 & 5 & 88 83 5 33 54 55 95 23 20 20 & 12 \\ \hline
-  \fe{Test 4} & 8 & 1 & 2 & 745909211 465912067 597929443 309004416 & 314022563 \\ \hline
+  \fe{Test 4} & 8 & 1 & 2 & 745909211 465912067 597929443 309004416 & 314022563 \\ 
   &  &  &  &  752756926 512559000 407756550 699491804 &  \\ \hline
-  \fe{Test 5} & 10 & 3 & 2 & 26684417 983875444 660699291 311443998 & 321713775 \\ \hline
-  &  &  &  & 945777951 948498830 437718567 &  \\ \hline
+  \fe{Test 5} & 10 & 3 & 2 & 26684417 983875444 660699291 311443998 & 321713775 \\ 
+  &  &  &  & 945777951 948498830 437718567 &  \\ 
   &  &  &  & 114473496 420625154 506020764 &  \\ \hline\hline
 \end{tabular}  
 }

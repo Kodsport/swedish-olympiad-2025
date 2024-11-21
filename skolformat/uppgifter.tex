@@ -64,7 +64,8 @@ Tristian jobbar på en triangelfabrik.
 Hans arbete är att klassificera olika sorters trianglar som produceras i fabriken.
 Tristian ber nu dig att skriva ett program som kan ersätta honom.
 
-Tristian kommer att ge dig tre positiva heltal, $a$, $b$ och $c$, som är de tre vinklarna i en triangel, angivna i grader.
+Tristian kommer att ge dig tre positiva heltal, $a$, $b$ och $c$. 
+Dessa är de tre vinklarna i en triangel, angivna i grader.
 
 Ditt program ska göra följande:
 \begin{itemize}
@@ -136,8 +137,8 @@ Både Truls och Henry ogillar starkt matematik,
 speciellt att räkna på antalet poäng som vardera person har under tävlingen.
 För att förenkla poängräkningen har de kommit på en egen lösning:
 
-Istället för att hålla koll på hur många poäng de har, skriver de helt
-enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
+Istället för att ständigt hålla koll på hur många poäng de har, skriver de helt enkelt ner 
+ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
 får poäng, direkt efter varje vunnen boll.
 
 När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
@@ -159,7 +160,7 @@ De har spelat väldigt länge och båda vill veta hur poängen ser ut.
 Eftersom de båda ogillar matematik ber de dig att skriva ett program som
 räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
 
-Ditt program ska först läsa in poängställningen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
+Ditt program ska först läsa in poängsträngen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
 Varje bokstav kommer antingen vara ”\texttt{T}” eller ”\texttt{H}”.
 
 Programmet ska sedan skriva ut $T$-$H$, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
@@ -192,7 +193,7 @@ Anteckningarna ? TTTTTTTTTTT
 Svar: 0-0
 \end{verbatim}
 
-\fe{Förklaring:} Eftersom Truls vann matchen nollställdes poängen.
+\fe{Förklaring:} Eftersom Truls vann matchen när poängställningen blev \texttt{11-0}, så nollställdes poängen till \texttt{0-0}.
 
 \vspace{0.5cm}
 
@@ -211,8 +212,8 @@ Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTHHHH
 
 Svar: 0-1
 \end{verbatim}
-\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen med två bollar,
-poängen nollställs och Henry sedan vinner ytterligare en boll. Därför står det \texttt{0-1}.
+\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen efter ytterligare två vunna bollar. 
+Poängen nollställs, och Henry vinner därefter en till boll. Därför står det \texttt{0-1}.
 
 
 \newpage
@@ -230,7 +231,7 @@ på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill
 viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 Skriv ett program som läser in $F$ och $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
-Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller bara bokstäver \texttt{a}-\texttt{z} och punkt.
+Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
 Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
 Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej”.
@@ -243,7 +244,7 @@ Detta för att förhindra att du får poäng om ditt program alltid skriver ut �
 
 De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
 \begin{itemize}
-    \item[(Par 1)] $\;\;\;\;$Varje bokstav dyker upp som mest en gång i vardera sträng.    
+    \item[(Par 1)] $\;\;\;\;$Varje bokstav (och punkt) dyker upp som mest en gång i vardera sträng.    
     \item[(Par 2)] $\;\;\;\;|H| = |F|+1$ 
     \item[(Par 3)] $\;\;\;\;|H| = |F|+2$ 
     \item[(Par 4-5)] $\;\;\;\; $Inga särskilda begränsningar.
@@ -408,7 +409,7 @@ Se nästa sida för ett till körningsexempel.
 N ? 33
 M ? 3
 
-Svar: 8
+Svar: 5
 \end{verbatim}
 \fe{Förklaring:}
 En optimal lösning är att utföra följande operationer:
@@ -437,14 +438,14 @@ särskilt monster. Sedan händer följande:
 \end{itemize}
 Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
 Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
-explosioner han behöver skjuta iväg för att döda alla monster om han siktar optimalt.
+explosioner han behöver skjuta iväg för att besegra alla monster om han siktar optimalt.
 
 Skriv ett program som först läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
 vars betydelse beskrivs ovan. Därefter ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som
 beskriver antalet liv som vardera monster har.
 
-Programmet ska sedan skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att döda
-alla monster.
+Programmet ska skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att besegra
+alla monster. Ett monster är besegrat om det har 0 eller färre liv.
 
 \fe{Poängsättning:}\\
 De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
@@ -465,8 +466,8 @@ Svar: 3
 \fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
 \begin{enumerate}
   \item Avfyra en explosion på monstret med 7 liv. Monstren har nu \verb+4,1,2+ liv kvar.
-  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv dör. De resterande monstren har \verb+1,1+ liv kvar. 
-  \item Avfyra en explosion på vilket som helst av monstren. Nu har alla monster dött och Theodor är klar.
+  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv besegras. De resterande monstren har \verb+1,1+ liv kvar. 
+  \item Avfyra en explosion på vilket som helst av monstren. Nu har alla monster blivit besegrade och Theodor är klar.
 \end{enumerate}
 
 
@@ -488,16 +489,17 @@ Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på at
 Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
 Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
 Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika monster, 
-så att Theodor behöver avfyra exakt $K$ magiska explosioner för att döda alla monster. Enda kravet på antalet liv
+så att Theodor behöver avfyra exakt $K$ magiska explosioner för att besegra alla monster. Enda kravet på antalet liv
 för ett monster är att det ska vara större än $0$.
 
 Precis som i problemet \textit{Trollkarlen Theodor} skadar Theodor monster genom att sikta på ett särskilt monster och avfyra
-en explosion. Monstret han siktar på förlorar då $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var.
+en explosion. Monstret han siktar på förlorar då $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var. 
+Ett monster är besegrat om det har 0 eller färre liv.
 Theodor väljer hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
 
 Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), som är de fyra talen som beskrivits ovan.
 
-Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver avfyra exakt $K$ explosioner för att döda alla.
+Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver avfyra exakt $K$ explosioner för att besegra alla.
 Eftersom detta tal kan bli väldigt stort ska det skrivas ut \textit{modulo} $10^9+7$. Om du bara vill lösa
 första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
 
@@ -519,7 +521,7 @@ N, K, S, A ? 1 1 5 0
 
 Svar: 5
 \end{verbatim}
-\fe{Förklaring:} Det finns ett monster, och de möjliga liv det kan ha så att Theodor dödar det med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+\fe{Förklaring:} Det finns ett monster, och de möjliga liv det kan ha så att Theodor besegrar det med exakt en explosion är \verb+1, 2, 3, 4, 5+.
 
 Se nästa sida för ett till körningsexempel.
 
@@ -531,7 +533,7 @@ N, K, S, A ? 2 2 1 1
 
 Svar: 10
 \end{verbatim}
-\fe{Förklaring:} De 10 möjliga fördelningarna av monsterliv så att Theodor dödar båda med exakt två explosioner är:
+\fe{Förklaring:} De 10 möjliga fördelningarna av monsterliv så att Theodor besegrar båda med exakt två explosioner är:
 \begin{verbatim}
   1 3
   1 4
