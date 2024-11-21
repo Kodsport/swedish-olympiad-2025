@@ -40,7 +40,7 @@ for cur in BFS:
         children[cur].append(nei)
         BFS.append(nei)
 
-maxP = max(p)*2
+maxP = max(p)
 
 children.append([start])
 

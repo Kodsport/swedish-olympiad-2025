@@ -39,10 +39,12 @@ tc g3-1 gen_rand n=4 pmax=5
 tc g3-2 gen_rand n=6 pmax=5
 tc g3-3 gen_rand n=6 pmax=5
 tc g3-4 gen_rand n=6 pmax=5
+tc_manual ../manual/harrykiller03.in
 
 group group4 24
 limits nmax=1000 pmax=1000
 include_group group3
+tc_manual ../manual/harrykiller04.in #
 tc g4-1 gen_rand n=1000 pmax=10
 tc g4-2 gen_rand n=10 pmax=1000
 tc g4-3 gen_rand n=1000 pmax=1000
