@@ -50,6 +50,8 @@ tc g4-4 gen_rand n=1000 pmax=1000
 tc g4-5 gen_rand n=1000 pmax=1000
 tc g4-6 gen_line n=1000 pmax=1000 partLine=0.7
 tc g4-7 gen_star n=1000 pmax=1000 amountStars=2 partStar=0.7
+tc_manual ../manual/harrykiller01.in #
+tc_manual ../manual/harrykiller02.in #
 
 group group5 10
 limits nmax=1000

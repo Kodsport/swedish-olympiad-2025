@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# O(np**3)
+# This should get WA for non-line cases O(np**3)
 
 import sys
 sys.setrecursionlimit(3*10**6)
