@@ -9,9 +9,11 @@ use_solution theodor.cpp
 
 compile gen_rand.py 
 compile gen_line.py 
+compile gen_star.py
 
 samplegroup
 sample 1
+sample 2
 
 group group1 6
 limits line=1
@@ -32,6 +34,7 @@ tc g2-5 gen_rand pmax=1
 
 group group3 12
 limits nmax=6 pmax=5
+tc 2 
 tc g3-1 gen_rand n=4 pmax=5
 tc g3-2 gen_rand n=6 pmax=5
 tc g3-3 gen_rand n=6 pmax=5
@@ -45,6 +48,8 @@ tc g4-2 gen_rand n=10 pmax=1000
 tc g4-3 gen_rand n=1000 pmax=1000
 tc g4-4 gen_rand n=1000 pmax=1000
 tc g4-5 gen_rand n=1000 pmax=1000
+tc g4-6 gen_line n=1000 pmax=1000 partLine=0.7
+tc g4-7 gen_star n=1000 pmax=1000 amountStars=2 partStar=0.7
 
 group group5 10
 limits nmax=1000
@@ -54,6 +59,9 @@ tc g5-2 gen_rand n=1000 pmax=100000
 tc g5-3 gen_rand n=900 
 tc g5-4 gen_rand n=1000 
 tc g5-5 gen_rand n=1000 
+tc g5-6 gen_line n=1000 pmax=1000 partLine=0.4
+tc g5-7 gen_star n=1000 pmax=1000 amountStars=1 partStar=0.8
+tc g5-8 gen_star n=1000 pmax=1000 amountStars=3 partStar=0.6
 
 group group6 30
 include_group group1
@@ -64,4 +72,8 @@ tc g6-2 gen_rand
 tc g6-3 gen_rand 
 tc g6-4 gen_rand 
 tc g6-5 gen_rand 
-
+tc g6-6 gen_line partLine=0.8
+tc g6-7 gen_line partLine=0.3
+tc g6-8 gen_star amountStars=1 partStar=0.7
+tc g6-9 gen_star amountStars=10 partStar=0.9
+tc g6-10 gen_star amountStars=4 partStar=0.3

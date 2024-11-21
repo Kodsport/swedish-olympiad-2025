@@ -1,4 +1,4 @@
-// O(n^2m^2*26)
+// O(n^2*m*26)
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -35,14 +35,11 @@ struct Node{
 vector<Node> trie(1);
 
 ll dp(int pos, int triePos){
-    // deb(pos);
-    // deb2(triePos, trie[triePos].end);
     if(trie[triePos].end) return 0;
     if(pos == n) return 1;
     ll &ans = memo[pos][triePos];
     if(ans != -1) return ans;
     ans = 0;
-    // deb2(pos, triePos);
     fo(i, 26){
         ans = (ans+dp(pos+1, trie[triePos].next[i]))%INF;
     }
