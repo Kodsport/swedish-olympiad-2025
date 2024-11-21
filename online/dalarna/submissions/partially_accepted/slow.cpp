@@ -79,7 +79,7 @@ int main() {
         adj[--from].pb(--to);
         adj[to].pb(from);
     }
-
+    
     cout << solve(p);
 
     return 0;
