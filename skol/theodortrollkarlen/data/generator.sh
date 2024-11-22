@@ -12,6 +12,7 @@ samplegroup
 limits maxa=5 maxnk=5 maxs=5
 sample 1
 sample 2
+sample 3
 
 group group1 20
 limits maxa=0 maxnk=5 maxs=5
