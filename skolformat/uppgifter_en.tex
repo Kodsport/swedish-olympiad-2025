@@ -294,254 +294,254 @@ of letters, it could not have changed $F$ to $H$.
 
 
 \newpage
-\specialsection*{Uppgift 4 -- Siffrids siffersumma}
+\specialsection*{Task 4 -- Siffrid's Digit Sum}
 
-Siffrid älskar att leka med tal! Just nu sitter hon och leker med heltalet $N$.
+Siffrid loves playing with numbers! Right now, she is playing with the integer $N$.  
 
-Hon undrar hur man kan skapa det minsta och största talet som har samma siffersumma och antal siffror som $N$.
-Kan du hjälpa henne?
-Siffersumman av ett tal definieras som summan av alla siffror i talet. 
+She is wondering how to create the smallest and largest numbers that have the same 
+digit sum and the same number of digits as $N$.  
+Can you help her?  
 
-\noindent
-Till exempel är siffersumman av talet $1234$: 
+The digit sum of a number is defined as the sum of all its digits.  
+
+For example, the digit sum of the number $1234$ is:  
 $$
 1 + 2 + 3 + 4 = 10,
-$$
+$$  
 
-och siffersumman av talet $220$:
+and the digit sum of the number $220$ is:  
 $$
 2 + 2 + 0 = 4.
-$$
+$$  
 
-Skriv ett program som först läser in heltalet $N$ ($1 \leq N \leq 10^9$), talet som Siffrid leker runt med.
+Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), the number Siffrid is playing with.  
 
-Programmet ska sedan skriva ut det minsta och det största talet som har samma siffersumma och antal siffror som talet $N$.
+The program should then output the smallest and the largest numbers that have the same digit sum 
+and the same number of digits as the number $N$.  
 
-\vspace{0.5cm}
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\vspace{0.5cm}  
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
+
 \begin{itemize}
     \item[(1-2)] $\;\;\;\;$ $N \leq 10^5$    
-    \item[(3-5)] $\;\;\;\;$ Inga särskilda begränsningar.
+    \item[(3-5)] $\;\;\;\;$ No additional constraints.
 \end{itemize}
 
-\vspace{0.5cm}
-\fe{Körningsexempel 1}\\
+\vspace{0.5cm}  
+\fe{Sample run 1}\\
 \vspace{-0.3cm}
 \begin{verbatim}
 N ? 101
 
-Svar: 101 200
+Answer: 101 200
 \end{verbatim}
-\fe{Förklaring:} Vi kan inte få ett tal mindre än 101. Tal som 11 och 2 har samma siffersumma som $N$ och är mindre än 101, men de har inte
-lika många siffror som $N$.
+\fe{Explanation:} We cannot get a number smaller than 101. 
+Numbers like 11 and 2 have the same digit sum as $N$ and are smaller than 101, 
+but they do not have the same number of digits as $N$.
+
 
 \vspace{0.3cm}
-\fe{Körningsexempel 2}\\
+\fe{Sample run 2}\\
 \vspace{-0.3cm}
 \begin{verbatim}
 N ? 878
 
-Svar: 599 995
+Answer: 599 995
 \end{verbatim}
 \vspace{0.3cm}
 
-\fe{Körningsexempel 3}\\
+\fe{Sample run 3}\\
 \vspace{-0.3cm}
 \begin{verbatim}
 N ? 1337
 
-Svar: 1049 9500
+Answer: 1049 9500
 \end{verbatim}
 
 
 \newpage
-\specialsection*{Uppgift 5 -- Miniräknaren}
+\specialsection*{Task 5 -- The Calculator}
 
-Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
-Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
-trycker på likhetstecknet, så kommer miniräknaren att låsa upp flera
-stycken hemliga matematikfunktioner.
+Rumors are spreading that the school's calculator can be hacked using a secret code.  
+You've heard that if you can make the calculator display the secret Kålnami code and then press the equals button, 
+it will unlock several secret mathematical functions.  
 
-Din kompis har lyckats lista ut vad kålnami-koden är, men hen berättar för dig
-att du inte får gå tillväga hur som helst för att skriva in koden i miniräknaren.
-Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
+Your friend has figured out what the Kålnami code is but tells you that you can't just enter it in any way you like.  
+Initially, the calculator displays $0$. After that, you are allowed to perform the following operations:  
 \begin{itemize}
-  \item Multiplicera talet som visas med talet $M$.
-  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq M-1$.
-\end{itemize}
+  \item Multiply the number displayed by $M$.
+  \item Add any number $k$ to the number displayed, where $0 \leq k \leq M-1$.
+\end{itemize}  
 
-Som tur är har din kompis även lyckats lista ut vad talet $M$ är. 
-Denna komplicerade process kommer endast fungera om du gör så få operationer
-som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
-givet kålnami-koden och talet $M$.
+Fortunately, your friend has also figured out what $M$ is.  
+This complicated process will only work if you use the minimum number of operations possible.  
+You now want to determine how many operations are required, given the Kålnami code and the number $M$.  
 
-Skriv ett program som först läser in heltalet $N$ ($1 \le N \le 10^9$), som utgör kålnami-koden.
-Det ska sedan läsa in siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
+Write a program that first reads the integer $N$ ($1 \leq N \leq 10^9$), representing the Kålnami code.  
+Then it should read the digit $M$ ($2 \leq M \leq 9$), as described above.  
 
-Programmet ska sedan skriva ut ett heltal: det minsta antalet operationer som krävs för att få miniräknaren att visa
-kålnami-koden, $N$.
+The program should then output a single integer: the minimum number of operations required to make the calculator display the Kålnami code, $N$.  
 
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:  
 \begin{itemize}
     \item[(1)] $\;\;\;\;M=3, N \leq 10$ 
     \item[(2)] $\;\;\;\;M=2$ 
     \item[(3)] $\;\;\;\;N \leq 10^5$
-    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
-\end{itemize}
+    \item[(4-5)] $\;\;\;\; $No additional constraints.
+\end{itemize}  
 
-
-\fe{Körningsexempel 1}
+\fe{Sample run 1}  
 \begin{verbatim}
 N ? 4
 M ? 2
 
-Svar: 3
-\end{verbatim}
+Answer: 3
+\end{verbatim}  
 
-\fe{Förklaring:}
-Ett sätt att skriva in koden med minsta antalet operationer är att göra som följande:
+\fe{Explanation:}  
+One way to enter the code using the minimum number of operations is as follows:  
 \begin{enumerate}
   \item $+1$
   \item $\times 2$
   \item $\times 2$
-\end{enumerate}
+\end{enumerate}  
 
-Se nästa sida för ett till körningsexempel.
+See the next page for another example run.  
 
-\newpage
+\newpage  
 
-\fe{Körningsexempel 2}
+\fe{Sample run 2}  
 \begin{verbatim}
 N ? 33
 M ? 3
 
-Svar: 5
-\end{verbatim}
-\fe{Förklaring:}
-En optimal lösning är att utföra följande operationer:
+Answer: 5
+\end{verbatim}  
+
+\fe{Explanation:}  
+An optimal solution is to perform the following operations:  
 \begin{enumerate}
   \item $+1$
   \item $\times 3$
   \item $\times 3$
   \item $+2$
   \item $\times 3$
-\end{enumerate}
+\end{enumerate}  
+
 
 
 \newpage
-\specialsection*{Uppgift 6 -- Trollkarlen Theodor}
+\specialsection*{Task 6 -- The Wizard Theodor}
 
-En mindre armé med $N$ monster befinner sig precis utanför Tästerås! Nu är det upp
-till Trollkarlen Theodor att besegra den och rädda staden. Varje monster har ett visst
-antal liv. För att skada monster kan
-Theodor avfyra magiska explosioner. Varje gång han avfyrar en explosion siktar han på ett
-särskilt monster. Sedan händer följande:
+A smaller army of $N$ monsters is just outside Tästerås! 
+Now it's up to Trollkarlen Theodor to defeat them and save the city. 
+Each monster has a certain amount of health. To damage the monsters, 
+Theodor can fire magical explosions. Each time he fires an explosion, 
+he targets a specific monster. Then the following happens:  
 \begin{itemize}
-  \item Alla monster förlorar $A$ liv av explosionen.
-  \item Monstret som Theodor siktade på förlorar ytterligare $S$ liv, 
-  eftersom det befinner sig i mitten av explosionen. Alltså förlorar monstret han siktar
-  på $S+A$ liv sammanlagt av just den explosionen.
+  \item All monsters lose $A$ health from the explosion.
+  \item The monster Theodor targets loses an additional $S$ health because it is at the center of the explosion. Thus, the targeted monster loses $S+A$ health in total from that explosion.
 \end{itemize}
-Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
-Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
-explosioner han behöver skjuta iväg för att besegra alla monster om han siktar optimalt.
+He can freely choose which monster to target each time he fires an explosion.  
+Since firing explosions is exhausting, he wants to know the minimum number of explosions he needs to fire to defeat all the monsters if he targets optimally.  
 
-Skriv ett program som först läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
-vars betydelse beskrivs ovan. Därefter ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som
-beskriver antalet liv som vardera monster har.
+Write a program that first reads the integers $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$), and $A$ ($0 \leq A \leq 10^9$), as described above. 
+Then, the program should read $N$ integers $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), representing the health of each monster.  
 
-Programmet ska skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att besegra
-alla monster. Ett monster är besegrat om det har 0 eller färre liv.
+The program should output the minimum number of explosions Theodor needs to fire to defeat all the monsters. A monster is defeated if its health is reduced to $0$ or less.  
 
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\fe{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
+
 \begin{itemize}
     \item[(1)] $\;\;\;\; A=0$
     \item[(2-3)] $\;\;\;\; h_i \leq 100$
-    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
+    \item[(4-5)] $\;\;\;\; $No additional constraints.
 \end{itemize}
 
 
-\fe{Körningsexempel 1}
+\fe{Sample run 1}
 \begin{verbatim}
 N, S, A ? 3 2 1
-Monstrens liv ? 7 2 3
+Monsters' health ? 7 2 3
 
-Svar: 3
+Answer: 3
 \end{verbatim}
-\fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
+\fe{Explanation:} An optimal way to fire explosions is as follows:
 \begin{enumerate}
-  \item Avfyra en explosion på monstret med 7 liv. Monstren har nu \verb+4,1,2+ liv kvar.
-  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv besegras. De resterande monstren har \verb+1,1+ liv kvar. 
-  \item Avfyra en explosion på vilket som helst av monstren. Nu har alla monster blivit besegrade och Theodor är klar.
+  \item Fire an explosion at the monster with 7 health. The monsters now have \verb+4,1,2+ health remaining.
+  \item Fire an explosion at the monster with 4 health. The monster with 1 health is defeated. The remaining monsters have \verb+1,1+ health left.
+  \item Fire an explosion at either of the remaining monsters. All monsters are now defeated, and Theodor is finished.
 \end{enumerate}
 
-
-\fe{Körningsexempel 2}
+\fe{Sample run 2}
 \begin{verbatim}
 N, S, A ? 4 3 2
-Monstrens liv ? 7 8 9 10
+Monsters' health ? 7 8 9 10
 
-Svar: 4  
+Answer: 4
 \end{verbatim}
 
 
-\specialsection*{Uppgift 7 -- Theodor, Trollkarlen}
+
+\specialsection*{Task 7 -- Theodor, The Wizard}
 
 
-Detta problem bygger på problemet \textit{Trollkarlen Theodor}.
+This problem is based on the problem \textit{The Wizard Theodor}.  
 
-Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
-Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
-Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
-Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika monster, 
-så att Theodor behöver avfyra exakt $K$ magiska explosioner för att besegra alla monster. Enda kravet på antalet liv
-för ett monster är att det ska vara större än $0$.
+Evil Olle, the mastermind behind all evil, is tired of Theodor always ruining his plans. 
+Now, Olle has come up with a new devious scheme, and to carry it out, he needs to keep Theodor occupied. 
+At his disposal, he has $N$ monsters, and since he is immensely powerful, he can assign these monsters different amounts of health. 
+Olle now wants to count the number of ways he can distribute different health values among the monsters such that 
+Theodor needs to fire exactly $K$ magical explosions to defeat all the monsters. 
+The only requirement for a monster's health is that it must be greater than $0$.  
 
-Precis som i problemet \textit{Trollkarlen Theodor} skadar Theodor monster genom att sikta på ett särskilt monster och avfyra
-en explosion. Monstret han siktar på förlorar då $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var. 
-Ett monster är besegrat om det har 0 eller färre liv.
-Theodor väljer hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
+Just like in the problem \textit{The Wizard Theodor}, 
+Theodor damages monsters by targeting a specific one and firing an explosion. 
+The targeted monster loses $S$ health, and then all monsters (including the targeted one) lose $A$ health each. 
+A monster is defeated if it has $0$ or less health. Theodor targets monsters in such a way as to minimize the number of explosions he needs to fire.  
 
-Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), som är de fyra talen som beskrivits ovan.
+Write a program that reads the integers $N, K, S, A$ ($1 \leq N, K, S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), which are the four numbers described above.  
 
-Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver avfyra exakt $K$ explosioner för att besegra alla.
-Eftersom detta tal kan bli väldigt stort ska det skrivas ut \textit{modulo} $10^9+7$. Om du bara vill lösa
-första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
+The program should then output the number of ways Olle can assign health values to the 
+monsters such that Theodor needs to fire exactly $K$ explosions to defeat all of them. 
+Since this number can be very large, it should be output \textit{modulo} $10^9+7$. 
+If you only want to solve the first test case, you do not need to worry about modulo as the answer will be small.
 
 
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+
+\fe{Scoring:}\\
+The five test cases, each worth $1$ point, have the following additional constraints beyond those already mentioned:
 \begin{itemize}
     \item[(1)] $\;\;\;\; A = 0$, $N, K, S \leq 5$
     \item[(2)] $\;\;\;\; A = 0$, $S \leq 10$, $N, K \leq 70$
     \item[(3)] $\;\;\;\; N, K, S, A \leq 150$
     \item[(4)] $\;\;\;\; N, K, S, A \leq 1000$
-    \item[(5)] $\;\;\;\;$Inga särskilda begränsningar.
+    \item[(5)] $\;\;\;\;$No additional constraints.
 \end{itemize}
 
 
-\fe{Körningsexempel 1}
+\fe{Sample run 1}
 \begin{verbatim}
 N, K, S, A ? 1 1 5 0
 
 Svar: 5
 \end{verbatim}
-\fe{Förklaring:} Det finns ett monster, och de möjliga liv det kan ha så att Theodor besegrar det med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+\fe{Explanation:} There is one monster, and the possible health values it can have such that Theodor defeats it with exactly one explosion are \verb+1, 2, 3, 4, 5+.
 
-Se nästa sida för fler körningsexempel.
+See the next page for more sample runs.
 
 \newpage
 
-\fe{Körningsexempel 2}
+\fe{Sample run 2}
 \begin{verbatim}
 N, K, S, A ? 2 2 1 1
 
-Svar: 10
+Answer: 10
 \end{verbatim}
-\fe{Förklaring:} De 10 möjliga fördelningarna av monsterliv så att Theodor besegrar båda med exakt två explosioner är:
+\fe{Explanation:} The 10 possible distributions of health values for the monsters such that Theodor defeats both with exactly two explosions are:
 \begin{verbatim}
   1 3
   1 4
@@ -556,11 +556,11 @@ Svar: 10
 \end{verbatim}
 
 \vspace{1cm}
-\fe{Körningsexempel 3}
+\fe{Sample run 3}
 \begin{verbatim}
 N, K, S, A ? 10 20 30 40
 
-Svar: 435462573
+Answer: 435462573
 \end{verbatim}
 
 \end{document}
