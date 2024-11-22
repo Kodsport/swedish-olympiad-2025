@@ -16,11 +16,12 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n', 500000))
-p = int(cmdlinearg('pmax', 1000000000))
+pmin = int(cmdlinearg('pmin', 0))
+pmax = int(cmdlinearg('pmax', 1000000000))
 
 print(n)
 
-print(" ".join(map(str, [randint(0, p) for _ in range(n)])))
+print(" ".join(map(str, [randint(pmin, pmax) for _ in range(n)])))
 
 order = [i+1 for i in range(n)]
 random.shuffle(order)

@@ -15,7 +15,7 @@ samplegroup
 sample 1
 sample 2
 
-group group1 6
+group group1 8
 limits line=1
 tc 1
 tc g1-1 gen_line n=8136 pmax=371268
@@ -23,27 +23,35 @@ tc g1-2 gen_line n=2000
 tc g1-3 gen_line n=89127
 tc g1-4 gen_line
 
+group group2 11
+limits pmin=1 pmax=1
+tc g2-1 gen_rand n=100 pmin=1 pmax=1
+tc g2-2 gen_rand n=20000 pmin=1 pmax=1
+tc g2-3 gen_rand n=100000 pmin=1 pmax=1
+tc g2-4 gen_rand pmin=1 pmax=1
+tc g2-5 gen_rand pmin=1 pmax=1
 
-group group2 18
+group group3 9
 limits pmax=1
-tc g2-1 gen_rand n=100 pmax=1
-tc g2-2 gen_rand n=20000 pmax=1
-tc g2-3 gen_rand n=100000 pmax=1
-tc g2-4 gen_rand pmax=1
-tc g2-5 gen_rand pmax=1
+include_group group2
+tc g3-1 gen_rand n=100 pmax=1
+tc g3-2 gen_rand n=20000 pmax=1
+tc g3-3 gen_rand n=100000 pmax=1
+tc g3-4 gen_rand pmax=1
+tc g3-5 gen_rand pmax=1
 
-group group3 12
+group group4 12
 limits nmax=6 pmax=5
 tc 2 
-tc g3-1 gen_rand n=4 pmax=5
-tc g3-2 gen_rand n=6 pmax=5
-tc g3-3 gen_rand n=6 pmax=5
-tc g3-4 gen_rand n=6 pmax=5
+tc g4-1 gen_rand n=4 pmax=5
+tc g4-2 gen_rand n=6 pmax=5
+tc g4-3 gen_rand n=6 pmax=5
+tc g4-4 gen_rand n=6 pmax=5
 tc_manual ../manual/harrykiller03.in
 
-group group4 29
+group group5 25
 limits nmax=1000
-include_group group3
+include_group group4
 tc_manual ../manual/harrykiller04.in #
 tc_manual ../manual/harrykiller01.in #
 tc_manual ../manual/harrykiller02.in #
@@ -56,10 +64,10 @@ tc g5-6 gen_line n=1000 pmax=1000 partLine=0.4
 tc g5-7 gen_star n=1000 pmax=1000 amountStars=1 partStar=0.8
 tc g5-8 gen_star n=1000 pmax=1000 amountStars=3 partStar=0.6
 
-group group5 35
+group group6 35
 include_group group1
-include_group group2
-include_group group4
+include_group group3
+include_group group5
 tc g6-1 gen_rand pmax=10
 tc g6-2 gen_rand 
 tc g6-3 gen_rand 

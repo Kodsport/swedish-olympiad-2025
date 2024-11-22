@@ -30,10 +30,11 @@ bool isTree(int u, int last = -1){
 void run() {
     int n = Int(1, Arg("nmax", 500000));
     Endl();
+    ll pmin = Arg("pmin", 0);
     ll pmax = Arg("pmax", 1000000000);
     fo(i, n){
         if(i > 0)Space();
-        Int(0, pmax);
+        Int(pmin, pmax);
     }
     Endl();
 
