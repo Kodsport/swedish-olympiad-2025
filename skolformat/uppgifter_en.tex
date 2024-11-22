@@ -104,33 +104,33 @@ Angle 1 ? 100
 Angle 2 ? 40
 Angle 3 ? 40
 
-Svar: Trubbig Triangel
+Answer: Trubbig Triangel
 \end{verbatim}
-Se nästa sida för fler körningsexempel.
+The next page contains more sample runs.
 
 \newpage
 
 \fe{Sample run 2}
 \begin{verbatim}
-Vinkel 1 ? 60
-Vinkel 2 ? 40
-Vinkel 3 ? 80
+Angle 1 ? 60
+Angle 2 ? 40
+Angle 3 ? 80
 
-Svar: Spetsig Triangel
+Answer: Spetsig Triangel
 \end{verbatim}
 
 \fe{Sample run 3}
 \begin{verbatim}
-Vinkel 1 ? 30
-Vinkel 2 ? 60
-Vinkel 3 ? 90
+Angle 1 ? 30
+Angle 2 ? 60
+Angle 3 ? 90
 
-Svar: Ratvinklig Triangel
+Answer: Ratvinklig Triangel
 \end{verbatim}
 
 
 \newpage
-\specialsection*{Uppgift 2 -- Truls trubbel}
+\specialsection*{Task 2 -- Truls' Troubles}
 
 
 %\begin{center}
@@ -138,155 +138,158 @@ Svar: Ratvinklig Triangel
 %  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
 %\end{center}
 
-Truls och Henry spelar pingis mot varandra.
+Truls and Henry are playing table tennis against each other.
 
-Både Truls och Henry ogillar starkt matematik.
-Mer än allting annat ogillar de att räkna på antalet poäng som vardera person har under tävlingen.
-För att förenkla poängräkningen har de kommit på en egen lösning:
+Both Truls and Henry strongly dislike math.  
+More than anything, they hate calculating how many points each of them has during the game.  
+To simplify scoring, they have come up with their own solution:
 
-Istället för att ständigt hålla koll på hur många poäng de har, skriver de 
-ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
-får poäng, direkt efter varje vunnen boll.
+Instead of constantly keeping track of their points, they write a ``\texttt{T}'' if Truls
+scores a point and an ``\texttt{H}'' if Henry scores a point, immediately after each won rally.
 
-När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
+When Truls and Henry play table tennis, the scoring system works according to these three rules:  
 \begin{enumerate}
-  \item Vid varje boll delas ett poäng ut.
-  \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
+  \item One point is awarded after each rally.  
+  \item A player wins a match if both of the following conditions are met:  
   \begin{itemize}
-    \item Spelaren leder med åtminstone 2 poäng över sin motståndare.
-    \item Spelaren har minst 11 poäng.
-  \end{itemize}
-  Till exempel, om Truls har 11 poäng och Henry har 9 poäng, så utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng finns det ännu ingen vinnare.
+    \item The player leads by at least 2 points over their opponent.  
+    \item The player has at least 11 points.  
+  \end{itemize}  
+  For example, if Truls has 11 points and Henry has 9 points, Truls is declared the winner.
+  But if Truls has 11 points and Henry has 10 points, there is no winner yet.  
 
-  \item När en spelare har vunnit enligt ovanstående kriterier, så nollställs poängen för båda spelarna och en ny match startar.
-\end{enumerate}
+  \item When a player wins according to the criteria above, the points for both players are reset to zero, and a new match begins.  
+\end{enumerate}  
 
-Nu har Truls och Henry spelat väldigt länge, och båda vill veta hur poängen ser ut.
-De ber de dig att skriva ett program som
-räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
+Now Truls and Henry have been playing for a long time, and both want to know the current score.  
+They ask you to write a program that calculates the current score for them based on their notes.
 
-Ditt program ska först läsa in poängsträngen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
-Varje bokstav kommer antingen vara ”\texttt{T}” eller ”\texttt{H}”.
+Your program should first read the score string, which consists of multiple letters on a single line. The number of letters is between 1 and 30.  
+Each letter will be either ``\texttt{T}'' or ``\texttt{H}''.
 
-Programmet ska sedan skriva ut poängen i den nuvarande matchen som spelas, ”$T$-$H$”, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
+The program should then output the score of the ongoing match as ``\textit{$T$-$H$}'', where $T$ is
+the number of points Truls has, and $H$ is the number of points Henry has.
 
-\fe{Poängsättning:}\\
-De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\textbf{Scoring:}\\  
+The five test cases, each worth $1$ point, have the following constraints:  
 \begin{itemize}
-  \item[(1-2)] $\;\;\;\;$En match avgörs alltid så fort någon får 11 poäng.
-  \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+  \item[(1-2)] $\;\;\;\;$A match always ends as soon as one player reaches 11 points.  
+  \item[(3-5)] $\;\;\;\;$No additional constraints.  
 \end{itemize}
 
 \vspace{1cm}
 
-\fe{Körningsexempel 1}
+\fe{Sample run 1}
 \begin{verbatim}
-Anteckningarna ? TTTHHHTHH
+The notes ? TTTHHHTHH
 
-Svar: 4-5
+Answer: 4-5
 \end{verbatim}
 
-Se nästa sida för fler körningsexempel.
+The next page contains more sample runs.
 
 
 \newpage
 
-\fe{Körningsexempel 2}
+\fe{Sample run 2}
 \begin{verbatim}
-Anteckningarna ? TTTTTTTTTTT
+The notes ? TTTTTTTTTTT
 
-Svar: 0-0
+Answer: 0-0
 \end{verbatim}
 
-\fe{Förklaring:} Eftersom Truls vann matchen när poängställningen blev \texttt{11-0}, så nollställdes poängen till \texttt{0-0}.
+\fe{Explanation:} Since Truls won the match when the score reached \texttt{11-0}, the score was reset to \texttt{0-0}.
 
 \vspace{0.5cm}
 
-\fe{Körningsexempel 3}
+\fe{Sample run 3}
 \begin{verbatim}
-Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTH
+The notes ? THTHTHTHTHTHTHTHTHTHTHTH
 
-Svar: 12-12
+Answer: 12-12
 \end{verbatim}
-\fe{Förklaring:} Även om båda har fler än 11 poäng leder ingen med 2 poäng. Därför har ingen vinnare utsetts ännu.
+\fe{Explanation:} Even though both have more than 11 points, neither leads by 2 points. Therefore, no winner has been declared yet.
 
 
-\fe{Körningsexempel 4}
+\fe{Sample run 4}
 \begin{verbatim}
-Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTHHHH
+The notes ? THTHTHTHTHTHTHTHTHTHTHTHHHH
 
-Svar: 0-1
+Answer: 0-1
 \end{verbatim}
-\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen efter ytterligare två vunna bollar. 
-Poängen nollställs, och Henry vinner därefter en till boll. Därför står det \texttt{0-1}.
+\fe{Explanation:} This game is a continuation of sample run 3, where Henry wins the match after scoring two more points.  
+The score is reset, and Henry then wins another point. Therefore, the score is \texttt{0-1}.
 
 
 \newpage
-\specialsection*{Uppgift 3 -- Virus}
+\specialsection*{Task 3 -- Virus}
 
-Boschua är inte så bra på cybersäkerhet. Förra månaden stängde han av brandväggen för att den
-inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
-Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver i alla filnamn.
+Boschua isn't very good at cybersecurity. Last month, he turned off the firewall
+because it wouldn't let him download cat pictures. Unfortunately, this led to him getting a virus.  
+The virus did something very strange: it added a lot of letters to all filenames.  
 
-Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
-Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
+For example, it might have changed the filename \texttt{katt.png} to \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.  
+The virus can add letters but never remove them.  
 
-Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som läser in filnamnet $F$ och namnet på en fil $H$
-på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
-viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
+Now he is looking for the file named $F$, but he has a huge number of files. Can you write a
+program that reads the filename $F$ and the name of a file $H$ on his computer and determines
+whether $F$ could have been transformed into $H$ by the virus?  
+In other words, is it possible that the virus took the filename $F$ and added letters such that the file is now named $H$?  
 
-Skriv ett program som läser in $F$ och $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
-Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
-Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
+Write a program that reads $F$ and $H$. Let $|F|$ be the number of characters in $F$, and the same for $|H|$.  
+It holds that $1 \leq |F| \leq |H| \leq 32$. $F$ and $H$ contain only letters \texttt{a}-\texttt{z} and periods.  
+It is guaranteed that $F$ contains exactly one period. The virus can add periods and any letter from \texttt{a}-\texttt{z}.  
 
-Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej”.
+Your program should then print ``Ja'' if $H$ could be the file Boschua is looking for, otherwise ``Nej''.  
 
+\vspace{0.5cm}  
+\textbf{Scoring:}\\  
+This problem has five \textit{pairs} of test cases. In each pair, the answer to one test case is Ja and
+the answer to the other is Nej.  
+This ensures you do not score points if your program always prints ``Ja'' or always prints ``Nej''.  
+
+The five pairs of test cases, each worth $1$ point, have the following constraints in addition to those already mentioned:  
+\begin{itemize}  
+    \item[(Pair 1)] $\;\;\;\;$Each character (and period) appears at most once in each string.  
+    \item[(Pair 2)] $\;\;\;\;|H| = |F|+1$  
+    \item[(Pair 3)] $\;\;\;\;|H| = |F|+2$  
+    \item[(Pairs 4-5)] $\;\;\;\;$No additional constraints.  
+\end{itemize} 
 
 \vspace{0.5cm}
-\fe{Poängsättning:}\\
-I detta problem finns det fem \textit{par} av testfall. I varje par är svaret på det ena testfallet Ja och det andra Nej.
-Detta för att förhindra att du får poäng om ditt program alltid skriver ut ”Ja” eller alltid ”Nej”.
-
-De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
-\begin{itemize}
-    \item[(Par 1)] $\;\;\;\;$Varje bokstav (och punkt) dyker upp som mest en gång i vardera sträng.    
-    \item[(Par 2)] $\;\;\;\;|H| = |F|+1$ 
-    \item[(Par 3)] $\;\;\;\;|H| = |F|+2$ 
-    \item[(Par 4-5)] $\;\;\;\; $Inga särskilda begränsningar.
-\end{itemize}
-
-\vspace{0.5cm}
-\fe{Körningsexempel 1}
+\fe{Sample run 1}
 \begin{verbatim}
 F ? katt.png
 H ? kattegatto.ping
 
-Svar: Ja
+Answer: Ja
 \end{verbatim}
-\fe{Förklaring:} Viruset kan ha gjort följande förändring för göra om $F$ till $H$: \texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$:
+\texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
 
-Se nästa sida för fler körningsexempel.
+The next page contains more sample runs.
+
 \newpage
 
-\fe{Körningsexempel 2}
+\fe{Sample run 2}
 \begin{verbatim}
 F ? antivirus.exe
 H ? aaantivisiiruis.egxe
 
-Svar: Ja
+Answer: Ja
 \end{verbatim}
-\fe{Förklaring:} Viruset kan ha gjort följande förändring för att göra om $F$ till $H$: \\
+\fe{Explanation:} The virus could have made the following changes to change $F$ to $H$: \\
 \texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
 
-\fe{Körningsexempel 3}
+\fe{Sample run 3}
 \begin{verbatim}
 F ? kattenmilly.png
 H ? kaaatttenmilly.pgn
 
-Svar: Nej
+Answer: Nej
 \end{verbatim}
-\fe{Förklaring:} $F$ och $H$ skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
-kan det inte ha ändrat $F$ till $H$. 
+\fe{Explanation:} $F$ and $H$ differ by \texttt{png} and \texttt{pgn}. Because the virus cannot change the order
+of letters, it could not have changed $F$ to $H$. 
 
 
 
