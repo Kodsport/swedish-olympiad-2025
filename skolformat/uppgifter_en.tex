@@ -1,0 +1,564 @@
+%\usepackage [ISO-8859-1]{inputenc}
+\input{Olympiad}
+
+\thispagestyle{fancy}
+\lstset{basicstyle=\ttfamily,
+  breaklines=true}
+% ----------------------------------------------------
+
+\begin{center}
+\Huge{Programmeringsolympiaden 2025}
+\end{center}
+\vspace{-1.2cm} 
+\specialsection*{Competition rules for skolkvalet}
+\begin{lista}
+\item The competition takes place on a date determined by the school under {\bf four hours.
+    No extra time is given for lunch or breaks.} Before the competition starts, the student
+    shall decide together with the teacher whether they will use their own or a school computer.
+    In both of these cases, the student must write skolkvalet in an agreed-upon location
+    in the school.
+    
+\item The competition consists of seven tasks that shall each be solved by using a computer
+  program in your programming language of choice.
+\item {\bf Input can be read into the program in any way}, e.g., through the program interacting
+with the user (as in the sample runs in the tasks), being entered into a graphical interface,
+or data files being sent to {\em standard input}. Just agree with your teacher on how the program will be tested.
+\item Your solutions will be tested with prepared input data. Each task is typically tested
+with 5 test cases, each awarding 1 point if your program outputs the correct answer within
+an execution time limit of {\bf 3 seconds}. No input validation is required, as it adheres
+to the specifications in the task.
+\item There are often different constraints for the various test cases, such as the size of
+the input or other limitations. These are specified in the task. {\bf Note that the difficulty
+level of a task can vary significantly depending on these differences. Therefore, it might
+be easier to score partial points on a seemingly difficult task than to score full points
+on a seemingly easier task.} The information about partial scoring is thus extremely
+important for planning your competition.
+\item The grading is performed on the same or an equivalent computer as where the code was written.
+Changes to the source code are not allowed after the competition. If the program cannot be
+compiled, the task will be awarded 0 points.
+
+\item If any of the following happens, 0 points are awarded on the particular {\em testcase} being tested,
+  but the program shall still be tested on the rest of the testcases.
+\begin{lista}
+\item The execution time of the program exceeds 3 seconds \vspace{-0.2cm}
+\item Execution error (run time error) \vspace{-0.2cm}
+\item Wrong answer \vspace{-0.2cm}
+\end{lista}
+
+\item Participation is individual, which means, among other things, that no exchange
+of ideas or files is allowed during the competition.  
+\item Permitted resources: Any written material, material installed on the computer,
+and material available on the internet. 
+It is \ku{not} allowed to actively communicate on the internet (e.g., chatting or asking questions in a forum);
+only searching for information is permitted.  
+{\bf It is also not allowed to use generative AI such as ChatGPT or GitHub Copilot.}  
+Calculators are allowed.  
+\item Submissions must be made in the form of source code files (e.g., uppg1...uppg7 with appropriate
+file extensions) uploaded to the agreed location. Other files will not be considered. Make sure to
+submit the correct version of your program.  
+
+\end{lista}
+
+%De högst placerade i kvalet går vidare till finalen i Göteborg där landslagsplatser till BOI i Polen och IOI i Bolivia står på spel.
+\begin{center}
+\Large Good luck!
+\end{center}
+%\end{document}
+
+\newpage
+\specialsection*{Task 1 -- The Triangle Factory}
+
+Tristian works at a triangle factory.  
+His job is to classify different types of triangles produced in the factory.  
+Tristian now asks you to write a program that can replace him.  
+
+Tristian will give you three positive integers, $a$, $b$, and $c$.  
+These are the three angles of a triangle, given in degrees.  
+
+Your program should do the following:  
+\begin{itemize}
+  \item If the triangle is obtuse, the program should print ``Trubbig Triangel''.
+  \item If the triangle is acute, the program should print ``Spetsig Triangel''.
+  \item If the triangle is right-angled, the program should print ``Ratvinklig Triangel''.  
+  (Since it can be tricky to write the letter "ä," both "Right Triangle" and "Ratvinklig Triangel" are acceptable answers.)  
+\end{itemize}  
+
+To remind you of the definitions of obtuse, acute, and right-angled triangles:  
+\begin{itemize}
+  \item A triangle is obtuse if any of its angles are greater than $90$ degrees.  
+  \item A triangle is acute if all its angles are less than $90$ degrees.  
+  \item A triangle is right-angled if one of its angles is exactly $90$ degrees.  
+\end{itemize}  
+
+Your program should read the three angles $a$, $b$, $c$.  
+
+It is guaranteed that $(1 \leq a, b, c < 180)$ holds. It is also guaranteed that the input forms a valid triangle, meaning $a + b + c = 180$.  
+
+The program should then print whether the triangle formed by the angles $a$, $b$, and $c$ is acute, obtuse, or right-angled.  
+
+\textbf{Scoring:} The program will be run on 5 test cases, each worth $1$ point.
+
+\vspace{1cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Vinkel 1 ? 100
+Vinkel 2 ? 40
+Vinkel 3 ? 40
+
+Svar: Trubbig Triangel
+\end{verbatim}
+Se nästa sida för fler körningsexempel.
+
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Vinkel 1 ? 60
+Vinkel 2 ? 40
+Vinkel 3 ? 80
+
+Svar: Spetsig Triangel
+\end{verbatim}
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+Vinkel 1 ? 30
+Vinkel 2 ? 60
+Vinkel 3 ? 90
+
+Svar: Ratvinklig Triangel
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Uppgift 2 -- Truls trubbel}
+
+
+%\begin{center}
+%  \includegraphics[width=12cm]{sifferkrypto.pdf} \\ ~\\
+%  \ku{Exempel på missuppfattning som kan ske med Alice nya chiffer.}
+%\end{center}
+
+Truls och Henry spelar pingis mot varandra.
+
+Både Truls och Henry ogillar starkt matematik.
+Mer än allting annat ogillar de att räkna på antalet poäng som vardera person har under tävlingen.
+För att förenkla poängräkningen har de kommit på en egen lösning:
+
+Istället för att ständigt hålla koll på hur många poäng de har, skriver de 
+ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
+får poäng, direkt efter varje vunnen boll.
+
+När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
+\begin{enumerate}
+  \item Vid varje boll delas ett poäng ut.
+  \item En spelare vinner en match om båda av de två följande villkoren är uppfyllda:
+  \begin{itemize}
+    \item Spelaren leder med åtminstone 2 poäng över sin motståndare.
+    \item Spelaren har minst 11 poäng.
+  \end{itemize}
+  Till exempel, om Truls har 11 poäng och Henry har 9 poäng, så utses Truls till vinnare. Men om Truls har 11 poäng och Henry har 10 poäng finns det ännu ingen vinnare.
+
+  \item När en spelare har vunnit enligt ovanstående kriterier, så nollställs poängen för båda spelarna och en ny match startar.
+\end{enumerate}
+
+Nu har Truls och Henry spelat väldigt länge, och båda vill veta hur poängen ser ut.
+De ber de dig att skriva ett program som
+räknar ut den aktuella poängställningen åt dem, baserat på deras anteckningar.
+
+Ditt program ska först läsa in poängsträngen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
+Varje bokstav kommer antingen vara ”\texttt{T}” eller ”\texttt{H}”.
+
+Programmet ska sedan skriva ut poängen i den nuvarande matchen som spelas, ”$T$-$H$”, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar:
+\begin{itemize}
+  \item[(1-2)] $\;\;\;\;$En match avgörs alltid så fort någon får 11 poäng.
+  \item[(3-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{1cm}
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+Anteckningarna ? TTTHHHTHH
+
+Svar: 4-5
+\end{verbatim}
+
+Se nästa sida för fler körningsexempel.
+
+
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+Anteckningarna ? TTTTTTTTTTT
+
+Svar: 0-0
+\end{verbatim}
+
+\fe{Förklaring:} Eftersom Truls vann matchen när poängställningen blev \texttt{11-0}, så nollställdes poängen till \texttt{0-0}.
+
+\vspace{0.5cm}
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTH
+
+Svar: 12-12
+\end{verbatim}
+\fe{Förklaring:} Även om båda har fler än 11 poäng leder ingen med 2 poäng. Därför har ingen vinnare utsetts ännu.
+
+
+\fe{Körningsexempel 4}
+\begin{verbatim}
+Anteckningarna ? THTHTHTHTHTHTHTHTHTHTHTHHHH
+
+Svar: 0-1
+\end{verbatim}
+\fe{Förklaring:} Detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen efter ytterligare två vunna bollar. 
+Poängen nollställs, och Henry vinner därefter en till boll. Därför står det \texttt{0-1}.
+
+
+\newpage
+\specialsection*{Uppgift 3 -- Virus}
+
+Boschua är inte så bra på cybersäkerhet. Förra månaden stängde han av brandväggen för att den
+inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
+Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver i alla filnamn.
+
+Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
+Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
+
+Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som läser in filnamnet $F$ och namnet på en fil $H$
+på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
+viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
+
+Skriv ett program som läser in $F$ och $H$. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
+Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
+Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
+
+Ditt program ska sedan skriva ut ”Ja” om $H$ kan vara filen Boschua söker, annars ”Nej”.
+
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+I detta problem finns det fem \textit{par} av testfall. I varje par är svaret på det ena testfallet Ja och det andra Nej.
+Detta för att förhindra att du får poäng om ditt program alltid skriver ut ”Ja” eller alltid ”Nej”.
+
+De fem paren av testfall som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(Par 1)] $\;\;\;\;$Varje bokstav (och punkt) dyker upp som mest en gång i vardera sträng.    
+    \item[(Par 2)] $\;\;\;\;|H| = |F|+1$ 
+    \item[(Par 3)] $\;\;\;\;|H| = |F|+2$ 
+    \item[(Par 4-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{0.5cm}
+\fe{Körningsexempel 1}
+\begin{verbatim}
+F ? katt.png
+H ? kattegatto.ping
+
+Svar: Ja
+\end{verbatim}
+\fe{Förklaring:} Viruset kan ha gjort följande förändring för göra om $F$ till $H$: \texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+
+Se nästa sida för fler körningsexempel.
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+F ? antivirus.exe
+H ? aaantivisiiruis.egxe
+
+Svar: Ja
+\end{verbatim}
+\fe{Förklaring:} Viruset kan ha gjort följande förändring för att göra om $F$ till $H$: \\
+\texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
+
+\fe{Körningsexempel 3}
+\begin{verbatim}
+F ? kattenmilly.png
+H ? kaaatttenmilly.pgn
+
+Svar: Nej
+\end{verbatim}
+\fe{Förklaring:} $F$ och $H$ skiljer sig vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
+kan det inte ha ändrat $F$ till $H$. 
+
+
+
+\newpage
+\specialsection*{Uppgift 4 -- Siffrids siffersumma}
+
+Siffrid älskar att leka med tal! Just nu sitter hon och leker med heltalet $N$.
+
+Hon undrar hur man kan skapa det minsta och största talet som har samma siffersumma och antal siffror som $N$.
+Kan du hjälpa henne?
+Siffersumman av ett tal definieras som summan av alla siffror i talet. 
+
+\noindent
+Till exempel är siffersumman av talet $1234$: 
+$$
+1 + 2 + 3 + 4 = 10,
+$$
+
+och siffersumman av talet $220$:
+$$
+2 + 2 + 0 = 4.
+$$
+
+Skriv ett program som först läser in heltalet $N$ ($1 \leq N \leq 10^9$), talet som Siffrid leker runt med.
+
+Programmet ska sedan skriva ut det minsta och det största talet som har samma siffersumma och antal siffror som talet $N$.
+
+\vspace{0.5cm}
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1-2)] $\;\;\;\;$ $N \leq 10^5$    
+    \item[(3-5)] $\;\;\;\;$ Inga särskilda begränsningar.
+\end{itemize}
+
+\vspace{0.5cm}
+\fe{Körningsexempel 1}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 101
+
+Svar: 101 200
+\end{verbatim}
+\fe{Förklaring:} Vi kan inte få ett tal mindre än 101. Tal som 11 och 2 har samma siffersumma som $N$ och är mindre än 101, men de har inte
+lika många siffror som $N$.
+
+\vspace{0.3cm}
+\fe{Körningsexempel 2}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 878
+
+Svar: 599 995
+\end{verbatim}
+\vspace{0.3cm}
+
+\fe{Körningsexempel 3}\\
+\vspace{-0.3cm}
+\begin{verbatim}
+N ? 1337
+
+Svar: 1049 9500
+\end{verbatim}
+
+
+\newpage
+\specialsection*{Uppgift 5 -- Miniräknaren}
+
+Det går rykten om att skolans miniräknare kan trimmas med en hemlig kod.
+Du har hört att om du kan få miniräknaren att visa den hemliga kålnami-koden på displayen och sedan
+trycker på likhetstecknet, så kommer miniräknaren att låsa upp flera
+stycken hemliga matematikfunktioner.
+
+Din kompis har lyckats lista ut vad kålnami-koden är, men hen berättar för dig
+att du inte får gå tillväga hur som helst för att skriva in koden i miniräknaren.
+Från början visar miniräknaren $0$. Sedan får du utföra följande operationer:
+\begin{itemize}
+  \item Multiplicera talet som visas med talet $M$.
+  \item Addera ett valfritt tal $k$ till talet som visas, där $k$ uppfyller $0 \leq k \leq M-1$.
+\end{itemize}
+
+Som tur är har din kompis även lyckats lista ut vad talet $M$ är. 
+Denna komplicerade process kommer endast fungera om du gör så få operationer
+som möjligt. Därför vill du nu ta reda på hur många operationer som krävs,
+givet kålnami-koden och talet $M$.
+
+Skriv ett program som först läser in heltalet $N$ ($1 \le N \le 10^9$), som utgör kålnami-koden.
+Det ska sedan läsa in siffran $M$ ($2 \leq M \leq 9$), som beskrivits ovan.
+
+Programmet ska sedan skriva ut ett heltal: det minsta antalet operationer som krävs för att få miniräknaren att visa
+kålnami-koden, $N$.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\;M=3, N \leq 10$ 
+    \item[(2)] $\;\;\;\;M=2$ 
+    \item[(3)] $\;\;\;\;N \leq 10^5$
+    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N ? 4
+M ? 2
+
+Svar: 3
+\end{verbatim}
+
+\fe{Förklaring:}
+Ett sätt att skriva in koden med minsta antalet operationer är att göra som följande:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 2$
+  \item $\times 2$
+\end{enumerate}
+
+Se nästa sida för ett till körningsexempel.
+
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N ? 33
+M ? 3
+
+Svar: 5
+\end{verbatim}
+\fe{Förklaring:}
+En optimal lösning är att utföra följande operationer:
+\begin{enumerate}
+  \item $+1$
+  \item $\times 3$
+  \item $\times 3$
+  \item $+2$
+  \item $\times 3$
+\end{enumerate}
+
+
+\newpage
+\specialsection*{Uppgift 6 -- Trollkarlen Theodor}
+
+En mindre armé med $N$ monster befinner sig precis utanför Tästerås! Nu är det upp
+till Trollkarlen Theodor att besegra den och rädda staden. Varje monster har ett visst
+antal liv. För att skada monster kan
+Theodor avfyra magiska explosioner. Varje gång han avfyrar en explosion siktar han på ett
+särskilt monster. Sedan händer följande:
+\begin{itemize}
+  \item Alla monster förlorar $A$ liv av explosionen.
+  \item Monstret som Theodor siktade på förlorar ytterligare $S$ liv, 
+  eftersom det befinner sig i mitten av explosionen. Alltså förlorar monstret han siktar
+  på $S+A$ liv sammanlagt av just den explosionen.
+\end{itemize}
+Han kan fritt välja vilket monster han ska sikta på varje gång han avfyrar en explosion.
+Eftersom det är jobbigt att avfyra explosioner vill han veta det minsta antalet
+explosioner han behöver skjuta iväg för att besegra alla monster om han siktar optimalt.
+
+Skriv ett program som först läser in heltalen $N$ ($1 \leq N \leq 10$), $S$ ($1 \leq S \leq 10^9$) och $A$ ($0 \leq A \leq 10^9$), 
+vars betydelse beskrivs ovan. Därefter ska programmet läsa in $N$ heltal $h_1, h_2, \ldots, h_N$ ($1 \leq h_i \leq 10^9$), som
+beskriver antalet liv som vardera monster har.
+
+Programmet ska skriva ut det minsta antalet explosioner som Theodor behöver avfyra för att besegra
+alla monster. Ett monster är besegrat om det har 0 eller färre liv.
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\; A=0$
+    \item[(2-3)] $\;\;\;\; h_i \leq 100$
+    \item[(4-5)] $\;\;\;\; $Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N, S, A ? 3 2 1
+Monstrens liv ? 7 2 3
+
+Svar: 3
+\end{verbatim}
+\fe{Förklaring:} Ett optimalt sätt att avfyra explosioner är följande:
+\begin{enumerate}
+  \item Avfyra en explosion på monstret med 7 liv. Monstren har nu \verb+4,1,2+ liv kvar.
+  \item Avfyra en explosion på monstret med 4 liv kvar. Monstret med 1 liv besegras. De resterande monstren har \verb+1,1+ liv kvar. 
+  \item Avfyra en explosion på vilket som helst av monstren. Nu har alla monster blivit besegrade och Theodor är klar.
+\end{enumerate}
+
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N, S, A ? 4 3 2
+Monstrens liv ? 7 8 9 10
+
+Svar: 4  
+\end{verbatim}
+
+
+\specialsection*{Uppgift 7 -- Theodor, Trollkarlen}
+
+
+Detta problem bygger på problemet \textit{Trollkarlen Theodor}.
+
+Ondskefulla Olle, som är ytterst ansvarig för all ondska, har tröttnat på att Theodor alltid förstör allting.
+Nu har Olle kommit på en ny ondskefull plan, och för att sätta den i verket måste han uppehålla Theodor.
+Till sitt förfogande har han $N$ monster, och eftersom han är så enormt mäktig kan han ge dessa monster olika antal liv.
+Olle vill nu räkna antalet sätt han kan ge olika mängder liv till sina olika monster, 
+så att Theodor behöver avfyra exakt $K$ magiska explosioner för att besegra alla monster. Enda kravet på antalet liv
+för ett monster är att det ska vara större än $0$.
+
+Precis som i problemet \textit{Trollkarlen Theodor} skadar Theodor monster genom att sikta på ett särskilt monster och avfyra
+en explosion. Monstret han siktar på förlorar då $S$ liv, och sedan förlorar alla monster (även det han siktade på) $A$ liv var. 
+Ett monster är besegrat om det har 0 eller färre liv.
+Theodor väljer hur han siktar på monster så att han minimerar antalet explosioner han behöver avfyra.
+
+Skriv ett program som läser in heltalen $N, K, S, A$ ($1 \leq N,K,S \leq 2\cdot10^5$, $0 \leq A \leq 2\cdot10^5$), som är de fyra talen som beskrivits ovan.
+
+Programmet ska sedan skriva ut antalet sätt Olle kan ge liv till sina monster så att Theodor behöver avfyra exakt $K$ explosioner för att besegra alla.
+Eftersom detta tal kan bli väldigt stort ska det skrivas ut \textit{modulo} $10^9+7$. Om du bara vill lösa
+första testfallet behöver du inte tänka på modulo eftersom svaret är litet.
+
+
+\fe{Poängsättning:}\\
+De fem testfallen som vardera ger $1$ poäng har följande begränsningar utöver de som redan nämnts:
+\begin{itemize}
+    \item[(1)] $\;\;\;\; A = 0$, $N, K, S \leq 5$
+    \item[(2)] $\;\;\;\; A = 0$, $S \leq 10$, $N, K \leq 70$
+    \item[(3)] $\;\;\;\; N, K, S, A \leq 150$
+    \item[(4)] $\;\;\;\; N, K, S, A \leq 1000$
+    \item[(5)] $\;\;\;\;$Inga särskilda begränsningar.
+\end{itemize}
+
+
+\fe{Körningsexempel 1}
+\begin{verbatim}
+N, K, S, A ? 1 1 5 0
+
+Svar: 5
+\end{verbatim}
+\fe{Förklaring:} Det finns ett monster, och de möjliga liv det kan ha så att Theodor besegrar det med exakt en explosion är \verb+1, 2, 3, 4, 5+.
+
+Se nästa sida för fler körningsexempel.
+
+\newpage
+
+\fe{Körningsexempel 2}
+\begin{verbatim}
+N, K, S, A ? 2 2 1 1
+
+Svar: 10
+\end{verbatim}
+\fe{Förklaring:} De 10 möjliga fördelningarna av monsterliv så att Theodor besegrar båda med exakt två explosioner är:
+\begin{verbatim}
+  1 3
+  1 4
+  2 2
+  2 3
+  2 4
+  3 1
+  3 2
+  3 3
+  4 1
+  4 2
+\end{verbatim}
+
+\vspace{1cm}
+\fe{Körningsexempel 3}
+\begin{verbatim}
+N, K, S, A ? 10 20 30 40
+
+Svar: 435462573
+\end{verbatim}
+
+\end{document}
