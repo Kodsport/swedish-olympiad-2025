@@ -328,7 +328,7 @@ The five test cases, each worth $1$ point, have the following additional constra
     \item[(3-5)] $\;\;\;\;$ No additional constraints.
 \end{itemize}
 
-\vspace{0.5cm}  
+\vspace{0.3cm}  
 \fe{Sample run 1}\\
 \vspace{-0.3cm}
 \begin{verbatim}
@@ -341,7 +341,7 @@ Numbers like 11 and 2 have the same digit sum as $N$ and are smaller than 101,
 but they do not have the same number of digits as $N$.
 
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 \fe{Sample run 2}\\
 \vspace{-0.3cm}
 \begin{verbatim}
@@ -349,7 +349,7 @@ N ? 878
 
 Answer: 599 995
 \end{verbatim}
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 \fe{Sample run 3}\\
 \vspace{-0.3cm}
@@ -470,12 +470,14 @@ Monsters' health ? 7 2 3
 Answer: 3
 \end{verbatim}
 \fe{Explanation:} An optimal way to fire explosions is as follows:
+\vspace{-0.2cm}
 \begin{enumerate}
   \item Fire an explosion at the monster with 7 health. The monsters now have \verb+4,1,2+ health remaining.
   \item Fire an explosion at the monster with 4 health. The monster with 1 health is defeated. The remaining monsters have \verb+1,1+ health left.
   \item Fire an explosion at either of the remaining monsters. All monsters are now defeated, and Theodor is finished.
 \end{enumerate}
 
+\vspace{-0.2cm}
 \fe{Sample run 2}
 \begin{verbatim}
 N, S, A ? 4 3 2
@@ -527,7 +529,7 @@ The five test cases, each worth $1$ point, have the following additional constra
 \begin{verbatim}
 N, K, S, A ? 1 1 5 0
 
-Svar: 5
+Answer: 5
 \end{verbatim}
 \fe{Explanation:} There is one monster, and the possible health values it can have such that Theodor defeats it with exactly one explosion are \verb+1, 2, 3, 4, 5+.
 
