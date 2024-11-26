@@ -14,6 +14,7 @@ compile gen_star.py
 samplegroup
 sample 1
 sample 2
+sample 3
 
 group group1 8
 limits line=1
@@ -46,7 +47,7 @@ tc g1-5
 
 group group4 12
 limits nmax=7 pmax=5
-tc 2 
+include_group sample
 tc g4-1 gen_rand n=4 pmax=5
 tc g4-2 gen_rand n=7 pmax=5
 tc g4-3 gen_rand n=7 pmax=5
