@@ -10,6 +10,7 @@ PPATH=$(realpath ..)
 use_solution emil.py
 
 compile gen_rand.py
+compile gen_rev.py
 
 samplegroup
 #limits maxlen=32 maxdiff=-1 unique=false
@@ -51,6 +52,7 @@ tc g2-05 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-06 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-07 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-08 gen_rand minK=3 maxK=3 mode=solveable
+tc g2-09 gen_rev minK=3 maxK=3
 
 group group3 18
 limits maxK=7
@@ -67,6 +69,7 @@ tc g3-07 gen_rand minK=7 maxK=7 mode=solveable
 tc g3-08 gen_rand minK=7 maxK=7 mode=solveable
 tc g3-09 gen_rand minK=4 maxK=4 mode=solveable sorted=1
 tc g3-10 gen_rand minK=7 maxK=7 mode=solveable sorted=1
+tc g3-11 gen_rev minK=7 maxK=7
 
 group group4 12
 limits maxK=11
@@ -80,6 +83,7 @@ tc g4-06 gen_rand minK=11 maxK=11 mode=solveable
 tc g4-07 gen_rand minK=11 maxK=11 mode=solveable
 tc g4-08 gen_rand minK=11 maxK=11 mode=almost 
 tc g4-09 gen_rand minK=11 maxK=11 mode=solveable sorted=1
+tc g4-10 gen_rev minK=11 maxK=11
 
 group group5 12
 limits sorted=1
@@ -115,3 +119,4 @@ tc g6-04 gen_rand minK=19 maxK=19 mode=almost
 tc g6-05 gen_rand minK=19 maxK=19 mode=random
 tc g6-06 gen_rand minK=19 maxK=19 mode=solveable
 tc g6-07 gen_rand minK=19 maxK=19 mode=solveable
+tc g6-08 gen_rev minK=19 maxK=19
