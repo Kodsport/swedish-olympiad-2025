@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import pulp
 # Model: for every pair of nodes (i, j), we have a variable representing number of paths we send
 # between i and j. We minimize sum of these. For every node, sum of all paths that go through it
