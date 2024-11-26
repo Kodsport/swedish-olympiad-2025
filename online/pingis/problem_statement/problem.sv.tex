@@ -1,39 +1,41 @@
 \problemname{Pingisturnering}
 \noindent
 
-Rulls är en sann entusiast av PO (Pingisolympiaden). 
-Han älskar att kolla och heja på sina favoritspelare när de spelar.
+Rulls är en äkta entusiast av PO (Pingisolympiaden).  
+Han älskar att följa tävlingarna och heja på sina favoritspelare när de tävlar.
 
-PO (Pingisolympiaden) är en turnering inom pingis som har en intressant turneringsformat. 
-I början av turneringen finns $N$ spelare, där alla spelare har varsin startposition. 
-Beroende på startposition kommer spelarna att parvist spela en match mot varandra. 
-Varje pingismatch har exakt en vinnare och en förlorare. 
-Den som förlorar blir eliminerad och kör aldrig en match igen, 
-medan den som vann går vidare och får möta vinnaren från en annan match.
-Detta upprepas till det endast är $1$ spelare kvar.
+PO (Pingisolympiaden) är en turnering i pingis med ett spännande format.  
+Turneringen börjar med $N$ spelare, där varje spelare har en startposition.  
+Baserat på startpositionerna möts spelarna parvis i matcher.  
+Varje match resulterar i en vinnare och en förlorare.  
+Förloraren blir eliminerad och spelar inga fler matcher,  
+medan vinnaren går vidare för att möta vinnaren från en annan match.  
+Processen upprepas tills endast en spelare återstår.
 
-Denna format kan representeras av ett träddiagram.
+Turneringsformatet kan illustreras med ett träddiagram.
+
 
 \begin{centering}
   \begin{figure}[h]
       \centering
       \includegraphics[scale=0.7]{2.png}
-    \caption{Bilden visar hur träddiagrammet av turneringsformatet ser ut för 4 personer. Placeringen av spelarna är även en lösning för sample 1}
+    \caption{Bilden visar hur träddiagrammet av turneringsformatet ser ut för 4 personer. Placeringen av startpositionerna för spelarna är även en lösning för sample 1.}
   \end{figure}
 \end{centering}
 
-För att organisatörerna inte ska behöva krångla med jobbiga situationer kommer antalet spelare garanterat vara en tvåpotens.
+För att organisatörerna inte ska behöva hantera jobbiga situationer garanteras det att antalet spelare alltid är en tvåpotens.
 
-Nu är PO (Pingisolympiaden) över för den här säsongen, 
-men Rulls har glömt vilka matcher har spelats, 
-samt vilka startpositioner som varje spelare hade. 
-Däremot minns Rulls antalet matcher som vardera spelare har vunnit.
+Nu är PO (Pingisolympiaden) över för den här säsongen,  
+men Rulls har glömt vilka matcher som spelats  
+och vilka startpositioner varje spelare hade.  
+Däremot minns han antalet matcher som varje spelare har vunnit.
 
-Givet antalet vinster av de $N$ spelarna,
-skriv ut en möjlig ordning över startpositionerna för de $N$ spelarna.
+Givet antalet vinster för de $N$ spelarna,  
+skriv ut en möjlig ordning av startpositionerna för de $N$ spelarna.
 
-Rulls minns dock att ordningen för startpositionerna var lexikografiskt litet. 
-För att få fullpoäng krävs det även att du hittar den lexikografiskt\footnote{https://sv.wikipedia.org/wiki/Lexikografisk\_ordning} minsta möjliga startpositionen.
+Rulls minns dock att startpositionerna var ordnade lexikografiskt.  
+För att få full poäng krävs det att du hittar den lexikografiskt\footnote{https://sv.wikipedia.org/wiki/Lexikografisk\_ordning} minsta möjliga startpositionen.
+
 
 
 En lösning $A$ är lexikografiskt mindre än en annan lösning $B$ om följande två villkor är uppfyllda:  
@@ -82,7 +84,7 @@ För att få alla poäng i en testgrupp behöver du skriva ut den lexikografiskt
 
 
 \section*{Förklaring av exempelfall}
-I första exempelfallet är en möjlig lösning att spelarna börjar i botten av turneringen enligt ordningen $[1, 3, 2, 4]$. 
+I första exempelfallet är en möjlig lösning att spelarna börjar i botten av turneringen enligt ordningen $[1, 3, 2, 4]$. Men $[1, 4, 2, 3]$ är också en giltig lösning, dock är den förstnämnda lösningen lexikografiskt mindre.
 Notera att spelare $1$ kommer att köra en pingismatch mot spelare $3$, men eftersom vi vet att $3$ har förlorat alla sina matcher så måste $1$ ha vunnit den matchen.
 
 \begin{centering}
