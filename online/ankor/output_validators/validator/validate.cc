@@ -49,6 +49,5 @@ int main(int argc, char **argv) {
 	check(judge_ans, judge_error);
 	check(author_out, wrong_answer);
 
-	cout << "W";
     accept();
 }

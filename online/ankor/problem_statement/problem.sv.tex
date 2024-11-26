@@ -1,16 +1,18 @@
 \problemname{Dela ankor lika}
 \noindent
 
-Du är en högre makt som har fått ett viktigt uppdrag. 
-Det finns $2N$ stycken kodsportsankor på ett plan, och två barn som bråkar om hur många ankor var och en ska få.
+Som en nådig härskare över POland vill du att alla dina invånare ska trivas. Det är därför djupt bekymrande
+att två barn bråkar. Mer exakt bråkar de över $2N$ kodsportsankor som ligger
+utplacerade på ett plan, och barnen grälar över hur många ankor var och en ska få.
 
 För att lösa konflikten ska du skapa en spricka i marken - en rak linje som delar planet i två delar.
-Sprickan måste placeras så att exakt $N$ ankor hamnar på vardera sida.
-Alla ankor har distinkta positioner med positiva heltalskoordinater.
+Sprickan måste placeras så att exakt $N$ ankor hamnar på vardera sida, vilket då leder till att vardera barn
+får lika många ankor. Varje anka är utplacerad på en heltalskoordinat.
 
-För enkelhetens skull antar vi att sprickan kommer vara en rät linje på formen $y=kx+m$. 
-Din uppgift är att hitta en spricka som delar ankorna i två lika stora delar om det går.
-Skriv annars ut ”impossible”. Notera att $k$ och $m$ får vara rella tal.
+Eftersom du föredrar enkelhet och elegans kommer din spricka att vara en rät linje på formen $y=kx+m$,
+där $k$ och $m$ får vara \textbf{decimaltal}. \\
+Om det finns en linje som delar ankorna lika, skriv ut denna.\\ 
+Skriv annars ut ''impossible''.
 
 \section*{Indata}
 Den första raden innehåller ett heltal $N$ ($1 \leq N \leq 10^5$), där $2N$ är det totala antalet ankor.
@@ -20,10 +22,11 @@ Varje rad innehåller två heltal $x_i, y_i$ ($0 \leq x_i, y_i \leq 10^6$), koor
 Alla ankor har olika positioner.
 
 \section*{Utdata}
-Om det är möjligt att dela ankorna lika, skriv ut två reella tal $k$ och $b$ ($-5*10^9 \leq k, b \leq 5*10^9$) som beskriver linjen $y = kx + b$.
-Svaret accepteras om det finns en linje med dina värden som delar ankorna korrekt.
+Om det är möjligt att dela ankorna lika, skriv ut två reella tal $k$ och $m$ ($-5*10^9 \leq k, m \leq 5*10^9$) som beskriver linjen $y = kx + m$. \\
+Svaret accepteras om linjen delar ankorna i två lika stora grupper. Om det finns flera lösningar kan du skriva ut vilken som helst.\\
+Om en anka befinner sig exakt på linjen kommer det att räknas som att den är under linjen. 
 
-Om det är omöjligt att dela ankorna lika, skriv ut ”impossible”.
+Om det är omöjligt att dela ankorna lika, skriv ut ''impossible''.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -42,13 +45,14 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{tabular}
 
 \section*{Förklaring av exempelfall}
-Notera att det finns fler giltiga lösningar i alla dessa fallen.
+I varje av följande bilder har alla ankor ritats ut med svarta prickar. Sprickan som används i exempellösningen ritas ut som en röd linje.
+Notera att det finns flera giltiga lösningar i alla dessa fallen.
 
 \begin{centering}
   \begin{figure}[h]
       \centering
       \includegraphics[width=0.3\textwidth]{sample1.png}
-      \caption{Bilden föreställer första exempelfallet. Vara anka representeras av en prick, och sprickan är den röda linjen.}
+      \caption{Bilden föreställer det första exempelfallet.}
       \label{fig:enter-label}
   \end{figure}
 \end{centering}
@@ -57,8 +61,8 @@ Notera att det finns fler giltiga lösningar i alla dessa fallen.
   \begin{figure}[h]
       \centering
       \includegraphics[width=0.3\textwidth]{sample2.png}
-      \caption{Bilden föreställer andra exempelfallet. Vara anka representeras av en prick, och sprickan är den röda linjen. Det är svårt att se, men den andra punkten
-      är precis ovanför linjen.}
+      \caption{Bilden föreställer det andra exempelfallet. Det är svårt att se, men den andra punkten
+      är precis under linjen.}
       \label{fig:enter-label}
   \end{figure}
 \end{centering}
@@ -67,7 +71,7 @@ Notera att det finns fler giltiga lösningar i alla dessa fallen.
   \begin{figure}[h]
       \centering
       \includegraphics[width=0.3\textwidth]{sample3.png}
-      \caption{Bilden föreställer tredje exempelfallet. Vara anka representeras av en prick, och sprickan är den röda linjen.}
+      \caption{Bilden föreställer det tredje exempelfallet.}
       \label{fig:enter-label}
   \end{figure}
 \end{centering}
