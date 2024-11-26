@@ -15,7 +15,7 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = int(cmdlinearg('n', 500000))
+n = int(cmdlinearg('n', 100000))
 p = int(cmdlinearg('pmax', 1000000000))
 amountStars = int(cmdlinearg('amountStars', 1))
 partStar = float(cmdlinearg('partStar', 1.0))

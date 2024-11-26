@@ -15,7 +15,7 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = int(cmdlinearg('n', 500000))
+n = int(cmdlinearg('n', 100000))
 pmin = int(cmdlinearg('pmin', 0))
 pmax = int(cmdlinearg('pmax', 1000000000))
 

@@ -4,7 +4,7 @@
 # Denna lösning är bara AI översatt från theodor.cpp
 import sys
 
-sys.setrecursionlimit(1 << 25)
+sys.setrecursionlimit(1 << 20)
 from collections import defaultdict
 
 n = int(sys.stdin.readline())
