@@ -1,5 +1,0 @@
-c# running:
-dotnet restore
-dotnet build --no-restore -p:OutputType=Exe -p:TargetFramework=net8.0 -p:RuntimeIdentifiers=linux-x64 -p:Configuration=Debug kattis.csproj
-
-to run locally: change to /usr/bin/mono
