@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#@EXPECTED_GRADES@ AC WA WA WA WA WA
+#@EXPECTED_GRADES@ AC AC WA WA WA WA WA
 
 # Caseworking for N <= 4
 

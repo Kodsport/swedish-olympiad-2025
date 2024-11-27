@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#@EXPECTED_GRADES@ WA WA WA WA AC WA
+#@EXPECTED_GRADES@ WA WA WA WA WA AC WA
 
 from collections import Counter
 

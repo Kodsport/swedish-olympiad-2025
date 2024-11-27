@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#@EXPECTED_GRADES@ AC AC TLE TLE TLE TLE
+#@EXPECTED_GRADES@ AC AC AC TLE TLE TLE TLE
 
 from itertools import permutations
 from collections import Counter
