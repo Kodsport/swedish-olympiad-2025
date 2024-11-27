@@ -1,0 +1,41 @@
+\problemname{Gosedjursmani}
+Olivia och Anton är på Liseberg, och de har hittat en kloautomat med $N$ stycken gosedjur, numrerade från $1$ till $N$.
+Olivia är väldigt skicklig, och vill visa upp sina färdigheter genom att fiska upp Antons favoritdjur.
+Den tvådimensionella kloautomaten kan modelleras som ett rutnät av storlek $R \times C$, 
+med $R$ rader och $C$ kolumner. 
+I den ligger gosedjuren tätt packade, och varje ruta hör till ett gosedjur.
+Ett gosedjur kan bestå av flera rutor i rutnätet, och varje gosedjur garanteras bilda
+en sammanhängande figur. Med andra ord kan du rita varje gosedjur med en tjock penna utan att lyfta pennan från pappret.
+I ett drag kan Olivia välja ett gosedjur som inte täcks av något annat uppifrån, och lyfta upp det ur kloautomaten.
+Eftersom Olivia inte ännu frågat Anton om vilket hans favoritdjur är, 
+vill hon för varje djur veta hur många drag hon sammanlagt behöver göra innan hon kan lyfta upp det djuret.
+
+\noindent
+
+\section*{Indata}
+På den första raden står talen $N$, $R$ och $C$ ($1 \leq N \leq R \times C \leq 10^6$).
+Därefter följer $R$ rader, som beskriver rutnätet. 
+Den första raden beskriver toppen av kloautomaten, och den sista beskriver botten.
+På den $i$:te raden står $C$ heltal $a_{i,1}, a_{i,2}, ..., a_{i,C}$ ($1 <= a_{i,j} <= N$).
+Gosedjur nummer $x$ består av alla rutor $i,j$ som uppfyller $a_{i,j} = x$.
+Det är garanterat att varje gosedjur består av minst en ruta, och att varje gosedjur bildar en sammanhängande region.
+
+\section*{Utdata}
+För varje gosedjur $1, 2, ... N$, skriv ut antalet drag Olivia behöver göra innan hon kan lyfta ut djuret.
+Om det inte går, skriv ut $-1$.
+
+\section*{Poängsättning}
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $?$       & $1 \leq N \leq R \times C \leq 20$ \\ \hline
+  $2$    & $?$       & Varje gosedjur har rektangulär form. \\ \hline
+  $3$    & $?$       & $N \leq 2000$ \\ \hline
+  $4$    & $?$       & $N \leq 20000$ \\ \hline
+  $5$    & $?$       & Inga ytterligare begränsningar. \\ \hline
+  
+\end{tabular}
+
+%% \section*{Förklaring av exempelfall 1}
