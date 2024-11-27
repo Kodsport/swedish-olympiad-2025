@@ -46,6 +46,7 @@ tc g3-1 gen_rand n=73 m=1
 tc g3-2 gen_rand n=93 m=1
 tc g3-3 gen_rand n=100 m=1
 tc g3-4 gen_rand n=1 m=1
+tc g3-5 gen_pattern n=100 m=1 pattern=ababababababababababababababababababab
 
 group group4 32
 limits nmax=50 mmax=50
