@@ -39,7 +39,7 @@ tc g1-09 gen_rand minK=2 maxK=2 mode=zeros
 tc_manual ../manual/n4_3.in
 tc g1-10 gen_rand minK=2 maxK=2 mode=solveable
 tc_manual ../manual/n4_4.in
-
+tc_manual ../manual/n1_2.in
 
 group group2 12
 limits maxK=3
@@ -53,6 +53,10 @@ tc g2-06 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-07 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-08 gen_rand minK=3 maxK=3 mode=solveable
 tc g2-09 gen_rev minK=3 maxK=3
+tc_manual ../manual/n8.in
+tc_manual ../manual/n8_2.in
+tc_manual ../manual/n8_3.in
+tc_manual ../manual/n8_4.in
 
 group group3 18
 limits maxK=7
