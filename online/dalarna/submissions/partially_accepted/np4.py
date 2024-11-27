@@ -3,7 +3,7 @@
 # This works? O(n(2*p)**4)
 
 import sys
-sys.setrecursionlimit(5*10**5)
+sys.setrecursionlimit(int(2e5))
 
 n = int(input())
 p = [*map(int,input().split())]
