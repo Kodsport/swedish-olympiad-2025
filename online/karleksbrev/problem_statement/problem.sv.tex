@@ -14,12 +14,13 @@ iväg meddelandet. Tyvärr kan oväder sätta käppar i hjulet (metaforiskt sett
 När maskinen skickar iväg ettor och nollor under oväder, så skickas exakta motsatsen.
 Exempelvis, om det är oväder och maskinen försöker skicka \texttt{0},
 så skickar den istället iväg \texttt{1}.
-Sara har dock observerat att varje gång hon skickar ett meddelande, så är det oväder
+
+Sara har observerat att varje gång hon skickar ett meddelande, så är det oväder
 exakt en gång under en sammanhängande period. Detta innebär att om hon försöker skicka
 iväg ett särskilt meddelande, kommer meddelandet som mottagaren tar emot vara fel på
 så sätt att i ett intervall (som kan vara av storlek 1 eller mer, men inte noll), så har alla
 nollor blivit till ettor och alla ettor blivit nollor. Vi benämner detta med att
-intervallet har \texttt{fördärvats}.
+intervallet har \textit{fördärvats}.
 
 Till exempel: om Sara skickar iväg \texttt{11101001}, så är det möjligt att vädret
 leder till följande fördärvning: \texttt{11101001} $\Rightarrow$ \texttt{11\textbf{01011}1}.
@@ -38,7 +39,7 @@ Därefter mottar Mio strängen $M$ och anropar funktionen \texttt{decode} med $M
 att använda $M$ för att hitta $S$.
 
 För att få poäng på uppgiften måste systemet funka. Därmed ska \texttt{decode} alltid
-kunna hitta $S$, oavsett hur oväder förändrar $E$. Du får mer poäng om $E$ är kort.
+kunna hitta $S$, oavsett hur oväder fördärvar $E$. Du får mer poäng om $E$ är kort.
 
 \section*{Implementation}
 Din lösning till problemet måste vara skriven i ett av följande språk: C++, Java, Python eller Rust.
@@ -55,10 +56,10 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
     endast av karaktärerna \texttt{0} och \texttt{1}. I alla testfall håller det att
     $S$ består av exakt 100 karaktärer.
     \item Returvärdet ska vara $E$, meddelandet som Sara ska skicka igenom maskinen. $E$
-    måste innehålla minst en bokstav, och får endast bestå av karaktärerna \texttt{0} och \texttt{1}.
+    måste innehålla minst en karaktärerna, och får endast bestå av karaktärerna \texttt{0} och \texttt{1}.
   \end{itemize}
 
-  \item Sedan skickas $E$. Medans den skickas kommer ett intervall att fördärvas.
+  \item Sedan skickas $E$. Medan den skickas kommer ett intervall att fördärvas.
 
   \item \texttt{string decode(string M)}\\
   \begin{itemize}
@@ -118,7 +119,7 @@ Exempeldomaren läser indata på följande format:
 \begin{itemize}
   \item En rad med heltalen $N$ och $K$.
   \item En rad med bitsträngen $S$.
-  \item En rad med heltalen $l$ och $r$. Detta är intervallet i den $E$ som domaren kommer att fördärva.
+  \item En rad med heltalen $l$ och $r$. Detta är intervallet i $E$ som domaren kommer att fördärva.
 \end{itemize}
 
 
@@ -131,7 +132,7 @@ Betrakta följande indata till domaren:
 1 3
 \end{verbatim}
 
-Om man kör exempelprogrammet tillhandahålls sker följande. Notera att exempelprogrammet
+Om man kör exempelprogrammet som tillhandahålls sker följande. Notera att exempelprogrammet
 \textbf{inte} löser problemet i detta fallet.
 
 \begin{table}[htbp]

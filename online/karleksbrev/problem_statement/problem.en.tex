@@ -10,14 +10,15 @@ Since it is difficult for them to meet, they instead send messages to each other
 Because they are very secretive, we do not know exactly how the devices they use to communicate work. 
 However, we do know a few things: when Sara wants to send a message, she types it 
 in as a sequence of ones and zeros into her device, and then it sends the message. 
-Unfortunately, bad weather can cause problems (metaphorically speaking). When the machine 
+Unfortunately, bad weather can cause problems. When the machine 
 sends ones and zeros during bad weather, it sends the exact opposite. For example, if the 
 weather is bad and the machine tries to send a \texttt{0}, it will send a \texttt{1} instead.
 
-Sara has observed that every time she sends a message, the weather causes exactly one continuous interval to be flipped. 
+Sara has observed that every time she sends a message, there is bad weather exactly once during
+a contiguous period of time. 
 This means that if she tries to send a particular message, the message that the recipient receives will be incorrect 
 in such a way that, in a specific interval (which can be of size 1 or more, but not zero), all zeros become 
-ones and all ones become zeros. We call this the interval being \texttt{corrupted}.
+ones and all ones become zeros. We call this the interval being \textit{corrupted}.
 
 For example: if Sara sends \texttt{11101001}, it is possible that the weather causes the following corruption: 
 \texttt{11101001} $\Rightarrow$ \texttt{11\textbf{01011}1}.
@@ -36,7 +37,7 @@ Afterward, Mio receives the string $M$ and calls the function \texttt{decode} wi
 and its job is to use $M$ to find $S$.
 
 To score points on this task, the system must work. Therefore, \texttt{decode} must always be able 
-to find $S$, regardless of how bad weather alters $E$. You will get more points if $E$ is short.
+to find $S$, regardless of how bad weather corrupts $E$. You will get more points if $E$ is short.
 
 \section*{Implementation}
 Your solution to the problem must be written in one of the following languages: C++, Java, Python, or Rust.
@@ -51,7 +52,7 @@ You \textbf{must not} create a main function. Instead, you should implement the 
     \item The parameter $S$ is the message Sara wants to send to Mio. $S$ consists only of the characters 
     \texttt{0} and \texttt{1}. In all test cases, $S$ consists of exactly 100 characters.
     \item The return value should be $E$, the message Sara sends through the machine. $E$ must contain at 
-    least one letter and may only consist of the characters \texttt{0} and \texttt{1}.
+    least one characters and may only consist of the characters \texttt{0} and \texttt{1}.
   \end{itemize}
 
   \item After sending $E$, an interval will be corrupted during transmission.
@@ -74,7 +75,7 @@ does not depend on what you choose to send as $E$.
 \section*{Reference Implementations}
 All reference implementations in the attachments implement the following protocol: \texttt{encode} sends each 
 letter in $S$ 5 times in a row. \texttt{decode} then takes each group of 5 characters and says that the value 
-of the letter in $S$ is the one in the middle of the group. This protocol works, but it shows what the implementation 
+of the letter in $S$ is the one in the middle of the group. This protocol does not work, but it shows what the implementation 
 of a protocol might look like.
 
 It is important that your solution does not read or write from standard input/output. If your solution does this, 
