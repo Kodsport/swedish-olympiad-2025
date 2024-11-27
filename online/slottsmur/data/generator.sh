@@ -15,10 +15,12 @@ compile gen_slowquery.py
 samplegroup
 limits maxn=10 maxq=10
 sample 1
+sample 2
 
 group group1 13
 limits maxn=1000 maxq=1000
 tc 1
+tc 2
 tc g1-1 gen_rand n=10 q=10
 tc g1-2 gen_rand n=1000 q=1000 c=99
 tc g1-3 gen_decreasing n=1000 q=1000 c=12
