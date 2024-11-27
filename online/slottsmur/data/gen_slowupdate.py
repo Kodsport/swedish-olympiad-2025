@@ -18,7 +18,7 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
-c = int(cmdlinearg('c', 2))
+c = int(cmdlinearg('c', 50))
 
 hi = 10**9
 print(n,q)

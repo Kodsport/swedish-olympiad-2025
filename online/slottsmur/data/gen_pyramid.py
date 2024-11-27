@@ -19,7 +19,7 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
 # tlo = int(cmdlinearg('tlo', 1)) // man kan ju inte bara ha update
-c = int(cmdlinearg('c', 2))
+c = int(cmdlinearg('c', 50))
 
 hi = 10**9
 extra_w = randint(10, 1000)
