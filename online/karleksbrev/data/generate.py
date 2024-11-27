@@ -13,7 +13,7 @@ def cmdlinearg(name, default=None):
 
 seed = int(cmdlinearg('seed', sys.argv[-1]))
 random.seed(seed)
-n = int(cmdlinearg("n"))
+n = 100
 k = int(cmdlinearg("k"))
 
 print(n, k)

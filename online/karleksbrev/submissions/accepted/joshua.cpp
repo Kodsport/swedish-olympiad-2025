@@ -35,7 +35,7 @@ ull hashf(string x)
     ull ret = 0;
     repe(v, x)
     {
-        ret = (ret + (v == '1' ? 1 : 0)) * 1087 % mod;
+        ret = (ret + (v == '1' ? 1 : 0)) * 2374662 % mod;
     }
     return ret;
 }

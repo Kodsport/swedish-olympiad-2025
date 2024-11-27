@@ -27,7 +27,8 @@
 //
 // The tool is provided as-is, and you should feel free to make
 // whatever alterations or augmentations you like to it. Notably,
-// this is not the grader used in Kattis.
+// this is not the grader used in Kattis. This grader is also more informative
+// as to how your program failed compared to Kattis.
 
 #include <iostream>
 #include <fstream>

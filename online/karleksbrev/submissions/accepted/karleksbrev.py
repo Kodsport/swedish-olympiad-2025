@@ -4,7 +4,7 @@ mod = 1125899906842679
 def hashf(x: str) -> int:
     ret = 0
     for v in x:
-        ret = (ret + (1 if v == '1' else 0)) * 1087 % mod
+        ret = (ret + (1 if v == '1' else 0)) * 2374662 % mod
     return ret
 
 k = 50

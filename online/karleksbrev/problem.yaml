@@ -10,5 +10,6 @@ validation: custom
 grading:
     show_test_data_groups: yes
 limits:
-  time_multiplier: 2
-# Karleksbrev.py is slowest we accept
+  time_multiplier: 1.5
+  time_safety_margin: 1
+# Karleksbrev.py is very slow.

@@ -5,7 +5,7 @@ const K: usize = 50;
 fn hashf(x: &String) -> u64 {
     let mut ret = 0u64;
     for v in x.chars() {
-        ret = (ret + if v == '1' { 1 } else { 0 }) * 1087 % MOD;
+        ret = (ret + if v == '1' { 1 } else { 0 }) * 2374662 % MOD;
     }
     ret
 }
