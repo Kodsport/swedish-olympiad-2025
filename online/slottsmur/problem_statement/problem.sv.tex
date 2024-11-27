@@ -27,7 +27,7 @@ Slottsägaren kommer att ställa dig två sorters frågor:
   \item Givet är två värden $l$ och $r$. Om alla murbitar rivs förutom de i intervallet 
   $[l,r]$, hur mycket regnvatten hade samlats i muren om det börjar regna?
   Notera att muren inte faktiskt rivs, så detta påverkar inte framtida frågor.
-  \item Givet två värden $i$ och $w$, öka höjden av den $i$:te murbiten med $w$. Detta är en
+  \item Givet två värden $i$ och $w$, öka höjden på den $i$:te murbiten med $w$. Detta är en
   permanent förändring som kommer att påverka framtida frågor.
 \end{itemize}
 
@@ -42,12 +42,13 @@ De följande $Q$ raderna beskriver alla frågor. Varje fråga börjar med heltal
 $1$ eller $2$.
 \begin{itemize}
   \item Om $T=1$ följer $l, r$ ($1 \leq l, r \leq N$). Du ska då skriva ut svaret på en fråga av sort $1$ som beskrivet ovan.
-  \item Om $T=2$ följer $i, w$ ($1 \leq i \leq N$, $1 \leq w \leq 10^9$). Du ska då öka höjden av den $i$:te murbiten med $w$.
+  \item Om $T=2$ följer $i, w$ ($1 \leq i \leq N$, $1 \leq w \leq 10^9$). Du ska då öka höjden på den $i$:te murbiten med $w$.
   Det är garanterat att höjden av murbiten förblir mindre än eller lika med $10^9$ efter detta.
 \end{itemize}
 
 \section*{Utdata}
-För varje fråga av sort $1$, skriv ut mängden vatten som samlas om man river alla murbitar som ligger utanför det givna intervallet.
+För varje fråga av sort $1$, skriv ut mängden vatten som samlas om det börjar regna efter att alla murbitar som ligger utanför
+det givna intervallet rivs.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
