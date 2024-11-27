@@ -9,5 +9,3 @@ grading:
 
 validation: custom score
 
-limits:
-  time_multiplier: 1
