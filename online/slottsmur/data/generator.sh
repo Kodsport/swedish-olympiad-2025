@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited
 
-use_solution joshua_sqrt.py opt
+use_solution joshua_sqrt.cpp opt
 
 compile gen_rand.py 
 compile gen_pyramid.py 
