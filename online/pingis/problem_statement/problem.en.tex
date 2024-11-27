@@ -79,13 +79,13 @@ To earn all the points in a test group, you must output the lexicographically sm
   $3$    & $12$       & $N \leq 8$ \\ \hline
   $4$    & $18$       & $N \leq 2^7 = 128$ \\ \hline
   $5$    & $12$       & $N \leq 2^{11} = 2048$ \\ \hline
-  $6$    & $12$       & $a_i \leq a_{i+1}$ för alla $1 \leq i \leq N-1$. \\ \hline 
+  $6$    & $12$       & $a_i \leq a_{i+1}$ for all $1 \leq i \leq N-1$. \\ \hline 
   $7$    & $38$       & No additional constraints. \\ \hline % N <= 2^19 ≈ 5*10^5 or 2^18 ≈ 2*10^5
 \end{tabular}
 
 
 \section*{Explanation of Samples}
-In the first sample, one possible solution is for the players to start at the bottom of the tournament in the order $[1, 3, 2, 4]$. But $[1, 4, 2, 3]$ is also a valid solution, although the former is lexicographically smaller.
+In the first sample, one possible solution is for the players to start at the bottom of the tournament in the order $[1, 3, 2, 4]$. While $[1, 4, 2, 3]$ is also a valid solution, the former is lexicographically smaller.
 Note that player $1$ will play a ping-pong match against player $3$, but since we know that player $3$ lost all of their matches, player $1$ must have won that match.
 
 \begin{centering}

@@ -2,7 +2,7 @@
 
 \noindent
 
-The owner of Castle Dragon's Keep is worried about a potential siege. If this happens, he wants the wall to be sturdy, 
+The owner of the castle Drakfjälls Kastell is worried about a potential siege. If this happens, he wants the wall to be sturdy, 
 so he plans to reinforce it. The castle wall consists of $N$ wall segments arranged in a line. Each wall segment has 
 a certain height. Below is an example of how the wall might look.
 
@@ -22,7 +22,7 @@ collected at the blue squares.
 To be strategic with his reconstruction, he wants to know how certain reinforcements would affect 
 the amount of rainwater that collects in the wall if parts of it were destroyed in a siege. 
 At his disposal, he has you, the castle's theoretical computer scientist.
-The castle owner will ask you two types of questions:
+The castle owner will ask you two types of queries:
 \begin{itemize}
   \item Given two values $l$ and $r$. If all wall segments are destroyed except those in the interval $[l,r]$, 
   how much rainwater would collect in the wall if it starts raining?
@@ -39,7 +39,7 @@ Then follow $N$ integers $h_1, h_2, \dots, h_N$ ($1 \leq h_i \leq 10^9$), the he
 
 The following $Q$ lines describe all queries. Each query starts with an integer $T$, which is either $1$ or $2$.
 \begin{itemize}
-  \item If $T=1$, it's followed by $l, r$ ($1 \leq l, r \leq N$). You should then output the answer to a type $1$ query as described above.
+  \item If $T=1$, it's followed by $l, r$ ($1 \leq l \leq r \leq N$). You should then output the answer to a type $1$ query as described above.
   \item If $T=2$, it's followed by $i, w$ ($1 \leq i \leq N$, $1 \leq w \leq 10^9$). You should then increase the height of the $i$th wall segment by $w$.
   It's guaranteed that the height of the wall segment remains less than or equal to $10^9$ after this.
 \end{itemize}
@@ -57,8 +57,8 @@ a set of test cases. To get the points for a test group you need to solve all te
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
   $1$    & $13$       & $N, Q \leq 1000$ \\ \hline
-  $2$    & $17$       & $h_i$ and $w$ are chosen uniformly randomly among their valid values \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution}. \\ \hline
-  $3$    & $20$       & All queries are of type $1$. \\ \hline
+  $2$    & $20$       & All queries are of type $1$. \\ \hline
+  $3$    & $17$       & $h_i$ and $w$ are chosen uniformly randomly among their valid values \footnote{See https://en.wikipedia.org/wiki/Discrete\_uniform\_distribution}. \\ \hline
   $4$    & $23$       & $N, Q \leq 70000$ \\ \hline
   $5$    & $27$       & No additional constraints. \\ \hline
 \end{tabular}
