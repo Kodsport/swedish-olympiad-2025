@@ -2,9 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#pragma GCC optimize("Ofast")
-#pragma GCC target("avx2")
-
 typedef long long ll;
 
 typedef vector<int> vi;
@@ -44,7 +41,6 @@ struct Tree {
     }
 };
 
-
 int n;
 
 struct SolverBase
@@ -66,11 +62,11 @@ struct Solver : public SolverBase
         {
             h.push_back(0);
         }
-        rep(i, (n+block_size-1) / block_size) {
-            update_block(i*block_size, 0);
+        rep(i, (n + block_size - 1) / block_size) {
+            update_block(i * block_size, 0);
         }
     }
-    int prefmax[int(2e5)/block_size+1][block_size];
+    int prefmax[int(2e5) / block_size + 1][block_size];
     ll prefsum[int(2e5) / block_size + 1][block_size];
     ll prefmaxcum[int(2e5) / block_size + 1][block_size];
 
@@ -97,7 +93,6 @@ struct Solver : public SolverBase
                 prefmaxcum[block_ind][i] += prefmaxcum[block_ind][i - 1];
             }
         }
-
     }
 
     inline ll sum_block(int& level, int block, int blocksz)
@@ -110,12 +105,8 @@ struct Solver : public SolverBase
             int lo = -1, hi = blocksz;
             while (lo + 1 < hi) {
                 int mid = (lo + hi) / 2;
-                if (prefmax[block][mid] >= level) {
-                    hi = mid;
-                }
-                else {
-                    lo = mid;
-                }
+                if (prefmax[block][mid] >= level) hi = mid;
+                else lo = mid;
             }
             ret += (ll)level * (lo + 1) + prefmaxcum[block][blocksz - 1];
             if (lo >= 0) {
@@ -154,24 +145,39 @@ struct Solver : public SolverBase
     }
 };
 
-
 const int SIZE_1 = 200;
 const int SIZE_2 = 270;
-const int SIZE_3 = 1100;
+const int SIZE_3 = 1200;
 
-signed main()
+inline char gc() { // like getchar()
+    static char buf[1 << 16];
+    static size_t bc, be;
+    if (bc >= be) {
+        buf[0] = 0, bc = 0;
+        be = fread(buf, 1, sizeof(buf), stdin);
+    }
+    return buf[bc++]; // returns 0 on EOF
+}
+
+int readInt() {
+    int a, c;
+    while ((a = gc()) < 40);
+    if (a == '-') return -readInt();
+    while ((c = gc()) >= 48) a = a * 10 + c - 480;
+    return a - 48;
+}
+
+int main()
 {
     fast();
 
-    //ifstream in("d:\\in.txt");
-    //cin.rdbuf(in.rdbuf());
-
     int q;
-    cin >> n >> q;
+    n = readInt();
+    q = readInt();
 
     vi h(n);
     for (int i = 0; i < n; ++i) {
-        cin >> h[i];
+        h[i] = readInt();
     }
 
     vector<tuple<int, int, int>> queries;
@@ -179,13 +185,14 @@ signed main()
 
     for (int i = 0; i < q; ++i) {
         int t, a, b;
-        cin >> t >> a >> b;
+        t = readInt();
+        a = readInt();
+        b = readInt();
         queries.emplace_back(t, a, b);
         if (t == 2) {
             num_updates++;
         }
     }
-    auto start = chrono::high_resolution_clock::now();
     double update_percent = double(num_updates) / q;
     int block_size;
     SolverBase* s;
@@ -215,12 +222,9 @@ signed main()
     else s = rs = 0;
     reverse(all(h));
 
-    
-
     Tree tree(n);
     rep(i, n) tree.update(i, p2(h[i], i));
 
-    stringstream out;
     for (const auto& [t, a, b] : queries)
     {
         if (t == 1)
@@ -229,21 +233,18 @@ signed main()
             int idx = tree.query(l, r + 1).second;
 
             ll tot = s->query(l, idx);
-            tot += rs->query(n - r-1, n - idx-1);
-            out << tot << "\n";
+            tot += rs->query(n - r - 1, n - idx - 1);
+            cout << tot << "\n";
         }
         else
         {
             int ind = a - 1;
 
-            tree.update(ind, { h[ind], ind });
-
             s->update_block(ind, b);
-            rs->update_block(n-ind-1, b);
+            rs->update_block(n - ind - 1, b);
+            tree.update(ind, { s->h[ind], ind });
         }
     }
-    cerr << chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
-    cout << out.str();
 
     return 0;
 }

@@ -9,6 +9,3 @@ grading:
     show_test_data_groups: yes
 
 validation: custom
-# Mitigate DOS from printing huge floats
-limits:
-    validation_time: 10
