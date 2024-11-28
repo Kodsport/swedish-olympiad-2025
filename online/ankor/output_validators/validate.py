@@ -35,6 +35,9 @@ def isabove(k, m, x, y):
 
     k = Fraction(k)
     m = Fraction(m)
+    if k > Fraction("5e9") or k < Fraction("-5e9") \
+      or m > Fraction("5e9") or m < Fraction("-5e9"):
+        raise AssertionError("Too large k or m")
     x = Fraction(x)
     y = Fraction(y)
 
@@ -47,7 +50,7 @@ def test_line_isvalid(k, m):
         above_cnt += isabove(k, m, p[0], p[1])
     
     if above_cnt != n:
-        raise Exception("")
+        raise AssertionError("")
 
 try:
     test_line_isvalid(judge_k, judge_m)
