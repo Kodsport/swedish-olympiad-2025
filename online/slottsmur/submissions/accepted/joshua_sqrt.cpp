@@ -2,6 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#pragma GCC optimize("Ofast")
+#pragma GCC target("avx2")
+
 typedef long long ll;
 
 typedef vector<int> vi;
@@ -41,159 +44,132 @@ struct Tree {
     }
 };
 
-int prefmax[1000][1000];
-ll prefsum[1000][1000];
-ll prefmaxcum[1000][1000];
-int sufmax[1000][1000];
-ll sufsum[1000][1000];
-ll sufmaxcum[1000][1000];
-vi h;
+
+int n;
+
+struct SolverBase
+{
+    vi h;
+    SolverBase(vi h) : h(h) {}
+    SolverBase() {}
+    virtual void update_block(int ind, int w) {};
+    virtual ll query(int l, int idx) { return -1; };
+};
 
 // Make block_size a compile-time constant
 template<int block_size>
-void update_block(int block_ind, int ind = -1) {
-    int base = block_ind * block_size;
-    int p = 0;
-    int i = 0;
-    if (ind > 0)
-    {
-        p = prefmax[block_ind][ind - 1];
-        i = ind;
-    }
-
-    for (; i < block_size; i++) {
-        p = max(p, h[base + i]);
-        prefmax[block_ind][i] = p;
-        prefsum[block_ind][i] = h[base + i];
-        prefmaxcum[block_ind][i] = p - h[base + i];
-        if (i != 0) {
-            prefsum[block_ind][i] += prefsum[block_ind][i - 1];
-            prefmaxcum[block_ind][i] += prefmaxcum[block_ind][i - 1];
-        }
-    }
-
-
-    // Not very DRY, but runs faster this way
-    p = 0;
-    i = block_size - 1;
-    if (ind != -1 && ind + 1 < block_size)
-    {
-        p = sufmax[block_ind][ind + 1];
-        i = ind;
-    }
-    for (; i >= 0; i--) {
-        p = max(p, h[base + i]);
-        sufmax[block_ind][i] = p;
-        sufsum[block_ind][i] = h[base + i];
-        sufmaxcum[block_ind][i] = p - h[base + i];
-        if (i != block_size - 1) {
-            sufsum[block_ind][i] += sufsum[block_ind][i + 1];
-            sufmaxcum[block_ind][i] += sufmaxcum[block_ind][i + 1];
-        }
-    }
-}
-
-int n;
-template<int block_size>
-ll query(int l, int r, int idx)
+struct Solver : public SolverBase
 {
-    ll ans = 0;
+    Solver(vi H) : SolverBase(H)
+    {
+        while (sz(h) % block_size != 0)
+        {
+            h.push_back(0);
+        }
+        rep(i, (n+block_size-1) / block_size) {
+            update_block(i*block_size, 0);
+        }
+    }
+    int prefmax[int(2e5)/block_size+1][block_size];
+    ll prefsum[int(2e5) / block_size + 1][block_size];
+    ll prefmaxcum[int(2e5) / block_size + 1][block_size];
 
-    // Left to middle
-    int l_block = l / block_size;
-    ll level = 0;
-    for (int i = l; i < min(idx, (l_block + 1) * block_size); ++i) {
-        level = max(level, (ll)h[i]);
-        ans += level - h[i];
+    void update_block(int ind, int w) override {
+        h[ind] += w;
+        int block_ind = ind / block_size;
+        ind %= block_size;
+        int base = block_ind * block_size;
+        int p = 0;
+        int i = 0;
+        if (ind > 0)
+        {
+            p = prefmax[block_ind][ind - 1];
+            i = ind;
+        }
+
+        for (; i < block_size; i++) {
+            p = max(p, h[base + i]);
+            prefmax[block_ind][i] = p;
+            prefsum[block_ind][i] = h[base + i];
+            prefmaxcum[block_ind][i] = p - h[base + i];
+            if (i != 0) {
+                prefsum[block_ind][i] += prefsum[block_ind][i - 1];
+                prefmaxcum[block_ind][i] += prefmaxcum[block_ind][i - 1];
+            }
+        }
+
     }
 
-    int mid_block = idx / block_size;
-    for (int block_ind = l_block + 1; block_ind < mid_block; ++block_ind) {
-        if (level >= prefmax[block_ind][block_size - 1]) {
-            ans += level * block_size - prefsum[block_ind][block_size - 1];
+    inline ll sum_block(int& level, int block, int blocksz)
+    {
+        ll ret = 0;
+        if (level >= prefmax[block][blocksz - 1]) {
+            ret += (ll)level * blocksz - prefsum[block][blocksz - 1];
         }
         else {
-            int lo = -1, hi = block_size;
+            int lo = -1, hi = blocksz;
             while (lo + 1 < hi) {
                 int mid = (lo + hi) / 2;
-                if (prefmax[block_ind][mid] >= level) {
+                if (prefmax[block][mid] >= level) {
                     hi = mid;
                 }
                 else {
                     lo = mid;
                 }
             }
-            ans += level * (lo + 1) + prefmaxcum[block_ind][block_size - 1];
+            ret += (ll)level * (lo + 1) + prefmaxcum[block][blocksz - 1];
             if (lo >= 0) {
-                ans -= prefsum[block_ind][lo];
-                ans -= prefmaxcum[block_ind][lo];
+                ret -= prefsum[block][lo];
+                ret -= prefmaxcum[block][lo];
             }
 
-            level = prefmax[block_ind][block_size - 1];
+            level = prefmax[block][blocksz - 1];
         }
+        return ret;
     }
 
-    if (l_block != mid_block) {
-        for (int i = mid_block * block_size; i < idx; ++i) {
-            level = max(level, (ll)h[i]);
+    ll query(int l, int idx) override
+    {
+        ll ans = 0;
+
+        // Left to middle
+        int l_block = l / block_size;
+        int level = 0;
+        for (int i = l; i < min(idx, (l_block + 1) * block_size); ++i) {
+            level = max(level, h[i]);
             ans += level - h[i];
         }
-    }
 
-    // Right to middle
-    // Not very DRY, but runs faster this way
-    int r_block = r / block_size;
-    level = 0;
-    for (int i = r; i >= max(idx, r_block * block_size); --i) {
-        level = max(level, (ll)h[i]);
-        ans += level - h[i];
-    }
+        int mid_block = idx / block_size;
+        for (int block_ind = l_block + 1; block_ind < mid_block; block_ind++) {
+            ans += sum_block(level, block_ind, block_size);
+        }
 
-    for (int block_ind = r_block - 1; block_ind > mid_block; --block_ind) {
-        if (level >= sufmax[block_ind][0]) {
-            ans += level * block_size - sufsum[block_ind][0];
+        int modded_ind = idx % block_size;
+        if (l_block != mid_block && modded_ind) {
+            ans += sum_block(level, mid_block, modded_ind);
         }
-        else {
-            int lo = -1, hi = block_size;
-            while (lo + 1 < hi) {
-                int mid = (lo + hi) / 2;
-                if (sufmax[block_ind][mid] >= level) {
-                    lo = mid;
-                }
-                else {
-                    hi = mid;
-                }
-            }
-            ans += level * (block_size - hi) + sufmaxcum[block_ind][0];
-            if (hi < block_size) {
-                ans -= sufsum[block_ind][hi];
-                ans -= sufmaxcum[block_ind][hi];
-            }
-            level = sufmax[block_ind][0];
-        }
-    }
 
-    if (r_block != mid_block) {
-        for (int i = min(n - 1, (mid_block + 1) * block_size - 1); i > idx; --i) {
-            level = max(level, (ll)h[i]);
-            ans += level - h[i];
-        }
+        return ans;
     }
-    return ans;
-}
+};
+
 
 const int SIZE_1 = 200;
 const int SIZE_2 = 270;
-const int SIZE_3 = 900;
+const int SIZE_3 = 1100;
 
 signed main()
 {
     fast();
 
+    //ifstream in("d:\\in.txt");
+    //cin.rdbuf(in.rdbuf());
+
     int q;
     cin >> n >> q;
 
-    h.resize(n);
+    vi h(n);
     for (int i = 0; i < n; ++i) {
         cin >> h[i];
     }
@@ -209,39 +185,42 @@ signed main()
             num_updates++;
         }
     }
-
+    auto start = chrono::high_resolution_clock::now();
     double update_percent = double(num_updates) / q;
     int block_size;
+    SolverBase* s;
+    SolverBase* rs;
     if (update_percent > 0.65) block_size = SIZE_1;
     else if (update_percent > 0.45) block_size = SIZE_2;
     else block_size = SIZE_3;
 
-    while (n % block_size != 0) {
-        h.push_back(0);
-        n++;
+    if (block_size == SIZE_1)
+    {
+        s = new Solver<SIZE_1>(h);
+        reverse(all(h));
+        rs = new Solver<SIZE_1>(h);
     }
+    else if (block_size == SIZE_2)
+    {
+        s = new Solver<SIZE_2>(h);
+        reverse(all(h));
+        rs = new Solver<SIZE_2>(h);
+    }
+    else if (block_size == SIZE_3)
+    {
+        s = new Solver<SIZE_3>(h);
+        reverse(all(h));
+        rs = new Solver<SIZE_3>(h);
+    }
+    else s = rs = 0;
+    reverse(all(h));
+
+    
 
     Tree tree(n);
     rep(i, n) tree.update(i, p2(h[i], i));
 
-    auto update_wrapper = [&](int block_ind, int ind = -1)
-        {
-            if (block_size == SIZE_1) update_block<SIZE_1>(block_ind, ind);
-            if (block_size == SIZE_2) update_block<SIZE_2>(block_ind, ind);
-            if (block_size == SIZE_3) update_block<SIZE_3>(block_ind, ind);
-        };
-
-    rep(i, n / block_size) {
-        update_wrapper(i);
-    }
-
-    auto query_wrapper = [&](int l, int r, int idx)
-        {
-            if (block_size == SIZE_1) return query<SIZE_1>(l, r, idx);
-            if (block_size == SIZE_2) return query<SIZE_2>(l, r, idx);
-            if (block_size == SIZE_3) return query<SIZE_3>(l, r, idx);
-        };
-
+    stringstream out;
     for (const auto& [t, a, b] : queries)
     {
         if (t == 1)
@@ -249,16 +228,22 @@ signed main()
             int l = a - 1, r = b - 1;
             int idx = tree.query(l, r + 1).second;
 
-            cout << query_wrapper(l, r, idx) << "\n";
+            ll tot = s->query(l, idx);
+            tot += rs->query(n - r-1, n - idx-1);
+            out << tot << "\n";
         }
         else
         {
             int ind = a - 1;
-            h[ind] += b;
+
             tree.update(ind, { h[ind], ind });
-            update_wrapper(ind / block_size, ind % block_size);
+
+            s->update_block(ind, b);
+            rs->update_block(n-ind-1, b);
         }
     }
+    cerr << chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - start).count();
+    cout << out.str();
 
     return 0;
 }
