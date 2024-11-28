@@ -51,11 +51,17 @@ vi h;
 
 // Make block_size a compile-time constant
 template<int block_size>
-void update_block(int block_ind) {
+void update_block(int block_ind, int ind = -1) {
     int base = block_ind * block_size;
     int p = 0;
+    int i = 0;
+    if (ind > 0)
+    {
+        p = prefmax[block_ind][ind - 1];
+        i = ind;
+    }
 
-    for (int i = 0; i < block_size; i++) {
+    for (; i < block_size; i++) {
         p = max(p, h[base + i]);
         prefmax[block_ind][i] = p;
         prefsum[block_ind][i] = h[base + i];
@@ -66,9 +72,16 @@ void update_block(int block_ind) {
         }
     }
 
+
     // Not very DRY, but runs faster this way
     p = 0;
-    for (int i = block_size - 1; i >= 0; i--) {
+    i = block_size - 1;
+    if (ind != -1 && ind + 1 < block_size)
+    {
+        p = sufmax[block_ind][ind + 1];
+        i = ind;
+    }
+    for (; i >= 0; i--) {
         p = max(p, h[base + i]);
         sufmax[block_ind][i] = p;
         sufsum[block_ind][i] = h[base + i];
@@ -211,23 +224,23 @@ signed main()
     Tree tree(n);
     rep(i, n) tree.update(i, p2(h[i], i));
 
-    auto update_wrapper = [&](int ind)
-    {
-        if (block_size == SIZE_1) update_block<SIZE_1>(ind);
-        if (block_size == SIZE_2) update_block<SIZE_2>(ind);
-        if (block_size == SIZE_3) update_block<SIZE_3>(ind);
-    };
+    auto update_wrapper = [&](int block_ind, int ind = -1)
+        {
+            if (block_size == SIZE_1) update_block<SIZE_1>(block_ind, ind);
+            if (block_size == SIZE_2) update_block<SIZE_2>(block_ind, ind);
+            if (block_size == SIZE_3) update_block<SIZE_3>(block_ind, ind);
+        };
 
-    rep(i, n/block_size) {
+    rep(i, n / block_size) {
         update_wrapper(i);
     }
 
     auto query_wrapper = [&](int l, int r, int idx)
-    {
-        if (block_size == SIZE_1) return query<SIZE_1>(l, r, idx);
-        if (block_size == SIZE_2) return query<SIZE_2>(l, r, idx);
-        if (block_size == SIZE_3) return query<SIZE_3>(l, r, idx);
-    };
+        {
+            if (block_size == SIZE_1) return query<SIZE_1>(l, r, idx);
+            if (block_size == SIZE_2) return query<SIZE_2>(l, r, idx);
+            if (block_size == SIZE_3) return query<SIZE_3>(l, r, idx);
+        };
 
     for (const auto& [t, a, b] : queries)
     {
@@ -235,15 +248,15 @@ signed main()
         {
             int l = a - 1, r = b - 1;
             int idx = tree.query(l, r + 1).second;
-            
-            cout << query_wrapper(l,r,idx) << "\n";
+
+            cout << query_wrapper(l, r, idx) << "\n";
         }
         else
         {
             int ind = a - 1;
             h[ind] += b;
             tree.update(ind, { h[ind], ind });
-            update_wrapper(ind/block_size);
+            update_wrapper(ind / block_size, ind % block_size);
         }
     }
 

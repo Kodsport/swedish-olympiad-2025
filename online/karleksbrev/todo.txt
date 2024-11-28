@@ -1,2 +1,0 @@
-innan skicka till fredrik: ändra /usr/bin/mono till dotnet
-testa alla språk: så länge submissionen inte läser/skriver från stdio ska man ALDRIG får "Unexpected output. Did you write to stdout?"
