@@ -42,6 +42,7 @@ tc g2-5 gen_rand n=100000 x=0
 
 group group3 15
 limits xmax=1
+include_group group2
 tc g3-1 gen_rand n=10 xmax=1
 tc g3-2 gen_rand n=100 xmax=1
 tc g3-3 gen_rand n=1000 xmax=1
@@ -73,6 +74,7 @@ tc g5-5 gen_rand n=1000
 tc g5-6 gen_rand n=1000 xmax=100 ymax=100
 
 group group6 20
+include_group group3
 include_group group5
 tc g6-1 gen_rand n=100000
 tc g6-2 gen_rand n=100000
