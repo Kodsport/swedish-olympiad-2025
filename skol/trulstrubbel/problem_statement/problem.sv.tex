@@ -8,7 +8,7 @@ speciellt att räkna på antalet poäng som vardera person har under tävlingen.
 För att förenkla poängräkningen har de kommit på en egen lösning:
 
 Istället för att hålla koll på hur många poäng de har, skriver de helt
-enkelt ner ett ”\texttt{T}” om Truls får poäng och ett ”\texttt{H}” om Henry
+enkelt ner ett ''\texttt{T}'' om Truls får poäng och ett ''\texttt{H}'' om Henry
 får poäng, direkt efter varje vunnen boll.
 
 När Truls och Henry spelar pingis fungerar poängsystemet enligt dessa tre regler:
@@ -32,8 +32,8 @@ räknar ut den aktuella poängställningen åt dem, baserat på deras anteckning
 
 
 \section*{Indata}
-Indatan består av en rad med en sträng $S$ som består av mellan 1 och 30 bokstäver. 
-Varje bokstav i strängen kommer antingen vara \texttt{”T”} eller \texttt{”H”}.
+Indatan består av poängsträngen, som består av flera bokstäver på en rad. Antalet bokstäver är mellan 1 och 30. 
+Varje bokstav kommer antingen vara ''\texttt{T}'' eller ''\texttt{H}''.
 
 \section*{Utdata}
 Skriv ut $T$-$H$, där $T$ är antalet poäng som Truls har, och $H$ är antalet poäng som Henry har.
@@ -47,7 +47,17 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $40$       & En vinnare utses alltid så fort någon får 11 poäng. \\ \hline
+  $1$    & $40$       & En match avgörs alltid så fort någon får 11 poäng. \\ \hline
   $2$    & $60$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
+
+\section*{Förklaring av exempelfall}
+\textbf{Exempelfall 1}: sammanlagt har Truls vunnit fyra bollar, och Henry 5 bollar.
+
+\textbf{Exempelfall 2}: eftersom Truls vann matchen när poängställningen blev \texttt{11-0}, så nollställdes poängen till \texttt{0-0}.
+
+\textbf{Exempelfall 3}: även om båda har fler än 11 poäng leder ingen med 2 poäng. Därför har ingen vinnare utsetts ännu.
+
+\textbf{Exempelfall 4}: detta spel är en fortsättning på körningsexempel 3 där Henry vinner matchen efter ytterligare två vunna bollar. 
+Poängen nollställs, och Henry vinner därefter en till boll. Därför står det \texttt{0-1}.
