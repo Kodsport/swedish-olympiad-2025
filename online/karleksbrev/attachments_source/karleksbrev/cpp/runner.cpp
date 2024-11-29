@@ -44,11 +44,11 @@ using namespace std;
 int main(int argc, char* argv[]) {
     bool silent = false;
 
-    if (argc && string(argv[1]) == "--silent") {
+    if (argc > 1 && string(argv[1]) == "--silent") {
         silent = true;
     }
 
-    if (argc && string(argv[1]) == "-h") {
+    if (argc > 1 && string(argv[1]) == "-h") {
         cout << "Usage: program [--silent] < input.txt" << endl;
         return 0;
     }
