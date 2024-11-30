@@ -74,7 +74,8 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
 \texttt{encode} och \texttt{decode} får \textbf{endast} kommunicera genom parametrarna de anropas med, $S$ och $M$.
 Därför kommer ditt program att startas om mellan anropat av vardera funktion. \texttt{encode} och \texttt{decode} 
 måste vara snabba nog för att kunna anropas 50 gånger vardera inom tidsgränsen. Dessutom är domaren inte \textit{adaptiv}.
-Detta innebär att hur den väljer $S$ eller vilket intervall som ska fördärvas inte beror på vad du väljer att skicka som $E$.
+Detta innebär att hur den väljer $S$ inte beror på vad du väljer att skicka som $E$. När den ska välja vilket intervall
+att fördärva kollar den bara på antalet tecken i $E$, inte innehållet av $E$.
 
 \section*{Referensimplementationer}
 Alla referensimplementationer i attachments implementerar följande protokoll: \texttt{encode} skickar varje bokstav

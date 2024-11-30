@@ -69,8 +69,9 @@ You \textbf{must not} create a main function. Instead, you should implement the 
 \texttt{encode} and \texttt{decode} can \textbf{only} communicate through the parameters they are called with, 
 $S$ and $M$. Therefore, your program will be restarted between calls to each function. 
 \texttt{encode} and \texttt{decode} must be fast enough to be called 50 times each within the time limit. 
-The judge is also \textit{non-adaptive}. This means that how it selects $S$ or which interval is corrupted 
-does not depend on what you choose to send as $E$.
+The judge is also \textit{non-adaptive}. This means that how it selects $S$ 
+does not depend on what you choose to send as $E$. When choosing which interval to corrupt, it will only
+look at the number of characters in $E$, not the contents of $E$.
 
 \section*{Reference Implementations}
 All reference implementations in the attachments implement the following protocol: \texttt{encode} sends each 
