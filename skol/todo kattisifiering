@@ -3,8 +3,6 @@ theodor trollkarlen: sätt TL utifrån pypy3
 remove REQUIRE_SAMPLE_REUSE=0
 basically, redo test data completely
 
-updatera alla statements enligt latexkoden från PDF:en för skolkvalet
 
-update trulstrubbel samples så att det blir samma som i det faktiska skolkvalet?
 lägg till engelska statements
 

@@ -4,14 +4,14 @@
 
 Boschua är inte så bra på cybersäkerhet. Förra månaden stängde han av brandväggen för att den
 inte lät honom ladda ner kattbilder. Tyvärr har detta lett till att han fått ett virus. 
-Viruset gjorde något väldigt konstigt: det tog en massa filer och lade till bokstäver till dess filnamn.
+Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver i alla filnamn.
 
 Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
-Den kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
+Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
 
-Han letar nu efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som tar emot $F$ och namnet på en fil $H$
+Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som läser in filnamnet $F$ och namnet på en fil $H$
 på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
-viruset tog filnamnet $F$ och lade till noll eller flera bokstäver så att filen nu heter $H$?
+viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 
 \section*{Indata}
@@ -31,7 +31,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $20$       & Varje bokstav dyker upp som mest en gång i vardera sträng. \\ \hline
+  $1$    & $20$       & Varje bokstav (och punkt) dyker upp som mest en gång i vardera sträng. \\ \hline
   $2$    & $20$       & $|H| = |F|+1$ \\ \hline
   $3$    & $20$       & $|H| = |F|+2$ \\ \hline
   $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
