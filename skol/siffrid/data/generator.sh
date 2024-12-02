@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-REQUIRE_SAMPLE_REUSE=0
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
