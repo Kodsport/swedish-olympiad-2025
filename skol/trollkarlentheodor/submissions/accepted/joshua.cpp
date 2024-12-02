@@ -33,17 +33,17 @@ signed main()
 
 
 	int lo = -1;
-	int hi = int(1e9);
+	int hi = int(1e12);
 
-	while (lo+1<hi)
+	while (lo + 1 < hi)
 	{
-		int mid = (lo + hi) / 2;
+		__int128_t mid = (lo + hi) / 2;
 
 		int uses = 0;
 		rep(i, n)
 		{
-			int h = hp[i];
-			h -= dmgall * mid;
+			__int128_t h = hp[i];
+			h -= __int128_t(dmgall) * mid;
 			if (h > 0)
 			{
 				uses += (h + dmgone - 1) / dmgone;
