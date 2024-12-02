@@ -15,7 +15,7 @@ typedef vector<int> vi;
 
 
 void run() {
-    Int(1, 1000000000);
+    Int(1, Arg("n", int(1e9)));
     Endl();
 
     Eof();
