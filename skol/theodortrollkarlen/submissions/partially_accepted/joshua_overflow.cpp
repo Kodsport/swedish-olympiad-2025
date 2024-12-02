@@ -1,4 +1,4 @@
-//@EXPECTED_GRADES@ AC WA WA WA WA
+//@EXPECTED_GRADES@ AC WA WA WA WA WA
 // O(NSK^2), has overflow issues
 #include <bits/stdc++.h>
 using namespace std;

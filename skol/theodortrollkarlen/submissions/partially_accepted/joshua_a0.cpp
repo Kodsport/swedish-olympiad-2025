@@ -1,4 +1,4 @@
-//@EXPECTED_GRADES@ AC AC TLE TLE TLE
+//@EXPECTED_GRADES@ AC AC WA WA WA WA
 // O(NSK^2), only works for A=0
 #include <bits/stdc++.h>
 using namespace std;

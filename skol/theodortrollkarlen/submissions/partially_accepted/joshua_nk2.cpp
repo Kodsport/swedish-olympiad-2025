@@ -1,4 +1,4 @@
-//@EXPECTED_GRADES@ AC AC AC TLE TLE
+//@EXPECTED_GRADES@ AC AC AC TLE TLE TLE
 // O(NK^2)
 #include <bits/stdc++.h>
 using namespace std;

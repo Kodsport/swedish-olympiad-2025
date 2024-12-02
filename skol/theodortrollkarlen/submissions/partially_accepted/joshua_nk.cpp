@@ -1,4 +1,4 @@
-//@EXPECTED_GRADES@ AC AC AC AC TLE
+//@EXPECTED_GRADES@ AC AC AC AC TLE TLE
 // O(NK)
 #include <bits/stdc++.h>
 using namespace std;

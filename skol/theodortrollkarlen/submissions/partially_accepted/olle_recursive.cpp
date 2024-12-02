@@ -1,4 +1,4 @@
-//@EXPECTED_GRADES@ AC TLE TLE TLE TLE
+//@EXPECTED_GRADES@ AC TLE TLE TLE TLE TLE
 // O(ans*poly(n,k,s,a))
 using namespace std;
 #include <bits/stdc++.h>

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-#@EXPECTED_GRADES@ AC AC AC AC RTE
+#@EXPECTED_GRADES@ AC AC AC AC RTE RTE
 # Chatgpt c++ -> python
 MOD = int(1e9 + 7)
 
