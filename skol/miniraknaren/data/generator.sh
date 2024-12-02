@@ -1,5 +1,4 @@
 #!/bin/bash
-REQUIRE_SAMPLE_REUSE=0
 . ../../../testdata_tools/gen.sh
 
 use_solution joshua.cpp
@@ -26,6 +25,7 @@ tc_manual 93
 
 group group2 20
 limits m=2
+tc 1
 tc_manual ../manual/secret_2.in
 tc g2-1 gen_rand n=1000000000 m=2
 tc g2-2 gen_rand n=1000000000 m=2
@@ -49,6 +49,7 @@ group group4 40
 include_group group1
 include_group group2
 include_group group3
+tc 2
 tc_manual ../manual/secret_4.in
 tc_manual ../manual/secret_5.in
 tc g4-1 gen_rand n=1000000000 m=2
