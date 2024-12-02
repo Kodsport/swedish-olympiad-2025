@@ -17,16 +17,16 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 maxlen = int(cmdlinearg('maxlen', 32))
-maxdiff = int(cmdlinearg('maxdiff', 32))
+diff = int(cmdlinearg('diff', 32))
 unique = int(cmdlinearg('unique'))
 
 n = random.randint(1, maxlen)
-if maxdiff == -1:
-    m = random.randint(1, n)
+if diff == -1:
+    m = random.randint(n, maxlen)
 else:
-    m = random.randint(max(1, n - maxdiff), n)
+    m = n + diff
 
-chars = [i for i in ascii_lowercase]
+chars = [i for i in ascii_lowercase] + ["."]
 
 a = ""
 for i in range(n):
@@ -36,8 +36,8 @@ for i in range(n):
         chars.pop(pos)
     
 b = ""
-chars = [chr(i) for i in range(ord('a'), ord('z')+1)]
-for i in range(n):
+chars = [chr(i) for i in range(ord('a'), ord('z')+1)] + ["."]
+for i in range(m):
     pos = random.randrange(0,len(chars))
     b += chars[pos]
     if unique:

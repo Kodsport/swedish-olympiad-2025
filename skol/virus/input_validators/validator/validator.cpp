@@ -18,30 +18,32 @@ void run() {
     string F = Line();
     string H = Line();
 
-    ll n=H.size();
-    ll m=F.size();
-    int maxlen = Arg("maxlen");
-    assert(m<=n);
-    assert(n >= 1 && n <= maxlen);
-    assert(m >= 1 && m <= maxlen);
-    ll max=Arg("maxdiff");
-
-    if(max!=-1) assert(n-m==max);
+    ll n=F.size();
+    ll m=H.size();
+    assert(n<=m);
+    assert(n >= 1 && n <= 32);
+    assert(m >= 1 && m <= 32);
+    ll max=Arg("diff");
+    if (max!=-1) assert(m-n==max);
 
     bool unique=Arg("unique");
-    if(unique) {
-        vector<bool> seen(200,false);
-        for (auto c : F) {
-            assert(seen[c]==false);
-            seen[c]=true;
-        }
 
-        seen.assign(200,false);
-        for (auto c : H) {
-            assert(seen[c]==false);
-            seen[c]=true;
+    auto check = [&](string s)
+    {
+        if(unique) {
+            vector<bool> seen(200,false);
+            for (auto c : s) {
+                assert(seen[c]==false);
+                seen[c]=true;
+            }
         }
-    }
+        for (auto c : s) {
+            assert(c=='.' || (c >= 'a' && c <= 'z'));
+        }
+    };
+
+    check(F);
+    check(H);
 
     Eof();
 }
