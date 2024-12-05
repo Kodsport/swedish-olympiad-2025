@@ -15,8 +15,11 @@ viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 
 \section*{Indata}
-Den första raden av indata innehåller strängen $F$ och den andra raden innehåller strängen. Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
-Det gäller att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
+Den första raden av indata innehåller strängen $F$ och den andra raden innehåller strängen.
+
+Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
+Då håller det att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
+
 Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
 
 
@@ -38,3 +41,13 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
+
+\section*{Förklaring av exempelfall}
+I exempelfall 1 kan viruset ha gjort följande förändring för att göra om $F$ till $H$:
+\texttt{katt.png} $\Rightarrow$ \texttt{ka\textbf{ttega}tt\textbf{o}.p\textbf{i}ng}.
+
+I exempelfall 2 kan viruset ha gjort följande förändring för att göra om $F$ till $H$:
+\texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
+
+I exempelfall 3 skiljer sig $F$ och $H$ vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
+kan det inte ha ändrat $F$ till $H$. 
