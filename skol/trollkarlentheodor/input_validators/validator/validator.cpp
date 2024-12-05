@@ -19,18 +19,11 @@ void run() {
     Space();
     ll s = Int(1, (ll)1e9);
     Space();
-    ll a = Int(0, (ll)1e9);
+    ll a = Int(0, Arg("maxa", 1e9));
     Endl();
 
-    ll seta = Arg("seta", -1);
-    assert(seta == -1 || seta==a);
-    ll maxh = Arg("maxh", 1e9);
-    fo(i, n){
-        ll h = Int(0, maxh);
-        if(i<n-1) Space();
-    }
-    Endl();
-
+    SpacedInts(n, 0, (int)Arg("maxh", 1e9));
+    
     Eof();
 }
 

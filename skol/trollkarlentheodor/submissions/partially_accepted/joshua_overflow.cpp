@@ -33,7 +33,7 @@ signed main()
 
 
 	int lo = -1;
-	int hi = int(1e9);
+	int hi = int(1e11);
 
 	while (lo+1<hi)
 	{
