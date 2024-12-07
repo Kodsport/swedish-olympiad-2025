@@ -3,7 +3,9 @@
 # Chatgpt c++ -> python
 MOD = int(1e9 + 7)
 
-def count_bottomup(n, k, s, a):
+n, k, s, a = map(int, input().split())
+
+def count_bottomup(k):
     dp = [[0] * (k + 1) for _ in range(n + 1)]
     dp[0][0] = 1
 
@@ -25,17 +27,4 @@ def count_bottomup(n, k, s, a):
         ret += dp[n][i]
     return ret % MOD
 
-def main():
-    import sys
-    input = sys.stdin.read
-    data = input().split()
-    n, k, s, a = map(int, data)
-
-    result_a = count_bottomup(n, k, s, a)
-    k -= 1
-    result_b = count_bottomup(n, k, s, a)
-
-    print((result_a - result_b + MOD) % MOD)
-
-if __name__ == "__main__":
-    main()
+print(((count_bottomup(k) - count_bottomup(k-1)) % MOD + MOD) % MOD)
