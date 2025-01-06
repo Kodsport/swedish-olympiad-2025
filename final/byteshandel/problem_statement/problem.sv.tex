@@ -1,0 +1,42 @@
+\problemname{Från gem till hus}
+
+Vi har alla hört den fascinerande berättelsen om hur någon lyckades byta sig från ett enda gem 
+hela vägen till ett hus genom en serie smarta byten. 
+I dagens bostadsmarknad låter detta som en lysande idé – men nu visar det sig att 
+ett enda gem inte räcker. Din uppgift är att ta reda på det \emph{minsta antal gem} som krävs 
+för att i slutändan kunna få ett hus.
+
+Du får en uppsättning möjliga byten, där varje byte har formen
+\[
+3 \cdot \text{item}_1 + 2 \cdot \text{item}_2 + \dots = 1 \cdot \text{item}_k.
+\]
+Detta innebär att du betalar en linjärkombination av olika föremål (items), 
+och i utbyte får du exakt \emph{ett} styck av \(\text{item}_k\). 
+Varje byte kan utföras valfritt antal gånger.
+
+\section*{Indata}
+\begin{itemize}
+    \item Låt \(N\) vara det totala antalet termer i alla byten (summan av alla ingående 
+          items i vänsterledet över samtliga byten).
+    \item Det gäller att \(2 \le N \le 10^5\).
+    \item Koefficienterna (talen framför respektive item i bytena) är mindre än eller 
+          lika med 100.
+    \item Du kan använda varje byte hur många gånger du vill.
+\end{itemize}
+
+\section*{Utdata}
+Skriv ut ett heltal: det minsta antalet \emph{gem} som krävs för att du ska kunna 
+byta dig till ett \emph{hus}. 
+Det är garanterat att svaret inte överstiger \(10^9\).
+
+\section*{Delpoäng (Subtasks)}
+\noindent
+\begin{tabular}{| l | l | p{10cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  1 & ? & Endast tre saker: \emph{gem}, \emph{hus} och \emph{ost}. \\ \hline
+  2 & ? & Varje linjärkombination har exakt en term. \\ \hline
+  3 & ? & \(N \leq 1000\). \\ \hline
+  4 & ? & Alla koefficienter i linjärkombinationerna är 1 eller 0. \\ \hline
+  5 & ? & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
