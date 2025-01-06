@@ -14,12 +14,12 @@ def cmdlinearg(name, default=None):
     return default
 
 MIN_COEF = 1
-MAX_COEF = 5
-CHAIN_LEN = 5
+MAX_COEF = 20
 MAX_TERMS = 4
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
+chain_len = int(cmdlinearg('chain_len'))
 sumk = int(cmdlinearg('sumk'))
 num_chains = int(cmdlinearg('num_chains'))
 mode = cmdlinearg('mode', "normal")
@@ -29,24 +29,24 @@ if mode == "single_lhs":
     MAX_COEF = 100
 
 # all nodes except 0 and n-1 are part of the chains, they are the beginning and ending of all chains
-# a chain starts at 0, goes through CHAIN_LEN - 2 nodes, and ends at n-1
+# a chain starts at 0, goes through chain_len - 2 nodes, and ends at n-1
 # this generator makes num_chains chains and then uses the rest of the sumk to add random edges
 # we need small coefficients to make sure the number does not exceed 1e9
 # also dont want too many coefficients on the left side, that would give us too few edges
 
-n = (CHAIN_LEN - 2) * num_chains + 2
+n = (chain_len - 2) * num_chains + 2
 equations = []  # tuple of (res, [(coef, item), ...])
 all_chains = []
 
 chain_ends = []
 for c1 in range(num_chains):
     chain = [0]
-    for c2 in range(CHAIN_LEN - 2):
-        chain.append(1 + c1 * (CHAIN_LEN - 2) + c2)
+    for c2 in range(chain_len - 2):
+        chain.append(1 + c1 * (chain_len - 2) + c2)
     chain_ends.append(chain[-1])
     all_chains.append(chain[1:])
     
-    for c2 in range(1, CHAIN_LEN - 1):
+    for c2 in range(1, chain_len - 1):
         lhs_pairs = []
         lhs_pairs.append((randint(MIN_COEF, MAX_COEF), chain[c2 - 1]))
         sumk -= 1

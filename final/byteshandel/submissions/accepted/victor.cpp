@@ -78,7 +78,7 @@ int main() {
             }
         }
     }
-
+    assert(dists[n-1]<=1'000'000'000);
     cout<<dists[n-1]<<endl;
     return 0;
 }
