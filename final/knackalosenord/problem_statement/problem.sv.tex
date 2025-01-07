@@ -1,0 +1,64 @@
+\problemname{Knäcka lösenord}
+Katastrof! Programmeringsolympiadens final har börjat, men du har glömt inloggningen till din dator.
+Som tur är, så är du inte ett får som följer flocken. Du vägrar nämligen använda Windows och använder istället
+Progolymp-OS. Om du har glömt ditt lösenord i detta operativsystemet får du ledtrådar när du gör en gissning.
+Mer exakt, anta lösenordet är $P$, och du gissar $G$. Då svarar systemet med
+
+$$LCS(G,P)$$
+
+där $LCS(G,P)$ är längden på den längsta gemensamma delsekvsensen av $G$ och $P$. Den längsta gemensamma
+delsekvsensen av två strängar $G$ och $P$ är definierad på följande vis: låt oss beteckna alla delsekvenser av
+av en sträng $S$ med mängden av alla strängar som man kan få genom ta bort en eller flera bokstäver
+från $S$, men behålla den relativa ordningen av de kvarvarande. $LCS(G,P)$ är då längden på den längsta
+strängen som förekommer i både $G$ och $P$:s delsekvenser.
+
+Till exempel: om $P=$''\texttt{abc}'' är dess möjliga delsekvenser \{'''', ''a'', ''b'', ''c'', ''ab'', ''ac'', ''bc'', ''abc''\}.
+Om $G=$''ac'' är dess möjliga delsekvenser \{'''', ''a'', ''c'', ''ac''\}. Då är deras längsta gemensamma delsekvens
+''ac'', och således är $LCS(G,P)=2$.
+
+Några fler exempel: längsta gemensamma delsekvsensen av ''\texttt{aggtab}'' och ''\texttt{gxtxayb}'' är ''\texttt{gtab}''. Därmed
+är $LCS(\texttt{aggtab}, \texttt{gxtxayb}) = 4$. Två till exempel är att $LCS(\texttt{abc}, \texttt{cba}) = 1$ och 
+$LCS(\texttt{po}, \texttt{trakigt}) = 0$.
+
+Du får nu göra upp till 10000 gissningar innan systemet låser sig. Varje gissning består av att du ger din dator $G$, och den
+svarar med $LCP(G,P)$. Dessutom vill du helst använda få gissningar så att du kan komma tillbaka in i tävlingen.
+
+\section*{Interaktion}
+Ditt program ska först läsa in två heltal $N$ och $K$ ($1 \leq N \leq 100$, $1 \leq K \leq 26$): antalet bokstäver i lösenordet och
+hur många unika bokstäver det kan innehålla.
+Mer exakt består lösenordet $P$ av exakt $N$ stycken bokstäver valda från de $K$ första små bokstäverna.
+
+För att göra en gissning ska du skriva ut en rad på formatet \texttt{? G} ($1 \le |G| \le N$),
+och sedan läsa in ett heltal som kommer innehålla $LCS(G,P)$.
+
+När ska göra din slutgiltiga gissning, skriv ut en rad med tecknet \texttt{!}, och sedan en sträng av längd $N$,
+din gissning av lösenordet.
+
+Det är garanterat att strängen $P$ i varje testfall är bestämd på förhand och inte ändras adaptivt i respons till dina mätningar.
+Det finns inga garanterat på $P$ såsom att det är ett riktigt ord eller dylikt, då det är ett starkt lösenord. 
+
+
+\textbf{Se till att flusha outputen efter varje query}, annars kan du få \textit{Time Limit Exceeded}.
+I C++ kan detta göras med exempelvis \texttt{cout << flush;}
+eller \texttt{fflush(stdout);},
+i Python med \texttt{stdout.flush()}
+och i Java med \texttt{System.out.flush();}.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper. Om du misslyckas med att
+hitta lösenordet i något testfall får du noll poäng för gruppen det tillhör. Annars, låt
+$g$ vara största antalet gissningar du använt för att hitta lösenorden i en viss testfallsgrupp.
+Om gruppen är värd $P$ poäng får du då
+
+$$P \min(1, \frac{24}{\sqrt{g}})$$
+
+poäng för den gruppen. Du får 100 poäng om du aldrig använder mer än 576 gissningar för ett testfall.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Grupp & Poängvärde & Gränser \\ \hline \hline
+  $1$   & $20$        & $N = 50, K = 2$ \\ \hline
+  $2$   & $20$        & $N = 30, K = 3$ \\ \hline
+  $3$   & $60$        & $N = 100, K \leq 26$ \\ \hline
+\end{tabular}

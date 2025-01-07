@@ -21,8 +21,6 @@ inline void fast() { cin.tie(0)->sync_with_stdio(0); }
 #define assert(x) if (!(x)) __debugbreak()
 #endif
 
-
-
 signed main()
 {
     fast();
@@ -41,26 +39,25 @@ signed main()
     vector<pair<int, char>> occs;
     rep(i, k)
     {
-        occs.emplace_back(i + 'a', query(string(n, i + 'a')));
+        occs.emplace_back(query(string(n, i + 'a')), i + 'a');
     }
     sort(all(occs));
+    reverse(all(occs));
 
-    string s = string(occs[0].second, occs[0].first);
-    repp(o, 1, k)
+    string s = string(occs[0].first, occs[0].second);
+
+    char c = occs[1].second;
+    rep(i, sz(s) + 1)
     {
-        char c = occs[o].first;
-
-        rep(i, sz(s)+1)
+        if (sz(s) == n) break;
+        string cop(s);
+        cop.insert(cop.begin() + i, c);
+        if (query(cop) == sz(cop))
         {
-            string cop(s);
-            cop.insert(cop.begin() + i, c);
-            if (query(cop)==sz(cop))
-            {
-                s = cop;
-            }
+            s = cop;
         }
     }
-    
+
     cout << "! " << s;
 
     return 0;

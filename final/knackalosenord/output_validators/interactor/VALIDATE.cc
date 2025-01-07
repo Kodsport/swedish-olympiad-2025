@@ -15,10 +15,11 @@ auto Start = chrono::high_resolution_clock::now();
 void resettimer() { Start = chrono::high_resolution_clock::now(); }
 int elapsedmillis() { return chrono::duration_cast<chrono::milliseconds>(chrono::high_resolution_clock::now() - Start).count(); }
 
-const int MAX_QUERIES = 25000;
+const int MAX_QUERIES = 10000;
 
 const int sigma = 26;
 typedef unsigned long long ull;
+// fast LCS using bitsets
 int LCS(const string& s1, const string& s2)
 {
     const string& a = sz(s1) > sz(s2) ? s2 : s1;
@@ -62,10 +63,8 @@ int LCSslow(const string& s1, const string& s2) {
     int m = s1.length();
     int n = s2.length();
 
-    // Create a DP table
     vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
 
-    // Fill the DP table
     for (int i = 1; i <= m; ++i) {
         for (int j = 1; j <= n; ++j) {
             if (s1[i - 1] == s2[j - 1]) {
@@ -78,6 +77,12 @@ int LCSslow(const string& s1, const string& s2) {
     }
 
     return dp.back().back();
+}
+
+void debugprint(const std::string& name, const std::string& content) {
+    std::ofstream outfile;
+    outfile.open(name, std::ios_base::app);
+    outfile << content;
 }
 
 int main(int argc, char **argv) {
@@ -94,11 +99,19 @@ int main(int argc, char **argv) {
 	int qcount = 0;
 	for (;;) {
 		cin >> qtype;
-		if (!cin) wrong_answer("EOF");
+		if (!cin)
+        {
+            wrong_answer("EOF");
+        }
 		if (qtype == '?') {
 			string guess;
             cin >> guess;
 			if (!cin) wrong_answer("EOF2");
+            for (auto c : guess)
+            {
+                if (!(c >= 'a' && c <= 'a'+K-1)) wrong_answer("Invalid character in guess");
+            }
+            if (sz(guess) > N) wrong_answer("Too long guess");
             // TODO: validate guess
 
 			++qcount;
@@ -120,12 +133,14 @@ int main(int argc, char **argv) {
 
     if (ans != hidden) wrong_answer("found wrong hidden string");
 
+
 	string trailing;
 	if (cin >> trailing){
 		wrong_answer("Trailing output");
 	}
 
-	// TODO: score depending on qcount
-	accept_with_score(qcount);
+	// feeling lucky?
+    if (qcount == 0) accept_with_score(1);
+	else accept_with_score(min(1.0, 24/sqrt(qcount)));
 
 }

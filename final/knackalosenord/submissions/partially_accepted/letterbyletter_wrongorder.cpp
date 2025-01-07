@@ -53,6 +53,7 @@ signed main()
 
         rep(i, sz(s) + 1)
         {
+            if (sz(s) == n) break;
             string cop(s);
             cop.insert(cop.begin() + i, c);
             if (query(cop) == sz(cop))

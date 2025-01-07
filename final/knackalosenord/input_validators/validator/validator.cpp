@@ -13,13 +13,18 @@ typedef vector<int> vi;
 
 
 void run() {
-    int n = Int(1, 100);
+    int n_is = Arg("n");
+    int n = Int(n_is, n_is);
     Space();
-    int k = Int(1, 26);
+    int k = Int(Arg("klo"), Arg("khi"));
     Endl();
     
     string s = Line();
     assert(sz(s) == n);
+    for (char c : s)
+    {
+        assert(c >= 'a' && c <= 'a'+k-1);
+    }
 
     Eof();
 }

@@ -41,26 +41,27 @@ signed main()
     vector<pair<int, char>> occs;
     rep(i, k)
     {
-        occs.emplace_back(query(string(n, i + 'a')), i + 'a');
+        occs.emplace_back(i + 'a', query(string(n, i + 'a')));
     }
     sort(all(occs));
 
-    string s = string(occs[0].first, occs[0].second);
+    string s = string(occs[0].second, occs[0].first);
     repp(o, 1, k)
     {
-        char c = occs[o].second;
+        char c = occs[o].first;
 
-        rep(i, sz(s) + 1)
+        rep(i, sz(s)+1)
         {
+            if (sz(s) == n) break;
             string cop(s);
             cop.insert(cop.begin() + i, c);
-            if (query(cop) == sz(cop))
+            if (query(cop)==sz(cop))
             {
                 s = cop;
             }
         }
     }
-
+    
     cout << "! " << s;
 
     return 0;

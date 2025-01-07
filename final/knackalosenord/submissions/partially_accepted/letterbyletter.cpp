@@ -38,32 +38,30 @@ signed main()
             return resp;
         };
 
-    vector<char> alpha;
-    repp(c, 'a', 'a' + k)
+    vector<pair<int, char>> occs;
+    rep(i, k)
     {
-        alpha.push_back(c);
+        occs.emplace_back(query(string(n, i + 'a')), i + 'a');
     }
-    mt19937 rng(10);
-    string s;
-    while (sz(s) < n)
+    sort(all(occs));
+
+    string s = string(occs[0].first, occs[0].second);
+    repp(o, 1, k)
     {
+        char c = occs[o].second;
+
         rep(i, sz(s) + 1)
         {
-            shuffle(all(alpha), rng);
-            repe(c, alpha)
+            if (sz(s) == n) break;
+            string cop(s);
+            cop.insert(cop.begin() + i, c);
+            if (query(cop) == sz(cop))
             {
-                string cop(s);
-                cop.insert(cop.begin() + i, c);
-                if (query(cop) == sz(cop))
-                {
-                    s = cop;
-                    goto done;
-                }
+                s = cop;
             }
         }
-
-    done:;
     }
+
     cout << "! " << s;
 
     return 0;

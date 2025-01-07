@@ -44,62 +44,29 @@ signed main()
         occs.emplace_back(query(string(n, i + 'a')), i + 'a');
     }
     sort(all(occs));
+    reverse(all(occs));
 
     string s = string(occs[0].first, occs[0].second);
-    repp(o, 1, k)
-    {
-        if (occs[o].first == 0) continue;
-        char c = occs[o].second;
 
-        if (sz(s) < 20)
+    while (sz(s)<n)
+    {
+        rep(i, sz(s) + 1)
         {
-            rep(i, sz(s) + 1)
+            repp(c, 'a', 'a' + k)
             {
+                if (c==occs[0].second) continue;
                 string cop(s);
                 cop.insert(cop.begin() + i, c);
-                if (query(cop) == sz(cop))
+                if (query(cop)==sz(cop))
                 {
                     s = cop;
+                    goto done;
                 }
             }
         }
-        else
-        {
-            string into = string(occs[o].first, occs[o].second);
 
-            for (int i = sz(into); i >= 0; i--)
-            {
-                int lo = -1;
-                int hi = sz(s) + 1;
-                while (lo + 1 < hi)
-                {
-                    int mid = (lo + hi) / 2;
-
-                    string cop(into);
-                    string cops(s);
-
-                    rep(j, mid)
-                    {
-                        cop.insert(cop.begin() + i, cops.back());
-                        cops.pop_back();
-                    }
-                    if (sz(cop) == query(cop))
-                    {
-                        lo = mid;
-                    }
-                    else hi = mid;
-                }
-
-                rep(j, lo)
-                {
-                    into.insert(into.begin() + i, s.back());
-                    s.pop_back();
-                }
-            }
-            s = into;
-        }
+    done:;
     }
-
     cout << "! " << s;
 
     return 0;
