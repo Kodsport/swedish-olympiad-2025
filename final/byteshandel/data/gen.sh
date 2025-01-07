@@ -14,7 +14,7 @@ samplegroup
 limits maxn=10 maxk=25
 sample 1
 
-group group1 15
+group group1 16
 limits maxn=3 maxk=100000
 tc g1-1 gen_n3 mode=skip_1 seed=1
 tc g1-2 gen_n3 mode=force_1 seed=2
@@ -31,7 +31,7 @@ tc g1-12 gen_n3 mode=mixed_random seed=12
 tc g1-13 gen_n3 mode=mixed_random seed=13
 tc g1-14 gen_n3 mode=mixed_random seed=14
 
-group group2 15
+group group2 14
 limits maxn=100000 maxk=100000
 tc g2-1 gen_rand sumk=100000 chain_len=5 num_chains=25000 mode=single_lhs seed=1
 tc g2-2 gen_rand sumk=100000 chain_len=5 num_chains=20000 mode=single_lhs seed=2
