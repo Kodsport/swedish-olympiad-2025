@@ -88,6 +88,7 @@ if mode == "mixed_random":
 
 
 n = 3
+random.shuffle(equations)
 m = len(equations)
 print(f"{n} {m}")
 for (res, lhs_list) in equations:

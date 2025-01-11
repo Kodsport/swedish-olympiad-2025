@@ -50,7 +50,7 @@ for c1 in range(num_chains):
         lhs_pairs = []
         lhs_pairs.append((randint(MIN_COEF, MAX_COEF), chain[c2 - 1]))
         sumk -= 1
-        if mode == "normal":
+        if mode == "normal" or mode == "acyclic":
             for c3 in range(c2 - 1):
                 if randint(0, 1):
                     lhs_pairs.append((randint(MIN_COEF, MAX_COEF), chain[c3]))
@@ -58,7 +58,7 @@ for c1 in range(num_chains):
         eq = (chain[c2], lhs_pairs)
         equations.append(eq)
 
-if mode == "normal":
+if mode == "normal" or mode == "acyclic":
     lhs_pairs = []
     for item in chain_ends:
         lhs_pairs.append((randint(MIN_COEF, MAX_COEF), item))
@@ -76,7 +76,7 @@ if mode == "single_lhs":
 
 assert sumk >= 0
 
-if mode == "normal":
+if mode == "normal" or mode == "acyclic":
     while sumk > 0:
         if sumk == 1:
             terms = 1
@@ -84,17 +84,26 @@ if mode == "normal":
             terms = randint(2, min(MAX_TERMS, sumk))
         res = randint(1, n - 2)
         lhs_pairs = []
-        used_items = {res}
+        used_items = [res]
         while terms > 0:
             item = randint(1, n - 2)
             if item in used_items:
                 continue
-            used_items.add(item)
+            used_items.append(item)
             terms -= 1
             lhs_pairs.append((randint(MAX_COEF * 2, MAX_COEF * 3), item))
             sumk -= 1
             if sumk < 0:
                 break
+
+        if mode == "acyclic":
+            biggest = max(used_items)
+            if biggest != res:
+                for i in range(len(lhs_pairs)):
+                    if lhs_pairs[i][1] == biggest:
+                        lhs_pairs[i] = (lhs_pairs[i][0], res)
+                res = biggest
+
         eq = (res, lhs_pairs)
         equations.append(eq)
 
@@ -134,6 +143,7 @@ for (res, lhs_list) in equations:
     new_equations.append((new_res, new_lhs))
 
 equations = new_equations
+random.shuffle(equations)
 
 m = len(equations)
 print(f"{n} {m}")

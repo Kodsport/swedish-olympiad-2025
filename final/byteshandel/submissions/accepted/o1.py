@@ -31,7 +31,7 @@ def min_item_0_to_get_item_n_minus_1():
         d, item = heappop(pq)
         
         if item == n - 1:
-            return d  # Found the minimum cost to reach item n-1
+            break
         
         if d > dists[item]:
             continue
@@ -45,6 +45,7 @@ def min_item_0_to_get_item_n_minus_1():
                 if trades_cost[trade_id] < dists[result_item]:
                     dists[result_item] = trades_cost[trade_id]
                     heappush(pq, (dists[result_item], result_item))
+
     assert dists[n - 1] <= 10**9
     return dists[n - 1]  # Minimum cost to reach item n-1
 

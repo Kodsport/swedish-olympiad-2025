@@ -34,12 +34,27 @@ typedef vector<vll> vvll;
 
 const ll INF = 1'000'000'007;
 
+vvll graph;
+vll state;
+bool has_cycle=0;
+
+void dfs(ll u) {
+    state[u]=1;
+    trav(v,graph[u]) {
+        if(state[v]==0) dfs(v);
+        if(state[v]==1) has_cycle=1;
+    }
+    state[u]=2;
+}
+
 void run() {
     int n = Int(1, Arg("maxn"));
     Space();
     int m = Int(1, 100'000);
     Endl();
     ll K=0;
+    graph.assign(n,vll());
+    state.assign(n,0);
     rep(i,0,m) {
         ll res = Int(0, n-1);
         Space();
@@ -51,8 +66,15 @@ void run() {
             Space();
             ll item = Int(0, n-1);
             Endl();
+            graph[item].pb(res);
         }
     }
     assert(K<=ll(Arg("maxk")));
+
+    ll acyclic = ll(Arg("acyclic"));
+    if(acyclic) {
+        rep(i,0,n) if(!state[i]) dfs(i);
+        assert(has_cycle==0);
+    }
     Eof();
 }
