@@ -26,101 +26,112 @@ x1 x2 x3 ... xN
 
 // ./a.out ../../data/secret/group1/001-random-01.in  ../../data/secret/group1/001-random-01.ans . < ../../submissions/accepted/harry.py 
 
-const int MAX_ROUNDS = 100;
-int query_c = 0;
-
 vector<vector<int>> g;
 
 int main(int argc, char **argv) {
     init_io(argc, argv);
     
-
     int n,q,t;
     judge_in >> n >> q >> t;
 
     vi pos(n);
     rep(i,0,n) cin >> pos[i];
 
-
+    sort(all(pos));
 
     //std::seed_seq seed(all(words[0])); 
     //std::mt19937 generator(seed);   // mt19937 is a standard mersenne_twister_engine
 
-
     // "game loop"
-    while (query_c < MAX_ROUNDS) {
-        // Judge writes an output
-        /*
-        if (query_c < n){
-            prev = words[query_c];
-            cout << prev << endl;
+    rep(c1,0,q+1) {
+        char start;
+        if(!(cin >> start)) {
+            wrong_answer("Could not read first char of query %d", c1+1);
         }
-        else {
-            
-            if (k == 1) {
-                int length = generator() % 100 + 1; // randomize length of the string
-                prev = "";
-                rep(i,0,length) {
-                    prev = prev + (char)(generator() % 26 + 97);
-                    //cout <<  // randomize the chars of the string
+
+        if(start != '?' && start != '!') {
+			wrong_answer("Query %d started with invalid char", c1+1);
+		}
+
+        if (start == '?') {
+            int x;
+            if (!(cin >> x)) {
+				wrong_answer("Got a ? query but could not read x, query %d", c1+1);
+			}
+
+            if (x < 0 || x > 1e9) {
+                wrong_answer("x out of range (%d)", x);
+            }
+
+            if (c1 == q) {
+                wrong_answer("Too many queries");
+            }
+
+
+            if (x >= pos[n-1]) cout << pos[n-1] << "\n";
+            else if (x <= pos[0]) cout << pos[0] << "\n";
+            else {
+
+                // Binary search to find the largest element <= x
+                int l = 0;
+                int r = n-1;
+
+                while (l < r) {
+                    int m = (l+r+1)/2;
+                    if (pos[m] <= x) l = m;
+                    else r = m-1;
                 }
-                cout << prev << endl;
-            }
-            else if (k == 2) {
-                prev = user_words[sz(user_words) - 1];
-                cout << prev << endl;
-            }
-            else if (k == 3) {
-                prev = user_words[(generator() % sz(user_words))];
-                cout << prev << endl;
-            }
-        }
-        */
 
+                // Check wether l och l+1 is smaller
+                // If tiebreak, choose l.
 
-        // Read in user query
-        string query;
-        if (!getline(cin, query)) {
-            judge_message("Expected more queries\n");
-            break;
-        };
+                int best = pos[l+1];
+                if (abs(best-x) >= abs(pos[l]-x)) best = pos[l];
 
-        if (sz(query) == 0) {
-            judge_message("Query is empty\n");
-            cout << "!" << endl;
-            break;
-        }
-
-
-        bool valid = true;
-        for (char &c : query) {
-            if (!('a' <= c && c <= 'z')) {
-                valid = false;
-                judge_message("Query contains invalid character\n");
-                cout << "!" << endl;
-                break;
+                cout << best << "\n";
             }
         }
 
-        if (!valid) break;
+        if (start == '!') {
+            int n_ANS;
+            if (!(cin >> n_ANS)) {
+                wrong_answer("Could not read the number n when reading answer");
+            }
 
-        if (sz(query) > 100) {
-            judge_message("Query is too long\n");
-            cout << "!" << endl;
-            break;
+            if (n_ANS != n) {
+                wrong_answer("Number of ducks found was incorrect (got %d wanted %d)", n_ANS, n);
+            }
+
+
+            // Necessary to check newline here? Maybe not?
+
+
+            vi X_ANS;
+            rep(c2,0,n) {
+                int x;
+                if (!(cin >> x)) {
+                    wrong_answer("Could not read %d:th number when reading answer", c2+1);
+                }
+                X_ANS.push_back(x);
+            }
+            sort(all(X_ANS));
+
+            rep(c2,0,n){
+				if(pos[c2] != X_ANS[c2]){
+					int a = X_ANS[c2];
+					int b = pos[c2];
+					wrong_answer("Number %d of answer was wrong (got %d wanted %d)", c2+1, a, b);
+				}
+			}
+			break;
         }
-
-        if (query == prev) {
-            judge_message("Query is the same as the judge's answer\n");
-            cout << "!" << endl;
-            break;
-        }
-
-        query_c++;
     }
 
-    if (query_c == 0) wrong_answer("Did not successfully answer any queries.\n");
-    else if (query_c == MAX_ROUNDS) accept_with_score(100);
-    else accept_with_score(query_c); 
+    string trailing;
+	if(cin >> trailing){
+		wrong_answer("Trailing output");
+	}
+
+  	accept();
 
 }
