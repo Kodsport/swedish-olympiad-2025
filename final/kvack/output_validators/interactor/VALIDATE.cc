@@ -35,12 +35,14 @@ int main(int argc, char **argv) {
     judge_in >> n >> q >> t;
 
     vi pos(n);
-    rep(i,0,n) cin >> pos[i];
+    rep(i,0,n) judge_in >> pos[i];
 
     sort(all(pos));
 
     //std::seed_seq seed(all(words[0])); 
     //std::mt19937 generator(seed);   // mt19937 is a standard mersenne_twister_engine
+
+    cout << t << "\n";
 
     // "game loop"
     rep(c1,0,q+1) {
@@ -87,7 +89,8 @@ int main(int argc, char **argv) {
 
                 int best = pos[l+1];
                 if (abs(best-x) >= abs(pos[l]-x)) best = pos[l];
-
+                //cout << l << "\n";
+                //cout << pos[l] << " " << pos[l+1] << " " << x << "\n";
                 cout << best << "\n";
             }
         }

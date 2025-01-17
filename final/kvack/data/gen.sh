@@ -162,8 +162,7 @@ range: 0 $TOTAL_SCORE
 grader_flags: first_error accept_if_any_accepted" > secret/testdata.yaml
   echo "on_reject: continue
 range: 0 $TOTAL_SCORE
-grader_flags: ignore_sample
-grading: custom" > testdata.yaml
+grader_flags: ignore_sample" > testdata.yaml
 }
 
 # Solve a test case using the solution
@@ -248,7 +247,7 @@ group () {
   echo "on_reject: break
 accept_score: $score
 range: 0 $score
-grader_flags: min subtask_score=$score" > "$CURGROUP_DIR/testdata.yaml"
+grader_flags: min" > "$CURGROUP_DIR/testdata.yaml"
   TOTAL_SCORE=$((TOTAL_SCORE + score))
   _update_scores
 }
@@ -259,6 +258,14 @@ limits () {
     echo "input_validator_flags: $@" >> "$CURGROUP_DIR/testdata.yaml"
   else
     echo "input_validator_flags: $@" >> testdata.yaml
+  fi
+}
+
+output_validator_flags () {
+  if [[ $USE_SCORING == 1 ]]; then
+    echo "output_validator_flags: $@" >> "$CURGROUP_DIR/testdata.yaml"
+  else
+    echo "output_validator_flags: $@" >> testdata.yaml
   fi
 }
 
@@ -298,6 +305,20 @@ _do_tc () {
   solve "$path"
 }
 
+hint () {
+    if [[ $# == 1 ]]; then
+        local hinttext=$1
+        echo "$hinttext" > "$CURTEST.hint"
+    fi
+}
+
+desc () {
+    if [[ $# == 1 ]]; then
+        local desctext=$1
+        echo "$desctext" > "$CURTEST.desc"
+    fi
+}
+
 _handle_err() {
   _error "crashed while generating case $1"
   # Kill the parent. This might fail if the other subprocesses do so at the
@@ -327,7 +348,11 @@ tc () {
       if [[ ${latestdir[$name]} == "$CURGROUP_DIR" ]]; then
         echo "Skipping duplicate case ${nicenames[$name]}"
       else
-        LN="ln -s ../../" # ln -sr isn't supported on Mac
+        if [[ $USE_SCORING = 0 ]]; then
+            LN="ln -s ../" # one lower level of nesting for non-scoring
+        else
+            LN="ln -s ../../" # ln -sr isn't supported on Mac
+        fi
         if [[ $USE_SYMLINKS = 0 ]]; then
           wait
           PARALLELISM_ACTIVE=1
@@ -336,6 +361,11 @@ tc () {
         local path="$CURGROUP_DIR/$(_base ${cases[$name]})"
         ${LN}${cases[$name]}.in "$path.in"
         ${LN}${cases[$name]}.ans "$path.ans"
+        for ext in {hint,desc}; do
+            if [ -f ${cases[$name]}.$ext ]; then
+                ${LN}${cases[$name]}.$ext "$path.$ext"
+            fi
+        done
         latestdir[$name]="$CURGROUP_DIR"
         groups[$CURGROUP_NAME]="${groups[$CURGROUP_NAME]} $name"
         echo "Reusing ${nicenames[$name]}"
@@ -355,6 +385,7 @@ tc () {
   # Add an index to the test case name, to enforce evaluation order.
   local path="$CURGROUP_DIR/$(printf '%03d' $TC_INDEX)-$name"
   let TC_INDEX++
+  CURTEST="$path"
   cases[$name]="$path"
   latestdir[$name]="$CURGROUP_DIR"
   local nicename="$CURGROUP_NAME/$name"
@@ -362,6 +393,10 @@ tc () {
   groups[$CURGROUP_NAME]="${groups[$CURGROUP_NAME]} $name"
 
   local program="${programs[$2]}"
+  if [ ! "$program" ]; then
+    _error "missing compile command for generator \"$2\""
+    return 0
+  fi
 
   if [[ $USE_PARALLEL != 1 ]]; then
     _do_tc "$nicename" "$name" "$path" "$program" "${@:3}"
@@ -378,6 +413,10 @@ tc () {
 
 # Arguments: ../manual-tests/testcasename.in
 tc_manual () {
+  local name="$2"
+  if [[ $# == 1 ]]; then
+      name=$(_base "$1")
+  fi
   tc $(_base "$1") cat "$1"
 }
 
@@ -403,7 +442,7 @@ _setup_dirs () {
     echo "on_reject: continue
 range: 0 0
 accept_score: 0
-grader_flags: first_error subtask_score=0" > sample/testdata.yaml
+grader_flags: first_error" > sample/testdata.yaml
     _update_scores
   fi
 }

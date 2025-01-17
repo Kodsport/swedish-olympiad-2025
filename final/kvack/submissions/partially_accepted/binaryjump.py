@@ -1,11 +1,32 @@
 #!/usr/bin/env python3
+import sys
 
-n = 100
+T = int(input())
 
-for _ in range(n):
-    s = input()
-    if len(s) > 3:
-        print("a")
-    else:
-        print(s + "a")
+print("?",0)
 
+l = int(input())
+
+print("?",10**9)
+
+r = int(input())
+
+found = set()
+found.add(l)
+found.add(r)
+
+BFS = [(l,r)]
+for l,r in BFS:
+    print("?",(l+r+1)//2)
+    ans = int(input())
+    if ans == l or ans == r:
+        continue
+    found.add(ans)
+    BFS.append((l,ans))
+    BFS.append((ans,r))
+
+print("!",len(found))
+sys.stdout.flush()
+
+print(*list(found))
+sys.stdout.flush()
