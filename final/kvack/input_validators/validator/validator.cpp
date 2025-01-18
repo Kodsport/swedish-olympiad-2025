@@ -19,6 +19,8 @@ void run() {
     int Q = Int(1, 1000000000); Space();
     int T = Int(0, 7); Endl(); // check which testcase it is
 
+    assert(T == (int) Arg("group")); // Chech it is the correct group 
+
     vi pos = SpacedInts(N,0,1000'000'000);
     
     if (T == 1) {

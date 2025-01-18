@@ -11,9 +11,11 @@ compile gen_random.py
 compile gen_dense.py
 
 samplegroup
+limits group=0
 sample_manual 1
 
 group group1 5
+limits group=1
 tc samp-1 gen_random n=2 t=1 mode="manual" points="100,10000" 
 tc random-01 gen_random n=2 t=1 seed=1
 tc random-02 gen_random n=2 t=1 seed=2
@@ -29,6 +31,7 @@ tc edge-11 gen_random n=2 t=1 mode="manual" points="1,4"
 
 
 group group2 15
+limits group=2
 tc g2-01 gen_random n=2 t=2 mode="manual" points="0,1"
 tc g2-02 gen_random n=3 t=2 mode="manual" points="999999998,999999999,1000000000"
 tc g2-03 gen_random n=20000 t=2 mode="t2" start=0
@@ -37,6 +40,7 @@ tc g2-05 gen_random n=9725 t=2 mode="t2" seed=25
 
 
 group group3 10
+limits group=3
 tc g3-samp-1 gen_random n=2 t=3 mode="manual" points="100,10000" 
 tc g3-01 gen_random n=2 t=3 mode="manual" points="0,1"
 tc g3-02 gen_random n=3 t=3 mode="manual" points="999999998,999999999,1000000000"
@@ -56,6 +60,7 @@ tc g3-24 gen_dense n=100 t=3 mode="v2" seed=24
 tc g3-25 gen_dense n=100 t=3 mode="v3" seed=25
 
 group group4 14
+limits group=4
 tc g4-samp-1 gen_random n=2 t=4 mode="manual" points="100,10000" 
 tc g4-01 gen_random n=2 t=4 mode="manual" points="0,1"
 tc g4-02 gen_random n=3 t=4 mode="manual" points="999999998,999999999,1000000000"
@@ -75,6 +80,7 @@ tc g4-24 gen_dense n=100 t=4 mode="v2" seed=24
 tc g4-25 gen_dense n=100 t=4 mode="v3" seed=25
 
 group group5 21
+limits group=5
 tc g5-samp-1 gen_random n=2 t=5 mode="manual" points="100,10000" 
 tc g5-01 gen_random n=2 t=5 mode="manual" points="0,1"
 tc g5-02 gen_random n=3 t=5 mode="manual" points="999999998,999999999,1000000000"
@@ -95,6 +101,7 @@ tc g5-25 gen_dense n=100 t=5 mode="v3" seed=25
 
 
 group group6 18
+limits group=6
 tc g6-samp-1 gen_random n=2 t=6 mode="manual" points="100,10000" 
 tc g6-01 gen_random n=2 t=6 mode="manual" points="0,1"
 tc g6-02 gen_random n=3 t=6 mode="manual" points="999999998,999999999,1000000000"
@@ -120,6 +127,7 @@ tc g6-25 gen_dense n=1000 t=6 mode="v3" seed=25
 
 
 group group7 17
+limits group=7
 tc g7-samp-1 gen_random n=2 t=7 mode="manual" points="100,10000" 
 tc g7-01 gen_random n=2 t=7 mode="manual" points="0,1"
 tc g7-02 gen_random n=3 t=7 mode="manual" points="999999998,999999999,1000000000"
