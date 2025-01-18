@@ -13,6 +13,7 @@ compile gen_dense.py
 samplegroup
 limits group=0
 sample_manual 1
+sample_manual 2
 
 group group1 5
 limits group=1
