@@ -1,15 +1,14 @@
 \problemname{Kvack}
 \noindent
-Harry älskar sina små gula ankor från Kodsport och har nyligen skaffat sig en hel del. 
-Men nu har han tappat bort några av sina ankor, som gömmer sig i det höga gräset på en linje. 
-Gräset är så högt att Harry inte kan se var ankorna befinner sig.
+Harry älskar sina små gula ankor från Kodsport och har nyligen skaffat en hel samling.
+Men nu har han råkat tappa bort några av dem! Ankorna har gömt sig i det höga gräset längs en linje, och gräset är så högt att Harry inte kan se var de är.
 
 Låt oss kalla antalet borttappade ankor för $N$ ankor som gömmer sig, och de befinner sig på heltalspositioner inom intervallet $[0,10^9]$. 
 Varje position kan maximalt innehålla en anka. Notera att du inte vet hur många ankor som är borttappade.
 
 Harry har möjlighet att utföra följande handling upp till $Q$ gånger:
 \begin{itemize}
-  \item Harry ställer sig vid en heltalsposition på linjen $[0,10^9]$ och börjar kvacka. 
+  \item Harry ställer sig vid en heltalsposition på linjen $[-10^9,2\cdot10^9]$ och börjar kvacka. 
   \item Då kommer den närmaste ankan att kvacka tillbaka, och Harry kan då lista ut positionen av denna anka. 
   Om det finns flera ankor som är lika nära, kommer ankan med den lägre koordinaten att kvacka tillbaka först, vilket innebär att Harry endast hör den ankan.
   När Harry identifierar en anka, försvinner den inte från sin position utan stannar kvar tills alla ankor har hittats.
@@ -19,13 +18,13 @@ Hjälp Harry att hitta alla ankor på denna linje, och ankornas positioner!
 Skriva ut både hur många ankor som gömmer sig och deras exakta positioner.
 
 \section*{Interaktion}
-Det här är ett interaktivt problem, där du kan ställa ställa Harry på en heltalspostition inom intervallet $[0,10^9]$ upp till $Q$ gånger. 
+Det här är ett interaktivt problem, där du kan ställa ställa Harry på en heltalspostition inom intervallet $[-10^9,2\cdot10^9]$ upp till $Q$ gånger. 
 Notera att både $N$ och $Q$ är hemligt.
 
 Ditt program börjar med att läsa in ett heltal $T$ ($1 \leq T \leq 7$), där $T$ är numret på testgruppen. 
 Anledningen till att $T$ är givet i input är för att göra det lättare att ta delpoäng.
 
-Därefter får du börja ställa Harry på en valfri heltalspostion $x_h$ inom intervallet $[0, 10^9]$. Du ställer frågan genom att skriva ut 
+Därefter får du börja ställa Harry på en valfri heltalspostion $x_h$ inom intervallet $[-10^9,2\cdot10^9]$. Du ställer frågan genom att skriva ut 
 $$? \; x_h$$
 
 
@@ -40,10 +39,10 @@ $$x_1 \; x_2 \; x_3 \; \dots \; x_N$$
 
 Därefter ska ditt program avslutas, och inget mer ska skrivas ut.    
 
-\textbf{Se till att flusha outputen efter varje utskrivning}, annars kan du få \textit{Time Limit Exceeded}.
+Se till att flusha outputen efter \textbf{varje utskrivning}, annars kan du få \textit{Time Limit Exceeded}.
 I C++ kan detta göras med exempelvis \texttt{cout << flush;}
 eller \texttt{fflush(stdout);},
-i Python görs detta automatiskt när du använder \texttt{input()}
+i Python görs detta automatiskt när du använder \texttt{input()}, men annars behöver man använda \texttt{sys.stdout.flush()},
 och i Java med \texttt{System.out.flush();}.
 
 \section*{Poängsättning}
@@ -55,13 +54,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $5$        & $N = 2$, $Q = 3$\\ \hline
-  $2$    & $15$       & Ankorna befinner sig vid $s$, $s+1$, $s+2$, $\ldots$, $s+N-1$ för något heltal $0 \leq s \leq 10^9$, $2 \leq N \leq 10^4, Q = 2N-1$. \\ \hline
-  $3$    & $10$       & $2 \leq N \leq 100$, $Q = N^2 + 5$ \\ \hline
+  $2$    & $15$       & Ankorna befinner sig vid $s$, $s+1$, $s+2$, $\ldots$, $s+N-1$ för något heltal $0 \leq s \leq 10^9$, $2 \leq N \leq 2 \cdot 10^4, Q = 2N-1$. \\ \hline
+  $3$    & $10$       & $2 \leq N \leq 100$, $Q = N^2+ N $ \\ \hline
   $4$    & $14$       & $2 \leq N \leq 100$, $Q = 33N$ \\ \hline
   $5$    & $21$       & $2 \leq N \leq 100$, $Q = 2N-1$ \\ \hline
   $6$    & $18$       & $2 \leq N \leq 10^3$, $Q = 2N-1$ \\ \hline
-  $7$    & $17$       & $2 \leq N \leq 10^4$, $Q = 2N-1$ \\ \hline 
-  %$7$    & $38$       & Inga ytterligare begränsningar. \\ 
+  $7$    & $17$       & $2 \leq N \leq 2 \cdot 10^4$, $Q = 2N-1$ \\ \hline 
 \end{tabular}
 
 

@@ -1,32 +1,41 @@
 #!/usr/bin/env python3
+#@EXPECTED_GRADES@ WA WA WA AC WA WA WA
 import sys
 
 T = int(input())
+
+out = []
 
 print("?",0)
 
 l = int(input())
 
-print("?",10**9)
+out.append(l)
 
-r = int(input())
+for l in out:
 
-found = set()
-found.add(l)
-found.add(r)
+    ## Binärsöka nästa
+    lo = l+1
+    hi = 10**9
+    while lo < hi:
+        mid = (lo+hi)//2
 
-BFS = [(l,r)]
-for l,r in BFS:
-    print("?",(l+r+1)//2)
+        print("?",mid)
+        if int(input()) == l:
+            lo = mid+1
+        else:
+            hi = mid
+
+
+    print("?",lo)
     ans = int(input())
-    if ans == l or ans == r:
+    if ans == l:
         continue
-    found.add(ans)
-    BFS.append((l,ans))
-    BFS.append((ans,r))
+    out.append(ans)
 
-print("!",len(found))
+    
+print("!",len(out))
 sys.stdout.flush()
 
-print(*list(found))
+print(*list(out))
 sys.stdout.flush()

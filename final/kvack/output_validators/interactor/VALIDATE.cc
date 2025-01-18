@@ -43,7 +43,6 @@ int main(int argc, char **argv) {
     //std::mt19937 generator(seed);   // mt19937 is a standard mersenne_twister_engine
 
     cout << t << "\n";
-
     // "game loop"
     rep(c1,0,q+1) {
         char start;
@@ -56,12 +55,12 @@ int main(int argc, char **argv) {
 		}
 
         if (start == '?') {
-            int x;
+            ll x;
             if (!(cin >> x)) {
 				wrong_answer("Got a ? query but could not read x, query %d", c1+1);
 			}
 
-            if (x < 0 || x > 1e9) {
+            if (x < -1e9 || x > 2e9) {
                 wrong_answer("x out of range (%d)", x);
             }
 
@@ -87,8 +86,8 @@ int main(int argc, char **argv) {
                 // Check wether l och l+1 is smaller
                 // If tiebreak, choose l.
 
-                int best = pos[l+1];
-                if (abs(best-x) >= abs(pos[l]-x)) best = pos[l];
+                ll best = pos[l+1];
+                if (abs((ll)best-(ll)x) >= abs((ll)pos[l]-(ll)x)) best = pos[l];
                 //cout << l << "\n";
                 //cout << pos[l] << " " << pos[l+1] << " " << x << "\n";
                 cout << best << "\n";

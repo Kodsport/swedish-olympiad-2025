@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#@EXPECTED_GRADES@ AC AC WA WA WA WA WA
 import sys
 sys.setrecursionlimit(10**4+2)
 

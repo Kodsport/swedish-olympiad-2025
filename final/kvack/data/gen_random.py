@@ -20,7 +20,7 @@ t = int(cmdlinearg("t"))
 if t in [1,2,5,6,7]:
     q = 2*n-1
 elif t == 3:
-    q = n**2 +5
+    q = n**2 + n
 elif t == 4:
     q = 33*n
     
