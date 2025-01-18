@@ -29,7 +29,7 @@ tc g1-04 gen_rand R=0 B=5 G=0 k=10
 tc g1-05 gen_rand R=0 G=0 B=3 k=10
 tc g1-06 gen_rand R=0 G=10 B=5 k=0
 tc g1-07 gen_rand R=3 G=4 B=5 k=10
-tc g1-08 gen_rand R=9 G=9 B=9 k=10
+tc g1-08 gen_rand R=1 G=1 B=1 k=10
 tc g1-09 gen_rand R=10 G=10 B=10 k=10
 tc g1-10 gen_rand R=9 G=0 B=9 k=10
 tc g1-11 gen_rand R=7 G=1 B=0 k=10
