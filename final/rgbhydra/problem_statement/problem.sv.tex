@@ -1,0 +1,53 @@
+\problemname{RGB Hydra}
+\noindent
+Under din jakt på monster stöter du på en Hydra, men inte vilken Hydra som helst - det är en RGB-Hydra!
+
+Den här märkliga varelsen har från början:
+\begin{itemize}
+    \item $R$ röda huvuden,
+    \item $G$ gröna huvuden, och
+    \item $B$ blåa huvuden.
+\end{itemize}
+
+Men Hydran är speciell: varje gång du hugger av ett huvud av en viss färg, växer det genast ut \textbf{två nya huvuden} - ett av varje av de andra två färgerna. Till exempel, om du hugger av ett rött huvud, växer det ut ett grönt och ett blått huvud istället.
+
+Du, en modig och blodtörstig jägare, vill förstås inte bara besegra Hydran, utan också lämna ett bestående spår av din modiga resa. För att göra det vill du att så mycket rött som möjligt ska synas på Hydran - du vill maximera antalet röda huvuden!
+
+Du har tid att utföra upp till $k$ drag, där varje drag innebär att du hugger av ett enda huvud från Hydran.
+
+Vad är det maximala antalet röda huvuden du kan uppnå efter högst $k$ drag?
+
+\section*{Indata}
+Indatan består av en rad med 4 heltal $R$, $G$, $B$, och $k$ ($0 \leq R, G, B, k \leq 10^{18}$), där:
+\begin{itemize}
+    \item $R$ är antalet röda huvuden,
+    \item $G$ är antalet gröna huvuden,
+    \item $B$ är antalet blåa huvuden,
+    \item $k$ är det maximala antalet drag du får utföra.
+\end{itemize}
+
+Det är garanterat att Hydran har åtminstone ett huvud från början, det vill säga att $R + G + B \geq 1$.
+
+(Notera även att talen $R,G,B,k$ är väldigt stora, och i \texttt{C++} kommer det behövas användas \texttt{long long} istället för \texttt{int}.)
+
+\section*{Utdata}
+Skriv ut ett heltal: det maximala antalet röda huvuden som Hydran kan ha efter högst $k$ drag.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$       & $R,G,B,k \leq 10$ \\ \hline
+  $2$    & $15$       & $k \leq R,G,B$ \\ \hline
+  $3$    & $10$       & $R = 0$ \\ \hline
+  $4$    & $10$       & $G = 0$ \\ \hline
+  $5$    & $10$       & $B = 0$ \\ \hline
+  $6$    & $35$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+
