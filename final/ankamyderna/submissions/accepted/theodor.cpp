@@ -40,7 +40,7 @@ int main() {
         c[i]--;
     }
 
-    ll lo = 0, hi = m;
+    ll lo = 0, hi = m+1;
     while(hi-lo > 1){
         ll mid = (lo+hi)/2;
 
