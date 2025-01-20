@@ -8,27 +8,33 @@ ulimit -s unlimited
 use_solution olle.cpp
 # use_solution theodor_bitset.cpp
 
-compile gen_random.py
+compile gen_rand.py
+compile gen_dense.py
 
 samplegroup
 limits maxn=10 maxq=10
 sample 1
 
 group group1 1
-limits maxn=20 maxrc=20
 tc 1
-tc g1-1 gen_random n=10 r=5 c=4
-tc g1-2 gen_random n=100 r=50 c=40
-tc g1-3 gen_random n=1000 r=2000 c=2
-tc g1-4 gen_random n=10000 r=500 c=500
-tc g1-5 gen_random n=10000 r=500 c=500
-tc g1-6 gen_random n=10000 r=500 c=500
-tc g1-7 gen_random n=10000 r=500 c=500
-tc g1-8 gen_random n=800000 r=300000 c=3
-tc g1-9 gen_random n=900000 r=1000000 c=1
-tc g1-10 gen_random n=900000 r=1000 c=1000
-tc g1-11 gen_random n=900000 r=1000 c=1000
-tc g1-12 gen_random n=900000 r=1000 c=1000
+tc g1-1 gen_rand n=10 r=5 c=4
+tc g1-2 gen_dense r=5 c=4
+
+group group2 1
+tc g2-1 gen_rand n=100 r=50 c=40
+
+group group3 1
+tc g3-1 gen_rand n=1000 r=2000 c=2
+
+group group4 1
+tc g4-1 gen_rand n=10000 r=500 c=500
+
+group group5 1
+tc g5-1 gen_rand n=10000 r=500 c=500
+
+group group6 1
+tc g6-1 gen_rand n=10000 r=1000 c=1000
+tc g6-2 gen_dense r=1000 c=1000
 
 
 # tc g1-5 gen_rand n=1000 q=1000

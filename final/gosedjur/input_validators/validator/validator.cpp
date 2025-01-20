@@ -13,11 +13,11 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 
 void run() {
-    int n = Int(1, Arg("maxn"));
+    int n = Int(1, 1000000);
     Space();
-    int rows = Int(1, Arg("maxr"));
+    int rows = Int(1, 1000000);
     Space();
-    int cols = Int(1, Arg("maxc"));
+    int cols = Int(1, 1000000);
     Endl();
 
     vector<vector<int>> mat(rows, vector<int>(cols));
