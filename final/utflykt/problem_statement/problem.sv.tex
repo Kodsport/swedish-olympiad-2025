@@ -1,0 +1,45 @@
+\problemname{Utflykt}
+\noindent
+
+\illustration{0.30}{Cal_Orcko.jpg}{Fotavtryck i Cal Orck'o. \href{https://commons.wikimedia.org/wiki/File:Cal_Orcko_fossil_tracks_2.jpg}{Bild} från John Martin Perry, CC BY-SA 4.0}
+
+Inget IOI är komplett utan minst en utflykt. I år ska alla tävlande åka till Cal Orck'o,
+ en arkeologisk utgrävning med dinosauriefotavtryck utanför Sucre. Arrangörerna har
+ skaffat två oändligt stora bussar som ska köra alla deltagare till utgrävningen.
+
+Det finns $N$ deltagare som ska åka på utflykt. Den $i$:te deltagaren är redo att åka
+vid tid $t_i$. Om en buss avgår vid tid $T$, så kan alla deltagare som uppfyller $t_i \leq T$
+åka med bussen. Väntetiden $v_i$ hos deltagare $i$ blir då $T-t_i$. 
+
+Din uppgift är att räkna ut den minsta möjliga totala väntetiden $v_1+v_2+\dots+v_N$
+om de två bussarnas avgångstider väljs optimalt. Varje deltagare måste åka med en av bussarna, 
+och bussarna kan bara avgå en gång var.
+
+\section*{Input}
+Den första raden innehåller ett heltal $N$ ($2 \leq N \leq 3 \cdot 10^5$), antalet deltagare.
+
+De $N$ följande raderna innehåller ett heltal $t_i$ ($1 \leq t_i \leq 10^9$) var, tiderna 
+när deltagarna är redo att åka.
+
+\section*{Output}
+Skriv ut ett heltal, det minsta möjliga värdet på den totala väntetiden $v_1+v_2+\dots+v_N$.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $17$        & $N \leq 100$, $t_i \leq 300$\\ \hline
+  $2$    & $26$        & $N \leq 1000$ \\ \hline
+  $3$    & $25$        & $t_i = i$ för alla $i = 1,2,\dots, N$ \\ \hline
+  $4$    & $32$        & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+
+I det första exemplet så är det optimalt att låta de tre första personerna åka
+med en buss som avgår vid $T = 4$, och de tre sista åker med den andra bussen 
+som avgår vid $T = 11$. 
