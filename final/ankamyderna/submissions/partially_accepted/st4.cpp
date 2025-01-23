@@ -41,7 +41,7 @@ int main() {
     }
 
     ll ans = -1;
-    fo(mid, m){
+    fo(mid, m+1){
 
         vl temp = a;
         bool fail = false;
