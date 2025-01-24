@@ -81,11 +81,11 @@ tc g5-6 gen_shapes n=1230 r=50 c=5000
 
 group group6 7
 include_group group5
-tc g6-1 gen_shapes n=20000 r=500 c=500
-tc g6-2 gen_shapes n=20000 r=200 c=1000
-tc g6-3 gen_shapes n=20000 r=1000 c=400
-tc g6-4 gen_shapes n=20000 r=500 c=500
-tc g6-5 gen_shapes n=20000 r=100 c=500
+tc g6-1 gen_shapes n=50000 r=500 c=500
+tc g6-2 gen_shapes n=50000 r=200 c=1000
+tc g6-3 gen_shapes n=50000 r=1000 c=400
+tc g6-4 gen_shapes n=50000 r=500 c=500
+tc g6-5 gen_shapes n=50000 r=100 c=500
 tc g6-6 gen_shapes n=12345 r=333 c=333
 
 group group7 38
@@ -98,3 +98,7 @@ tc g7-6 gen_shapes n=200100 r=400 c=1000
 tc g7-7 gen_shapes n=100000 r=40 c=10000
 tc g7-8 gen_shapes n=100000 r=4000 c=100
 tc g7-9 gen_shapes n=50000 r=40000 c=10
+tc g7-10 gen_dense r=40 c=10000
+tc g7-11 gen_dense r=4000 c=100
+tc g7-12 gen_dense r=40000 c=10
+
