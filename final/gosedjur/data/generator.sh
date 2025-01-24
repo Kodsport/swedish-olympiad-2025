@@ -15,11 +15,13 @@ samplegroup
 sample 1
 sample 2
 sample 3
+sample 4
 
 group group1 10
 tc 1
 tc 2
 tc 3
+tc 4
 tc g1-1 gen_shapes n=5 r=4 c=5
 tc g1-2 gen_dense r=5 c=4
 tc g1-3 gen_shapes n=20 r=4 c=5
@@ -34,7 +36,7 @@ tc g1-11 gen_dense r=10 c=2
 tc g1-12 gen_dense r=5 c=4
 
 
-group group2 10
+group group2 5
 tc 2
 tc g2-1 gen_shapes n=400000 r=400000 c=1
 tc g2-2 gen_shapes n=100000 r=400000 c=1
@@ -56,7 +58,7 @@ tc g3-5 gen_shapes n=400000 r=200000 c=2
 tc g3-6 gen_shapes n=200000 r=200000 c=2
 tc g3-7 gen_shapes n=100 r=2000 c=2
 
-group group4 10
+group group4 15
 include_group group2
 tc g4-1 gen_square r=500 c=500
 tc g4-2 gen_square r=1000 c=400
