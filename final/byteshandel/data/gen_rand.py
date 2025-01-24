@@ -26,7 +26,7 @@ mode = cmdlinearg('mode', "normal")
 
 if mode == "single_lhs":
     MIN_COEF = 2
-    MAX_COEF = 100
+    MAX_COEF = 50
 
 # all nodes except 0 and n-1 are part of the chains, they are the beginning and ending of all chains
 # a chain starts at 0, goes through chain_len - 2 nodes, and ends at n-1

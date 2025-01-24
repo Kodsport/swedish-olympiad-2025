@@ -12,11 +12,11 @@ compile gen_n3.py
 compile gen_long.py
 
 samplegroup
-limits maxn=10 maxk=25 acyclic=0
+limits maxn=10 maxk=25 acyclic=0 maxki=10
 sample 1
 
 group group1 12
-limits maxn=3 maxk=100000 acyclic=0
+limits maxn=3 maxk=100000 acyclic=0 maxki=3
 tc g1-1 gen_n3 mode=skip_1 seed=1
 tc g1-2 gen_n3 mode=force_1 seed=2
 tc g1-3 gen_n3 mode=two_paths_small_1 seed=3
@@ -33,29 +33,29 @@ tc g1-13 gen_n3 mode=mixed_random seed=13
 tc g1-14 gen_n3 mode=mixed_random seed=14
 
 group group2 10
-limits maxn=100000 maxk=100000 acyclic=0
+limits maxn=100000 maxk=100000 acyclic=0 maxki=1
 tc g2-1 gen_rand sumk=100000 chain_len=5 num_chains=25000 mode=single_lhs seed=1
 tc g2-2 gen_rand sumk=100000 chain_len=5 num_chains=20000 mode=single_lhs seed=2
 tc g2-3 gen_rand sumk=100000 chain_len=5 num_chains=15000 mode=single_lhs seed=3
 tc g2-4 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=single_lhs seed=4
 tc g2-5 gen_rand sumk=100000 chain_len=5 num_chains=5000 mode=single_lhs seed=5
 tc g2-6 gen_rand sumk=100000 chain_len=5 num_chains=20 mode=single_lhs seed=6
-tc g2-7 gen_rand sumk=100000 chain_len=9 num_chains=12000 mode=single_lhs seed=7
-tc g2-8 gen_rand sumk=100000 chain_len=9 num_chains=11000 mode=single_lhs seed=8
-tc g2-9 gen_rand sumk=100000 chain_len=9 num_chains=10000 mode=single_lhs seed=9
-tc g2-10 gen_rand sumk=100000 chain_len=9 num_chains=9000 mode=single_lhs seed=10
-tc g2-11 gen_rand sumk=100000 chain_len=7 num_chains=1500 mode=single_lhs seed=11
-tc g2-12 gen_rand sumk=100000 chain_len=7 num_chains=1200 mode=single_lhs seed=12
-tc g2-13 gen_rand sumk=100000 chain_len=7 num_chains=9000 mode=single_lhs seed=13
-tc g2-14 gen_rand sumk=100000 chain_len=7 num_chains=6000 mode=single_lhs seed=14
-tc g2-15 gen_rand sumk=100000 chain_len=7 num_chains=20 mode=single_lhs seed=15
+tc g2-7 gen_rand sumk=100000 chain_len=6 num_chains=12000 mode=single_lhs seed=7
+tc g2-8 gen_rand sumk=100000 chain_len=6 num_chains=11000 mode=single_lhs seed=8
+tc g2-9 gen_rand sumk=100000 chain_len=6 num_chains=10000 mode=single_lhs seed=9
+tc g2-10 gen_rand sumk=100000 chain_len=6 num_chains=9000 mode=single_lhs seed=10
+tc g2-11 gen_rand sumk=100000 chain_len=6 num_chains=1500 mode=single_lhs seed=11
+tc g2-12 gen_rand sumk=100000 chain_len=6 num_chains=1200 mode=single_lhs seed=12
+tc g2-13 gen_rand sumk=100000 chain_len=6 num_chains=9000 mode=single_lhs seed=13
+tc g2-14 gen_rand sumk=100000 chain_len=6 num_chains=6000 mode=single_lhs seed=14
+tc g2-15 gen_rand sumk=100000 chain_len=6 num_chains=20 mode=single_lhs seed=15
 tc g2-16 gen_long n=100000 m=100000 seed=16
 tc g2-17 gen_long n=50000 m=100000 seed=17
 tc g2-18 gen_long n=33000 m=100000 seed=18
 tc g2-19 gen_long n=15000 m=100000 seed=19
 
 group group3 25
-limits maxn=100000 maxk=100000 acyclic=1
+limits maxn=100000 maxk=100000 acyclic=1 maxki=100000
 tc g3-1 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=31
 tc g3-2 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=32
 tc g3-3 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=33
@@ -73,7 +73,7 @@ tc g3-14 gen_n3 mode=two_paths_small_1 seed=18
 tc g3-15 gen_n3 mode=two_paths_big_1 seed=19
 
 group group4 26
-limits maxn=1000 maxk=1000 acyclic=0
+limits maxn=1000 maxk=1000 acyclic=0 maxki=1000
 tc 1
 tc g4-1 gen_rand sumk=1000 chain_len=5 num_chains=50 mode=normal seed=1
 tc g4-2 gen_rand sumk=1000 chain_len=5 num_chains=75 mode=normal seed=2
@@ -94,10 +94,10 @@ tc g4-16 gen_n3 mode=skip_1 seed=16
 tc g4-17 gen_n3 mode=force_1 seed=17
 tc g4-18 gen_n3 mode=two_paths_small_1 seed=18
 tc g4-19 gen_n3 mode=two_paths_big_1 seed=19
-tc g4-20 gen_long n=1000 m=1000 seed=120
+tc g4-20 gen_long n=1000 seed=120
 
 group group5 27
-limits maxn=100000 maxk=100000 acyclic=0
+limits maxn=100000 maxk=100000 acyclic=0 maxki=100000
 include_group group1
 include_group group2
 include_group group3
