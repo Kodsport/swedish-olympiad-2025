@@ -3,7 +3,7 @@
 \noindent
 Kalle har precis fått en stor låda med färgglada gummankor som present. Efter att ha räknat dem noggrant vet han exakt hur många ankor han har av varje färg. Nu vill han bygga världens största ankpyramid!
 
-En ankpyramid byggs i lager, där det nedersta lagret är lager 1, nästa är lager 2, och så vidare. För att pyramiden ska se bra ut har Kalle bestämt att varje lager ska bestå av ankor av samma färg. Han har också bestämt vilken färg varje lager ska ha.
+För att bygga pyramiden har Kalle fått låna ett speciellt pyramidsbyggnadsställ vars höjd max tillmöjliggör att bygga en pyramid av max $M$ lager av ankor. En ankpyramid byggs i lager, där det nedersta lagret är lager 1, nästa är lager 2, och så vidare. För att pyramiden ska se bra ut har Kalle bestämt att varje lager ska bestå av ankor av samma färg. Han har också bestämt vilken färg varje lager ska ha.
 
 Om pyramiden har höjd $H$, så måste lager $i$ innehålla exakt $(H-i+1)^2$ ankor. Till exempel, i en pyramid med höjd 3:
 \begin{itemize}
@@ -12,7 +12,7 @@ Om pyramiden har höjd $H$, så måste lager $i$ innehålla exakt $(H-i+1)^2$ an
     \item Lager 3 (överst) behöver $1^2 = 1$ anka.
 \end{itemize}
 
-Hjälp Kalle att räkna ut hur hög pyramiden kan bli!
+Hjälp Kalle att räkna ut hur hög pyramiden kan bli! Notera att höjden $H$ inte kan överstiga $M$.
 
 \section*{Indata}
 På första raden finns två heltal $N$ och $M$ ($1 \le N, M \le 10^5$), antalet olika färger och antalet lager i pyramiden.
@@ -43,7 +43,24 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \end{tabular}
 
 \section*{Förklaring av exempelfall}
-bla bla
+I det första exemplet har Kalle bara ankor av en färg, och han har 17 stycken av dem. Pyramidstället tillåter upp till 5 lager. För att bygga en pyramid med höjd 3 behövs:
+\begin{itemize}
+    \item 9 ankor i lager 1
+    \item 4 ankor i lager 2
+    \item 1 anka i lager 3
+\end{itemize}
+Totalt används 14 ankor. Det går inte att bygga en pyramid med höjd 4, eftersom det skulle kräva $4^2 + 3^2 + 2^2 + 1^2 = 30$ ankor, vilket är mer än de 17 ankor som finns tillgängliga.
 
-
-måste lägga till så det garanteras att svaret inte kan vara större än M
+I det andra exemplet har Kalle:
+\begin{itemize}
+    \item 2 ankor av färg 1
+    \item 19 ankor av färg 2
+    \item 12 ankor av färg 3
+\end{itemize}
+Färgordningen i lagren är: 2, 3, 2, 1, 2. En pyramid med höjd 3 kan byggas genom att använda:
+\begin{itemize}
+    \item 9 ankor av färg 2 i lager 1
+    \item 4 ankor av färg 3 i lager 2
+    \item 1 anka av färg 2 i lager 3
+\end{itemize}
+Detta använder 10 ankor av färg 2 och 4 ankor av färg 3, vilket är inom gränserna för vad som finns tillgängligt. En högre pyramid är inte möjlig med de givna begränsningarna.
