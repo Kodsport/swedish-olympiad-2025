@@ -22,7 +22,7 @@ def min_item_0_to_get_item_n_minus_1():
             items[item].append((coef, trade_id))  # Track which trades this item contributes to
     
     # Distance array and priority queue
-    dists = [float('inf')] * n
+    dists = [10**9] * n
     dists[0] = 1
     pq = [(1, 0)]  # (distance, item)
     
@@ -46,7 +46,7 @@ def min_item_0_to_get_item_n_minus_1():
                     dists[result_item] = trades_cost[trade_id]
                     heappush(pq, (dists[result_item], result_item))
 
-    assert dists[n - 1] <= 10**9
+    assert max(dists) <= 10**9
     return dists[n - 1]  # Minimum cost to reach item n-1
 
 print(min_item_0_to_get_item_n_minus_1())
