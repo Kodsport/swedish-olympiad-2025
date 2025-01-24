@@ -50,14 +50,16 @@ void run() {
     int dc = 0;
     vector<vector<int>> v(rows, vector<int>(cols, 0));
 
+    
     rep(r,0,rows) rep(c,0,cols) {
         if (v[r][c]) continue;
-        v[r][c] = 1;
+        v[r][c] = true;
         dc++;
         queue<pair<int,int>> q;
         q.push({r, c});
         while (!q.empty()) {
             auto [R, C] = q.front();
+            q.pop();
             for (auto [dr, dc] : nei(R, C)) {
                 if (v[dr][dc]) continue;
                 v[dr][dc] = true;

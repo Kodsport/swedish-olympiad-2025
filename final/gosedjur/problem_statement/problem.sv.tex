@@ -17,7 +17,7 @@ vill hon för varje djur veta hur många drag hon sammanlagt behöver göra inna
 \noindent
 
 \section*{Indata}
-På den första raden står talen $N$, $R$ och $C$ ($1 \leq N \leq R \times C \leq 10^6$).
+På den första raden står talen $N$, $R$ och $C$ ($1 \leq N \leq R \times C \leq 4 \times 10^{5}$).
 Därefter följer $R$ rader, som beskriver rutnätet. 
 Den första raden beskriver toppen av kloautomaten, och den sista beskriver botten.
 På den $i$:te raden står $C$ heltal $a_{i,1}, a_{i,2}, ..., a_{i,C}$ ($1 <= a_{i,j} <= N$).
@@ -34,12 +34,13 @@ Om det inte går, skriv ut $-1$.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $?$       & $1 \leq N \leq R \times C \leq 20$ \\ \hline
-  $2$    & $?$       & Varje gosedjur har rektangulär form. \\ \hline
-  $3$    & $?$       & $N \leq 2000$ \\ \hline
-  $4$    & $?$       & $N \leq 20000$ \\ \hline
-  $5$    & $?$       & Varje gosedjur har konvex form. \\ \hline
-  $6$    & $?$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $10$       & $1 \leq N \leq R \times C \leq 20$ \\ \hline
+  $2$    & $10$       & $C = 1$ \\ \hline
+  $3$    & $10$       & $C \leq 2$ \\ \hline
+  $4$    & $10$       & Varje gosedjur har rektangulär form. \\ \hline
+  $5$    & $15$       & $N \leq 2000$ \\ \hline
+  $6$    & $7$       & $N \leq 20000$ \\ \hline
+  $7$    & $38$       & Inga ytterligare begränsningar. \\ \hline
   
 \end{tabular}
 

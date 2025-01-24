@@ -67,7 +67,6 @@ while queue:
         par = grid[top[x][r]-1][r]
         R[x] = R[par]
         if max(top[par].keys()) > r:
-            #print(x, top[x][r], U[par], wup[par][r])
             R[x] += U[par] - wup[par][r]
 
     ans[x] = L[x] + U[x] + R[x]

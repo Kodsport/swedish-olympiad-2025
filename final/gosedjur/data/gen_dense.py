@@ -32,6 +32,14 @@ for r in range(rows):
                 break
         n += 1
 
-print(n-1, rows, cols)
+n -= 1
+perm = [i for i in range(n)]
+random.shuffle(perm)
+
+for r in range(rows):
+    for c in range(cols):
+        mat[r][c] = perm[mat[r][c]-1]+1
+
+print(n, rows, cols)
 for row in mat:
     print(*row)
