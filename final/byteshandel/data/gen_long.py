@@ -16,6 +16,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
+m = int(cmdlinearg('m'))
 
 equations = []
 prod = 1
@@ -25,6 +26,15 @@ for i in range(n-1):
         coef = randint(2, 10)
         prod *= coef
     equations.append((i+1, [(coef, i)]))
+    m -= 1
+
+while m:
+    i = 1
+    while m and i < n :
+        equations.append((i-1, [(coef, i)]))
+        i += 1        
+        m -= 1
+
 
 permute = list(range(1, n - 1))
 random.shuffle(permute)

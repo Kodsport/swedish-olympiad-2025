@@ -49,7 +49,11 @@ tc g2-12 gen_rand sumk=100000 chain_len=7 num_chains=1200 mode=single_lhs seed=1
 tc g2-13 gen_rand sumk=100000 chain_len=7 num_chains=9000 mode=single_lhs seed=13
 tc g2-14 gen_rand sumk=100000 chain_len=7 num_chains=6000 mode=single_lhs seed=14
 tc g2-15 gen_rand sumk=100000 chain_len=7 num_chains=20 mode=single_lhs seed=15
-tc g2-16 gen_long n=100000 seed=16
+tc g2-16 gen_long n=100000 m=100000 seed=16
+tc g2-17 gen_long n=100000 m=100000 seed=17
+tc g2-18 gen_long n=50000 m=100000 seed=18
+tc g2-19 gen_long n=33000 m=100000 seed=19
+tc g2-20 gen_long n=15000 m=100000 seed=120
 
 group group3 18
 limits maxn=100000 maxk=100000 acyclic=1
@@ -63,7 +67,7 @@ tc g3-7 gen_rand sumk=100000 chain_len=5 num_chains=13000 mode=acyclic seed=37
 tc g3-8 gen_rand sumk=100000 chain_len=5 num_chains=14000 mode=acyclic seed=38
 tc g3-9 gen_rand sumk=100000 chain_len=5 num_chains=15000 mode=acyclic seed=39
 tc g3-10 gen_rand sumk=30 chain_len=5 num_chains=5 mode=acyclic seed=310
-tc g3-11 gen_long n=100000 seed=11
+tc g3-11 gen_long n=100000 m=100000 seed=11
 tc g3-12 gen_n3 mode=skip_1 seed=16
 tc g3-13 gen_n3 mode=force_1 seed=17
 tc g3-14 gen_n3 mode=two_paths_small_1 seed=18
@@ -91,7 +95,7 @@ tc g4-16 gen_n3 mode=skip_1 seed=16
 tc g4-17 gen_n3 mode=force_1 seed=17
 tc g4-18 gen_n3 mode=two_paths_small_1 seed=18
 tc g4-19 gen_n3 mode=two_paths_big_1 seed=19
-tc g4-20 gen_long n=1000 seed=120
+tc g4-20 gen_long n=1000 m=1000 seed=120
 
 group group5 40
 limits maxn=100000 maxk=100000 acyclic=0
@@ -109,5 +113,8 @@ tc g5-7 gen_rand sumk=100000 chain_len=5 num_chains=13000 mode=normal seed=7
 tc g5-8 gen_rand sumk=100000 chain_len=5 num_chains=14000 mode=normal seed=8
 tc g5-9 gen_rand sumk=100000 chain_len=5 num_chains=15000 mode=normal seed=9
 tc g5-10 gen_rand sumk=100000 chain_len=5 num_chains=17000 mode=normal seed=10
-tc g5-11 gen_long n=100000 seed=11
+tc g5-11 gen_long n=100000 m=100000 seed=11
+tc g5-12 gen_long n=50000 m=100000 seed=12
+tc g5-13 gen_long n=33000 m=100000 seed=13
+tc g5-14 gen_long n=25000 m=100000 seed=14
 
