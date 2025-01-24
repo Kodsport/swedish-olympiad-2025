@@ -1,10 +1,11 @@
 \problemname{Byteshandel}
 
-Vi har alla hört den fascinerande berättelsen om hur någon lyckades byta sig från ett enda gem,
-hela vägen till ett hus genom en serie smarta byten. 
+Vi har alla hört den fascinerande berättelsen om hur någon lyckades byte ett gem för en penna, sedan byta pennan mot en
+ett dörrhandtag och så vidare, ända tills han bytte till sig hela vägen till ett hus. 
 I dagens bostadsmarknad tycker du att detta låter som en lysande idé och tänker försöka dig på något liknande.
 
-Det finns $N$ stycken olika föremål och $M$ stycken byten. Ett byte har formen: % Byt plats på förklaringen av "bytet" och matematiska formeln
+Efter att ha analyserat marknaden har du kommit fram till att det finns $N$ stycken olika föremål och $M$
+stycken möjliga byten. Ett byte har formen: % Byt plats på förklaringen av ''bytet'' och matematiska formeln
 $$
 C_{i,0} \cdot F_0 + C_{i,1} \cdot F_1 + \dots + C_{i,N-1} \cdot F_{N-1} = 1 \cdot F_{r_i}.
 $$
@@ -19,9 +20,9 @@ Föremålet $F_0$ representerar gemet, och föremålet $F_{N-1}$ representerar h
 \section*{Indata}
 Den första raden innehåller två heltal $N$ och $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), antalet föremål och antalet byten.
 
-Därefter följer de $M$ bytena:
-- För varje byte börjar beskrivningen med två heltal $r_i$ ($0 \leq r_i < N$) och $k_i$ ($1 \leq k_i \leq N$), där $r_i$ är föremålet man får av byte $i$, och $k_i$ är antalet föremål som används i bytet.
-- Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) och $j$ ($0 \leq j < N$), som anger koefficienten för föremålet $F_j$ som används i bytet.
+Därefter beskrivs de $M$ bytena. Varje beskrivning börjar med två heltal $r_i$ ($0 \leq r_i < N$) och $k_i$ ($1 \leq k_i \leq N$),
+där $r_i$ är föremålet man får av byte $i$, och $k_i$ är antalet föremål som används i bytet.
+Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) och $j$ ($0 \leq j < N$), som anger koefficienten för föremålet $F_j$ som används i bytet.
 
 Låt $K$ vara summan av $k_i$ över alla byten. Det gäller att $K \leq 10^5$.
 
@@ -35,12 +36,12 @@ Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \noindent
-\begin{tabular}{| l | l | p{10cm} |}
+\begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  1 & 12 & $N = 3$. \\ \hline
-  2 & 10 & Varje linjärkombination har exakt en term. \\ \hline
-  3 & 20 & Det finns en ordning $ A $ av föremålen så att för alla $i$ och $j$ där $i < j$ gäller att $\text{item}_j$ inte ingår i något byte som resulterar i $\text{item}_i$. \\ \hline
-  4 & 22 & $K \leq 1000$ \\ \hline
-  5 & 36 & Inga ytterligare begränsningar. \\ \hline
+  $1$ & $12$ & $N = 3$ \\ \hline
+  $2$ & $10$ & Varje linjärkombination har exakt en term. \\ \hline
+  $3$ & $25$ & Det finns en ordning $ A $ av föremålen så att för alla $i$ och $j$ där $i < j$ gäller att $\text{item}_j$ inte ingår i något byte som resulterar i $\text{item}_i$. \\ \hline
+  $4$ & $26$ & $K \leq 1000$ \\ \hline
+  $5$ & $27$ & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}

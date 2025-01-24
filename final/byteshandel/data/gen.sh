@@ -54,7 +54,7 @@ tc g2-17 gen_long n=50000 m=100000 seed=17
 tc g2-18 gen_long n=33000 m=100000 seed=18
 tc g2-19 gen_long n=15000 m=100000 seed=19
 
-group group3 18
+group group3 25
 limits maxn=100000 maxk=100000 acyclic=1
 tc g3-1 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=31
 tc g3-2 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=32
@@ -72,7 +72,7 @@ tc g3-13 gen_n3 mode=force_1 seed=17
 tc g3-14 gen_n3 mode=two_paths_small_1 seed=18
 tc g3-15 gen_n3 mode=two_paths_big_1 seed=19
 
-group group4 20
+group group4 26
 limits maxn=1000 maxk=1000 acyclic=0
 tc 1
 tc g4-1 gen_rand sumk=1000 chain_len=5 num_chains=50 mode=normal seed=1
@@ -96,7 +96,7 @@ tc g4-18 gen_n3 mode=two_paths_small_1 seed=18
 tc g4-19 gen_n3 mode=two_paths_big_1 seed=19
 tc g4-20 gen_long n=1000 m=1000 seed=120
 
-group group5 40
+group group5 27
 limits maxn=100000 maxk=100000 acyclic=0
 include_group group1
 include_group group2
