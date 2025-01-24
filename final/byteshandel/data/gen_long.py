@@ -16,7 +16,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
-m = int(cmdlinearg('m'))
+m = int(cmdlinearg('m', n-1))
 
 equations = []
 prod = 1
