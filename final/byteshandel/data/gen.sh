@@ -14,9 +14,11 @@ compile gen_long.py
 samplegroup
 limits maxn=10 maxk=25 acyclic=0 maxki=10
 sample 1
+sample 2
 
 group group1 12
 limits maxn=3 maxk=100000 acyclic=0 maxki=3
+tc 2
 tc g1-1 gen_n3 mode=skip_1 seed=1
 tc g1-2 gen_n3 mode=force_1 seed=2
 tc g1-3 gen_n3 mode=two_paths_small_1 seed=3
@@ -34,6 +36,7 @@ tc g1-14 gen_n3 mode=mixed_random seed=14
 
 group group2 10
 limits maxn=100000 maxk=100000 acyclic=0 maxki=1
+tc 2
 tc g2-1 gen_rand sumk=100000 chain_len=5 num_chains=25000 mode=single_lhs seed=1
 tc g2-2 gen_rand sumk=100000 chain_len=5 num_chains=20000 mode=single_lhs seed=2
 tc g2-3 gen_rand sumk=100000 chain_len=5 num_chains=15000 mode=single_lhs seed=3
@@ -56,6 +59,7 @@ tc g2-19 gen_long n=15000 m=100000 seed=19
 
 group group3 25
 limits maxn=100000 maxk=100000 acyclic=1 maxki=100000
+tc 2
 tc g3-1 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=31
 tc g3-2 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=32
 tc g3-3 gen_rand sumk=100000 chain_len=5 num_chains=10000 mode=acyclic seed=33
@@ -75,6 +79,7 @@ tc g3-15 gen_n3 mode=two_paths_big_1 seed=19
 group group4 26
 limits maxn=1000 maxk=1000 acyclic=0 maxki=1000
 tc 1
+tc 2
 tc g4-1 gen_rand sumk=1000 chain_len=5 num_chains=50 mode=normal seed=1
 tc g4-2 gen_rand sumk=1000 chain_len=5 num_chains=75 mode=normal seed=2
 tc g4-3 gen_rand sumk=1000 chain_len=5 num_chains=100 mode=normal seed=3
