@@ -17,53 +17,16 @@ int elapsedmillis() { return chrono::duration_cast<chrono::milliseconds>(chrono:
 
 const int MAX_QUERIES = 10000;
 
-const int sigma = 26;
-typedef unsigned long long ull;
-// fast LCS using bitsets
-int LCS(const string& s1, const string& s2)
-{
-    const string& a = sz(s1) > sz(s2) ? s2 : s1;
-    const string& b = sz(s1) > sz(s2) ? s1 : s2;
+int dp[101][101];
 
-    int numblocks = (sz(a) + 2 + 63) / 64;
-    vector<ull> dp(numblocks, numeric_limits<ull>::max());
-
-    auto unset = [&](int ind, vector<ull>& arr)
-        {
-            arr[ind / 64] |= (1ULL << (ind%64));
-        };
-
-    vector<ull> occs[26];
-    rep(s, 0, 26) occs[s] = vector<ull>(numblocks);
-    
-    rep(i, 0, sz(a))
-    {
-        unset(i, occs[a[i] - 'a']);
-    }
-
-    for (char c : b)
-    {
-        vector<ull>& occ = occs[c-'a'];
-
-        ull carry = 0;
-
-        rep(i, 0, numblocks)
-        {
-            ull s;
-            carry = __builtin_uaddll_overflow(carry, dp[i], &s) | __builtin_uaddll_overflow(s, (dp[i] & occ[i]), &s);
-            dp[i] = (s | (dp[i] & ~occ[i]));
-        }
-    }
-    int ret = 0;
-    rep(i, 0, numblocks) ret += __builtin_popcountll(dp[i]);
-    return 64 * numblocks - ret;
-}
-
-int LCSslow(const string& s1, const string& s2) {
+int LCS(const string& s1, const string& s2) {
     int m = s1.length();
     int n = s2.length();
 
-    vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+    for (int i = 0; i <= m; i++) {
+        for (int j = 0; j <= m; j++)
+            dp[i][j]=0;
+    }
 
     for (int i = 1; i <= m; ++i) {
         for (int j = 1; j <= n; ++j) {
@@ -76,13 +39,7 @@ int LCSslow(const string& s1, const string& s2) {
         }
     }
 
-    return dp.back().back();
-}
-
-void debugprint(const std::string& name, const std::string& content) {
-    std::ofstream outfile;
-    outfile.open(name, std::ios_base::app);
-    outfile << content;
+    return dp[m][n];
 }
 
 int main(int argc, char **argv) {
@@ -99,31 +56,33 @@ int main(int argc, char **argv) {
 	int qcount = 0;
 	for (;;) {
 		cin >> qtype;
-		if (!cin)
-        {
-            wrong_answer("EOF");
-        }
+		if (!cin) wrong_answer("EOF");
+        
 		if (qtype == '?') {
 			string guess;
             cin >> guess;
 			if (!cin) wrong_answer("EOF2");
-            for (auto c : guess)
-            {
-                if (!(c >= 'a' && c <= 'a'+K-1)) wrong_answer("Invalid character in guess");
+            for (auto c : guess) {
+                if (!(c >= 'a' && c <= 'a'+K-1)) {
+                    author_message("Guess contains invalid character");
+                    wrong_answer("Invalid character in guess");
+                }
             }
-            if (sz(guess) > N) wrong_answer("Too long guess");
-            // TODO: validate guess
+            if (sz(guess) > N) {
+                author_message("Guess is too long");
+                wrong_answer("Too long guess");
+            }
 
-			++qcount;
+			qcount++;
 			if (qcount > MAX_QUERIES) {
+                author_message("Too many guesses");
 				wrong_answer("too many queries");
 			}
-            //assert(LCS(hidden, guess) == LCSslow(hidden, guess));
 			cout << LCS(hidden, guess) << endl;
-
 		} else if (qtype == '!') {
 			break;
 		} else {
+            author_message("Made invalid type of query (not ? or !)");
 			wrong_answer("Invalid query type %c", qtype);
 		}
 	}
@@ -131,7 +90,11 @@ int main(int argc, char **argv) {
     string ans;
     cin >> ans;
 
-    if (ans != hidden) wrong_answer("found wrong hidden string");
+    if (ans != hidden)
+    {
+        author_message("Found wrong password");
+        wrong_answer("found wrong hidden string");
+    }
 
 
 	string trailing;

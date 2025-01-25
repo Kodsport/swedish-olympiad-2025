@@ -30,10 +30,11 @@ hur många unika bokstäver det kan innehålla.
 Mer exakt består lösenordet $P$ av exakt $N$ stycken bokstäver valda från de $K$ första små bokstäverna i alfabetet.
 
 För att göra en gissning ska du skriva ut en rad på formatet \texttt{? G} ($1 \le |G| \le N$),
-och sedan läsa in ett heltal som returneras från $LCS(G,P)$.
+och sedan läsa in ett heltal som returneras från $LCS(G,P)$. Gissningen får endast innehålla bokstäver bland de $K$ första
+små bokstäverna i alfabetet.
 
 När du ska göra din slutgiltiga gissning, skriv ut en rad med tecknet \texttt{!}, och sedan en sträng av längd $N$,
-din gissning av lösenordet.
+din gissning av lösenordet. Denna gissningen räknas inte in i gränsen av 10000 gissningar.
 
 Det är garanterat att strängen $P$ i varje testfall är bestämd på förhand och inte ändras adaptivt i respons till dina mätningar.
 Det finns inga garantier på $P$ såsom att det är ett riktigt ord eller dylikt, då det är ett starkt lösenord. 

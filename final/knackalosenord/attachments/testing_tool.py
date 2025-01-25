@@ -74,9 +74,6 @@ def main():
     print(f"< {N} {K}")
 
     def longest_common_subsequence(s1: str, s2: str) -> int:
-        if len(s1) > len(s2):
-            s1, s2 = s2, s1
-
         prev = [0] * (len(s1) + 1)
         curr = [0] * (len(s1) + 1)
 
@@ -113,7 +110,7 @@ def main():
                 if not (c >= 'a' and c <= chr(ord('a') + K - 1)):
                     error(f"wrong answer: invalid guess. character {c} is not among the {K=} first of the lowercase letters")
 
-            lcs = longest_common_subsequence(P, guess)
+            lcs = longest_common_subsequence(guess, P)
             proc.stdin.write(f"{lcs}\n".encode("utf8"))
             proc.stdin.flush()
             if not silent:
