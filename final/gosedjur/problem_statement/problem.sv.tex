@@ -1,7 +1,7 @@
 \problemname{Gosedjursmani}
 Olivia och Anton är på Liseberg, och de har hittat en kloautomat med $N$ stycken gosedjur, numrerade från $1$ till $N$.
 Olivia är väldigt skicklig, 
-och vill visa upp sina färdigheter genom att fiska upp Antons favoritdjur.
+och vill visa upp sina färdigheter för Anton.
 Den tvådimensionella kloautomaten kan modelleras som ett rutnät av storlek $R \times C$, 
 med $R$ rader och $C$ kolumner. 
 I den ligger gosedjuren tätt packade, 
@@ -9,7 +9,7 @@ och varje ruta hör till ett gosedjur.
 Ett gosedjur kan bestå av flera rutor i rutnätet, och varje gosedjur bildar
 en sammanhängande figur. 
 Med andra ord kan du rita varje gosedjur med en tjock penna utan att lyfta pennan från pappret.
-Det finns inga tomma rutor i kloautomaten, alla rutor täcks av gosedjur.
+Alla $R \times C$ rutor täcks av ett gosedjur, det finns alltså inga tomma rutor.
 I ett spel kan Olivia välja ett gosedjur som inte har något annat gosedjur direkt ovanför sig, 
 och lyfta upp det ur kloautomaten.
 Eftersom Olivia inte ännu frågat Anton om vilket hans favoritdjur är, 
@@ -26,7 +26,7 @@ Gosedjur nummer $x$ består av alla rutor $i,j$ som uppfyller $a_{i,j} = x$.
 Det är garanterat att varje gosedjur består av minst en ruta, och att varje gosedjur bildar en sammanhängande region.
 
 \section*{Utdata}
-För varje gosedjur $1, 2, ..., N$, skriv ut antalet drag Olivia behöver göra innan hon kan lyfta ut djuret.
+För varje gosedjur $1, 2, ..., N$, skriv ut antalet spel Olivia behöver göra innan hon kan lyfta ut djuret.
 Om det inte går, skriv ut $-1$.
 
 \section*{Poängsättning}
@@ -36,11 +36,11 @@ Om det inte går, skriv ut $-1$.
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $10$       & $1 \leq N \leq R \times C \leq 20$ \\ \hline
-  $2$    & $5$       & $C = 1$ \\ \hline
+  $2$    & $5$        & $C = 1$ \\ \hline
   $3$    & $10$       & $C \leq 2$ \\ \hline
   $4$    & $15$       & Varje gosedjur har rektangulär form. \\ \hline
   $5$    & $15$       & $N \leq 2000$ \\ \hline
-  $6$    & $7$       & $N \leq 30000$ \\ \hline
+  $6$    & $7$        & $N \leq 50000$ \\ \hline
   $7$    & $38$       & Inga ytterligare begränsningar. \\ \hline
   
 \end{tabular}
@@ -53,14 +53,23 @@ I exempelfall 1 ser kloautomaten ut som i figuren.
   \includegraphics[width=0.5\textwidth]{example.png}
 \end{figure}
 
-För att lyfta upp gosedjur 1 behöver vi inte lyfta upp något annat, alltså är svaret 0.
-För att lyfta upp gosedjur 2 behöver vi först lyfta upp 3, 4, 6 och 7, alltså är svaret 4. 
-För att lyfta upp gosedjur 3 behöver vi inte lyfta upp någon annan innan.
-För att lyfta upp gosedjur 4 behöver vi först lyfta upp 3 och 6, alltså är svaret 2. 
-För gosedjur 5, 6, 7 är svaren 3, 0, 3 respektive.
+För att lyfta upp gosedjur $1$ behöver vi inte lyfta upp något annat, alltså är svaret $0$.
+För att lyfta upp gosedjur $2$ behöver vi först lyfta upp $3$, $4$, $6$ och $7$, alltså är svaret $4$. 
+För att lyfta upp gosedjur $3$ behöver vi inte lyfta upp någon annan innan.
+För att lyfta upp gosedjur $4$ behöver vi först lyfta upp $3$ och $6$, alltså är svaret $2$. 
+För gosedjur $5$, $6$, $7$ är svaren $3$, $0$, $3$ respektive.
 
-Såhär ser det ut när man lyfter gosedjur nummer 3.
+Såhär ser det ut när man lyfter gosedjur nummer $3$.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.25\textwidth]{example2.png}
 \end{figure}
+
+\section*{Förklaring av exempelfall 4}
+Varken gosedjur $1$ eller $2$ har någonting ovanför sig, så svaret för bägge är $0$.
+För att lyfta upp gosedjur $3$ behöver man först lyfta upp gosedjur $4$.
+För att lyfta upp gosedjur $4$ behöver man först lyfta upp gosedjur $3$.
+För att lyfta upp gosedjur $3$ behöver man först lyfta upp gosedjur $4$.
+För att lyfta upp gosedjur $4$ behöver man först lyfta upp gosedjur $3$.
+För att lyfta upp gosedjur $3$ behöver man först lyfta upp gosedjur $4$.
+Svaret för båda är $-1$, eftersom vi aldrig kan lyfta upp någon av dem.

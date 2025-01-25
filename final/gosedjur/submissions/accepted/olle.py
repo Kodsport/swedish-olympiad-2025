@@ -1,3 +1,6 @@
+import sys, os, io
+
+input = io.BytesIO(os.read(0,os.fstat(0).st_size)).readline
 n, rows, cols = [int(i) for i in input().split()]
 grid = [[int(i)-1 for i in input().split()] for rw in range(rows)]
 
@@ -70,4 +73,5 @@ while queue:
             R[x] += U[par] - wup[par][r]
 
     ans[x] = L[x] + U[x] + R[x]
-print(*ans)
+
+sys.stdout.write(" ".join(map(str,ans)) + "\n")

@@ -1,3 +1,6 @@
+# @EXPECTED_GRADES@ RTE AC RTE RTE RTE RTE RTE
+
+
 n, rows, cols = [int(i) for i in input().split()]
 
 assert cols == 1

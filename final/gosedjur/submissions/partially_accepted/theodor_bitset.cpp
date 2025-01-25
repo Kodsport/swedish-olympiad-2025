@@ -1,3 +1,5 @@
+// @EXPECTED_GRADES@ AC TLE TLE  TLE AC AC TLE
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -26,7 +28,7 @@ typedef vector<vpii> vvpii;
 typedef vector<vpl> vvpl;
 
 vector<set<ll>> adj(1000001);
-vector<bitset<20001>> bs;
+vector<bitset<50001>> bs;
 vl seen, impossible;
 
 void dfs(ll u){
@@ -59,7 +61,7 @@ int main() {
     impossible.assign(n, 0);
 
     fo(i, n){
-        bitset<20001> temp;
+        bitset<50001> temp;
         temp[i] = 1;
         bs.pb(temp);
     }

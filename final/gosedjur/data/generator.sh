@@ -86,7 +86,7 @@ include_group group5
 tc g6-1 gen_shapes n=50000 r=500 c=500
 tc g6-2 gen_shapes n=50000 r=200 c=1000
 tc g6-3 gen_shapes n=50000 r=1000 c=400
-tc g6-4 gen_shapes n=50000 r=500 c=500
+tc g6-4 gen_shapes n=43211 r=500 c=500
 tc g6-5 gen_shapes n=50000 r=100 c=500
 tc g6-6 gen_shapes n=12345 r=333 c=333
 
