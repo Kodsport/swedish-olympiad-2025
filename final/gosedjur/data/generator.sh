@@ -115,6 +115,8 @@ tc g6-7 gen_shapes n=50000 r=100 c=500
 tc g6-8 gen_shapes n=50000 r=250 c=250
 tc g6-9 gen_shapes n=50000 r=250 c=250
 tc g6-10 gen_shapes n=50000 r=250 c=250
+tc g6-11 gen_shapes n=50000 r=400000 c=1
+tc g6-12 gen_dense r=250 c=200
 
 group group7 38
 tc g7-1 gen_shapes n=400000 r=400 c=1000
