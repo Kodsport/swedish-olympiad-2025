@@ -10,6 +10,10 @@ use_solution ../printnothing.cpp
 
 compile generate.py
 
+samplegroup
+limits n=6 klo=1 khi=3
+sample 1
+
 N=50
 K=2
 
@@ -60,6 +64,10 @@ tc g3-8 generate n=$N k=5 mode=rainbow
 tc g3-9 generate n=$N k=10 mode=rainbow
 tc g3-10 generate n=$N k=5 mode=rainbow shuffle=1
 tc g3-11 generate n=$N k=10 mode=rainbow shuffle=1
+tc_manual ../manual_data/binsearch_hillclimb
+tc_manual ../manual_data/joshua_hillclimb
+tc_manual ../manual_data/letter_hillclimb
+tc_manual ../manual_data/theodor_hillclimb
 
 tc g3-a generate n=$N k=$K mode=a
 tc g3-b generate n=$N k=$K mode=b
