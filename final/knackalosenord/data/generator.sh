@@ -13,7 +13,7 @@ compile generate.py
 N=50
 K=2
 
-group group1 20
+group group1 15
 limits n=$N klo=2 khi=2
 tc g1-1 generate  n=$N k=$K mode=rainbow
 tc g1-2 generate  n=$N k=$K mode=random
@@ -30,7 +30,7 @@ tc g1-b generate n=$N k=$K mode=b
 N=30
 K=3
 
-group group2 20
+group group2 15
 limits n=$N klo=3 khi=3
 tc g2-1 generate  n=$N k=$K mode=rainbow
 tc g2-2 generate  n=$N k=$K mode=random
@@ -47,7 +47,7 @@ tc g2-b generate n=$N k=$K mode=b
 N=100
 K=26
 
-group group3 60
+group group3 70
 limits n=$N klo=1 khi=26
 tc g3-1 generate n=$N k=$K mode=rainbow
 tc g3-2 generate n=$N k=$K mode=random

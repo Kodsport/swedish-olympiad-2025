@@ -141,6 +141,6 @@ int main(int argc, char **argv) {
 
 	// feeling lucky?
     if (qcount == 0) accept_with_score(1);
-	else accept_with_score(min(1.0, 24/sqrt(qcount-3)));
+	else accept_with_score(min(1.0, 666.0/qcount));
 
 }

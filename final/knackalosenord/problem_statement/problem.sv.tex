@@ -50,15 +50,42 @@ hitta lösenordet i något testfall får du noll poäng för gruppen det tillhö
 $g$ vara största antalet gissningar du använt för att hitta lösenorden i en viss testfallsgrupp.
 Om gruppen är värd $P$ poäng får du då
 
-$$P \cdot \min(1, \frac{24}{\sqrt{g}})$$
+$$P \cdot \min(1, \frac{666}{g})$$
 
-poäng för den gruppen. Du får 100 poäng om du aldrig använder mer än 576 gissningar för ett testfall.
+poäng för den gruppen. Du får 100 poäng om du aldrig använder mer än 666 gissningar för ett testfall.
+
+Tabellen nedan visar värdet på $\frac{666}{g}$ avrundat nedåt för olika antal gissningar.
+
+\begin{center}
+  \noindent
+  \begin{tabular}{| l | l |}
+    \hline
+    $\frac{666}{g}$ & $g$ \\ \hline
+    $1$             & $666$ \\ \hline
+    $0.9$           & $740$ \\ \hline
+    $0.8$           & $832$ \\ \hline
+    $0.7$           & $951$ \\ \hline
+    $0.6$           & $1110$ \\ \hline
+    $0.5$           & $1332$ \\ \hline
+    $0.4$           & $1665$ \\ \hline
+    $0.3$           & $2220$ \\ \hline
+    $0.2$           & $3330$ \\ \hline
+    $0.1$           & $6660$ \\ \hline
+  \end{tabular}
+\end{center}
+  
+För testfallsgrupperna håller följande:
+
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $20$       & $N = 50, K = 2$ \\ \hline
-  $2$    & $20$       & $N = 30, K = 3$ \\ \hline
-  $3$    & $60$       & $N = 100, K \leq 26$ \\ \hline
+  $1$    & $15$       & $N = 50, K = 2$ \\ \hline
+  $2$    & $15$       & $N = 30, K = 3$ \\ \hline
+  $3$    & $70$       & $N = 100, K \leq 26$ \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+Det hemliga lösenordet är \texttt{bbacba}. Notera att interaktionen endast visar formatet,
+och inte är en rimlig strategi.
