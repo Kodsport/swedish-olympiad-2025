@@ -60,7 +60,7 @@ tc g3-7 gen_shapes n=100 r=2000 c=2
 
 group group4 15
 include_group group2
-tc g4-1 gen_square r=500 c=500
+tc g4-1 gen_square r=10 c=10
 tc g4-2 gen_square r=1000 c=400
 tc g4-3 gen_square r=400 c=1000
 tc g4-4 gen_square r=50 c=50
