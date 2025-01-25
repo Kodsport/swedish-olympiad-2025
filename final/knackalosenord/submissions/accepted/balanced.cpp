@@ -39,10 +39,13 @@ signed main()
         };
 
     vector<pair<int, char>> occs;
-    rep(i, k)
+    int t = 0;
+    rep(i, k-1)
     {
         occs.emplace_back(query(string(n, i + 'a')), i + 'a');
+        t += occs.back().first;
     }
+    occs.emplace_back(n-t, 'a'+k-1);
     sort(all(occs));
     reverse(all(occs));
 
