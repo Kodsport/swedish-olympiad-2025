@@ -47,6 +47,10 @@ void dfs(ll u) {
     state[u]=2;
 }
 
+vpll trades;
+vll trades_cost;
+vector<vpll> items;
+
 void run() {
     int n = Int(1, Arg("maxn"));
     Space();
@@ -55,18 +59,23 @@ void run() {
     ll K=0;
     graph.assign(n,vll());
     state.assign(n,0);
+
+    ll maxki=ll(Arg("maxki"));
+    items.assign(n,vpll());
     rep(i,0,m) {
         ll res = Int(0, n-1);
         Space();
-        ll ki = Int(1, n); // set max to n for now, it is good enough
+        ll ki = Int(1, maxki); // set max to n for now, it is good enough
         K += ki;
         Endl();
+        trades.emplace_back(res,ki);
         rep(j,0,ki) {
             ll coef = Int(1, 100);
             Space();
             ll item = Int(0, n-1);
             Endl();
             graph[item].pb(res);
+            items[item].emplace_back(coef,i);
         }
     }
     assert(K<=ll(Arg("maxk")));
@@ -77,4 +86,29 @@ void run() {
         assert(has_cycle==0);
     }
     Eof();
+
+    trades_cost.assign(m, 0);
+    vll dists(n,INF);
+    dists[0]=1;
+    set<pll> pq;
+    pq.emplace(1,0);
+    while(!pq.empty()) {
+        ll d,item;
+        tie(d,item)=*pq.begin();
+        pq.erase(pq.begin());
+        trav(term,items[item]) {
+            ll coef,trade;
+            tie(coef,trade)=term;
+            trades_cost[trade]+=coef*d;
+            if(--trades[trade].second==0) {
+                ll nitem=trades[trade].first;
+                if(trades_cost[trade]<dists[nitem]) {
+                    pq.erase({dists[nitem],nitem});
+                    dists[nitem]=trades_cost[trade];
+                    pq.emplace(dists[nitem],nitem);
+                }
+            }
+        }
+    }
+    rep(i,0,n)  assert(trades_cost[i]<=1'000'000'000);
 }
