@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Testing tool for the task Password Cracking.
+# Testing tool for the task Crack the Password.
 #
 # Usage:
 #
@@ -11,7 +11,7 @@
 #   N K
 #   P
 #
-# where N is the length of the password, whose characters consistent of the first k lowercase letters
+# where N is the length of the password, whose characters consistent of the first K lowercase letters
 # P is the hidden password 
 #
 #
@@ -22,8 +22,8 @@
 #
 # where input.txt is a file that contains e.g.
 #
-# 5 3
-# abcab
+# 6 3
+# bbacba
 #
 # If --silent is passed, the communication output will not be printed.
 #

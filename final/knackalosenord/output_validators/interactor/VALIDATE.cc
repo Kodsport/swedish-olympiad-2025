@@ -57,32 +57,28 @@ int main(int argc, char **argv) {
 	for (;;) {
 		cin >> qtype;
 		if (!cin) wrong_answer("EOF");
-        
+
 		if (qtype == '?') {
 			string guess;
             cin >> guess;
 			if (!cin) wrong_answer("EOF2");
             for (auto c : guess) {
                 if (!(c >= 'a' && c <= 'a'+K-1)) {
-                    author_message("Guess contains invalid character");
                     wrong_answer("Invalid character in guess");
                 }
             }
             if (sz(guess) > N) {
-                author_message("Guess is too long");
                 wrong_answer("Too long guess");
             }
 
 			qcount++;
 			if (qcount > MAX_QUERIES) {
-                author_message("Too many guesses");
 				wrong_answer("too many queries");
 			}
 			cout << LCS(hidden, guess) << endl;
 		} else if (qtype == '!') {
 			break;
 		} else {
-            author_message("Made invalid type of query (not ? or !)");
 			wrong_answer("Invalid query type %c", qtype);
 		}
 	}
@@ -90,9 +86,7 @@ int main(int argc, char **argv) {
     string ans;
     cin >> ans;
 
-    if (ans != hidden)
-    {
-        author_message("Found wrong password");
+    if (ans != hidden) {
         wrong_answer("found wrong hidden string");
     }
 
