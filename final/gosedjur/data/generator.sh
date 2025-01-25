@@ -34,6 +34,13 @@ tc g1-9 gen_shapes n=5 r=10 c=2
 tc g1-10 gen_dense r=2 c=10
 tc g1-11 gen_dense r=10 c=2
 tc g1-12 gen_dense r=5 c=4
+tc g1-13 gen_shapes n=12 r=5 c=4
+tc g1-14 gen_shapes n=15 r=5 c=4
+tc g1-15 gen_shapes n=8 r=1 c=20
+tc g1-16 gen_shapes n=13 r=3 c=6
+tc g1-17 gen_shapes n=10 r=3 c=6
+tc g1-18 gen_shapes n=8 r=3 c=6
+tc g1-19 gen_shapes n=8 r=3 c=6
 
 
 group group2 5
@@ -47,6 +54,7 @@ tc g2-6 gen_shapes n=10023 r=29990 c=1
 tc g2-7 gen_shapes n=16023 r=51230 c=1
 tc g2-8 gen_shapes n=30023 r=123350 c=1
 tc g2-9 gen_shapes n=90000 r=303223 c=1
+tc g2-10 gen_shapes n=299999 r=303223 c=1
 
 group group3 10
 include_group group2
@@ -73,6 +81,11 @@ tc g4-7 gen_square r=500 c=500
 tc g4-8 gen_dense r=1000 c=400
 tc g4-9 gen_dense r=500 c=500
 tc g4-10 gen_dense r=400 c=1000
+tc g4-11 gen_square r=1000 c=400
+tc g4-12 gen_square r=600 c=600
+tc g4-13 gen_square r=100000 c=4
+tc g4-14 gen_square r=50000 c=8
+tc g4-15 gen_square r=25000 c=16
 
 
 group group5 15
@@ -86,6 +99,9 @@ tc g5-6 gen_shapes n=1230 r=50 c=5000
 tc g5-7 gen_shapes n=2000 r=50 c=40
 tc g5-8 gen_shapes n=2000 r=55 c=55
 tc g5-9 gen_shapes n=2000 r=50 c=50
+tc g5-10 gen_shapes n=2000 r=50 c=50
+tc g5-11 gen_shapes n=2000 r=12 c=200
+tc g5-12 gen_shapes n=2000 r=200 c=12
 
 group group6 7
 include_group group5
@@ -97,6 +113,8 @@ tc g6-5 gen_shapes n=50000 r=100 c=500
 tc g6-6 gen_shapes n=12345 r=333 c=333
 tc g6-7 gen_shapes n=50000 r=100 c=500
 tc g6-8 gen_shapes n=50000 r=250 c=250
+tc g6-9 gen_shapes n=50000 r=250 c=250
+tc g6-10 gen_shapes n=50000 r=250 c=250
 
 group group7 38
 tc g7-1 gen_shapes n=400000 r=400 c=1000
@@ -115,5 +133,8 @@ tc g7-13 gen_dense r=10 c=40000
 tc g7-14 gen_shapes n=300000 r=600 c=600
 tc g7-15 gen_shapes n=290000 r=600 c=600
 tc g7-16 gen_shapes n=350000 r=600 c=600
+tc g7-17 gen_shapes n=380000 r=100000 c=4
+tc g7-18 gen_shapes n=380000 r=100000 c=4
+tc g7-19 gen_shapes n=380000 r=100000 c=4
 
 
