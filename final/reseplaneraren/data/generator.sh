@@ -13,7 +13,6 @@ compile gen_long.py
 samplegroup
 limits maxn=10 maxk=10 maxq=10
 sample 1
-sample 2
 
 group group1 10
 limits maxn=100 maxk=100 maxq=100

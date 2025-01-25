@@ -51,4 +51,5 @@ for i in range(k):
     print(randint(1,n), randint(1,n))
 
 for i in range(q):
-    print(randint(1,n), randint(1,n))
+    a,b=random.sample(range(1,n),2)
+    print(a,b)

@@ -56,10 +56,11 @@ void run() {
 
     rep(i,0,q)
     {
-        Int(1,n);
+        int a = Int(1,n);
         Space();
-        Int(1,n);
+        int b = Int(1,n);
         Endl();
+        assert(a!=b);
     }
 
 
