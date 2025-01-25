@@ -150,10 +150,10 @@ if g4:
     bl = binary_lift(g)
 
     for u,v in queries:
-        if v == 1:
-            v = 2
+        if v == 0:
+            v = 1
         
-        a = bl.kth_ancestor(v-1, bl.distance(0,v-1))
+        a = bl.kth_ancestor(v, randint(1,bl.distance(0,v)))
 
         print(a+1,v+1)
 

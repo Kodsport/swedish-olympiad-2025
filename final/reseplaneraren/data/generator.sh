@@ -3,7 +3,7 @@
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 
-#ulimit -s unlimited
+ulimit -s unlimited
 
 use_solution segtree_sweep.cpp
 
@@ -26,7 +26,7 @@ tc g1-5 gen_new n=100 k=100 q=100 branch=5 tram_len=10
 tc g1-6 gen_new n=100 k=100 q=100 branch=3 tram_len=4
 tc g1-7 gen_new n=100 k=100 q=100 mode=star
 tc g1-8 gen_new n=100 k=100 q=100 mode=star noise=30
-tc g1-edge gen-new n=2 k=100 q=100 g4=1
+tc g1-edge gen_new n=2 k=100 q=100 g4=1
 tc g1-9 gen_new n=100 k=100 q=100 mdoe=star noise=60 g4=1
 
 group group2 19

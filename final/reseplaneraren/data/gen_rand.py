@@ -168,7 +168,7 @@ if g4:
 
     for _ in range(q):
         b = random.randint(2,n)
-        a = bl.kth_ancestor(b-1, bl.distance(0,b-1))
+        a = bl.kth_ancestor(b-1, randint(1,bl.distance(0,b-1)))
 
         print(a+1,b)
 else:

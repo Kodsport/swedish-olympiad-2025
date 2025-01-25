@@ -34,7 +34,7 @@ def shuffle_nodes(edgelist, star1, star2):
 
     return (shuffled_graph, star1,star2)
 
-
+nn = n
 print(n,k,q)
 n-=1
 cnt = 0
@@ -80,12 +80,12 @@ edgelist,star1,star2=shuffle_nodes(edgelist,star1,star2)
 
 random.shuffle(edgelist)
 
-g = [[] for _ in range(n)]
+g = [[] for _ in range(nn)]
 
 for i in edgelist:
     print(i[0],i[1])
-    g[i[0]].append(i[1])
-    g[i[1]].append(i[0])
+    g[i[0]-1].append(i[1]-1)
+    g[i[1]-1].append(i[0]-1)
 
 for i in range(k):
     print(random.choice(star1), random.choice(star2))
@@ -171,8 +171,8 @@ if g4:
     bl = binary_lift(g)
 
     for _ in range(q):
-        b = random.randint(2,n)
-        a = bl.kth_ancestor(b-1, bl.distance(0,b-1))
+        b = random.randint(2,nn)
+        a = bl.kth_ancestor(b-1, randint(1,bl.distance(0,b-1)))
 
         print(a+1,b)
 
