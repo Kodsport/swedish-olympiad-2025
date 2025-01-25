@@ -19,7 +19,7 @@ n = int(cmdlinearg('n'))
 k = int(cmdlinearg('k'))
 q = int(cmdlinearg('q'))
 
-mode = cmdlinearg('mode','none')
+g4 = int(cmdlinearg('g4',0))
 
 # Stolen from https://github.com/cheran-senthil/PyRival/blob/master/pyrival/data_structures/DisjointSetUnion.py
 class UF:
@@ -71,10 +71,8 @@ for i in range(k+q):
 for a,b in trams:
     print(a,b)
 
-if mode == "none":
-    for a,b in queries:
-        print(a,b)
-elif mode == "g4":
+
+if g4:
     
     """
     BFS = [0]
@@ -174,4 +172,5 @@ elif mode == "g4":
 
         print(a+1,b)
 else:
-    assert(0), "The mode "+mode+" does not exist."
+    for a,b in queries:
+        print(a,b)
