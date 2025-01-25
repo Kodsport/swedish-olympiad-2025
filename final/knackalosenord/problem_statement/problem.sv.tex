@@ -8,8 +8,8 @@ $$LCS(G,P)$$
 
 där $LCS(G,P)$ är längden på den längsta gemensamma delsekvsensen av $G$ och $P$. Den längsta gemensamma
 delsekvsensen av två strängar $G$ och $P$ är definierad på följande vis: låt oss beteckna alla delsekvenser av
-av en sträng $S$ med mängden av alla strängar som man kan få genom ta bort en eller flera bokstäver
-från $S$, men behålla den relativa ordningen av de kvarvarande. $LCS(G,P)$ är då längden på den längsta
+av en sträng $S$ med mängden av alla strängar som man kan få genom ta bort noll eller flera bokstäver
+från $S$ samtidigt som man behålla den relativa ordningen av de kvarvarande bokstäverna. $LCS(G,P)$ är då längden på den längsta
 strängen som förekommer i både $G$ och $P$:s delsekvenser.
 
 Till exempel: om $P=$''\texttt{abc}'' är dess möjliga delsekvenser \{'''', ''a'', ''b'', ''c'', ''ab'', ''ac'', ''bc'', ''abc''\}.
@@ -21,7 +21,7 @@ Några fler exempel: längsta gemensamma delsekvsensen av ''\texttt{aggtab}'' oc
 $LCS(\texttt{po}, \texttt{trakigt}) = 0$.
 
 Du får nu göra upp till 10000 gissningar innan systemet låser sig. Varje gissning består av att du ger din dator $G$, och den
-svarar med $LCS(G,P)$. Dessutom vill du helst använda få gissningar så att du kan komma tillbaka in i tävlingen.
+svarar med $LCS(G,P)$. Dessutom vill du helst använda få gissningar så att du kan komma tillbaka in i tävlingen så snart som möjligt.
 
 \section*{Interaktion}
 Ditt program ska först läsa in två heltal $N$ och $K$ ($1 \leq N \leq 100$, $1 \leq K \leq 26$): antalet bokstäver i lösenordet och
