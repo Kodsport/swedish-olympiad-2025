@@ -27,6 +27,18 @@ elif mode == "groups":
     d = int(cmdlinearg('d', n))
     distinct = random.sample(range(2, tmax+1), d)
     T = [random.choice(distinct) for _ in range(n)]
+elif mode == "uneven":
+    large = int(cmdlinearg('large', 0))
+    smalls = [random.randint(1, int(tmax ** 0.5)) for _ in range(n-large)]
+    larges = [random.randint(1, tmax) for _ in range(large)]
+    T = smalls+larges
+    random.shuffle(T)
+elif mode == "pairs":
+    for i in range(n):
+        if i%2 == 0:
+            T.append(random.randint(1, tmax-1))
+        else:
+            T.append(T[-1]+1)
 elif mode == "random":
     T = [random.randint(1,tmax) for _ in range(n)]
 
