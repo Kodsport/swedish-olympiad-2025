@@ -5,13 +5,13 @@ ett dörrhandtag och så vidare, ända tills han bytte till sig hela vägen till
 I dagens bostadsmarknad tycker du att detta låter som en lysande idé och tänker försöka dig på något liknande.
 
 Efter att ha analyserat marknaden har du kommit fram till att det finns $N$ stycken olika föremål och $M$
-stycken möjliga byten. Det finns $N$ stycken olika föremål och $M$ stycken byten. 
-Ett byte består av en summa av föremål som du kan tillsammans byta mot ett annat föremål. Formellt kan man beskriva ett byte som 
+stycken möjliga byten. Ett byte består av en summa av föremål som du kan tillsammans byta mot exakt ett av ett annat föremål. 
+Exempelvis skulle ett byte kunna vara 2 äpplen och 3 päron för en apelsin. Formellt kan man beskriva ett byte som 
 $$
 C_{i,0} \cdot F_0 + C_{i,1} \cdot F_1 + \dots + C_{i,N-1} \cdot F_{N-1} \implies 1 \cdot F_{r_i}.
 $$
 Här representerar $C_{i,j}$ koefficienten för $F_j$ i byte $i$. Alltså innebär $C_{i,j}$ antalet $F_j$ man behöver för att utföra detta bytet $i$. $r_i$ är det föremål som du får som resultat av byte $i$. 
-Observera att vissa föremål inte ingår i ett visst byte; för dessa föremål är $C_{i,j} = 0$.
+Observera att alla föremål inte behöver ingå i ett visst byte; för dessa föremål är $C_{i,j} = 0$.
 
 Varje byte kan utföras valfritt antal gånger. Ditt mål är att beräkna hur många gem som behövs för att få ett hus.
 
@@ -26,12 +26,12 @@ Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ 
 
 Låt $K$ vara summan av $k_i$ över alla byten. Det gäller att $K \leq 10^5$.
 
-% Är det garanterat att det finns tillräckligt många byten för att det ska vara möjligt att byta från gem till hus? (förhoppningsvis ja)
+Det är garanterat att det går att få tag i alla föremål genom att bara starta med gem och att det krävs som mest $10^9$ gem för att få ett visst föremål.
+
 
 \section*{Utdata}
 Skriv ut ett heltal: det minsta antalet \emph{gem} som krävs för att du ska kunna 
 byta dig till ett \emph{hus}. 
-Det är garanterat att svaret inte överstiger $10^9$.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -43,7 +43,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$ & $12$ & $N = 3$ \\ \hline
   $2$ & $10$ & $k_i = 1$ \\ \hline
-  $3$ & $25$ & Det finns en ordning $A$ av föremålen så att för alla $i$ och $j$ där $i < j$ gäller att $F_j$ inte ingår i något byte som resulterar i $F_i$. \\ \hline % kan man inte permutera alla föremål så att det inte blir "för någon rodning", utan för default ordningen
+  $3$ & $25$ & Det finns en ordning $A$ av föremålen så att för alla $i$ och $j$ där $i < j$ gäller att $A_j$ inte ingår i något byte som resulterar i $A_i$. \\ \hline % kan man inte permutera alla föremål så att det inte blir "för någon rodning", utan för default ordningen
   $4$ & $26$ & $K \leq 1000$ \\ \hline
   $5$ & $27$ & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
