@@ -47,9 +47,10 @@ for i in range(n-1):
         print(a+1,b+1)
         break
 
-for i in range(k):
-    print(randint(1,n), randint(1,n))
+for i in range(k+q):
+    while True:
+        a,b=randint(0,n-1),randint(0,n-1)
+        if a==b:continue
+        print(a+1, b+1)
+        break
 
-for i in range(q):
-    a,b=random.sample(range(1,n),2)
-    print(a,b)

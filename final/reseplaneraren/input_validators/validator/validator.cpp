@@ -48,10 +48,11 @@ void run() {
 
     rep(i,0,k)
     {
-        Int(1,n);
+        int a = Int(1,n);
         Space();
-        Int(1,n);
+        int b = Int(1,n);
         Endl();
+        assert(a != b);
     }
 
     rep(i,0,q)
@@ -60,7 +61,7 @@ void run() {
         Space();
         int b = Int(1,n);
         Endl();
-        assert(a!=b);
+        assert(a != b);
     }
 
 
