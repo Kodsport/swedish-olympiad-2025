@@ -1,16 +1,16 @@
 \problemname{Byteshandel}
 
-Vi har alla hört den fascinerande berättelsen om hur någon lyckades byte ett gem för en penna, sedan byta pennan mot en
-ett dörrhandtag och så vidare, ända tills han bytte till sig hela vägen till ett hus. 
+Vi har alla hört den fascinerande berättelsen om hur någon lyckades byta ett gem mot en penna, sedan byta pennan mot
+ett dörrhandtag och så vidare, ända tills han bytte sig hela vägen till ett hus. 
 I dagens bostadsmarknad tycker du att detta låter som en lysande idé och tänker försöka dig på något liknande.
 
 Efter att ha analyserat marknaden har du kommit fram till att det finns $N$ stycken olika föremål och $M$
-stycken möjliga byten. Ett byte består av en summa av föremål som du kan tillsammans byta mot exakt ett av ett annat föremål. 
-Exempelvis skulle ett byte kunna vara 2 äpplen och 3 päron för en apelsin. Formellt kan man beskriva ett byte som 
+stycken möjliga byten. Ett byte består av en mängd föremål som du kan byta mot exakt ett av ett annat föremål. 
+Exempelvis skulle ett byte kunna vara 2 äpplen och 3 päron mot en apelsin. Formellt kan man beskriva ett byte som 
 $$
 C_{i,0} \cdot F_0 + C_{i,1} \cdot F_1 + \dots + C_{i,N-1} \cdot F_{N-1} \implies 1 \cdot F_{r_i}.
 $$
-Här representerar $C_{i,j}$ koefficienten för $F_j$ i byte $i$. Alltså innebär $C_{i,j}$ antalet $F_j$ man behöver för att utföra detta bytet $i$. $r_i$ är det föremål som du får som resultat av byte $i$. 
+Här representerar $C_{i,j}$ koefficienten för $F_j$ i byte $i$. Alltså innebär $C_{i,j}$ antalet $F_j$ man behöver för att utföra detta bytet. $r_i$ är det föremål som du får som resultat av byte $i$. 
 Observera att alla föremål inte behöver ingå i ett visst byte; för dessa föremål är $C_{i,j} = 0$.
 
 Varje byte kan utföras valfritt antal gånger. Ditt mål är att beräkna hur många gem som behövs för att få ett hus.
@@ -21,8 +21,10 @@ Föremålet $F_0$ representerar gemet, och föremålet $F_{N-1}$ representerar h
 Den första raden innehåller två heltal $N$ och $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), antalet föremål och antalet byten.
 
 Därefter beskrivs de $M$ bytena. Varje beskrivning börjar med två heltal $r_i$ ($0 \leq r_i < N$) och $k_i$ ($1 \leq k_i \leq N$),
-där $r_i$ är föremålet man får av byte $i$, och $k_i$ är antalet föremål som används i bytet.
-Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) och $j$ ($0 \leq j < N$), som anger koefficienten för föremålet $F_j$ som används i bytet.
+där $r_i$ är föremålet man får av byte $i$, och $k_i$ är antalet olika föremål som används i bytet.
+Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) och $j$ ($0 \leq j < N$), 
+som anger att koefficienten $C_{i,j}$ hör till föremålet $F_j$ i bytet. Notera att 
+föremål med koefficient $0$ inte finns med i indatan.
 
 Låt $K$ vara summan av $k_i$ över alla byten. Det gäller att $K \leq 10^5$.
 
