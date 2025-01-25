@@ -15,6 +15,10 @@ limits group=0
 sample_manual 1
 sample_manual 2
 
+
+
+# Outputvalidator flags are not working as I thought, 
+# so testcases are getting seeded and copied to some degree
 group group1 5
 limits group=1
 tc samp-1 gen_random n=2 t=1 mode="manual" points="100,10000" 
@@ -38,11 +42,13 @@ tc g2-02 gen_random n=3 t=2 mode="manual" points="999999998,999999999,1000000000
 tc g2-03 gen_random n=20000 t=2 mode="t2" start=0
 tc g2-04 gen_random n=20000 t=2 mode="t2" seed=24
 tc g2-05 gen_random n=9725 t=2 mode="t2" seed=25
+tc g2-06 gen_random n=2 t=2 mode="t2" start=999999999
 
 
 group group3 10
 limits group=3
 tc g3-samp-1 gen_random n=2 t=3 mode="manual" points="100,10000" 
+tc g3-samp-2 gen_random n=3 t=3 mode="manual" points="0,4,10"
 tc g3-01 gen_random n=2 t=3 mode="manual" points="0,1"
 tc g3-02 gen_random n=3 t=3 mode="manual" points="999999998,999999999,1000000000"
 tc g3-03 gen_random n=100 t=3 mode="t2" start=0
@@ -59,10 +65,19 @@ tc g3-12 gen_random n=100 t=3 mode="manual" points="1,10,19,20,5000,7000,7001" s
 tc g3-23 gen_dense n=100 t=3 mode="v1" seed=23
 tc g3-24 gen_dense n=100 t=3 mode="v2" seed=24
 tc g3-25 gen_dense n=100 t=3 mode="v3" seed=25
+tc g3-26 gen_random n=2 t=3 seed=1
+tc g3-27 gen_random n=2 t=3 seed=2
+tc g3-28 gen_random n=2 t=3 mode="t2" start=999999999
+tc g3-29 gen_random n=2 t=3 seed=5
+tc g3-30 gen_random n=2 t=3 mode="manual" points="0,1000000000"
+tc g3-31 gen_random n=2 t=3 mode="manual" points="2,4"
+tc g3-32 gen_random n=2 t=3 mode="manual" points="1,4"
+
 
 group group4 14
 limits group=4
 tc g4-samp-1 gen_random n=2 t=4 mode="manual" points="100,10000" 
+tc g4-samp-2 gen_random n=3 t=4 mode="manual" points="0,4,10"
 tc g4-01 gen_random n=2 t=4 mode="manual" points="0,1"
 tc g4-02 gen_random n=3 t=4 mode="manual" points="999999998,999999999,1000000000"
 tc g4-03 gen_random n=100 t=4 mode="t2" start=0
@@ -79,10 +94,18 @@ tc g4-12 gen_random n=100 t=4 mode="manual" points="1,10,19,20,5000,7000,7001" s
 tc g4-23 gen_dense n=100 t=4 mode="v1" seed=23
 tc g4-24 gen_dense n=100 t=4 mode="v2" seed=24
 tc g4-25 gen_dense n=100 t=4 mode="v3" seed=25
+tc g4-26 gen_random n=2 t=4 seed=1
+tc g4-27 gen_random n=2 t=4 seed=2
+tc g4-28 gen_random n=2 t=4 mode="t2" start=999999999
+tc g4-29 gen_random n=2 t=4 seed=5
+tc g4-30 gen_random n=2 t=4 mode="manual" points="0,1000000000"
+tc g4-31 gen_random n=2 t=4 mode="manual" points="2,4"
+tc g4-32 gen_random n=2 t=4 mode="manual" points="1,4"
 
 group group5 21
 limits group=5
 tc g5-samp-1 gen_random n=2 t=5 mode="manual" points="100,10000" 
+tc g5-samp-2 gen_random n=3 t=5 mode="manual" points="0,4,10"
 tc g5-01 gen_random n=2 t=5 mode="manual" points="0,1"
 tc g5-02 gen_random n=3 t=5 mode="manual" points="999999998,999999999,1000000000"
 tc g5-03 gen_random n=100 t=5 mode="t2" start=0
@@ -99,11 +122,18 @@ tc g5-12 gen_random n=100 t=5 mode="manual" points="1,10,19,20,5000,7000,7001" s
 tc g5-23 gen_dense n=100 t=5 mode="v1" seed=23
 tc g5-24 gen_dense n=100 t=5 mode="v2" seed=24
 tc g5-25 gen_dense n=100 t=5 mode="v3" seed=25
-
+tc g5-26 gen_random n=2 t=5 seed=1
+tc g5-27 gen_random n=2 t=5 seed=2
+tc g5-28 gen_random n=2 t=5 mode="t2" start=999999999
+tc g5-29 gen_random n=2 t=5 seed=5
+tc g5-30 gen_random n=2 t=5 mode="manual" points="0,1000000000"
+tc g5-31 gen_random n=2 t=5 mode="manual" points="2,4"
+tc g5-32 gen_random n=2 t=5 mode="manual" points="1,4"
 
 group group6 18
 limits group=6
 tc g6-samp-1 gen_random n=2 t=6 mode="manual" points="100,10000" 
+tc g6-samp-2 gen_random n=3 t=6 mode="manual" points="0,4,10"
 tc g6-01 gen_random n=2 t=6 mode="manual" points="0,1"
 tc g6-02 gen_random n=3 t=6 mode="manual" points="999999998,999999999,1000000000"
 tc g6-03 gen_random n=100 t=6 mode="t2" start=0
@@ -125,11 +155,18 @@ tc g6-17 gen_random n=1000 t=6 mode="manual" points="1,10,19,20,5000,7000,7001" 
 tc g6-23 gen_dense n=1000 t=6 mode="v1" seed=23
 tc g6-24 gen_dense n=1000 t=6 mode="v2" seed=24
 tc g6-25 gen_dense n=1000 t=6 mode="v3" seed=25
-
+tc g6-26 gen_random n=2 t=6 seed=1
+tc g6-27 gen_random n=2 t=6 seed=2
+tc g6-28 gen_random n=2 t=6 mode="t2" start=999999999
+tc g6-29 gen_random n=2 t=6 seed=5
+tc g6-30 gen_random n=2 t=6 mode="manual" points="0,1000000000"
+tc g6-31 gen_random n=2 t=6 mode="manual" points="2,4"
+tc g6-32 gen_random n=2 t=6 mode="manual" points="1,4"
 
 group group7 17
 limits group=7
-tc g7-samp-1 gen_random n=2 t=7 mode="manual" points="100,10000" 
+tc g7-samp-1 gen_random n=2 t=7 mode="manual" points="100,10000"
+tc g7-samp-2 gen_random n=3 t=7 mode="manual" points="0,4,10" 
 tc g7-01 gen_random n=2 t=7 mode="manual" points="0,1"
 tc g7-02 gen_random n=3 t=7 mode="manual" points="999999998,999999999,1000000000"
 tc g7-03 gen_random n=100 t=7 mode="t2" start=0
@@ -156,3 +193,10 @@ tc g7-22 gen_random n=20000 t=7 mode="manual" points="1,10,19,20,5000,7000,7001"
 tc g7-23 gen_dense n=20000 t=7 mode="v1" seed=23
 tc g7-24 gen_dense n=20000 t=7 mode="v2" seed=24
 tc g7-25 gen_dense n=20000 t=7 mode="v3" seed=25
+tc g7-26 gen_random n=2 t=7 seed=1
+tc g7-27 gen_random n=2 t=7 seed=2
+tc g7-28 gen_random n=2 t=7 mode="t2" start=999999999
+tc g7-29 gen_random n=2 t=7 seed=5
+tc g7-30 gen_random n=2 t=7 mode="manual" points="0,1000000000"
+tc g7-31 gen_random n=2 t=7 mode="manual" points="2,4"
+tc g7-32 gen_random n=2 t=7 mode="manual" points="1,4"
