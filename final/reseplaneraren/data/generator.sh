@@ -66,7 +66,7 @@ group group4 23
 limits mode=g4 maxn=300000 maxk=300000 maxq=300000
 tc g1-1 
 tc g1-edge
-tc g1-9
+tc g1-11
 tc g2-8
 tc g3-15
 tc g4-1 gen_rand n=300000 k=300000 q=300000 g4=1
