@@ -17,7 +17,7 @@ void run() {
   
     int N = Int(2, 20000); Space();
     int Q = Int(1, 1000000000); Space();
-    int T = Int(0, 7); Endl(); // check which testcase it is
+    int T = Int(0, 6); Endl(); // check which testcase it is
 
     assert(T == (int) Arg("group")); // Chech it is the correct group 
 
@@ -42,14 +42,10 @@ void run() {
         assert(Q == 33*N);
     }
     else if (T == 5) {
-        assert(N <= 100);
-        assert(Q == 2*N-1);
-    }
-    else if (T == 6) {
         assert(N <= 1000);
         assert(Q == 2*N-1);
     }
-    else if (T == 7) {
+    else if (T == 6) {
         assert(Q == 2*N-1);
     }
 

@@ -17,7 +17,7 @@ n = int(cmdlinearg("n"))
 #q = int(cmdlinearg("q"))
 t = int(cmdlinearg("t"))
 
-if t in [1,2,5,6,7]:
+if t in [1,2,5,6]:
     q = 2*n-1
 elif t == 3:
     q = n**2 + n
