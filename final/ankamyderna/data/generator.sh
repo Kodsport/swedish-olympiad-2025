@@ -13,6 +13,7 @@ compile gen_exact.py
 samplegroup
 sample 1
 sample 2
+sample 3
 
 group group1 11
 limits nmax=1
@@ -40,6 +41,7 @@ tc g2-10 gen_exact n=100000 m=100000 mode="shift" c_is_i=1 shift=100000 amt=1000
 group group3 17
 limits max_duck_sum=100000
 tc 2
+tc 3
 tc g3-1 gen_rand n=1000 m=1000 max_duck=100 max_duck_sum=100000
 tc g3-2 gen_rand n=100 m=100 max_duck=1000 max_duck_sum=100000
 tc g3-3 gen_rand n=500 m=500 max_duck=200 max_duck_sum=100000
@@ -53,6 +55,7 @@ tc g3-9 gen_exact n=100000 m=66 mode="shift" shift=100000 amt=100
 group group4 19
 limits nmax=2000 mmax=2000
 tc 2
+tc 3
 tc g4-1 gen_rand n=2000 m=2000
 tc g4-2 gen_rand n=2000 m=2000
 tc g4-3 gen_rand n=1500 m=2000 max_duck=1000000000000
