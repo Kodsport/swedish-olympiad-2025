@@ -1,0 +1,77 @@
+
+\problemname{The Duckamyds}
+\noindent
+Kalle has just received a large box of colorful rubber ducks as a gift. 
+After counting them carefully, he knows exactly how many ducks he has of each color. 
+Now, he wants to build the world's largest duck pyramid!
+
+To build the pyramid, Kalle has borrowed a special pyramid construction stand whose 
+height allows him to build a pyramid with up to $M$ layers of ducks. 
+A duck pyramid is built in layers, where the bottom layer is layer 1, the next is layer 2, and so on. 
+To make the pyramid look nice, Kalle has decided that each layer should consist of ducks of the same color. 
+He has also decided which color each layer should have.
+
+If the pyramid has height $H$, then layer $i$ must contain exactly $(H-i+1)^2$ ducks. For example, in a pyramid with height 3:
+\begin{itemize}
+    \item Layer 1 (bottom) needs $3^2 = 9$ ducks.
+    \item Layer 2 (middle) needs $2^2 = 4$ ducks.
+    \item Layer 3 (top) needs $1^2 = 1$ duck.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ankamyd.png}
+    \caption{Harry's reaction when he sees a duck pyramid where layer 1 consists of $9$ yellow ducks, layer 2 consists of $4$ blue ducks, and layer 3 consists of $1$ green duck.}
+\end{figure}
+
+Help Kalle calculate how tall the pyramid can be! Note that the height $H$ cannot exceed $M$.
+
+\section*{Input}
+On the first line, there are two integers $N$ and $M$ ($1 \le N, M \le 10^5$), the number of different colors and the number of layers in the pyramid.
+
+On the second line, there are $N$ integers $a_1, a_2, ..., a_N$ ($0 \le a_j \le 10^{18}$), where $a_j$ indicates the number of ducks of color $j$.
+
+On the third line, there are $M$ integers $c_1, c_2, ..., c_M$ ($1 \le c_i \le N$), where $c_i$ indicates which color should be used in layer $i$.
+
+Note that even though Kalle has decided which colors all layers should have, he may build a pyramid that does not use all $M$ layers.
+
+\section*{Output}
+Print an integer: the maximum height $H$ the pyramid can have.
+
+\section*{Scoring}
+Your solution will be tested on several test case groups. To get the points 
+for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Limits} \\ \hline
+  $1$    & $11$       & $N = 1$ \\ \hline
+  $2$    & $19$       & $c_i = i$, for all $1 \leq i \leq M$. \\ \hline
+  $3$    & $17$       & $\sum a_k \le 10^5$ \\ \hline
+  $4$    & $19$       & $N, M \le 2000$ \\ \hline
+  $5$    & $34$       & No additional constraints.\\ \hline
+\end{tabular}
+
+\section*{Explanation of Samples}
+In the first example, Kalle only has ducks of one color, and he has 17 of them. The pyramid stand allows up to 5 layers. To build a pyramid of height 3, the following ducks are needed:
+\begin{itemize}
+    \item 9 ducks in layer 1
+    \item 4 ducks in layer 2
+    \item 1 duck in layer 3
+\end{itemize}
+A total of 14 ducks are used. It is not possible to build a pyramid with height 4, because that would require $4^2 + 3^2 + 2^2 + 1^2 = 30$ ducks, which is more than the 17 ducks available.
+
+In the second example, Kalle has:
+\begin{itemize}
+    \item 2 ducks of color 1
+    \item 19 ducks of color 2
+    \item 12 ducks of color 3
+\end{itemize}
+The color order in the layers is: 2, 3, 2, 1, 2. A pyramid of height 3 can be built by using:
+\begin{itemize}
+    \item 9 ducks of color 2 in layer 1
+    \item 4 ducks of color 3 in layer 2
+    \item 1 duck of color 2 in layer 3
+\end{itemize}
+This uses 10 ducks of color 2 and 4 ducks of color 3, which is within the available limits. A taller pyramid is not possible with the given restrictions.
