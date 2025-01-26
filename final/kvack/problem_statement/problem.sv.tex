@@ -15,7 +15,7 @@ Harry har dock möjlighet att utföra följande handling upp till $Q$ gånger:
     \item \textbf{Kvacka från en position:} Harry kan ställa sig på en heltalsposition på linjen $[-10^9, 2 \cdot 10^9]$ och börja kvacka.
     \begin{itemize}
         \item Den närmaste ankan kommer då att kvacka tillbaka, vilket låter Harry bestämma positionen för just den ankan.
-        \item Om det finns flera ankor som är lika nära, kommer ankan med lägre koordinat att kvacka tillbaka först.
+        \item Om det finns flera ankor som är lika nära Harry, kommer ankan med lägre position att kvacka tillbaka först. På så sätt får Harry endast information om ankan med lägre position.
         \item Notera att ankorna inte rör sig eller försvinner efter att Harry har hittat dem; de stannar kvar på sina positioner tills alla ankor har identifierats.
     \end{itemize}
 \end{itemize}
@@ -32,7 +32,7 @@ Ditt uppdrag är att hjälpa Harry hitta alla ankor genom att bestämma antalet 
 Det här är ett interaktivt problem, där du kan ställa Harry på en heltalspostition inom intervallet $[-10^9,2\cdot10^9]$ upp till $Q$ gånger. 
 Notera att både $N$ och $Q$ är hemliga tal.
 
-Ditt program börjar med att läsa in ett heltal $T$ ($1 \leq T \leq 7$), där $T$ är numret på testgruppen. 
+Ditt program börjar med att läsa in ett heltal $T$ ($1 \leq T \leq 6$), där $T$ är numret på testgruppen. 
 Anledningen till att $T$ är givet i input är för att göra det lättare att ta delpoäng.
 
 Därefter får du börja ställa Harry på en valfri heltalspostion $x_h$ inom intervallet $[-10^9,2\cdot10^9]$. Du ställer frågan genom att skriva ut 
@@ -49,6 +49,8 @@ Sedan ska du skriva ut en ny rad med $N$ heltal, postionerna av de $N$ ankorna i
 $$x_1 \; x_2 \; x_3 \; \dots \; x_N$$
 
 Därefter ska ditt program avslutas, och inget mer ska skrivas ut.    
+
+Det är garanterat att antalet borttappade ankor $N$ samt deras positioner i varje testfall är bestämd på förhand och inte ändras adaptivt i respons till dina utskrivningar.
 
 Se till att flusha outputen efter \textbf{varje utskrivning}, annars kan du få \textit{Time Limit Exceeded}.
 I C++ kan detta göras med exempelvis \texttt{cout << flush;}
