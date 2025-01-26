@@ -13,7 +13,7 @@ go at time $t_i$. If a bus departs at time $T$, then all participants satisfying
 $t_i \leq T$ can board the bus. The waiting time of participant $i$ is then $T-t_i$.
 
 Your task is to compute the smallest possible total waiting time $v_1+v_2+\dots+v_N$ 
-if the two buses departure times are chosen optimally. Every participant must 
+if the two buses' departure times are chosen optimally. Every participant must 
 travel with one of the buses, and each of the buses can only depart once. 
 
 \section*{Input}
@@ -36,12 +36,12 @@ for a group, it must pass all the test cases in the group.
   $1$    & $17$        & $N \leq 100$, $t_i \leq 300$\\ \hline
   $2$    & $26$        & $N \leq 1000$ \\ \hline
   $3$    & $25$        & $t_i = i$ for every $i = 1,2,\dots, N$ \\ \hline
-  $4$    & $32$        & No further constraints \\ \hline
+  $4$    & $32$        & No additional constraints. \\ \hline
 \end{tabular}
 
-\section*{Sample Explanation}
+\section*{Explanation of Sample 1}
 
-In the first example, it is optimal to let the three first participants go
+In the first sample, it is optimal to let the three first participants go
 with a bus that departs at $T = 4$, and the three last go with the other bus 
 that departs at $T = 11$.
 

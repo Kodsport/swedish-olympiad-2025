@@ -8,6 +8,6 @@ type: scoring
 grading:
     show_test_data_groups: yes
 limits:
-  time_multiplier: 2
+  time_multiplier: 2 # Since slowest runs in ~0.1, we implicitly have 10x
 
 
