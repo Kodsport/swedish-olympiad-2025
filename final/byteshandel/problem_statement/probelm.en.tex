@@ -1,0 +1,48 @@
+\problemname{Bartering}
+
+We have all heard the fascinating story of how someone managed to trade a paperclip for a pen, then traded the pen for a door handle, and so on, until they eventually traded their way to a house. 
+In today's housing market, you think this sounds like a brilliant idea and decide to try something similar.
+
+After analyzing the market, you realize that there are $N$ distinct items and $M$ possible trades. 
+A trade consists of a set of items that you can exchange for exactly one other item. 
+For example, a trade could be 2 apples and 3 pears for an orange. Formally, a trade can be described as 
+$$
+C_{i,0} \cdot F_0 + C_{i,1} \cdot F_1 + \dots + C_{i,N-1} \cdot F_{N-1} \implies 1 \cdot F_{r_i}.
+$$
+Here, $C_{i,j}$ is the coefficient for $F_j$ in trade $i$. This means that $C_{i,j}$ is the number of $F_j$ required for the trade. $r_i$ is the item you receive as a result of trade $i$. 
+Note that not all items need to be part of a particular trade; for these items, $C_{i,j} = 0$.
+
+Each trade can be performed any number of times. Your goal is to calculate how many paperclips are needed to acquire a house.
+
+The item $F_0$ represents the paperclip, and the item $F_{N-1}$ represents the house.
+
+\section*{Input}
+The first line contains two integers $N$ and $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), the number of items and the number of trades.
+
+Next, the $M$ trades are described. Each description begins with two integers $r_i$ ($0 \leq r_i < N$) and $k_i$ ($1 \leq k_i \leq N$), 
+where $r_i$ is the item you receive from trade $i$, and $k_i$ is the number of distinct items used in the trade. 
+Then follow $k_i$ lines, each containing two integers $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) and $j$ ($0 \leq j < N$), which indicate that the coefficient $C_{i,j}$ belongs to item $F_j$ in the trade. Note that 
+items with coefficient $0$ are not included in the input.
+
+Let $K$ be the sum of all $k_i$ values across all trades. It holds that $K \leq 10^5$.
+
+It is guaranteed that all items can be obtained by starting with a paperclip, and you can purchase each item for at most $10^9$ paperclips each.
+
+\section*{Output}
+Print a single integer: the minimum number of \emph{paperclips} required to trade your way to a \emph{house}.
+
+\section*{Scoring}
+Your solution will be tested on several test case groups. To get the points 
+for a group, it must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$ & $12$ & $N = 3$ \\ \hline
+  $2$ & $10$ & $k_i = 1$ \\ \hline
+  $3$ & $25$ & There is an order of items such that for every item
+  $f$, all trades where $f$ is received only contain items that come earlier in the order than $f$. \\ \hline
+  $4$ & $26$ & $K \leq 1000$ \\ \hline
+  $5$ & $27$ & No additional constraints. \\ \hline
+\end{tabular}
