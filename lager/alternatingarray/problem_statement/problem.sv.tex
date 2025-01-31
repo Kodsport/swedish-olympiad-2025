@@ -1,0 +1,69 @@
+\problemname{Tågmani}
+\noindent
+Det är väldigt välkänt att Julia gillar serien \textit{På spåret}. Då kanske det inte kommer som en
+överraskning att hon gillar att åka tåg. Tyvärr har hon nyligen spårat ur lite, och denna
+tidigare oskyliga hobby har förvandlats till ett maniskt behov att åka tåg. Problemet är att
+det är svårt att åka tåg så mycket som hon skulle vilja, eftersom resorna tar lång tid.
+Även om hon inte kan åka med alla tåg, så försöker hon resa med så många som möjligt.
+Efter att hon suttit timtals i sitt rum och försökt skapa den bästa reseplanen bestämer
+du dig för att hjälpa henne. Även om mängden tåg hon åker inte är hälsosamt, så föredrar
+du att hon får åka tåg istället för att planera sin tågåkning.
+
+Julia bor i staden Lönnköping. Lönnköping har $N$ stationer numrerade från $1$ till $N$.
+För att resa mellan dessa finns det två transportmedel: elscootrar och tåg. Det finns
+så många elscootrar i staden att hon kan påbörja en resa på elscooter från vilken station som helst.
+Hon kan bara åka elscooter längs med de $N-1$ vägarna i städarna. Man kan färdas från
+vilken station till vilken annan som helst hjälp av vägarna dessa, alltså utgör vägnätverket ett
+\textit{träd}. Dessa vägar har olika längd, och det tar därför olika lång tid att färdas längs med
+vägarna om hon använder en scooter. \\
+Hon kan även färdas med de $K$ nästkommande tågavgångarna. Varje tåg har ett strikt schema:
+det avgår från en viss station vid en viss tid, och anländer vid dess slutstation efter ett antal sekunder.
+Om Julia befinner sig vid en station samma sekund som ett tåg avgår kan hon välja att åka med det och sedan
+stiga av vid slutstationen (hon kan inte förmå sig att stiga av ett tåg innan hon verkligen måste).
+Om ett tag anländer vid en station som sekund som ett annat avgår hinner hon göra bytet om hon så vill.
+
+Givet hur vägnätverket ser ut och de $K$ nästa tågavgångarna, hur många tåg kan Julia åka
+med om hon optimalt planerar sin resa? Eftersom planen är en bit in i framtiden är hon inte
+säker på var hon ska börja, så hon vill att du beräknar största antalet tåg hon kan åka
+med för varje möjlig startstation. Du kan anta att hon alltid start vid tid $0$.
+
+
+\section*{Indata}
+Den första raden i indatan innehåller två heltal, $N$ och $K$ ($1 \le N, K \le 10^5$), antalet hållplatser
+det finns i Lönnköping och antalet tågavgångar som du ska betrakta.
+
+De följande $N-1$ beskriver vägnätverket. Varje av dessa rader innehåller heltalen $u,v,s$
+($1 \leq u, v \leq N$, $1 \leq s \leq 10^9$), som betyder att det finns en väg mellan
+stationerna med nummer $u$ och $v$. Det tar $s$ sekunder att åka
+från $u$ till $v$ eller $v$ till $u$ med vägen om man använder en elscooter.
+
+Därefter följer $K$ rader som beskriver tågavgångarna. Varje av dessa rader innehåller heltalen
+$u,v,t,d$ ($1 \leq u,v \leq N$, $u \neq v$, $1 \leq t, d \leq 10^9$), vilket betyder att
+vid $t$ så avgår det ett tåg från station $u$ till station $v$, som anländer vid station $v$
+vid tid $t+d$. Det är garanterat att alla $t$ är unika. 
+
+\section*{Utdata}
+För varje möjlig startstation $1 \leq i \leq N$, skriv ut antalet tåg hon kan åka med
+om hon börjar sin resa vid den stationen. Skriv ut dessa separerade med mellanslag i
+ökande ordningen av $i$, det vill säga först $i=1$, sen $i=2$ osv.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\text{Graden} av en station är antalet vägar som den är sammankopplad med.
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N, T, K \leq 50$ \\ \hline
+  $2$    & $5$        & $N, K \leq 50$ \\ \hline
+  $3$    & $15$       & $N \leq 1000, K \leq 200$ \\ \hline
+  $4$    & $15$       & $N, K \leq 2000$ \\ \hline
+  $5$    & $10$       & $K \leq 2000$ och det minsta $t$:et är större än summan av alla $s$. \\ \hline
+  $6$    & $20$       & $K \leq 30000$ och ingen station har grad större än 3. \\ \hline
+  $7$    & $25$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+%\section*{Exempelfall}
+
