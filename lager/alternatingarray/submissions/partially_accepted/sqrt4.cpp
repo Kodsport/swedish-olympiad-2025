@@ -24,10 +24,7 @@ inline void fast() { ios::sync_with_stdio(0); cin.tie(0); }
 typedef unsigned long long ull;
 
 const int maxv = 4;
-
-
 const int blocksize = 300;
-
 const int numblocks = (int(1e5) + blocksize - 1) / blocksize;
 ull blocks[numblocks][maxv][maxv+1];
 

@@ -24,10 +24,7 @@ inline void fast() { ios::sync_with_stdio(0); cin.tie(0); }
 typedef unsigned long long ull;
 
 const int maxv = 7;
-
-
 const int blocksize = 850;
-
 const int numblocks = (int(1e5) + blocksize - 1) / blocksize;
 ull blocks[numblocks][maxv + 1][maxv + 1];
 
@@ -61,7 +58,7 @@ signed main()
 
 				rep(j, maxv + 1)
 				{
-					int val = 1 + block[maxv][j] - block[v][j];
+					ull val = 1 + block[maxv][j] - block[v][j];
 					block[v][j] += val;
 					block[maxv][j] += val;
 				}
@@ -88,7 +85,7 @@ signed main()
 				memset(newdp, 0, sizeof(newdp));
 				rep(i, maxv)
 				{
-                    int t = 0;
+                    ull t = 0;
 					rep(j, maxv)
 					{
 						t += dp[j] * blocks[b][i][j];
