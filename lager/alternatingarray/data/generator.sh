@@ -26,7 +26,7 @@ tc g3-1 gen_rand n=100000 q=0 maxv=9
 tc g3-2 gen_rand n=100000 q=0 maxv=9
 
 group group4 10
-limits maxn=100000 maxq=2000 maxv=10
+limits maxn=100000 maxq=4000 maxv=10
 tc g4-1 gen_rand n=100000 q=2000 maxv=9
 tc g4-2 gen_rand n=100000 q=2000 maxv=9
 
