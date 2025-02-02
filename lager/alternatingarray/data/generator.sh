@@ -23,8 +23,8 @@ limits maxn=100000 maxq=0 maxv=9
 tc g3-1 gen_rand n=100000 q=0 maxv=9
 
 group group4 15
-limits maxn=100000 maxq=4000 maxv=9
-tc g4-1 gen_rand n=100000 q=4000 maxv=9
+limits maxn=100000 maxq=6000 maxv=9
+tc g4-1 gen_rand n=100000 q=6000 maxv=9
 
 group group5 30
 limits maxn=100000 maxq=100000 maxv=1
