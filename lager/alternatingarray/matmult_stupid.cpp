@@ -1,4 +1,4 @@
-// proof of concept for matrices. no segtree
+// proof of concept for matrix multiplication. no segtree
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -32,7 +32,7 @@ const int blocksize = 850;
 const int numblocks = (int(1e5) + blocksize - 1) / blocksize;
 ull blocks[numblocks][maxv + 1][maxv + 1];
 
-const int matsz = 2*(maxv + 1);
+const int matsz = 2 * (maxv + 1);
 struct matblock
 {
 	ull mat[matsz][matsz];
@@ -73,6 +73,9 @@ signed main()
 			matblock start;
 			rep(i, maxv + 1) start.mat[i][maxv + 1 + i] = 1;
 
+			ull block[maxv + 1][maxv + 1];
+			memset(block, 0, sizeof(block));
+
 			rep(i, n)
 			{
 				int v = nums[i];
@@ -81,7 +84,7 @@ signed main()
 				rep(i, matsz) el.mat[i][i] += 1;
 				rep(i, maxv + 1) el.mat[maxv + 1 + i][maxv] += 1;
 				el.mat[maxv + 1 + v][maxv] -= 1;
-					
+
 				rep(i, maxv + 1) el.mat[maxv + 1 + i][v] += 1;
 				el.mat[maxv + 1 + v][v] -= 1;
 				el.mat[v][maxv] += -1;
@@ -91,7 +94,16 @@ signed main()
 				start = start * el;
 
 
-				/*rep(i, maxv + 1)
+				rep(j, maxv + 1)
+				{
+					ull val = 1 + block[j][maxv] - block[j][v];
+					block[j][v] += val;
+					block[j][maxv] += val;
+				}
+				block[v][v]--;
+				block[v][maxv]--;
+
+				rep(i, maxv + 1)
 				{
 					rep(j, maxv + 1)
 					{
@@ -108,7 +120,7 @@ signed main()
 					}
 					cout << "\n";
 				}
-				cout << "*****\n";*/
+				cout << "*****\n";
 			}
 			cout << 1 + start.mat[maxv][maxv];
 		};

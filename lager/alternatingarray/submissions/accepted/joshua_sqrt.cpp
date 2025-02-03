@@ -87,6 +87,7 @@ signed main()
 				rep(i, maxv)
 				{
                     ull t = 0;
+					#pragma GCC ivdep
 					rep(j, maxv)
 					{
 						t += dp[j] * blocks[b][i][j];
