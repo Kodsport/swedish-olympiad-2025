@@ -1,0 +1,65 @@
+\problemname{Kvicksand}
+\noindent
+
+Sandra har flyttat till Sandsvall för att studera. Efter att ha tillbringat några dagar i den
+nya staden har Sandra märkt att det är kvicksand på flera platser. 
+Om man åker till någon av dessa platser så fastnar man i sanden och kommer inte därifrån.
+Sandra vill ha reda på exakt var kvicksanden finns så att hon kan undvika dessa platser.
+Som tur är har Sandsvall, till skillnad från Göteborg, en välfungerande reseplaneringsapp.
+Med hjälp av reseplaneraren har Sandra tagit reda på hur lång tid det tar att åka från 
+hennes bostad till var och en av de andra platserna i staden.
+
+Sandsvall kan representeras av ett rutnät med $N$ rader och $M$ kolumner. Sandras bostad
+är i en rutorna i detta rutnät. Det tar en minut att åka mellan två närliggande rutor (två 
+rutor är närliggande om de delar en sida). I vissa rutor finns det kvicksand, och då går 
+det inte att åka därifrån alls.
+
+Låt $(r, c)$ vara rutan på rad $r$ och kolumn $c$. Du får givet talet $d_{r,c}$ för varje 
+ruta i rutnätet, det minsta möjliga antalet minuter det tar att åka från Sandras bostad 
+till rutan. Din uppgift är att hantera $Q$ frågor av följande slag:
+
+\begin{itemize}
+    \item \verb|? r c|: Avgör om det finns kvicksand på ruta $(r, c)$. Du ska svara 
+    \verb|ja|, \verb|nej|, \verb|kanske|, eller \verb|fel|.
+    \item \verb|! r c d|: Ändra värdet på $d_{r, c}$ till $d$.
+\end{itemize}
+
+\section*{Input}
+
+Den första raden innehåller tre heltal $N$, $M$ och $Q$ ($1 \leq N,M,Q \leq 3 \cdot 10^5$, $N\cdot M \leq 3 \cdot 10^5$).
+
+Följande $N$ rader innehåller $M$ heltal var. Den $i$te av dessa rader innehåller heltalen
+$d_{i,1}, d_{i,2}, d_{i,3}, \dots d_{i,M}$ ($-1 \leq d_{i,j} \leq 3 \cdot 10^5$).
+
+Det kommer finnas exakt en ruta som uppfyller $d_{r, c} = 0$, detta är Sandras bostad. Om 
+$d_{r, c} = -1$ så innebär det att det inte går att ta sig till ruta $(r, c)$ alls.
+
+Följande $Q$ rader innehåller frågorna som ska behandlas, på formatet ovan. Talen $r, c$ som 
+förekommer i frågorna uppfyller $1 \leq r \leq N$ och $1 \leq c \leq M$. Talen $d$ som förekommer 
+uppfyller $-1 \leq d \leq 3 \cdot 10^5$, $d \neq 0$. Sandras bostad kommer alltid ha avståndet 
+noll, och inga andra rutors avstånd kommer ändras till noll. 
+
+\section*{Output}
+
+Skriv ut svaret på varje fråga på formen \verb|? r c|.
+Om det inte finns något sätt som kvicksanden kan vara fördelad på som är konsekvent 
+med de givna talen $d$ ska du skriva ut \verb|fel|.
+Annars, om det måste finnas kvicksand på ruta $(r, c)$, skriv ut \verb|ja|.
+Om det garanterat inte finns kvicksand på ruta $(r, c)$, skriv ut \verb|nej|.
+Om det både kan och inte kan finnas kvicksand på ruta $(r, c)$, skriv ut \verb|kanske|.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $17$        & $M = 1$. \\ \hline
+  $2$    & $28$        & $N,M,Q \leq 100$. \\ \hline
+  $3$    & $20$        & Svaret är aldrig \verb|fel|. \\ \hline
+  $4$    & $35$        & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
