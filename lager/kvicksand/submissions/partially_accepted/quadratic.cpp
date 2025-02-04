@@ -79,7 +79,7 @@ int main() {
     cin.tie(0);
     
     cin >> n >> m >> q;
-
+    assert(n <= 100 && m <= 100);
     rep(c1,0,n){
         string s;
         //cin >> s;

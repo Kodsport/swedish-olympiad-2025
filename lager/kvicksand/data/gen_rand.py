@@ -69,12 +69,12 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 m = int(cmdlinearg('m'))
 q = int(cmdlinearg('q', MAXQ))
-mode = cmdlinearg('mode', 'random')
+mode = cmdlinearg('mode', 'valid')
 possible = int(cmdlinearg('possible', False))
 
 m = min(m, MAXN//n)
 
-if mode == "random":
+if mode == "valid":
     sand_density = float(cmdlinearg('sand_density', 0.5))
     q_density = float(cmdlinearg('q_density', 0.5))
     sand_changes = int(cmdlinearg('sand_changes', 1)) # <- increase to speed up
@@ -130,5 +130,25 @@ if mode == "random":
             mp += 1
     
     print_tc(n,m,q,D,ops)
+
+elif mode == "random":
+    maxd = int(cmdlinearg('maxd', n*m))
+    D_possible = [-1] + list(range(1, maxd+1))
+    start = 0
+    D = [0] + [random.choice(D_possible) for _ in range(n*m-1)]
+    ops = []
+    for i in range(q):
+        if random.randint(1,2) == 1:
+            r = random.randrange(0,n)
+            c = random.randrange(0,m)
+            ops.append(("?",r+1,c+1))
+        else:
+            i = random.randrange(1, n*m)
+            r = i//m
+            c = i%m
+            d = random.choice(D_possible)
+            ops.append(("!", r+1,c+1,d))
+    print_tc(n,m,q,D,ops)
+    
 
     
