@@ -7,7 +7,7 @@ use_solution joshua_sqrt.cpp
 compile gen_rand.py
 
 samplegroup
-limits maxn=10 maxk=10 maxt=10
+limits maxn=10 maxq=10 maxv=10
 sample 1
 sample 2
 sample 3
