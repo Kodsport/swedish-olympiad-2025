@@ -1,4 +1,4 @@
-\problemname{Tågmani}
+\problemname{Alternerande listor}
 \noindent
 Du får givet en lista med $N$ heltal. En lista är \textit{alternerande} om inga två intilligande element är lika.
 Du vill räkna antalet \textit{dellistor} som är alternerande. 
@@ -10,8 +10,8 @@ giltiga dellistor. Alltså finns det sammanlagt $2^N$ stycken.
 Därefter kommer du att få $Q$ uppdateringar som säger åt dig att ändra värdet på ett särskilt element, och sedan
 skriva ut antalet alternerande dellistor. Dessa uppdateringar är alltså permanenta och påverkar framtida frågor.
 
-För att svaret kan bli väldigt stort ska du skriva ut det modulo $2^64$. I de flesta programmeringsspråk
-beräknas allting modulo $2^64$ automatiskt om du använder osignerade (unsiged) 64-bitars heltal.
+Eftersom svaret kan bli väldigt stort ska du skriva ut det modulo $2^{64}$. I de flesta programmeringsspråk
+beräknas allting modulo $2^{64}$ automatiskt om du använder osignerade (unsiged) 64-bitars heltal.
 
 \section*{Indata}
 Den första raden i indatan innehåller två heltal, $N$ och $Q$ ($1 \leq N \leq 10^5$, $0 \leq Q \leq 10^5$),
@@ -61,5 +61,5 @@ De 7 alternerande listorna är:
   \item $[1 0]$
   \item $[0 1 0]$
 \end{itemize}
-Notera alltså att vi räknar listan [0] två gånger, då vi räknar två listor som olika om de skapades genom att
-ta bort olika delar av listan.
+Notera alltså att vi räknar listan [0] två gånger, då vi räknar två dellistor som olika om de skapades genom att
+ta bort olika delar av den urpsrungliga listan.
