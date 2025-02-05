@@ -21,6 +21,8 @@ void run() {
     ll q = Int(1, int(Arg("q", MAXN)));
     Endl();
 
+    assert(n*m <= MAXN);
+
     int start_x = -1;
     int start_y = -1;
 
