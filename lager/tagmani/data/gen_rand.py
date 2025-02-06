@@ -18,7 +18,8 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 k = int(cmdlinearg('k'))
 t = int(cmdlinearg('t'))
-maxd = int(cmdlinearg("maxd"))
+maxs = int(cmdlinearg("maxs"))
+dmult = int(cmdlinearg("dmult", 3))
 late_trains = int(cmdlinearg("latetrains", 0))
 
 # Stolen from https://github.com/cheran-senthil/PyRival/blob/master/pyrival/data_structures/DisjointSetUnion.py
@@ -47,9 +48,9 @@ for i in range(n-1):
         if a==b:continue
         if uf.find(a)==uf.find(b):continue
         uf.union(a,b)
-        d = randint(1, maxd)
-        totdist += d
-        print(a+1,b+1, d)
+        s = randint(1, maxs)
+        totdist += s
+        print(a+1,b+1, s)
         break
 
 seen_times = set()
@@ -65,5 +66,5 @@ for i in range(k):
         b = randint(1,n)
         while b==a:
             b = randint(1,n)
-        print(a, b, time, randint(1, maxd*3))
+        print(a, b, time, randint(1, maxs*dmult))
         break

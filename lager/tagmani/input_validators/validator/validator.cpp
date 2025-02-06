@@ -53,9 +53,9 @@ void run() {
 		Space();
 		int b = Int(1,n);
 		Space();
-		int t = Int(0, int(1e9));
+		int t = Int(0, maxt);
 		Space();
-		int d = Int(1, int(1e9));
+		int d = Int(1, maxt);
 		Endl();
 		assert(a!=b);
 		if (latetrains)
