@@ -67,11 +67,8 @@ class CentroidDecomposition:
 
 
 def main():
-
-    idx = 0
     n,k = [int(i) for i in input().split()]
 
-    idx += 2
     adj = [[] for _ in range(n)]
     for _ in range(n - 1):
         a, b, c = [int(i) for i in input().split()]
@@ -79,14 +76,12 @@ def main():
         b-=1
         adj[a].append((b, c))
         adj[b].append((a, c))
-        idx += 3
     trains = []
     for _ in range(k):
         a, b, t, d = [int(i) for i in input().split()]
         a-=1
         b-=1
         trains.append((t + d, a, b, d))
-        idx += 4
     trains.sort(reverse=True)
 
     decomp = CentroidDecomposition(adj)
