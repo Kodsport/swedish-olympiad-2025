@@ -46,7 +46,7 @@ tc small-manhattan-1 gen_rand n=100 m=100 q=100 sand_density=1 sand_start_mode=m
 tc small-manhattan-2 gen_rand n=99 m=100 q=100 sand_density=1 sand_start_mode=manhattan sand_change_mode=square sand_changes=20
 tc small-fill-1 gen_rand n=30 m=30 q=100 sand_density=0 sand_change_mode=fill possible=1
 tc small-fill-2 gen_rand n=10 m=10 q=100 sand_density=0 sand_change_mode=fill possible=1 sand_changes=10
-
+tc small-horizontal-1 gen_rand n=4 m=100 q=100 sand_start_mode=horizontal sand_change_mode=avoid
 
 group group3 20
 tc possible-1 gen_rand n=300 m=300 q=300000 sand_density=0.01 possible=1 sand_changes=100
@@ -61,6 +61,8 @@ tc random-possible-1 gen_rand n=10 m=10 q=300000 possible=1
 tc random-possible-2 gen_rand n=3 m=3 q=300000 possible=1
 tc line-possible-1 gen_rand n=1 m=100000 q=300000 mode=line
 tc no-changes-1 gen_rand n=547 m=547 q=300000 sand_density=0.5 sand_start_mode=caves q_density=1.0 possible=1
+tc horizontal-1 gen_rand n=7 m=30000 q=300000 sand_start_mode=horizontal sand_change_mode=avoid sand_changes=100 possible=1
+tc horizontal-2 gen_rand n=3 m=10000 q=300000 sand_start_mode=horizontal sand_change_mode=avoid sand_changes=100 possible=1
 
 
 group group4 35
@@ -78,3 +80,4 @@ tc random-7 gen_rand n=2 m=2 q=300000 maxd=2 mode=random
 tc manhattan-3 gen_rand n=500 m=500 sand_density=1 sand_start_mode=manhattan sand_changes=200
 tc fill-3 gen_rand n=547 m=547 q=300000 sand_density=0  sand_change_mode=fill sand_changes=200
 tc random-8 gen_rand n=10 m=10 q=300000
+tc horizontal-3 gen_rand n=10 m=30000 q=300000 sand_start_mode=horizontal sand_change_mode=avoid sand_changes=100

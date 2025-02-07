@@ -135,6 +135,13 @@ def sand_change(sand_list, sand_changes, mode="random"):
             if tries > 100:
                 break
         return ans
+    elif mode == "avoid":
+        ans = []
+        while len(ans) < sand_changes:
+            i = random.randrange(n*m)
+            if i//m != start//m:
+                ans.append(i)
+        return ans
 
 
 def sand_start(sand_density, start, mode="random"):
@@ -197,6 +204,13 @@ def sand_start(sand_density, start, mode="random"):
             black = black[:b]
         for i in black:
             sand_list[i] = 1
+        return sand_list
+    
+    elif mode == "horizontal":
+        sand_list = [1] * (n*m)
+        for i in range(n*m):
+            if i//m == start//m:
+                sand_list[i] = 0
         return sand_list
         
 
