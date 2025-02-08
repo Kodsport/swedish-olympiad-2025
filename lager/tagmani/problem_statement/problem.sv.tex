@@ -2,7 +2,7 @@
 \noindent
 Det är väldigt välkänt att Julia gillar serien \textit{På spåret}. Då kanske det inte kommer som en
 överraskning att hon gillar att åka tåg. Tyvärr har hon nyligen spårat ur lite, och denna
-tidigare oskyliga hobby har förvandlats till ett maniskt behov att åka tåg. Problemet är att
+tidigare oskyldiga hobby har förvandlats till ett maniskt behov att åka tåg. Problemet är att
 det är svårt att åka tåg så mycket som hon skulle vilja, eftersom resorna tar lång tid.
 Även om hon inte kan åka med alla tåg, så försöker hon resa med så många som möjligt.
 Efter att hon suttit timtals i sitt rum och försökt skapa den bästa reseplanen bestämmer
@@ -12,7 +12,7 @@ du att hon får åka tåg istället för att planera sin tågåkning.
 Julia bor i staden Lönnköping. Lönnköping har $N$ stationer numrerade från $1$ till $N$.
 För att resa mellan dessa finns det två transportmedel: elscootrar och tåg. Det finns
 så många elscootrar i staden att hon kan påbörja en resa på elscooter från vilken station som helst.
-Hon kan bara åka elscooter längs med de $N-1$ vägarna i städarna. Man kan färdas från
+Hon kan bara åka elscooter längs med de $N-1$ vägarna i staden. Man kan färdas från
 vilken station till vilken annan station som helst endast genom att använda en eller flera av dessa vägarna,
 alltså utgör vägnätverket ett \textit{träd}. Det tar ett visst antal sekunder att färdas längs med varje väg
 med scooter. 
@@ -44,16 +44,16 @@ vid $t$ så avgår det ett tåg från station $u$ till station $v$, som anlände
 vid tid $t+d$. Det är garanterat att alla $t$ är unika. 
 
 \section*{Utdata}
-För varje möjlig startstation, skriv ut antalet tåg hon kan åka med
-om hon börjar sin resa vid den stationen. Skriv ut dessa separerade med mellanslag i
-ökande ordningen av index, det vill säga först antalet tåg med start på hållplats $1$, sen $2$
-och så vidare.
+Låt $x_i$ beteckna maximala antalet tåg Julia kan åka med, ifall hon börjar sin resa vid station $i$.
+Skriv ut $x_1,x_2,\ldots,x_N$ separerade med mellanslag.
+%För varje möjlig startstation, skriv ut antalet tåg hon kan åka med om hon börjar sin resa vid den stationen. Skriv ut dessa separerade med mellanslag i ökande ordning av index, det vill säga först antalet tåg med start på hållplats $1$, sen $2$ och så vidare.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \text{Graden} av en station är antalet vägar som den är sammankopplad med.
+
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
