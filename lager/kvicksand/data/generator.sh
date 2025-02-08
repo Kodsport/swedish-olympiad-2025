@@ -39,6 +39,7 @@ tc random-small-2 gen_rand n=2 m=1 q=100 maxd=1 mode=random
 tc random-small-3 gen_rand n=2 m=1 q=100 maxd=1 mode=random
 tc_manual ../manual_tests/square.in
 tc_manual ../manual_tests/olle.in
+tc_manual ../manual_tests/joshua.in
 tc small-7 gen_rand n=100 m=100 q=100 sand_density=0 sand_change_mode=blob sand_changes=10
 tc small-8 gen_rand n=100 m=100 q=100 sand_start_mode=chess sand_changes=2
 tc small-9 gen_rand n=100 m=100 q=100 sand_density=0.2 sand_start_mode=caves sand_changes=2
@@ -49,6 +50,7 @@ tc small-fill-2 gen_rand n=10 m=10 q=100 sand_density=0 sand_change_mode=fill po
 tc small-horizontal-1 gen_rand n=4 m=100 q=100 sand_start_mode=horizontal sand_change_mode=avoid
 
 group group3 20
+tc joshua
 tc possible-1 gen_rand n=300 m=300 q=300000 sand_density=0.01 possible=1 sand_changes=100
 tc possible-2 gen_rand n=300 m=1000 q=300000 sand_density=0 possible=1 sand_changes=100 sand_change_mode=blob
 tc possible-3 gen_rand n=500 m=500 q=300000 sand_density=0.4 sand_start_mode=caves sand_changes=200 possible=1
