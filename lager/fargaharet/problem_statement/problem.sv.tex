@@ -8,8 +8,9 @@ dagarna men varnar om att schemat kan ändras i framtiden. Att färga håret är
 göras halvhjärtat, så din kompis tänker göra upp en plan för hur han ska färga håret den närmaste tiden.
 
 En sådan plan bestämmer vilka dagar din kompis ska gå och färga håret. När han färgar håret väljer han
-alltid färgen som är på rea eftersom det blir lite dyrt i längden annars. Han vill såklart inte heller
-färga håret samma färg två gånger i rad.
+alltid färgen som är på rea eftersom det blir lite dyrt i längden annars. Sammanlagt finns det
+$2^N$ möjliga planer. Han godtar dock inte alla planer: han vill såklart inte färga håret samma färg två
+gånger i rad.
 
 Du har blivit ombedd av kompisen att räkna ut hur många olika sådana planer han skulle kunna skapa.
 Varje gång du kommer med ett svar säger din kompis dock att hårsalongen har uppdaterat sitt schema
@@ -17,7 +18,7 @@ och bytt vilken färg som är på rea en av dagarna.
 
 Eftersom svaret kan bli väldigt stort ska du skriva ut det modulo $2^{64}$. Detta är samma som
 resten av svaret efter att det har delats med $2^{64}$. I de flesta programmeringsspråk
-beräknas allting modulo $2^{64}$ automatiskt om du använder osignerade (unsiged) 64-bitars heltal.
+beräknas allting modulo $2^{64}$ automatiskt om du använder osignerade 64-bitars heltal.
 I C++ kan du använda \texttt{unsigned long long}.
 
 \section*{Indata}
@@ -68,4 +69,5 @@ De 7 planerna är:
   \item $[1 0]$
   \item $[0 1 0]$
 \end{itemize}
-Notera alltså att vi räknar att färga håret med bara färgen $0$ två gånger, eftersom det är olika planer om man färgar håret på olika dagar även om det är samma färg.
+Notera alltså att planerna som endast innehåller färgen $0$ räknas två gånger, eftersom det är olika planer
+om man färgar håret på olika dagar även om det är samma färg.
