@@ -7,13 +7,11 @@ import sys
 sys.setrecursionlimit(100000)
 
 inf = int(1e18)
-lomask = (1 << 20) - 1
 
 class CentroidDecomposition:
     def __init__(self, adj):
         self.adj = adj
         self.n = len(adj)
-        self.children = [[] for _ in range(self.n)]
         self.par = [-1] * self.n
         self.size = [0] * self.n
         self.par_dist = [[] for _ in range(self.n)]
@@ -52,8 +50,6 @@ class CentroidDecomposition:
                     bfs.append((e, dist+d, v))
 
         self.par[u] = p
-        if p != -1:
-            self.children[p].append(u)
         i = 0
         while i < len(self.adj[u]):
             e, _ = self.adj[u][i]
@@ -89,16 +85,8 @@ def main():
     par_dist = decomp.par_dist
     for i in range(n):
         par_dist[i].reverse()
-    children = decomp.children
     unique_values = [0] * n
     values = [[] for _ in range(n)]
-    which_child = [int(2e5) for i in range(n)]
-    for i in range(n):
-        children[i].sort()
-        cc = 2
-        for c in children[i]:
-            which_child[c] = cc
-            cc += 2
     
 
     def add_nodes(u: int, t: int):
@@ -118,12 +106,10 @@ def main():
     for i in range(n):
         values[i].sort()
 
-    treesa = [[0 for _ in range(unique_values[i] + 1)] for i in range(n)]
-    treesb = [[0 for _ in range(unique_values[i] + 1)] for i in range(n)]
+    trees = [[0 for _ in range(unique_values[i] + 1)] for i in range(n)]
 
     def add(u: int, t: int, dpv: int):
         c = u
-        prevc = -1
         i = 0
         while c != -1:
             realt = t - par_dist[u][i]
@@ -136,31 +122,20 @@ def main():
                 else:
                     hi=mid
 
-            ignore_ind = 0 if prevc==-1 else which_child[prevc]
             r = unique_values[c] - hi
-            v = dpv+(ignore_ind<<20)
-            treea = treesa[c]
-            treeb = treesb[c]
-            while r < len(treea):
-                if (v & lomask) > (treea[r] & lomask):
-                    if (treea[r] >> 20) != (treeb[r] >> 20):
-                        treeb[r] = treea[r]
-                    treea[r] = v
-                elif (v & lomask) > (treeb[r] & lomask) and (v >> 20) != (treeb[r] >> 20):
-                    treeb[r] = v
+            tree = trees[c]
+            while r < len(tree):
+                tree[r] = max(tree[r], dpv)
                 r += (r & -r)
 
-            prevc = c
             c = par[c]
             i += 1
 
     def query(u: int, t: int) -> int:
         ret = -inf
         c = u
-        prevc = -1
         i = 0
         while c != -1:
-            ignore_ind = 1 if prevc==-1 else which_child[prevc]
             realt = t + par_dist[u][i]
 
             # 100 ms faster binary search
@@ -172,17 +147,12 @@ def main():
                 sz -= half
 
             if base != unique_values[c]:
-                treea = treesa[c]
-                treeb = treesb[c]
+                tree = trees[c]
                 r = unique_values[c] - base
                 while r > 0:
-                    if (treea[r] >> 20) != ignore_ind:
-                        ret = max(ret, treea[r] & lomask)
-                    if (treeb[r] >> 20) != ignore_ind:
-                        ret = max(ret, treeb[r] & lomask)
+                    ret = max(ret, tree[r])
                     r -= (r & -r)
 
-            prevc = c
             c = par[c]
             i += 1
         return ret

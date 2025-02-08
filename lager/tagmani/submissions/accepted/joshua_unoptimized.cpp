@@ -73,9 +73,9 @@ int dist(int a, int b)
 
 struct centroid
 {
-    vvi adj, children;
+    vvi adj;
     vi par, size;
-    centroid(vvi adj) : adj(adj), children(sz(adj)), par(sz(adj)), size(sz(adj))
+    centroid(vvi adj) : adj(adj), par(sz(adj)), size(sz(adj))
     {
         init_centroid(0, -1);
     }
@@ -97,7 +97,6 @@ struct centroid
         calc_sz(u, -1);
         u = find_centroid(u, -1, size[u]);
         par[u] = p;
-        if (p != -1) children[p].push_back(u);
         repe(e, adj[u])
         {
             adj[e].erase(find(all(adj[e]), u));
@@ -106,44 +105,23 @@ struct centroid
     }
 };
 
-const int lomask = (1 << 20) - 1;
-
 struct maxtree {
-    typedef p2 T;
-    static constexpr T unit = p2(0, 0);
-    T f(T a, T b)
-    {
-        int max1 = 0, max2 = 0;
+    typedef int T;
+    static constexpr T unit = 0;
 
-        for (int val : {a.first, a.second, b.first, b.second}) {
-            if ((val&lomask) > (max1&lomask)) {
-                if ((max1>>20)!=(max2>>20))
-                {
-                    max2 = max1; // update second largest
-                }          
-                
-                max1 = val;  // update largest
-            }
-            else if ((val&lomask) > (max2&lomask) && (val>>20) != (max2>>20)) {
-                max2 = val;  // update second largest if it's not the largest
-            }
-        }
-
-        return p2(max1, max2);
-    } // (any associative fn)
     vector<T> s; int n;
     maxtree(int n = 0, T def = unit) : s(2 * n, def), n(n) {}
     void update(int pos, T val) {
         for (s[pos += n] = val; pos /= 2;)
-            s[pos] = f(s[pos * 2], s[pos * 2 + 1]);
+            s[pos] = max(s[pos * 2], s[pos * 2 + 1]);
     }
     T query(int b, int e) { // query [b, e)
         T ra = unit, rb = unit;
         for (b += n, e += n; b < e; b /= 2, e /= 2) {
-            if (b % 2) ra = f(ra, s[b++]);
-            if (e % 2) rb = f(s[--e], rb);
+            if (b % 2) ra = max(ra, s[b++]);
+            if (e % 2) rb = max(s[--e], rb);
         }
-        return f(ra, rb);
+        return max(ra, rb);
     }
 };
 
@@ -181,19 +159,8 @@ signed main()
 
     centroid decomp(normal_adj);
     vi par = decomp.par;
-    vvi children = decomp.children;
     vi unique_values(n);
     vvi values(n);
-    vector<map<int, int>> child_index(n);
-    rep(i, n)
-    {
-        children[i].push_back(-1);
-
-        repe(c, children[i])
-        {
-            child_index[i][c] = sz(child_index[i])+1;
-        }
-    }
 
     auto add_nodes = [&](int u, int t)
         {
@@ -232,7 +199,7 @@ signed main()
             {
                 int realt = t - dist(u, c);
                 int ind = lower_bound(all(values[c]), realt) - values[c].begin();
-                trees[c].update(ind, p2(dpv + (child_index[c][prevc] << 20),0));
+                trees[c].update(ind, dpv);
                 prevc = c;
                 c = par[c];
             }
@@ -246,21 +213,12 @@ signed main()
             int prevc = -1;
             while (c != -1)
             {
-                int ignoreind = prevc == -1 ? inf : child_index[c][prevc];
                 int realt = t + dist(u, c);
                 int ind = lower_bound(all(values[c]), realt) - values[c].begin();
 
                 if (ind!= unique_values[c])
                 {
-                    p2 res = trees[c].query(ind, unique_values[c]);
-                    if ((res.first >> 20) != ignoreind)
-                    {
-                        ret = max(ret, res.first & lomask);
-                    }
-                    if ((res.second >> 20) != ignoreind)
-                    {
-                        ret = max(ret, res.second & lomask);
-                    }
+                    ret = max(ret, trees[c].query(ind, unique_values[c]));
                 }
                 
                 prevc = c;

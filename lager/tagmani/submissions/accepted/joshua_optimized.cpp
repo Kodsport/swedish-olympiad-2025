@@ -28,11 +28,10 @@ vector<vector<p2>> adj;
 
 struct centroid
 {
-    vvi children;
     vi par;
     vector<vi> par_dist;
     vi size;
-    centroid() : children(sz(adj)), par(sz(adj)), par_dist(sz(adj)), size(sz(adj))
+    centroid() : par(sz(adj)), par_dist(sz(adj)), size(sz(adj))
     {
         init_centroid(0, -1);
     }
@@ -61,7 +60,6 @@ struct centroid
         u = find_centroid(u, -1, size[u]);
         calc_dist(u, -1, 0);
         par[u] = p;
-        if (p != -1) children[p].push_back(u);
         repe(e, adj[u])
         {
             auto it = adj[e.first].begin();
@@ -77,7 +75,7 @@ const int lomask = (1 << 20) - 1;
 struct fenwick
 {
     int n;
-    vector<p2> tree;
+    vector<int> tree;
     fenwick(int n) : n(n), tree(n + 1) {}
     fenwick() {}
 
@@ -86,31 +84,17 @@ struct fenwick
         r = n - 1 - r;
         for (r++; r < sz(tree); r += (r & -r))
         {
-            p2& t = tree[r];
-            if ((v & lomask) > (t.first & lomask))
-            {
-                if ((t.first >> 20) != (t.second >> 20))
-                {
-                    t.second = t.first;
-                }
-                t.first = v;
-            }
-            else if ((v&lomask)>(t.second&lomask) && (v >> 20) != (t.second >> 20))
-            {
-                t.second = v;
-            }
+            tree[r] = max(tree[r], v);
         }
     }
 
-    int query(int l, int ignoreind) // query [l, n)
+    int query(int l) // query [l, n)
     {
         int ret = 0;
         int r = n - 1 - l;
         for (r++; r > 0; r -= (r & -r))
         {
-            p2& t = tree[r];
-            if ((t.first >> 20) != (ignoreind >> 20)) ret = max(ret, t.first & lomask);
-            if ((t.second >> 20) != (ignoreind >> 20)) ret = max(ret, t.second & lomask);
+            ret = max(ret, tree[r]);
         }
         return ret;
     }
@@ -149,33 +133,21 @@ signed main()
     vi par = decomp.par;
     vvi& par_dist = decomp.par_dist;
     rep(i, n) reverse(all(par_dist[i]));
-    vvi& children = decomp.children;
     vi unique_values(n);
     vvi values(n);
-    vector<vector<p2>> child_index(n);
-    rep(i, n)
-    {
-        children[i].push_back(-1);
-
-        repe(c, children[i])
-        {
-            child_index[i].emplace_back(c, sz(child_index) + 1);
-        }
-        sort(all(child_index[i]));
-    }
 
     auto add_nodes = [&](int u, int t)
+    {
+        int c = u;
+        int i = 0;
+        while (c != -1)
         {
-            int c = u;
-            int i = 0;
-            while (c != -1)
-            {
-                unique_values[c]++;
-                values[c].push_back(t - par_dist[u][i]);
-                c = par[c];
-                i++;
-            }
-        };
+            unique_values[c]++;
+            values[c].push_back(t - par_dist[u][i]);
+            c = par[c];
+            i++;
+        }
+    };
 
     repe(tr, trains)
     {
@@ -194,45 +166,43 @@ signed main()
     }
 
     auto add = [&](int u, int t, int dpv)
+    {
+        int c = u;
+        int prevc = -1;
+        int i = 0;
+        while (c != -1)
         {
-            int c = u;
-            int prevc = -1;
-            int i = 0;
-            while (c != -1)
-            {
-                int realt = t - par_dist[u][i];
-                int ind = lower_bound(all(values[c]), realt) - values[c].begin();
-                int ignore_ind = lower_bound(all(child_index[c]), p2(prevc, inf)) - child_index[c].begin();
-                trees[c].update(ind, dpv + (ignore_ind << 20));
-                prevc = c;
-                c = par[c];
-                i++;
-            }
-        };
+            int realt = t - par_dist[u][i];
+            int ind = lower_bound(all(values[c]), realt) - values[c].begin();
+            trees[c].update(ind, dpv);
+            prevc = c;
+            c = par[c];
+            i++;
+        }
+    };
 
     auto query = [&](int u, int t)
+    {
+        int ret = -inf;
+        int c = u;
+        int prevc = -1;
+        int i = 0;
+        while (c != -1)
         {
-            int ret = -inf;
-            int c = u;
-            int prevc = -1;
-            int i = 0;
-            while (c != -1)
+            int realt = t + par_dist[u][i];
+            int ind = lower_bound(all(values[c]), realt) - values[c].begin();
+
+            if (ind != unique_values[c])
             {
-                int ignoreind = prevc == -1 ? inf : lower_bound(all(child_index[c]), p2(prevc, inf)) - child_index[c].begin();
-                int realt = t + par_dist[u][i];
-                int ind = lower_bound(all(values[c]), realt) - values[c].begin();
-
-                if (ind != unique_values[c])
-                {
-                    ret = max(ret,trees[c].query(ind, ignoreind));
-                }
-
-                prevc = c;
-                c = par[c];
-                i++;
+                ret = max(ret, trees[c].query(ind));
             }
-            return ret;
-        };
+
+            prevc = c;
+            c = par[c];
+            i++;
+        }
+        return ret;
+    };
 
     add(0, inf, 0);
 

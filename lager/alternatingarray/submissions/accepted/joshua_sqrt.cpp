@@ -76,6 +76,7 @@ signed main()
 	}
 
 	stringstream out;
+	ull lastans;
 	auto solve = [&]()
 		{
 			ull dp[maxv];
@@ -106,19 +107,28 @@ signed main()
 				dp[nums[i]] = dp[nums[i]] + s;
 				t = t + s;
 			}
-
+			lastans = 1+t;
 			out << 1 + t << "\n";
 		};
 	solve();
 
+	
 	while (q--)
 	{
 		int i, v;
 		cin >> i >> v;
 		i--;
-		nums[i] = v;
-		update_block(i / blocksize);
-		solve();
+		if (nums[i]!=v)
+		{
+			nums[i] = v;
+			update_block(i / blocksize);
+			solve();
+
+		}
+		else{
+			cout << lastans << "\n";
+		}
+		
 	}
 	cout << out.str();
 
