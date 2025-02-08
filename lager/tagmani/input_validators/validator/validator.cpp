@@ -25,8 +25,6 @@ void run() {
 	
 	int maxt = Arg("maxt");
 
-	int smalldeg = Arg("smalldeg", 0);
-	vector<int> deg(n);
 	long long tot_dist = 0;
 	UF uf(n);
 	for (int i = 0; i < n-1; i++)
@@ -38,8 +36,6 @@ void run() {
 		tot_dist += (long long)Int(1, int(1e9));
 		Endl();
 		a--; b--;
-		if (smalldeg) assert(++deg[a-1]<=3);
-		if (smalldeg) assert(++deg[b-1]<=3);
 		assert(uf.join(a,b));
 	}
 	

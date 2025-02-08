@@ -168,14 +168,12 @@ signed main()
     auto add = [&](int u, int t, int dpv)
     {
         int c = u;
-        int prevc = -1;
         int i = 0;
         while (c != -1)
         {
             int realt = t - par_dist[u][i];
             int ind = lower_bound(all(values[c]), realt) - values[c].begin();
             trees[c].update(ind, dpv);
-            prevc = c;
             c = par[c];
             i++;
         }
@@ -185,19 +183,14 @@ signed main()
     {
         int ret = -inf;
         int c = u;
-        int prevc = -1;
         int i = 0;
         while (c != -1)
         {
             int realt = t + par_dist[u][i];
             int ind = lower_bound(all(values[c]), realt) - values[c].begin();
 
-            if (ind != unique_values[c])
-            {
-                ret = max(ret, trees[c].query(ind));
-            }
+            if (ind != unique_values[c]) ret = max(ret, trees[c].query(ind));
 
-            prevc = c;
             c = par[c];
             i++;
         }
