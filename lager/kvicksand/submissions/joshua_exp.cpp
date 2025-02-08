@@ -34,69 +34,72 @@ signed main()
 	p2 start;
 	rep(i, n) rep(j, m) if (grid[i][j] == 0) start = p2(i, j);
 	vvi cnt(n, vi(m));
-	bool anyvalid = 0;
 	vector<p2> dirs = { {0,1},{0,-1},{1,0},{-1,0} };
+	int num_valid = 0;
 	auto compute = [&]()
+	{
+		num_valid = 0;
+		rep(i, n) rep(j, m) cnt[i][j] = 0;
+		vvi dist(n, vi(m, inf));
+		rep(mask, 1 << (n * m))
 		{
-			anyvalid = 0;
-			rep(i, n) rep(j, m) cnt[i][j] = 0;
-			vvi dist(n, vi(m, inf));
-			rep(mask, 1 << (n * m))
+			rep(i, n) rep(j, m) dist[i][j] = inf;
+			queue<pair<int, p2>> q;
+			q.emplace(0, start);
+			dist[start.first][start.second] = 0;
+			while (sz(q))
 			{
-				rep(i, n) rep(j, m) dist[i][j] = inf;
-				queue<pair<int, p2>> q;
-				q.emplace(0, start);
-				dist[start.first][start.second] = 0;
-				while (sz(q))
-				{
-					int d;
-					p2 p;
-					tie(d, p) = q.front();
-					q.pop();
-					if (d > dist[p.first][p.second]) continue;
-					if (dist[p.first][p.second] != grid[p.first][p.second]) break;
-					if (mask & (1 << (p.first * m + p.second))) continue;
+				int d;
+				p2 p;
+				tie(d, p) = q.front();
+				q.pop();
+				if (d > dist[p.first][p.second]) continue;
+				if (dist[p.first][p.second] != grid[p.first][p.second]) break;
+				if (mask & (1 << (p.first * m + p.second))) continue;
 
-					repe(dir, dirs)
-					{
-						p2 np = p2(p.first + dir.first, p.second + dir.second);
-						if (np.first < 0 || np.second < 0 || np.first >= n || np.second >= m) continue;
-						if (d+1<dist[np.first][np.second])
-						{
-							dist[np.first][np.second] = d + 1;
-							q.emplace(d + 1, np);
-						}
-					}
-				}
-				rep(i, n) rep(j, m) if (dist[i][j] == inf) dist[i][j] = -1;
-				if (dist==grid)
+				repe(dir, dirs)
 				{
-					anyvalid = 1;
-					rep(i, n) rep(j, m)
+					p2 np = p2(p.first + dir.first, p.second + dir.second);
+					if (np.first < 0 || np.second < 0 || np.first >= n || np.second >= m) continue;
+					if (d + 1 < dist[np.first][np.second])
 					{
-						if (mask & (1 << (i * m + j))) cnt[i][j]++;
+						dist[np.first][np.second] = d + 1;
+						q.emplace(d + 1, np);
 					}
 				}
 			}
-		};
+			rep(i, n) rep(j, m) if (dist[i][j] == inf) dist[i][j] = -1;
+			if (dist == grid)
+			{
+				num_valid++;
+				rep(i, n) rep(j, m)
+				{
+					if (mask & (1 << (i * m + j)))
+					{
+						cnt[i][j]++;
+					}
+				}
+			}
+		}
+	};
 
 	compute();
 	while (q--)
 	{
 		char t;
 		cin >> t;
-		if (t=='?')
+		if (t == '?')
 		{
 			int r, c;
 			cin >> r >> c;
 			r--; c--;
-			if (!anyvalid)
+			if (!num_valid)
 			{
 				cout << "fel\n";
 			}
 			else
 			{
-				if (cnt[r][c] == 1 << (n * m)) cout << "ja\n";
+				if (cnt[r][c] == num_valid) cout << "ja\n";
 				else if (cnt[r][c]) cout << "kanske\n";
 				else cout << "nej\n";
 			}
