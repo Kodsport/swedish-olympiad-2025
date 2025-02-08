@@ -19,8 +19,17 @@ n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
 maxv = int(cmdlinearg('maxv'))
 
+mode = cmdlinearg('mode','distinct')
+
 print(n,q)
 arr = [random.randint(0, maxv) for i in range(n)]
 print(*arr)
-for i in range(q):
-    print(randint(1,n), randint(0, maxv))
+
+while q:
+    a,b = randint(1,n), randint(0, maxv)
+    if mode == 'distinct' and arr[a-1] == b:
+        continue
+    arr[a-1] = b
+    q -= 1
+    print(a,b)
+

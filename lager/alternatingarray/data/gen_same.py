@@ -48,6 +48,8 @@ while queriesUsed < q:
     for qind in qs:
         if qind > n:
             continue
+        if arr[qind-1] == c:
+            continue
 
         print(qind,c)
         arr[qind-1] = c

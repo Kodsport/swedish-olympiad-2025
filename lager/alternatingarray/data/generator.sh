@@ -24,7 +24,7 @@ tc g1-3 gen_same n=15 q=0 maxv=9 mode="diff"
 group group2 7
 limits maxn=1000 maxq=0 maxv=9
 include_group group1
-tc g2-1 gen_rand n=1000 q=0 maxv=9
+tc g2-1 gen_rand n=1000 q=0 maxv=9 
 tc g2-2 gen_same n=1000 q=0 maxv=9 mode="same"
 tc g2-3 gen_same n=1000 q=0 maxv=9 mode="diff"
 
@@ -39,13 +39,14 @@ group group4 15
 limits maxn=100000 maxq=6000 maxv=9
 include_group group3
 tc 3
-tc g4-1 gen_rand n=100000 q=6000 maxv=9
+tc g4-1 gen_rand n=100000 q=6000 maxv=9 
 tc g4-2 gen_same n=100000 q=6000 maxv=9 mode="same" 
 tc g4-3 gen_same n=100000 q=6000 maxv=9 mode="same" phaseSize=3000
 tc g4-4 gen_same n=100000 q=6000 maxv=9 mode="same" phaseSize=10
 tc g4-5 gen_same n=100000 q=6000 maxv=9 mode="diff" 
 tc g4-6 gen_same n=100000 q=6000 maxv=9 mode="diff" phaseSize=3000
 tc g4-7 gen_same n=100000 q=6000 maxv=9 mode="diff" phaseSize=10
+tc g4-8 gen_rand n=100000 q=6000 maxv=9 mode="distinct"
 
 group group5 30
 limits maxn=100000 maxq=100000 maxv=1
