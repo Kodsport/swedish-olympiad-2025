@@ -112,7 +112,8 @@ struct maxtree {
     vector<T> s; int n;
     maxtree(int n = 0, T def = unit) : s(2 * n, def), n(n) {}
     void update(int pos, T val) {
-        for (s[pos += n] = val; pos /= 2;)
+        pos += n;
+        for (s[pos] = max(s[pos], val); pos /= 2;)
             s[pos] = max(s[pos * 2], s[pos * 2 + 1]);
     }
     T query(int b, int e) { // query [b, e)
@@ -129,7 +130,7 @@ struct maxtree {
 signed main()
 {
     fast();
-    
+
     int n, k;
     cin >> n >> k;
     vector<vector<p2>> adj(n);
@@ -163,24 +164,24 @@ signed main()
     vvi values(n);
 
     auto add_nodes = [&](int u, int t)
+    {
+        int c = u;
+        int prevc = -1;
+        while (c != -1)
         {
-            int c = u;
-            int prevc = -1;
-            while (c != -1)
-            {
-                unique_values[c]++;
-                values[c].push_back(t - dist(u, c));
-                prevc = c;
-                c = par[c];
-            }
-        };
+            unique_values[c]++;
+            values[c].push_back(t - dist(u, c));
+            prevc = c;
+            c = par[c];
+        }
+    };
 
     repe(tr, trains)
     {
         int t, a, b, d;
         tie(t, a, b, d) = tr;
 
-        add_nodes(a, t-d);
+        add_nodes(a, t - d);
     }
     add_nodes(0, inf);
     rep(i, n) sort(all(values[i]));
@@ -192,40 +193,40 @@ signed main()
     }
 
     auto add = [&](int u, int t, int dpv)
+    {
+        int c = u;
+        int prevc = -1;
+        while (c != -1)
         {
-            int c = u;
-            int prevc = -1;
-            while (c != -1)
-            {
-                int realt = t - dist(u, c);
-                int ind = lower_bound(all(values[c]), realt) - values[c].begin();
-                trees[c].update(ind, dpv);
-                prevc = c;
-                c = par[c];
-            }
-        };
+            int realt = t - dist(u, c);
+            int ind = lower_bound(all(values[c]), realt) - values[c].begin();
+            trees[c].update(ind, dpv);
+            prevc = c;
+            c = par[c];
+        }
+    };
 
     int lb_calls = 0;
     auto query = [&](int u, int t)
+    {
+        int ret = -inf;
+        int c = u;
+        int prevc = -1;
+        while (c != -1)
         {
-            int ret = -inf;
-            int c = u;
-            int prevc = -1;
-            while (c != -1)
-            {
-                int realt = t + dist(u, c);
-                int ind = lower_bound(all(values[c]), realt) - values[c].begin();
+            int realt = t + dist(u, c);
+            int ind = lower_bound(all(values[c]), realt) - values[c].begin();
 
-                if (ind!= unique_values[c])
-                {
-                    ret = max(ret, trees[c].query(ind, unique_values[c]));
-                }
-                
-                prevc = c;
-                c = par[c];
+            if (ind != unique_values[c])
+            {
+                ret = max(ret, trees[c].query(ind, trees[c].n));
             }
-            return ret;
-        };
+
+            prevc = c;
+            c = par[c];
+        }
+        return ret;
+    };
 
     add(0, inf, 0);
 
@@ -238,13 +239,13 @@ signed main()
 
         if (best >= 0)
         {
-            add(a, t - d, best+1);
+            add(a, t - d, best + 1);
         }
     }
 
     rep(i, n)
     {
-        cout << query(i,0) << " ";
+        cout << query(i, 0) << " ";
     }
     cout << endl;
 

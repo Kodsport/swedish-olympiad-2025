@@ -20,6 +20,8 @@ sample 1
 group group1 10
 limits maxn=50 maxk=50 maxt=100
 tc 1
+tc_manual ../manual_data/kill_py
+tc_manual ../manual_data/kill_weird
 tc g1-1 gen_rand n=50 k=10 t=100 maxs=1 dmult=3
 tc g1-2 gen_rand n=50 k=16 t=100 maxs=2 dmult=5
 tc g1-3 gen_rand n=50 k=25 t=100 maxs=5 dmult=6
