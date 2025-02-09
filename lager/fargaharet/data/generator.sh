@@ -57,6 +57,7 @@ tc g5-4 gen_same n=100000 q=100000 maxv=1 mode="same" phaseSize=10
 tc g5-5 gen_same n=100000 q=100000 maxv=1 mode="diff" 
 tc g5-6 gen_same n=100000 q=100000 maxv=1 mode="diff" phaseSize=50000
 tc g5-7 gen_same n=100000 q=100000 maxv=1 mode="diff" phaseSize=10
+tc g5-8 gen_rand n=100000 q=100000 maxv=1 mode="distinct"
 
 group group6 20
 limits maxn=100000 maxq=100000 maxv=3
@@ -68,6 +69,7 @@ tc g6-4 gen_same n=100000 q=100000 maxv=3 mode="same" phaseSize=10
 tc g6-5 gen_same n=100000 q=100000 maxv=3 mode="diff" 
 tc g6-6 gen_same n=100000 q=100000 maxv=3 mode="diff" phaseSize=50000
 tc g6-7 gen_same n=100000 q=100000 maxv=3 mode="diff" phaseSize=10
+tc g6-8 gen_rand n=100000 q=100000 maxv=3 mode="distinct"
 
 group group7 7
 limits maxn=100000 maxq=100000 maxv=6
@@ -79,6 +81,7 @@ tc g7-4 gen_same n=100000 q=100000 maxv=6 mode="same" phaseSize=10
 tc g7-5 gen_same n=100000 q=100000 maxv=6 mode="diff" 
 tc g7-6 gen_same n=100000 q=100000 maxv=6 mode="diff" phaseSize=50000
 tc g7-7 gen_same n=100000 q=100000 maxv=6 mode="diff" phaseSize=10
+tc g7-8 gen_rand n=100000 q=100000 maxv=6 mode="distinct"
 
 group group8 10
 limits maxn=100000 maxq=100000 maxv=9
@@ -91,3 +94,4 @@ tc g8-4 gen_same n=100000 q=100000 maxv=9 mode="same" phaseSize=10
 tc g8-5 gen_same n=100000 q=100000 maxv=9 mode="diff" 
 tc g8-6 gen_same n=100000 q=100000 maxv=9 mode="diff" phaseSize=50000
 tc g8-7 gen_same n=100000 q=100000 maxv=9 mode="diff" phaseSize=10
+tc g8-8 gen_rand n=100000 q=100000 maxv=9 mode="distinct"
