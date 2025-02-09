@@ -10,6 +10,8 @@ compile gen_dumbbell.py
 compile gen_starry.py
 compile gen_smalldeg.py pypy3
 compile gen_line.py
+compile gen_line2.py
+compile gen_line3.py
 
 samplegroup
 limits maxn=10 maxk=10 maxt=10
@@ -82,6 +84,10 @@ limits maxn=100000 maxk=100000 maxt=1000000000 line=1
 tc g7-1 gen_line n=100000 k=100000 num_weights=1 traintime=100
 tc g7-2 gen_line n=100000 k=100000 num_weights=3 traintime=1000
 tc g7-3 gen_line n=100000 k=100000 num_weights=5 traintime=10000
+tc g7-4 gen_line2 w=1 d=5
+tc g7-5 gen_line2 w=100 d=200
+tc g7-6 gen_line3
+
 
 group group8 25
 include_group group6
