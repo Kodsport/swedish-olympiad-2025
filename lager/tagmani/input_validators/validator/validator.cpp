@@ -24,6 +24,7 @@ void run() {
 	Endl();
 	
 	int maxt = Arg("maxt");
+	int line = Arg("line", 0);
 
 	long long tot_dist = 0;
 	UF uf(n);
@@ -35,6 +36,7 @@ void run() {
 		Space();
 		tot_dist += (long long)Int(1, int(1e9));
 		Endl();
+		if (line) assert(a==i+1&&b==i+2);
 		a--; b--;
 		assert(uf.join(a,b));
 	}

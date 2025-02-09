@@ -32,6 +32,7 @@ for i in range(n-1):
 
 print(69696+123, 69696-123, 69, 1337)
 seen_times = set()
+seen_times.add(69696+123)
 for i in range(k-1):
     while 1:
         time = rand(0, (i+1)*rand(1, 30))
@@ -40,7 +41,7 @@ for i in range(k-1):
         seen_times.add(time)
         a = rand(1,border-100)
         while 1:
-            b = a+rand(1,25)
+            b = a+rand(-25,25)
             if b==a or b < 1 or b > n:
                 continue
             break

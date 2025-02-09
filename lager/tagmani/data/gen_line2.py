@@ -23,7 +23,7 @@ d = int(cmdlinearg("d"))
 print(n, k)
 
 weights = [rand(1, 10) for i in range(n-1)]
-for i in range(n-1):
+for i in range(w):
     weights[i] = rand(1, 10000)
 
 totdist = 0
@@ -42,7 +42,7 @@ for i in range(k):
         seen_times.add(time)
         a = rand(1,n)
         while 1:
-            b = a+rand(1,d)
+            b = a+rand(-d,d)
             if b==a or b < 1 or b > n:
                 continue
             break

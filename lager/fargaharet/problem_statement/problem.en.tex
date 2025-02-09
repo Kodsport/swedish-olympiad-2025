@@ -1,0 +1,77 @@
+\problemname{Hair Dyeing}
+
+Your friend has grown tired of their natural hair color and has decided it's time for a change.
+
+Every day, your local hair salon has a big discount on one of its $10$ hair dyes (none of which
+match your friend's natural hair color). They maintain a preliminary schedule of their discounts
+for the next $N$ days but warn that the schedule may change in the future. Dyeing hair is, of
+course, not something to be done half-heartedly, so your friend wants to make a plan for how to
+dye their hair in the coming days.
+
+Such a plan determines on which days your friend will go to dye their hair. When dyeing, they
+always choose the discounted color since it would be too expensive otherwise. In total, there
+are $2^N$ possible plans. However, they do not accept all plans: naturally, they do not want
+to dye their hair the same color two days in a row.
+
+You have been asked by your friend to calculate how many different such plans they could create.
+However, each time you provide an answer, your friend informs you that the salon has updated its
+schedule, changing which color is on discount on one of the days.
+
+Since the answer can be very large, you should output it modulo $2^{64}$. This means the remainder
+of the answer after dividing by $2^{64}$. In most programming languages, all calculations are
+automatically performed modulo $2^{64}$ when using unsigned 64-bit integers.
+In C++, you can use \texttt{unsigned long long}.
+
+\section*{Input}
+The first line of input contains two integers, $N$ and $Q$ ($1 \leq N \leq 10^5$, $0 \leq Q \leq 10^5$),
+representing the number of days in the schedule and the number of schedule updates.
+
+Next, there are $N$ integers $a_i$ ($0 \leq a_i \leq 9$), where $a_i$ indicates that color $a_i$ is on
+discount on day $i$.
+
+After that, there are $Q$ lines, each containing the integers $i$ and $v$ ($1 \leq i \leq N$, $0 \leq v \leq 9$),
+meaning that on day $i$, the discount is now on color $v$.
+
+\textbf{Note} that both $a_i$ and $v$ are very small.
+
+\section*{Output}
+First, print the number of hair-dyeing plans that can be created from the original schedule, modulo $2^{64}$.
+
+Then, after each update, print the number of plans that can be created modulo $2^{64}$.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $3$        & $Q=0, N \leq 15$ \\ \hline
+  $2$    & $7$        & $Q=0, N \leq 1000$ \\ \hline
+  $3$    & $8$        & $Q=0$ \\ \hline
+  $4$    & $15$       & $Q \leq 6000$ \\ \hline
+  $5$    & $30$       & $a_i, v \leq 1$ \\ \hline
+  $6$    & $20$       & $a_i, v \leq 3$ \\ \hline
+  $7$    & $7$        & $a_i, v \leq 6$ \\ \hline
+  $8$    & $10$       & No additional constraints. \\ \hline
+\end{tabular}
+
+
+\section*{Explanation of Sample 1}
+There are 4 plans: either the friend can choose not to dye their hair at all or dye their hair exactly once.
+
+\section*{Explanation of Sample 2}
+The 7 plans are:
+\begin{itemize}
+  \item $[]$
+  \item $[0]$
+  \item $[1]$
+  \item $[0 1]$
+  \item $[0]$
+  \item $[1 0]$
+  \item $[0 1 0]$
+\end{itemize}
+Note that plans that contain only the color $0$ are counted twice since dyeing hair on different days counts
+as different plans, even if the color is the same.
+
