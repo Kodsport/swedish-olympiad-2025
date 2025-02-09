@@ -1,0 +1,66 @@
+\problemname{Train Mania}
+It is very well known that Julia likes the TV series \textit{På spåret}. So, it may not come as
+a surprise that she enjoys traveling by train. Unfortunately, she has recently gone a bit off
+track, and this once innocent hobby has turned into a manic need to ride trains. The problem is
+that it is difficult to travel by train as much as she would like since trips take a long time.  
+
+Even though she cannot take every train, she tries to travel with as many as possible. After
+spending hours in her room trying to create the best travel plan, you decide to help her.
+While the number of trains she takes is not exactly healthy, you prefer that she actually
+rides trains rather than just planning her train journeys.  
+
+Julia lives in the city of Lönnköping, which has $N$ stations numbered from $1$ to $N$.
+To travel between them, there are two modes of transportation: electric scooters and trains.
+There are so many electric scooters in the city that she can start a scooter ride from any station.
+However, she can only ride a scooter along the $N-1$ roads in the city. It is possible to travel
+between any two stations using one or more of these roads, meaning the road network forms a \textit{tree}.
+Traveling along each road with a scooter takes a certain number of seconds.  
+
+She can also take part in the next $K$ train departures. Each train follows a strict schedule: it
+departs from a specific station at a specific time and arrives at its destination after a certain number
+of seconds. If Julia is at a station at the exact second a train departs, she can take it if she wants.
+She will then stay on the train until it reaches its final destination (she cannot bring herself to
+get off a train before she absolutely has to). If a train arrives at a station at the exact second
+another train departs, she can make the transfer if she chooses.  
+
+Given the road network and the next $K$ train departures, how many trains can Julia take if she plans
+her journey optimally? Since the plan is set for some time in the future, she is unsure where she
+will start, so she wants you to calculate the maximum number of trains she can take for each possible
+starting station. You can assume that she always begins her journey at time $0$.  
+
+
+\section*{Input}
+The first line of input contains two integers, $N$ and $K$ ($1 \leq N, K \leq 10^5$), representing
+the number of stations in Lönnköping and the number of train departures to consider.
+
+The next $N-1$ lines describe the road network. Each of these lines contains the integers
+$u, v, s$ ($1 \leq u, v \leq N$, $1 \leq s \leq 10^9$), meaning there is a road between stations
+$u$ and $v$. It takes $s$ seconds to travel from $u$ to $v$ or from $v$ to $u$ using a scooter.
+
+After that, there are $K$ lines describing the train departures. Each of these lines contains
+the integers $u, v, t, d$ ($1 \leq u, v \leq N$, $u \neq v$, $1 \leq t, d \leq 10^9$), meaning
+that at time $t$, a train departs from station $u$ to station $v$ and arrives at station $v$ at
+time $t+d$. It is guaranteed that all $t$ values are unique.
+
+\section*{Output}
+Let $x_i$ denote the maximum number of trains Julia can take if she starts her journey at station $i$.
+Print $x_1, x_2, \dots, x_N$ separated by spaces.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $10$       & $N, K \leq 50$, $t, d \leq 100$ for all $t,d$. \\ \hline
+  $2$    & $5$        & $N, K \leq 50$ \\ \hline
+  $3$    & $12$       & $N \leq 1000, K \leq 200$ \\ \hline
+  $4$    & $13$       & $N, K \leq 2000$ \\ \hline
+  $5$    & $10$       & $K \leq 2000$ and the smallest $t$ is larger than the sum of all $s$. \\ \hline
+  $6$    & $2$        & $K \leq 20000$ \\ \hline
+  $7$    & $23$       & There is a path between station $i$ and station $i+1$ for all $1 \leq i \leq N-1$. \\ \hline
+  $8$    & $25$       & No additional constraints. \\ \hline
+\end{tabular}
+
