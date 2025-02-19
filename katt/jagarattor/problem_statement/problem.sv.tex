@@ -1,0 +1,67 @@
+\problemname{Jaga råttor}
+
+\noindent
+Förra året lyckades ingen jaga ut jätteråttorna ur Göteborg (se problemet \textit{KATT och råtta}).
+På grund av detta har Olle inget annat val än att ta saken i egna händer och själv jaga in alla göteborgs
+råttor i fällor.
+
+Göteborgs kloaker består av $N$ brunnar, där $M$ stycken brunnar är direkt sammankopplade av rör. 
+När Olle ska jaga en råtta sätter han en fälla i brunn $T$, han börjar han i brunn $S$ och råttan börjar
+i brunn $R$. Målet är att få råttan att gå in i fällan i brunn $T$. Olle kan förflytta sig mellan brunnarna
+med hjälp av rören. Om han går in i samma brunn som råttan, så kommer den fly till en intilliggande brunn.
+Efter att ha jagat många råttor har han märkt att de är förutsägbara: om han går in i en brunn från ett
+visst rör, så kommer råttan alltid att fly till en särskild brunn.
+
+Olle har tyvärr märkt att vissa råttor inte går att fånga. Han vill därför ha din hjälp $Q$ gånger att avgöra om det går
+att fånga råtten givet $S,T$ och $R$. Notera att alla frågor är oberoende varandra, och det finns alltid
+exakt en rådda i kloakerna per fråga.
+
+
+
+
+\section*{Indata}
+Den första raden i indatan innehåller heltalen $N, M$ och $Q$ ($3 \leq N \leq 10^5$, $1 \le M,Q \le 10^5$),
+antalet brunnar, antalet rör och antalet frågor.
+
+De följande $M$ raderna beskriver vardera ett rör. Varje rör beskrivs av heltalen $u,v,a,b$ 
+($1 \leq u,v \leq N$, $u \neq v$), där $u,v$ beskriver att det finns ett rör mellan brunn $u$ och $v$.
+$a$ beskriver att om Olle färdas från $u$ till $v$ och en råtta befinner sig i brunn $v$, så kommer 
+den fly till brunn $a$. $b$ beskriver motsvarande att om Olle befinner sig i brunn $v$ och färdas
+till $u$, så flyr råtten till brunn $b$. Det är även garanterat att det finns som mest ett rör
+mellan varje par av brunnar, röret $(v,a)$ finns, röret $(u,b)$ finns och att $v \neq a$ och $u \neq b$.
+
+Därefter följer $Q$ rader som vardera innehåller heltalen $S,R,T$ ($1 \leq S,R,T \leq N$),
+som beskriver att Olle undrar om han kan jaga råttan i brunn $R$ till brunn $T$ om han börjar på
+brunn $S$. Det är garanterat att $T\neq S$, $T\leq R$ och $S\neq R$.
+
+
+\section*{Utdata}
+Svara på varje fråga i samma ordning som i indatan. Om Olle kan jaga in råttan i fällen, skriv ut
+\texttt{1}, annars \textit{0}.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+%TODO
+% föreställer mig att lägga till låggradigt + a och b är lika med grannen med minst index
+% <1, M^2Q>
+% <M*maxdeg^2,QM*maxdeg>
+% <M^2, MQ>
+% <N*maxdeg^2*log,Q*M*maxdeg^2>
+% träd
+% varje a och b pekar på giltiga grannen med lägst index
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $5$        & $N, M \leq 500, Q=1$ \\ \hline
+  $2$    & $10$       & $R, C \leq 30, Q \leq 1000$ \\ \hline
+  $3$    & $40$       & $Q=1$ \\ \hline
+  $4$    & $10$       & Lådans och målets position är samma för alla frågor. \\ \hline
+  $5$    & $15$       & Målets position är samma för alla frågor. \\ \hline
+  $6$    & $20$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+I första fallet finns det $26^3$ olika ord. Eftersom den Danska ordboken är tom i detta fallet förbjuds inga av dessa.
