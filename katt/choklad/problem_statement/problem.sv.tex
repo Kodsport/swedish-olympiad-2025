@@ -1,0 +1,53 @@
+\problemname{Äta choklad}
+
+\noindent
+Olle och Lisa har fått $N$ stycken chokladkakor i olika former av sina föräldrar, som de nu planerar att äta tillsammans (chokladkakorna, inte föräldrarna).
+Varje chokladkaka är en rektangel som består av $R_i \times C_i$ rutor.
+Chokladkakorna ligger på ett bord, och för att äta upp dem kommer de turas om att göra följande:
+\begin{itemize}
+  \item Välj en chokladkaka från bordet.
+  \item Bryt den i två delar, så att båda är rektanglar med heltalssidor.
+  \item Ät upp den mindre delen.
+  \item Lägg tillbaka den andra delen på bordet.
+\end{itemize}
+Om chokladkakan de väljer har storlek $1 \times 1$ äter de upp den direkt, och lägger inte någonting på bordet.
+De har redan bestämt att Lisa får börja.
+
+
+
+Båda är väldigt glupska, och försöker maximera antalet chokladrutor de själva äter.
+De är båda perfekta logiker som vet att den andra också spelar efter samma mål.  
+Olle är dessutom väldigt mån om rättvisa, och vill gärna att de totala mängderna rutor choklad de båda äter ska vara så lika som möjligt.
+Innan de börjar kan han välja att slänga högst en chokladkaka i soptunnan utan att Lisa märker någonting.
+
+
+
+Låt $V_O$ och $V_L$ vara antalet rutor Olle respektive Lisa äter. 
+Din uppgift är att bestämma vad den minimala skillnaden, alltså $|V_O - V_L|$, är,
+efter att Olle slängt högst en chokladkaka.
+
+
+\section*{Indata}
+På den första raden står talet $N$ ($2 \leq N \leq 10^5$), antalet chokladkakor på bordet.
+Därefter följer $N$ rader, där den $i$:te raden har talen $R_i$ och $C_i$ ($1 \leq R_i, C_i \leq 10^6$).
+
+
+\section*{Utdata}
+Skriv ut ett heltal, det minimala värdet på $|V_O - V_L|$ som beskrivet ovan.
+
+
+\section*{Poängsättning}
+
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$        & Alla chokladkakor har samma storlek. \\ \hline
+  $2$    & $20$       & $R_i, C_i \leq 10$ \\ \hline
+  $3$    & $15$       & $N \leq 50$ \\ \hline
+  $3$    & $15$       & $N \leq 500$ \\ \hline
+  $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
