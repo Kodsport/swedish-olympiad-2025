@@ -15,17 +15,18 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 maxsz = int(cmdlinearg('maxsz', 1_000_000))
+minsz = int(cmdlinearg('minsz', 1))
 same = int(cmdlinearg('same', 0))
 print(n)
 
 if same:
-    r = random.randint(1, maxsz)
-    c = random.randint(1, maxsz)
+    r = random.randint(minsz, maxsz)
+    c = random.randint(minsz, maxsz)
     for i in range(n):
         print(r, c)
     exit(0)
 
 
 for i in range(n):
-    print(random.randint(1, maxsz), random.randint(1, maxsz))
+    print(random.randint(minsz, maxsz), random.randint(minsz, maxsz))
 

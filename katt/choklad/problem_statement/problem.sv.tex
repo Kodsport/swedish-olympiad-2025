@@ -3,12 +3,12 @@
 \noindent
 Olle och Lisa har fått $N$ stycken chokladkakor i olika former av sina föräldrar, som de nu planerar att äta tillsammans (chokladkakorna, inte föräldrarna).
 Varje chokladkaka är en rektangel som består av $R_i \times C_i$ rutor.
-Chokladkakorna ligger på ett bord, och för att äta upp dem kommer de turas om att göra följande:
+Chokladkakorna ligger på ett bord, och för att äta upp dem kommer de turas om att göra följande drag:
 \begin{itemize}
-  \item Välj en chokladkaka från bordet.
-  \item Bryt den i två delar, så att båda är rektanglar med heltalssidor.
-  \item Ät upp den mindre delen.
-  \item Lägg tillbaka den andra delen på bordet.
+  \item Välja en chokladkaka från bordet.
+  \item Bryta den i två delar, så att båda delarna är rektanglar med sidor av heltalslängd.
+  \item Äta upp den mindre delen.
+  \item Lägga tillbaka den andra delen på bordet igen.
 \end{itemize}
 Om chokladkakan de väljer har storlek $1 \times 1$ äter de upp den direkt, och lägger inte någonting på bordet.
 De har redan bestämt att Lisa får börja.
@@ -16,8 +16,8 @@ De har redan bestämt att Lisa får börja.
 
 
 Båda är väldigt glupska, och försöker maximera antalet chokladrutor de själva äter.
-De är båda perfekta logiker som vet att den andra också spelar efter samma mål.  
-Olle är dessutom väldigt mån om rättvisa, och vill gärna att de totala mängderna rutor choklad de båda äter ska vara så lika som möjligt.
+De är båda perfekta logiker, och båda vet att den andra också gör drag som maximerar sin egen chokladkonsumption.  
+Olle är dessutom väldigt mån om rättvisa, och vill gärna att det totala antalet rutor choklad de båda äter ska vara så lika som möjligt.
 Innan de börjar kan han välja att slänga högst en chokladkaka i soptunnan utan att Lisa märker någonting.
 
 
@@ -44,10 +44,14 @@ Skriv ut ett heltal, det minimala värdet på $|V_O - V_L|$ som beskrivet ovan.
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $10$        & Alla chokladkakor har samma storlek. \\ \hline
-  $2$    & $20$       & $R_i, C_i \leq 10$ \\ \hline
+  $2$    & $16$       & $R_i, C_i \leq 10$ \\ \hline
   $3$    & $15$       & $N \leq 50$ \\ \hline
-  $3$    & $15$       & $N \leq 500$ \\ \hline
+  $3$    & $19$       & $N \leq 500$ \\ \hline
   $4$    & $40$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
-\section*{Förklaring av exempelfall}
+\section*{Förklaring av exempelfall 1}
+Olle slänger chokladkakan med storlek $2 \times 2$. Därefter kommer de att två gånger vardera äta en ruta choklad, och alltså är $V_O = V_L$.
+
+\section*{Förklaring av exempelfall 2}
+I detta testfall är det optimalt för Olle att inte slänga någon chokladkaka. De kommer då att äta precis lika mycket choklad.
