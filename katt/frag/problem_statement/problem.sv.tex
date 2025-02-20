@@ -1,0 +1,42 @@
+\problemname{Fem råttor hos Gustav}
+\noindent
+
+% TODO
+
+
+\section*{Indata}
+Den första raden innehåller talen $N, M, T, (1 \leq  M < N \leq 2 \cdot 10^5), (1 \leq T \leq 10^8)$. 
+$N$ antal brunnar, $M$ är antal råttor, och $T$ är antal sekunder som man vill överleva.
+
+De följande $N-1$ raderna innehåller talen $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1), (1 \leq t_i \leq 10^8)$ som säger att det finns ett rör mellan
+brunn $a_i$ och brunn $b_i$ och tiden det tar att gå mellan dem är $t_i$, där $a_i \neq b_i$. 
+
+Efter det följer $N-1$ rader där rad $i (1 \leq i \leq N-1)$ innehåller talet $e_i$ $(1 \leq e_i \leq 10^5)$.
+
+Därefter följer $M$ rader där rad $i$ innehåller talet $r_i$ som talar om att det startar en råtta i brunn $r_i$ $(1 \leq r_i \leq N-1)$. 
+Från början befinner sig inga två råttori samma brunn.
+
+\section*{Utdata}
+Skriv ut den minsta energin som behövs för att ingen råtta ska komma till dig innan $T$ sekunder paserat. 
+
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $10$       & $N, K \leq 50$, $t, d \leq 100$ för alla $t,d$. \\ \hline
+  $2$    & $5$        & $N, K \leq 50$ \\ \hline
+  $3$    & $12$       & $N \leq 1000, K \leq 200$ \\ \hline
+  $4$    & $13$       & $N, K \leq 2000$ \\ \hline
+  $5$    & $10$       & $K \leq 2000$ och det minsta $t$:et är större än summan av alla $s$. \\ \hline
+  $6$    & $2$        & $K \leq 20000$ \\ \hline
+  $7$    & $23$       & Det finns en väg mellan station $i$ och station $i+1$ för alla $1 \leq i \leq N-1$. \\ \hline
+  $8$    & $25$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+%\section*{Exempelfall}
+
