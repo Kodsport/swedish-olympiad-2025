@@ -1,7 +1,14 @@
 \problemname{Fem råttor hos Gustav}
 \noindent
 
-% TODO
+Du befinner dig i ett avloppsystem med $N$ brunnar numrerade från $0$ till $N-1$. Det finns totalt $N-1$ rör som kopplar ihop brunnarna. 
+Det finns en unik väg mellan varje par av brunnar. Varje rör tar ett visst antal sekunder att gå genom.
+Du befinner dig i brunn nummer 0. I brunnarna $r_1, ..., r_m$ finns det råttor.
+Snart är det natt och när natten börjar kommer råttorna röra sig mot dig. Om någon råtta kommer till brunn 0 innan $T$ sekunder har passerat kommer de äta din ost.
+För att undvika detta har du hackat dig in i stadens avloppsystem och kan stänga brunnar. Om du stänger en brunn under 1 sekund kan inga råttor 
+gå ut från den brunnen under den sekunden. Råttor kan däremot gå in i en stängd brunn. För varje brunn finns ett tal $e_i$, energin som krävs för att hålla brunnen stängd
+i 1 sekund. Du vill hålla vissa brunnar stängda under delar av natten så att ingen råtta når dig innan $T$ sekunder har passerat. 
+Vad är den minsta totala energin som du kan förbruka för att uppnå detta?
 
 
 \section*{Indata}
@@ -28,14 +35,12 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $10$       & $N, K \leq 50$, $t, d \leq 100$ för alla $t,d$. \\ \hline
-  $2$    & $5$        & $N, K \leq 50$ \\ \hline
-  $3$    & $12$       & $N \leq 1000, K \leq 200$ \\ \hline
-  $4$    & $13$       & $N, K \leq 2000$ \\ \hline
-  $5$    & $10$       & $K \leq 2000$ och det minsta $t$:et är större än summan av alla $s$. \\ \hline
-  $6$    & $2$        & $K \leq 20000$ \\ \hline
-  $7$    & $23$       & Det finns en väg mellan station $i$ och station $i+1$ för alla $1 \leq i \leq N-1$. \\ \hline
-  $8$    & $25$       & Inga ytterligare begränsningar. \\ \hline
+  $1$ & $6$   & $e_i = 1$ för alla $i$. \\ \hline 
+  $2$ & $5$   & $M = 1$ \\ \hline
+  $3$ & $10$  & $M \leq 2$ \\ \hline
+  $4$ & $23$  & $M \leq 20$ \\ \hline
+  $5$ & $17$  & Trädet är ett binärt träd. \\ \hline skriv det här bättre
+  $6$ & $39$  & Inga ytterligare begränsningar \\ \hline
 \end{tabular}
 
 %\section*{Exempelfall}
