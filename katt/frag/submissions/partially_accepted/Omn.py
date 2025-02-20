@@ -54,11 +54,13 @@ for i in range(n-1):
     graph[a].append((b, w))
     graph[b].append((a, w))
 
-for i in range(n-1):
-    e[i+1] = int(input())
+e[1:] = [*map(int,input().split())]
+#for i in range(n-1):
+#    e[i+1] = int(input())
 
-for i in range(m):
-    israt[int(input())] = True
+ratstart = [*map(int,input().split())]
+for x in ratstart:
+    israt[x] = True
 
 
 build(0, 0)

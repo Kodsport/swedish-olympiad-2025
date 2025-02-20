@@ -1,10 +1,10 @@
 #!/bin/bash
 . ../../../testdata_tools/gen.sh
 
-ulimit -s unlimited
+#ulimit -s unlimited
 use_solution emil.cpp
 
-compile gen_rand.py
+compile gen_rand.py #converted
 compile gen_path.py
 compile gen_dumbbell.py
 compile gen_starry.py
@@ -14,20 +14,14 @@ compile gen_line2.py
 compile gen_line3.py
 
 samplegroup
-limits maxn=10 maxk=10 maxt=10
+limits maxn=10 maxm=10 maxt=10
 #sample 1
 
 group group1 10
-limits maxn=50 maxk=50 maxt=100
+limits maxn=50 maxm=50 maxt=100
 #tc 1
-tc g1-1 gen_rand n=50 k=10 t=100 maxs=1 dmult=3
-tc g1-2 gen_rand n=50 k=16 t=100 maxs=2 dmult=5
-tc g1-3 gen_rand n=50 k=25 t=100 maxs=5 dmult=6
-tc g1-4 gen_rand n=50 k=50 t=100 maxs=10 dmult=7
-tc g1-5 gen_rand n=50 k=10 t=100 maxs=1 dmult=20
-tc g1-6 gen_rand n=50 k=16 t=100 maxs=2 dmult=6
-tc g1-7 gen_rand n=50 k=25 t=100 maxs=10 dmult=2
-tc g1-8 gen_rand n=50 k=50 t=100 maxs=5 dmult=20
+tc g1-1 gen_rand n=10 m=8 t=100 maxt=10 maxe=100000
+
 
 group group2 5
 include_group group1

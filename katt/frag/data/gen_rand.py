@@ -18,8 +18,8 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 m = int(cmdlinearg('k'))
 t = int(cmdlinearg('t'))
-maxs = int(cmdlinearg("maxs"))
-dmult = int(cmdlinearg("dmult", 3))
+maxe = int(cmdlinearg("maxe"))
+maxt = int(cmdlinearg("maxt"))
 
 
 # Stolen from https://github.com/cheran-senthil/PyRival/blob/master/pyrival/data_structures/DisjointSetUnion.py
@@ -40,31 +40,21 @@ class UF:
 
 uf = UF(n)
 
-totdist = 0
-print(n, k)
+tottime = 0
+print(n, m, t)
 for i in range(n-1):
     while True:
         a,b=randint(0,n-1),randint(0,n-1)
         if a==b:continue
         if uf.find(a)==uf.find(b):continue
         uf.union(a,b)
-        s = randint(1, maxs)
-        totdist += s
-        print(a+1,b+1, s)
+        ti = randint(1, maxt)
+        tottime += ti
+        print(a, b, ti)
         break
 
-seen_times = set()
-for i in range(k):
-    while 1:
-        time = randint(0, t)
-        if late_trains:
-            time += totdist + 20
-        if time in seen_times:
-            continue
-        seen_times.add(time)
-        a = randint(1,n)
-        b = randint(1,n)
-        while b==a:
-            b = randint(1,n)
-        print(a, b, time, randint(1, maxs*dmult))
-        break
+energy = [random.randint(1,maxe) for _ in range(n-1)]
+print(*energy)
+
+rats = random.sample([*range(1,n-1)],m)
+print(*rats)
