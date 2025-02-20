@@ -31,10 +31,9 @@ def trygen():
     for i in range(m):
         while 1:
             a,b=random.sample(range(0,n-1),2)
-            if (a,b) in seen:
+            if (a,b) in seen or (b,a) in seen:
                 continue
             seen.add((a,b))
-            seen.add((b,a))
             edges.append((a,b))
             adj[a].append(b)
             adj[b].append(a)
@@ -46,8 +45,8 @@ def trygen():
 
     for i in range(len(edges)):
         u,v = edges[i]
-        a = random.choice(list(j for j in adj[v] if j !=u))
-        b = random.choice(list(j for j in adj[u] if j !=v))
+        a = random.choice(adj[v])
+        b = random.choice(adj[u])
         
         edges[i] = (u,v,a,b)
     return edges

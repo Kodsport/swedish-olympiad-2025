@@ -15,52 +15,73 @@ typedef vector<int> vi;
 
 
 void run() {
-    int maxr = Arg("maxr");
-    int r = Int(1, maxr);
+    int n = Int(1, Arg("maxn"));
     Space();
-    int c = Int(1, maxr);
+    int m = Int(1, Arg("maxm"));
     Space();
     int q = Int(1, Arg("maxq"));
     Endl();
 
-    fo(i, r)
+    int maxdeg = Arg("maxdeg", n);
+
+    set<pii> edges;
+    vi deg(n);
+    vector<pii> rat_escapes;
+    rep(i,0,m)
     {
-        Line();
+        int u = Int(1,n);
+        Space();
+        int v = Int(1,n);
+        Space();
+        int a = Int(1,n);
+        Space();
+        int b = Int(1,n);
+        Endl();
+
+        u--; v--; a--; b--;
+        assert(u!=v);
+        pii p = {u,v};
+        assert(edges.count(p)==0);
+        edges.emplace(u,v);
+        edges.emplace(v,u);
+        rat_escapes.emplace_back(v,a);
+        rat_escapes.emplace_back(u,b);
+
+        deg[u]++;
+        deg[v]++;
+        assert(deg[u]<=maxdeg);
+        assert(deg[v]<=maxdeg);
     }
 
-    pii first_box, first_goal;
+    for (auto e : rat_escapes) assert(edges.count(e));
+
+
+    int first_rat, first_goal;
     bool same_boxgoal = (int)Arg("sameboxgoal", 0);
     bool same_goal = (int)Arg("samegoal", 0);
     fo(i, q)
     {
-        pii start;
-        start.first = Int(1, r);
+        int s = Int(1,n);
         Space();
-        start.second = Int(1, c);
+        int r = Int(1,n);
         Space();
-        pii box;
-        box.first = Int(1, r);
-        Space();
-        box.second = Int(1, c);
-        Space();
-        pii goal;
-        goal.first = Int(1, r);
-        Space();
-        goal.second = Int(1, c);
+        int t = Int(1,n);
         Endl();
-        box.first--,box.second--,start.first--,start.second--,goal.first--,goal.second--;
-        assert(start!=box&&box!=goal&&start!=goal);
-        if (i==0)
-        {
-            first_box = box;
-            first_goal = goal;
-        }
-        if (same_boxgoal)
-        {
-            assert(box==first_box);
-            assert(goal==first_goal);
-        }
-        if (same_goal) assert(goal==first_goal);
+
+        s--; r--; t--;
+        assert(s!=r&&r!=t&&t!=s);
+
+        // if (i==0)
+        // {
+        //     first_box = box;
+        //     first_goal = goal;
+        // }
+        // if (same_boxgoal)
+        // {
+        //     assert(box==first_box);
+        //     assert(goal==first_goal);
+        // }
+        // if (same_goal) assert(goal==first_goal);
     }
 
     Eof();

@@ -1,3 +1,4 @@
+// O(M^2+maxdeg^2)
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -60,7 +61,7 @@ signed main()
 	};
 
 	// for each vertex (rat) and neighbour, which neighbours can i reach?
-	// O(M*deg^2)
+	// O(M^2)
 	vector<vvi> neighbourtransitions(n);
 	rep(i, n)
 	{
