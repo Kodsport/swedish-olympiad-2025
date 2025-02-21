@@ -4,6 +4,7 @@ import sys
 import random
 import math
 from random import randint as rand
+from common import UF, add_rats
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -21,8 +22,22 @@ q = int(cmdlinearg('q'))
 maxdeg = int(cmdlinearg('maxdeg'))
 
 def generate_graph(n, m):
+    uf = UF(n)
     edges = set()
     degree = [0] * n
+    
+    while len(edges) < n-1:
+        a, b = random.sample(range(n), 2)
+        if (a, b) in edges or (b, a) in edges:
+            continue
+        if degree[a]==maxdeg or degree[b]==maxdeg:
+            continue
+        if uf.find(a) == uf.find(b):
+            continue
+        uf.union(a,b)
+        degree[a]+=1
+        degree[b]+=1
+        edges.add((a, b))
     
     while len(edges) < m:
         a, b = random.sample(range(n), 2)
@@ -30,24 +45,15 @@ def generate_graph(n, m):
             continue
         if degree[a]==maxdeg or degree[b]==maxdeg:
             continue
+        degree[a]+=1
+        degree[b]+=1
         edges.add((a, b))
 
-    return [list(edge) for edge in edges]
+    return add_rats(edges, n)
 
 
 edges = generate_graph(n, m)
-adj = [[] for i in range(n)]
-for e in edges:
-    a,b=e
-    adj[a].append(b)
-    adj[b].append(a)
-for i in range(len(edges)):
-    u,v = edges[i]
-    a = random.choice(adj[v])
-    b = random.choice(adj[u])
-    
-    edges[i] = (u,v,a,b)
-assert len(edges)==m
+
 print(n, len(edges), q)
 for e in edges:
     print(*(i+1 for i in e))

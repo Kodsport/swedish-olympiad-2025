@@ -28,7 +28,8 @@ De följande $M$ raderna beskriver vardera ett rör. Varje rör beskrivs av helt
 $a$ beskriver att om Olle färdas från $u$ till $v$ och en råtta befinner sig i brunn $v$, så kommer 
 den fly till brunn $a$. $b$ beskriver motsvarande att om Olle befinner sig i brunn $v$ och färdas
 till $u$, så flyr råtten till brunn $b$. Det är även garanterat att det finns som mest ett rör
-mellan varje par av brunnar, röret $(v,a)$ finns och röret $(u,b)$ finns.
+mellan varje par av brunnar, röret $(v,a)$ finns och röret $(u,b)$ finns och att man kan
+ta sig från varje brunn till alla andra brunnar.
 
 Därefter följer $Q$ rader som vardera innehåller heltalen $S,R,T$ ($1 \leq S,R,T \leq N$),
 som beskriver att Olle undrar om han kan jaga råttan i brunn $R$ till brunn $T$ om han börjar på
@@ -56,11 +57,11 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $5$        & $N, M \leq 50, Q \leq 100$ \\ \hline
   $2$    & $11$       & $N, M \leq 500, Q \leq 1000$ \\ \hline
-  $3$    & $26$       & $Q=1$, $deg(u) \leq 5$ för alla $1 \leq u \neq N$. \\ \hline
-  $4$    & $25$       & $Q \leq 100$ \\ \hline
-  $5$    & $7$        & $R$ och $T$ är samma för alla frågor \\ \hline
-  $6$    & $11$        & $T$ är samma för alla frågor \\ \hline
-  $7$    & $15$       & Inga ytterligare begränsningar. \\ \hline
+  $3$    & $20$       & $Q=1$, $deg(u) \leq 5$ för alla $1 \leq u \neq N$. \\ \hline
+  $4$    & $23$       & $Q=1$ \\ \hline
+  $5$    & $12$       & $S$ och $R$ är samma för alla frågor \\ \hline
+  $6$    & $17$       & $T$ är samma för alla frågor \\ \hline
+  $7$    & $12$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 \section*{Förklaring av exempelfall}

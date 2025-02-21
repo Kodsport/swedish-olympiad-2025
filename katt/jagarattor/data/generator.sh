@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited
 
-use_solution linear_query.cpp
+use_solution bitset_opt.cpp
 
 # TODO: graph with many articulation points
 
@@ -13,28 +13,61 @@ compile gen_slowrand.py
 compile gen_lowdeg.py
 compile gen_starry.py
 
-group group1 5
+samplegroup
+limits maxn=10 maxm=10 maxq=10
+sample 1
+
+group group1 1
 limits maxn=50 maxm=50 maxq=100
+tc 1
 tc g1-1 gen_slowrand n=5 m=5 q=100
 tc g1-2 gen_slowrand n=6 m=8 q=10
 tc g1-3 gen_slowrand n=10 m=30 q=100
 tc g1-4 gen_slowrand n=30 m=40 q=100
 
-
-group group2 5
+group group2 10
 include_group group1
 limits maxn=500 maxm=500 maxq=10000
-tc g2-1 gen_starry n=500 m=500 q=10000
+tc g2-1 gen_starry n=376 m=500 q=10000
 tc g2-2 gen_slowrand n=100 m=500 q=10000
 tc g2-3 gen_slowrand n=200 m=500 q=10000
 tc g2-4 gen_slowrand n=100 m=500 q=10000
 # high degree testcases
 
-group group3 5
+group group3 100
 limits maxn=100000 maxm=100000 maxq=1 maxdeg=5
-tc g3-1 gen_lowdeg n=100000 m=100000 maxdeg=5 q=1
+tc g3-1 gen_lowdeg n=90000 m=100000 maxdeg=5 q=1
 
-group group4 5
-limits maxn=100000 maxm=100000 maxq=500
-tc g4-1 gen_starry n=100000 m=100000 q=500
-# high degree testcases
+group group4 1000
+limits maxn=100000 maxm=100000 maxq=1
+include_group group3
+tc g4-1 gen_starry n=75000 m=100000 q=1 seed=123456 # for python3, use 12345 instead
+tc g4-2 gen_starry n=100 m=500 q=1
+tc g4-3 gen_starry n=100 m=500 q=1
+tc g4-4 gen_slowrand n=10 m=30 q=1
+tc g4-5 gen_slowrand n=10 m=30 q=1
+tc g4-6 gen_slowrand n=10 m=30 q=1
+tc g4-7 gen_slowrand n=10 m=30 q=1
+tc g4-8 gen_slowrand n=10 m=30 q=1
+tc g4-9 gen_slowrand n=10 m=30 q=1
+
+group group5 10000
+limits maxn=100000 maxm=100000 maxq=100000 samerat=1 samestart=1
+tc g5-1 gen_starry n=75000 m=100000 q=5 samerat=1 samestart=1 seed=123456 # for python3, use 12345 instead
+tc g5-2 gen_starry n=100 m=500 q=100000 samerat=1 samestart=1
+tc g5-3 gen_slowrand n=200 m=500 q=100000 samerat=1 samestart=1
+tc_manual ../manual_data/tiny_evil
+
+group group6 100000
+limits maxn=100000 maxm=100000 maxq=100000 samegoal=1
+tc g6-1 gen_starry n=75000 m=100000 q=5 samegoal=1 seed=123456 # for python3, use 12345 instead
+tc g6-2 gen_starry n=100 m=500 q=100000 samegoal=1
+tc_manual ../manual_data/samegoal_evil
+tc tiny_evil
+
+# group group7 1000000
+# limits maxn=100000 maxm=100000 maxq=100000
+# include_group group4
+# include_group group5
+# include_group group6
+# tc g7-1 gen_starry n=75000 m=100000 q=100000 seed=123456 # for python3, use 12345 instead

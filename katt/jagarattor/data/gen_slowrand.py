@@ -4,6 +4,7 @@ import sys
 import random
 import math
 from random import randint as rand
+from common import add_rats, connect
 
 def cmdlinearg(name, default=None):
     for arg in sys.argv:
@@ -14,52 +15,53 @@ def cmdlinearg(name, default=None):
         sys.exit(1)
     return default
 
-random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 m = int(cmdlinearg('m'))
 q = int(cmdlinearg('q'))
 samerat = int(cmdlinearg('samerat', 0))
+samestart = int(cmdlinearg('samestart', 0))
 samegoal = int(cmdlinearg('samegoal', 0))
 
 
-def trygen():
-    edges = []
-    adj = [[] for i in range(n)] 
+def gen():
+    edges = connect(set(), n)
 
-    seen = set()
+    while len(edges)<m:
+        a,b=random.sample(range(0,n),2)
+        if (a,b) in edges or (b,a) in edges:
+            continue
+        edges.add((a,b))
 
-    for i in range(m):
-        while 1:
-            a,b=random.sample(range(0,n-1),2)
-            if (a,b) in seen or (b,a) in seen:
-                continue
-            seen.add((a,b))
-            edges.append((a,b))
-            adj[a].append(b)
-            adj[b].append(a)
-            break
+    return add_rats(edges, n)
 
-    for i in range(n):
-        if len(adj[i])==1:
-            return []
+edges = gen()
 
-    for i in range(len(edges)):
-        u,v = edges[i]
-        a = random.choice(adj[v])
-        b = random.choice(adj[u])
-        
-        edges[i] = (u,v,a,b)
-    return edges
-
-edges = trygen()
-while len(edges)==0:
-    edges=trygen()
-
-assert len(edges)==m
 print(n, len(edges), q)
 for e in edges:
     print(*(i+1 for i in e))
 
+def unique_choice(choices):
+    while True:
+        pos = random.randint(1,n)
+        if pos not in choices:
+            return pos
+
+
+sames, samer, sameg = random.sample(range(1,n+1),3)
 for i in range(q):
-    s,r,t=random.sample(range(1,n), 3)
+    if samestart:
+        s = sames
+    else:
+        s = unique_choice([])
+    if samerat:
+        r = samer
+    else:
+        r = unique_choice([s])
+    if samegoal:
+        t = sameg
+        r = unique_choice([t])
+        s = unique_choice([t,r])
+    else:
+        t = unique_choice([s,r])
+    
     print(s,r,t)

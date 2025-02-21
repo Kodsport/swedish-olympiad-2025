@@ -12,7 +12,20 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-
+struct UF {
+    vi e;
+    UF(int n) : e(n, -1) {}
+    bool sameSet(int a, int b) { return find(a) == find(b); }
+    int size(int x) { return -e[find(x)]; }
+    int find(int x) { return e[x] < 0 ? x : e[x] = find(e[x]); }
+    bool join(int a, int b) {
+            a = find(a), b = find(b);
+            if (a == b) return false;
+            if (e[a] > e[b]) swap(a, b);
+            e[a] += e[b]; e[b] = a;
+            return true;
+    }
+};
 
 void run() {
     int n = Int(1, Arg("maxn"));
@@ -24,6 +37,8 @@ void run() {
 
     int maxdeg = Arg("maxdeg", n);
 
+    UF uf(n);
+    int numcomps = n;
     set<pii> edges;
     vi deg(n);
     vector<pii> rat_escapes;
@@ -39,6 +54,8 @@ void run() {
         Endl();
 
         u--; v--; a--; b--;
+        numcomps -= uf.join(u,v);
+
         assert(u!=v);
         pii p = {u,v};
         assert(edges.count(p)==0);
@@ -52,13 +69,15 @@ void run() {
         assert(deg[u]<=maxdeg);
         assert(deg[v]<=maxdeg);
     }
+    assert(numcomps==1);
 
     for (auto e : rat_escapes) assert(edges.count(e));
 
 
-    int first_rat, first_goal;
-    bool same_boxgoal = (int)Arg("sameboxgoal", 0);
-    bool same_goal = (int)Arg("samegoal", 0);
+    int first_rat, first_start, first_goal;
+    bool samestart = (int)Arg("samestart", 0);
+    bool samerat = (int)Arg("samerat", 0);
+    bool samegoal = (int)Arg("samegoal", 0);
     fo(i, q)
     {
         int s = Int(1,n);
@@ -71,17 +90,15 @@ void run() {
         s--; r--; t--;
         assert(s!=r&&r!=t&&t!=s);
 
-        // if (i==0)
-        // {
-        //     first_box = box;
-        //     first_goal = goal;
-        // }
-        // if (same_boxgoal)
-        // {
-        //     assert(box==first_box);
-        //     assert(goal==first_goal);
-        // }
-        // if (same_goal) assert(goal==first_goal);
+        if (i==0)
+        {
+            first_rat = r;
+            first_start = s;
+            first_goal = t;
+        }
+        if (samestart) assert(s==first_start);
+        if (samerat) assert(r==first_rat);
+        if (samegoal) assert(t==first_goal);
     }
 
     Eof();
