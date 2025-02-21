@@ -1,14 +1,15 @@
 \problemname{Fem råttor hos Gustav}
 \noindent
 
-Du befinner dig i ett avloppsystem med $N$ brunnar numrerade från $0$ till $N-1$. Det finns totalt $N-1$ rör som kopplar ihop brunnarna. 
-Det finns en unik väg mellan varje par av brunnar. Varje rör tar ett visst antal sekunder att gå genom.
-Du befinner dig i brunn nummer 0. I brunnarna $r_1, ..., r_m$ finns det råttor.
-Snart är det natt och när natten börjar kommer råttorna röra sig mot dig. Om någon råtta kommer till brunn 0 innan $T$ sekunder har passerat kommer de äta din ost.
-För att undvika detta har du hackat dig in i stadens avloppsystem och kan stänga brunnar. Om du stänger en brunn under 1 sekund kan inga råttor 
-gå ut från den brunnen under den sekunden. Råttor kan däremot gå in i en stängd brunn. För varje brunn finns ett tal $e_i$, energin som krävs för att hålla brunnen stängd
-i 1 sekund. Du vill hålla vissa brunnar stängda under delar av natten så att ingen råtta når dig innan $T$ sekunder har passerat. 
-Vad är den minsta totala energin som du kan förbruka för att uppnå detta?
+Gustav har köpt en väldigt fin ost. På vägen hem var han så upptagen med att beundra sin ost att han trillade ner i en brunn.
+Han befinner sig i nu ett avloppsystem med $N$ brunnar numrerade från $0$ till $N-1$. Det finns totalt $N-1$ rör som kopplar ihop brunnarna och man kan gå mellan varje par av brunnar genom att gå genom rören.
+Varje rör tar ett visst antal sekunder att gå genom.
+Gustav befinner sig i brunn nummer 0 och i brunnarna $r_1, ..., r_m$ finns det råttor.
+Snart är det natt och när natten börjar kommer råttorna röra sig mot Gustav. Om någon råtta kommer till brunn 0 innan gryningen, som sker $T$ sekunder efter att natten börjat, kommer de äta hans ost och han kommer bli väldigt ledsen.
+För att undvika detta har han hackat sig in i stadens avloppsystem och kan stänga brunnar. Om han stänger en brunn under 1 sekund kan inga råttor 
+gå ut från den brunnen under den sekunden. Råttor kan däremot gå in i en stängd brunn.  Gustav vill hålla vissa brunnar stängda under delar av natten så att ingen råtta når honom innan $T$ sekunder har passerat. 
+För varje brunn finns ett tal $e_i$, energin som krävs för att hålla brunnen stängd i 1 sekund. För att det inte ska märkas att Gustav hackat avloppsystemet vill han förbruka så lite energi som möjligt.
+Vad är den minsta totala energin som han kan förbruka?
 
 
 \section*{Indata}
@@ -40,9 +41,20 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $3$ & $10$  & $M \leq 2$ \\ \hline
   $4$ & $10$ & $N \leq 100, T \leq 100$ \\ \hline
   $5$ & $23$  & $N \leq 2000$ \\ \hline
-  $6$ & $15$  & varje brunn kan nås från brunn 0 med högst 20 rör \\ \hline skriv det här bättre
+  $6$ & $15$  & varje brunn kan nås från brunn 0 genom att passera högst 20 rör \\ \hline skriv det här bättre
   $67$ & $31$  & Inga ytterligare begränsningar \\ \hline
 \end{tabular}
 
 %\section*{Exempelfall}
+
+\section*{Förklaring av exempelfall 1}
+
+För att förbruka så lite energi som möjligt ska Gustav hålla brunn nummer $1$ stängd under den andra, tredje och fjärde sekunden av natten. Råttan som börjar i brunn 2 kommer gå mellan brunn 2 och brunn 1 under nattens första sekund och vara kvar i brunn 1 i 3 sekunder.
+Råttan som börjar i brunn 3 kommer gå mellan brunn 3 och brunn 1 under de första två sekunderna och vara fast i brunn 1 under de två följande sekunderna. Under sekund 5 kommer båda råttor gå mellan brunn 1 och 0. De båda kommer alltså fram till Gustav efter exakt 5 sekunder och hinner inte äta hans ost. 
+Svaret är 9.
+
+\section*{Förklaring av exempelfall 2}
+
+I detta fall är det bäst att hålla brunn 2 stängd under första sekunden. Råttan som börjar i brunn 2 är fast där under första sekunden, den går mellan brunn 2 och 1 under andra sekunden och går mellan brunn 1 och 0 under tredje sekunden. råttan som börjar i brunn nummer 3 går mellan brunn 3 och brunn 1 under alla tre sekunder. Svaret är 3.
+
 
