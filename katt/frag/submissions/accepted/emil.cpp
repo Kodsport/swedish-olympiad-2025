@@ -63,6 +63,7 @@ ll dp(int node){
 
 void merge(int goodnode){
     int p = goodParent[goodnode];
+    //cout << goodnode << " merges " << p << "\n";
     
     int kept, tossed;
     if (goodChildren[goodnode].size() + badChildren[goodnode].size() > goodChildren[p].size() + badChildren[p].size()){
@@ -77,11 +78,15 @@ void merge(int goodnode){
     e[kept] = e[p];
     bestchildren[kept] = bestchildren[p];
     goodParent[kept] = goodParent[p];
+    //cout << kept << " " << goodParent[p] << "\n";
 
+    if (goodChildren[goodParent[p]].count(p)){
     goodChildren[goodParent[p]].erase(p);
     goodChildren[goodParent[p]].insert(kept);
+     }
 
-
+     
+    goodChildren[p].erase(goodnode);
     for(int c: badChildren[tossed]){
 
         good[c] = kept;
@@ -102,7 +107,7 @@ void merge(int goodnode){
 }
 
 void update(int goodnode, ll cost){
-     //cout << goodnode << "        " << bestchildren[goodnode] << "-->" << bestchildren[goodnode] - cost << endl;
+    //cout << goodnode << "        " << bestchildren[goodnode] << "-->" << bestchildren[goodnode] - cost << endl;
     bestchildren[goodnode] -= cost;
     ll diff = e[goodnode] - bestchildren[goodnode];
     if (diff > 0){
