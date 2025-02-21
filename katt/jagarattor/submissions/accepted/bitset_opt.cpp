@@ -449,29 +449,31 @@ signed main()
 
 			repe(u, topo) {
 				for (int v : scc_adj[u]) {
-#define group(of) \
-					dp[u][0+of*8] |= dp[v][0+of*8]; \
-					dp[u][1+of*8] |= dp[v][1+of*8]; \
-					dp[u][2+of*8] |= dp[v][2+of*8]; \
-					dp[u][3+of*8] |= dp[v][3+of*8]; \
-					dp[u][4+of*8] |= dp[v][4+of*8]; \
-					dp[u][5+of*8] |= dp[v][5+of*8]; \
-					dp[u][6+of*8] |= dp[v][6+of*8]; \
-					dp[u][7+of*8] |= dp[v][7+of*8]; 
-#define group2(off) \
-					group(0+off*8); \
-					group(1+off*8); \
-					group(2+off*8); \
-					group(3+off*8); \
-					group(4+off*8); \
-					group(5+off*8); \
-					group(6+off*8); \
-					group(7+off*8);
+					rep(j, num_process) dp[u][j] |= dp[v][j];
+					// slightly incorrect, and doesn't improve perf that much
+// #define group(of) \
+// 					dp[u][0+of*8] |= dp[v][0+of*8]; \
+// 					dp[u][1+of*8] |= dp[v][1+of*8]; \
+// 					dp[u][2+of*8] |= dp[v][2+of*8]; \
+// 					dp[u][3+of*8] |= dp[v][3+of*8]; \
+// 					dp[u][4+of*8] |= dp[v][4+of*8]; \
+// 					dp[u][5+of*8] |= dp[v][5+of*8]; \
+// 					dp[u][6+of*8] |= dp[v][6+of*8]; \
+// 					dp[u][7+of*8] |= dp[v][7+of*8]; 
+// #define group2(off) \
+// 					group(0+off*8); \
+// 					group(1+off*8); \
+// 					group(2+off*8); \
+// 					group(3+off*8); \
+// 					group(4+off*8); \
+// 					group(5+off*8); \
+// 					group(6+off*8); \
+// 					group(7+off*8);
 
-					group2(0);
-					group2(1);
-					group2(2);
-					group2(3);
+// 					group2(0);
+// 					group2(1);
+// 					group2(2);
+// 					group2(3);
 				}
 			}
 

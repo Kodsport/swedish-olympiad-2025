@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited
 
-use_solution bitset_opt.cpp
+use_solution simd.cpp
 
 # TODO: graph with many articulation points
 
@@ -65,9 +65,9 @@ tc g6-2 gen_starry n=100 m=500 q=100000 samegoal=1
 tc_manual ../manual_data/samegoal_evil
 tc tiny_evil
 
-# group group7 1000000
-# limits maxn=100000 maxm=100000 maxq=100000
-# include_group group4
-# include_group group5
-# include_group group6
-# tc g7-1 gen_starry n=75000 m=100000 q=100000 seed=123456 # for python3, use 12345 instead
+group group7 1000000
+limits maxn=100000 maxm=100000 maxq=100000
+include_group group4
+include_group group5
+include_group group6
+tc g7-1 gen_starry n=75000 m=100000 q=100000 seed=123456 # for python3, use 12345 instead
