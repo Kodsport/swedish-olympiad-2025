@@ -139,11 +139,11 @@ vvi block_cut_tree(int m) {
 }
 
 
-int dfs3_vis[maxn];
-int tin[maxn];
-int tout[maxn];
+int dfs3_vis[maxn*2];
+int tin[maxn*2];
+int tout[maxn*2];
 int timer = 0;
-int up[20][maxn];
+int up[20][maxn*2];
 void dfs3(int u, int p, vvi& adj)
 {
 	dfs3_vis[u] = 1;

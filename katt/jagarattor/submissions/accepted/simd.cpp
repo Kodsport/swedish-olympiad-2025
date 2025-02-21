@@ -142,11 +142,11 @@ vvi block_cut_tree(int m) {
 }
 
 
-int dfs3_vis[maxn];
-int tin[maxn];
-int tout[maxn];
+int dfs3_vis[maxn*2];
+int tin[maxn*2];
+int tout[maxn*2];
 int timer = 0;
-int up[20][maxn];
+int up[20][maxn*2];
 void dfs3(int u, int p, vvi& adj)
 {
 	dfs3_vis[u] = 1;
@@ -283,6 +283,7 @@ signed main()
 
 		repe(g, groups)
 		{
+            if (sz(g.second)==1) continue;
 			repe(u, g.second)
 			{
 				int me = u;
@@ -293,11 +294,8 @@ signed main()
 			leader++;
 		}
 	}
-	while (rat_graph.back().empty()) rat_graph.pop_back();
-	while (rat_graph_rev.back().empty()) rat_graph_rev.pop_back();
 
-
-	int rat_sz = sz(rat_graph);
+	int rat_sz = sz(compress);
 	vi topoorder;
 	vi tempvis(rat_sz);
 	rep(i, rat_sz) toposort(i, topoorder, tempvis, rat_graph);
@@ -414,7 +412,7 @@ signed main()
 		}
 		reverse(all(topo));
 
-		const int num_process = 256;
+		const int num_process = 680;
 		const int blocksize = 64*num_process;
 		int blocks = (n + blocksize - 1) / blocksize;
 
@@ -460,10 +458,9 @@ signed main()
 				int ind = blocked_queries[qp].second;
 				int u = queries[ind].first;
 				int target = queries[ind].second;
-				int offset = target - low;  // target's offset in this block
+				int offset = target - low;
 				int word = offset / 64;
 				int bit = offset % 64;
-				//cout << word << " " << bit << "\n";
 				ans[ind] = ((dp[u][word] >> bit) & 1ULL) > 0;
 				qp++;
 			}
