@@ -93,3 +93,14 @@ tc g5-7 gen_bigarea n=99997 target=900000000
 tc g5-8 gen_bigarea n=100000 target=1212000000
 tc g5-9 gen_bigarea n=100000 target=1024145000
 tc g5-10 gen_bigarea n=99999 target=1000212000
+tc g5-11 gen_bigarea n=99999 target=1000212000
+tc g5-12 gen_bigarea n=99899 target=1000212000
+tc g5-13 gen_bigarea n=99799 target=1000212000
+tc g5-14 gen_bigarea n=99994 target=1000212000
+tc g5-15 gen_bigarea n=99969 target=1000212000
+tc g5-16 gen_random n=100000
+tc g5-17 gen_random n=99969
+tc g5-18 gen_random n=92969
+tc g5-19 gen_random n=99969
+tc g5-20 gen_random n=100000
+tc g5-21 gen_random n=99999

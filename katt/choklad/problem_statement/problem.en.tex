@@ -1,0 +1,51 @@
+\problemname{Eating Chocolate}
+
+\noindent
+Olle and Lisa have received $N$ chocolate bars of various shapes from their parents, which they now plan to eat together (the chocolate bars, not the parents).
+Each chocolate bar is a rectangle consisting of $R_i \times C_i$ squares.
+The chocolate bars are placed on a table, and to eat them, Olle and Lisa will take turns making the following moves:
+\begin{itemize}
+  \item Choose a chocolate bar from the table.
+  \item Break it into two parts, so that both parts are rectangles with integer side lengths.
+  \item Eat the smaller part.
+  \item Place the remaining part back on the table.
+\end{itemize}
+If the chosen chocolate bar has a size of $1 \times 1$, they eat it directly and do not place anything back on the table.
+They have already decided that Lisa will start.
+
+Both will try to eat as many squares of chocolate as possible.
+They are perfect logicians, and both know that the other will also make moves that maximize their own chocolate consumption.
+Additionally, Olle cares a lot about fairness and would like the total number of squares eaten by both to be as equal as possible.
+To achieve this goal, before they start he can choose to discard at most one chocolate bar into the trash can without Lisa noticing.
+
+Let $V_O$ and $V_L$ be the number of squares eaten by Olle and Lisa, respectively, given that they both eat in a greedy and logical manner.  
+Your task is to determine the minimal difference, that is, $|V_O - V_L|$,  
+after Olle has discarded at most one chocolate bar.
+
+\section*{Input}
+The first line contains the number $N$ ($2 \leq N \leq 10^5$), the number of chocolate bars on the table.  
+This is followed by $N$ lines, where the $i$:th line contains the numbers $R_i$ and $C_i$ ($1 \leq R_i, C_i \leq 10^6$).
+
+\section*{Output}
+Print a single integer, the minimal value of $|V_O - V_L|$ as described above.
+
+\section*{Scoring}
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $10$        & All chocolate bars have the same size. \\ \hline
+  $2$    & $16$       & $R_i, C_i \leq 10$ \\ \hline
+  $3$    & $15$       & $N \leq 50$ \\ \hline
+  $3$    & $19$       & $N \leq 500$ \\ \hline
+  $4$    & $40$       & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample case 1}
+Olle discards the chocolate bar of size $2 \times 2$.  
+After that, they will each eat one square of chocolate twice, so $V_O = V_L$.
+
+\section*{Explanation of sample case 2}
+In this test case, the optimal strategy for Olle is not to discard any chocolate bar.  
+They will then eat exactly the same amount of chocolate.
