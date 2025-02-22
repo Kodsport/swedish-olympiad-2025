@@ -16,7 +16,8 @@ compile gen_binarytree.py
 
 samplegroup
 limits maxn=10 maxm=10 maxt=10
-#sample 1
+sample 1
+sample 2
 
 group group1 6
 limits maxe=1
@@ -57,6 +58,7 @@ tc g2-10 gen_binarytree n=200000 m=1 t=100000000 maxt=10000 root0=1
 
 group group3 10
 include_group group2
+include_group sample
 limits maxm=2
 tc_manual ../manual_data/m2
 tc_manual ../manual_data/m3
@@ -76,6 +78,7 @@ tc g3-11 gen_binarytree n=200000 m=2 t=100000000 maxt=100000 root0=1
 
 
 group group4 10
+include_group sample
 limits maxn=100 maxt=100
 tc g1-01
 tc g1-02
