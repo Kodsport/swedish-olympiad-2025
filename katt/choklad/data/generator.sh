@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+USE_PARALLEL=0
 PPATH=$(realpath ..)
 . ../../../testdata_tools/gen.sh
 

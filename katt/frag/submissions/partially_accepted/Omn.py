@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 
 n, m, t = list(map(int, input().split()))
 

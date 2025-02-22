@@ -100,9 +100,9 @@ tc g5-2 gen_starry n=75000 m=100000 q=100000 samerat=1 samestart=1
 tc g5-3 gen_rand n=30000 m=100000 q=100000 samerat=1 samestart=1
 tc g5-4 gen_path n=100000 q=100000 samerat=1 samestart=1
 tc g5-5 gen_star n=100000 q=100000 samerat=1 samestart=1
-tc g5-12 gen_logstar n=99000 q=1 decay=0.5 focal=0 samerat=1
-tc g5-13 gen_logstar n=99000 q=1 decay=0.5 focal=1 samerat=1
-tc g5-14 gen_logstar n=99000 q=1 decay=0.5 focal=2 samerat=1
+tc g5-12 gen_logstar n=99000 q=100000 decay=0.5 focal=0 samerat=1
+tc g5-13 gen_logstar n=99000 q=100000 decay=0.5 focal=1 samerat=1
+tc g5-14 gen_logstar n=99000 q=100000 decay=0.5 focal=2 samerat=1
 tc_manual ../manual_data/tiny_evil
 # random small cases
 tc g5-6 gen_rand n=10 m=30 q=1
@@ -121,9 +121,9 @@ tc g6-3 gen_path n=100000 q=100000 samegoal=1
 tc g6-4 gen_star n=100000 q=100000 samegoal=1
 tc g6-5 gen_rand n=100000 m=100000 q=100000 samegoal=1
 tc g6-6 gen_rand n=30000 m=100000 q=100000 samegoal=1
-tc g6-13 gen_logstar n=99000 q=1 decay=0.5 focal=0 samegoal=1
-tc g6-14 gen_logstar n=99000 q=1 decay=0.5 focal=1 samegoal=1
-tc g6-15 gen_logstar n=99000 q=1 decay=0.5 focal=2 samegoal=1
+tc g6-13 gen_logstar n=99000 q=100000 decay=0.5 focal=0 samegoal=1
+tc g6-14 gen_logstar n=99000 q=100000 decay=0.5 focal=1 samegoal=1
+tc g6-15 gen_logstar n=99000 q=100000 decay=0.5 focal=2 samegoal=1
 tc_manual ../manual_data/samegoal_evil
 tc tiny_evil
 # random small cases
