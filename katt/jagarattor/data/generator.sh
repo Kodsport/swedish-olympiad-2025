@@ -115,6 +115,7 @@ tc g5-15 gen_articulation n=72000 q=100000 samestart=1 samerat=1
 
 group group6 17
 limits maxn=100000 maxm=100000 maxq=100000 samegoal=1
+tc_manual ../manual_data/focused_star
 tc g6-1 gen_starry n=75000 m=100000 q=5 samegoal=1 seed=123456 # for python3, use 12345 instead
 tc g6-2 gen_starry n=100 m=500 q=100000 samegoal=1
 tc g6-3 gen_path n=100000 q=100000 samegoal=1
