@@ -31,6 +31,7 @@ compile gen_starry.py
 compile gen_star.py
 compile gen_path.py
 compile gen_logstar.py
+compile gen_articulation.py
 
 samplegroup
 limits maxn=10 maxm=10 maxq=10
@@ -45,6 +46,7 @@ tc g1-3 gen_rand n=10 m=30 q=100
 tc g1-4 gen_rand n=30 m=40 q=100
 tc g1-5 gen_path n=50 q=100
 tc g1-6 gen_star n=50 q=100
+tc g1-7 gen_articulation n=20 q=100
 
 group group2 11
 include_group group1
@@ -58,6 +60,7 @@ tc g2-6 gen_star n=500 q=10000
 tc g2-7 gen_logstar n=470 q=10000 decay=0.5 focal=0
 tc g2-8 gen_logstar n=470 q=10000 decay=0.5 focal=1
 tc g2-9 gen_logstar n=470 q=10000 decay=0.5 focal=2
+tc g2-10 gen_articulation n=310 q=10000
 
 group group3 20
 limits maxn=100000 maxm=100000 maxq=1 maxdeg=5
@@ -68,6 +71,7 @@ tc g3-4 gen_lowdeg n=100 m=105 maxdeg=5 q=1
 tc g3-5 gen_lowdeg n=100 m=240 maxdeg=5 q=1
 tc g3-6 gen_lowdeg n=100 m=120 maxdeg=5 q=1
 tc g3-7 gen_lowdeg n=100 m=150 maxdeg=5 q=1
+tc g3-8 gen_articulation n=72000 q=1
 
 group group4 23
 limits maxn=100000 maxm=100000 maxq=1
@@ -86,6 +90,8 @@ tc g4-11 gen_star n=100000 q=1
 tc g4-12 gen_logstar n=99000 q=1 decay=0.5 focal=0
 tc g4-13 gen_logstar n=99000 q=1 decay=0.5 focal=1
 tc g4-14 gen_logstar n=99000 q=1 decay=0.5 focal=2
+tc g4-15 gen_articulation n=72000 q=1
+tc g4-16 gen_articulation n=72000 q=1
 
 group group5 12
 limits maxn=100000 maxm=100000 maxq=100000 samerat=1 samestart=1
@@ -105,6 +111,7 @@ tc g5-8 gen_rand n=10 m=30 q=1
 tc g5-9 gen_rand n=10 m=30 q=1
 tc g5-10 gen_rand n=10 m=30 q=1
 tc g5-11 gen_rand n=10 m=30 q=1
+tc g5-15 gen_articulation n=72000 q=100000 samestart=1 samerat=1
 
 group group6 17
 limits maxn=100000 maxm=100000 maxq=100000 samegoal=1
@@ -126,6 +133,7 @@ tc g6-9 gen_rand n=10 m=30 q=1
 tc g6-10 gen_rand n=10 m=30 q=1
 tc g6-11 gen_rand n=10 m=30 q=1
 tc g6-12 gen_rand n=10 m=30 q=1
+tc g6-16 gen_articulation n=72000 q=100000 samegoal=1
 
 group group7 10
 limits maxn=25000 maxm=25000 maxq=100000
@@ -138,6 +146,7 @@ tc g7-5 gen_rand n=10000 m=25000 q=100000
 tc g7-6 gen_logstar n=24900 q=100000 decay=0.5 focal=0
 tc g7-7 gen_logstar n=24900 q=100000 decay=0.5 focal=1
 tc g7-8 gen_logstar n=24900 q=100000 decay=0.5 focal=2
+tc g7-9 gen_articulation n=16000 q=100000
 
 group group8 2
 limits maxn=100000 maxm=100000 maxq=100000
@@ -154,3 +163,4 @@ tc g8-6 gen_rand n=30000 m=100000 q=100000
 tc g8-7 gen_logstar n=99000 q=100000 decay=0.5 focal=0
 tc g8-8 gen_logstar n=99000 q=100000 decay=0.5 focal=1
 tc g8-9 gen_logstar n=99000 q=100000 decay=0.5 focal=2
+tc g8-10 gen_articulation n=72000 q=100000
