@@ -21,7 +21,7 @@ q = int(cmdlinearg('q'))
 decay = float(cmdlinearg('decay'))
 focal = int(cmdlinearg("focal"))
 samerat = int(cmdlinearg("samerat", 0))
-samegoal = int(cmdlinearg("samerat", 0))
+samegoal = int(cmdlinearg("samegoal", 0))
 
 def generate_graph(n):
     edges = set()
@@ -78,7 +78,7 @@ if samerat:
     for i in range(q):
         t = unique_choice([s,r])
         query = [s,r,t]
-        if focal==2 and rand(0,100) > 0:
+        if rand(0,100) > 0:
             query[focal] = 1
         print(*query)
 
@@ -93,7 +93,7 @@ elif samegoal:
         r = unique_choice([s,t])
 
         query = [s,r,t]
-        if focal==2 and rand(0,100) > 0:
+        if rand(0,100) > 0:
             query[focal] = 1
         print(*query)
 

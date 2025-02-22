@@ -136,17 +136,17 @@ tc g6-12 gen_rand n=10 m=30 q=1
 tc g6-16 gen_articulation n=72000 q=100000 samegoal=1
 
 group group7 10
-limits maxn=25000 maxm=25000 maxq=100000
+limits maxn=30000 maxm=30000 maxq=100000
 include_group group2
-tc g7-1 gen_star n=25000 q=100000
-tc g7-2 gen_starry n=16000 m=25000 q=100000 seed=123456 # for python3, use 12345 instead
-tc g7-3 gen_path n=25000 q=100000
-tc g7-4 gen_rand n=25000 m=25000 q=100000
-tc g7-5 gen_rand n=10000 m=25000 q=100000
-tc g7-6 gen_logstar n=24900 q=100000 decay=0.5 focal=0
-tc g7-7 gen_logstar n=24900 q=100000 decay=0.5 focal=1
-tc g7-8 gen_logstar n=24900 q=100000 decay=0.5 focal=2
-tc g7-9 gen_articulation n=16000 q=100000
+tc g7-1 gen_star n=30000 q=100000
+tc g7-2 gen_starry n=19000 m=30000 q=100000 seed=123456 # for python3, use 12345 instead
+tc g7-3 gen_path n=30000 q=100000
+tc g7-4 gen_rand n=30000 m=30000 q=100000
+tc g7-5 gen_rand n=15000 m=30000 q=100000
+tc g7-6 gen_logstar n=29900 q=100000 decay=0.5 focal=0
+tc g7-7 gen_logstar n=29900 q=100000 decay=0.5 focal=1
+tc g7-8 gen_logstar n=29900 q=100000 decay=0.5 focal=2
+tc g7-9 gen_articulation n=19000 q=100000
 
 group group8 2
 limits maxn=100000 maxm=100000 maxq=100000
