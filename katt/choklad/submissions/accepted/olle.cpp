@@ -1,3 +1,7 @@
+#pragma GCC optimize("O3")
+#include <bitset>
+#pragma GCC target("avx2")
+
 using namespace std;
 #include <bits/stdc++.h>
 
@@ -10,15 +14,26 @@ int main() {
 
     vector<pair<ll,int>> arr;
 
+    int index = 0;
+    vector<int> test;
     rep(i,0,n) {
-        ll a, b; cin >> a >> b;
-        while (a > 1 || b > 1) {
-            if ((b/2)*a > (a/2)*b) swap(a, b);
-            arr.push_back({(a/2)*b, i});
-            a = (a+1)/2;
+        ll r, c, k; cin >> r >> c >> k;
+
+        int iter = 2 - (k%2);
+
+        test.push_back(index);
+        rep(j,0,iter) {
+            ll a = r, b = c;
+            while (a > 1 || b > 1) {
+                if ((b/2)*a > (a/2)*b) swap(a, b);
+                arr.push_back({(a/2)*b, index});
+                a = (a+1)/2;
+            }
+            arr.push_back({1, index});
+            index++;
         }
-        arr.push_back({1, i});
     }
+    n = index;
 
     sort(arr.rbegin(), arr.rend());
     vector<vector<int>> occs(n);
@@ -29,23 +44,28 @@ int main() {
     vector<ll> pref(m+1);
     for (int i = 0; i < m; i += 2) pref[i+1] = arr[i].first;
     for (int i = 1; i < m; i += 2) pref[i+1] = -arr[i].first;
-
+    
     rep(i,1,m+1) pref[i] += pref[i-1];
 
     auto sum = [&](int l, int r) {
-        return pref[r] - pref[l];
+        // = arr[l] + arr[l+1] + ... + arr[r]
+        ll res = pref[r+1] - pref[l];
+        return res;
     };
 
-    ll best = sum(0, m);
-    rep(i,0,n) {
-        ll val = sum(0, occs[i][0]);
+    ll best = sum(0, m-1);
+    for (auto i : test) {
+        ll val = sum(0, occs[i][0]-1);
         int sign = -1;
+
         rep(j,0,(ll)occs[i].size()-1) {
-            val += sign * sum(occs[i][j]+1, occs[i][j+1]);
+            val += sign * sum(occs[i][j] + 1, occs[i][j+1] - 1);
             sign *= -1;
         }
-        val += sign * sum(occs[i].back()+1, m);
+        val += sign * sum(occs[i][occs[i].size()-1] + 1, m-1);
         best = min(best, val);
+        if (best == val) {
+        }
     }
 
     cout << best << endl;

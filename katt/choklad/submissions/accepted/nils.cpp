@@ -11,7 +11,7 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef pair<ll,ll> pll;
 
-const int MAXN = 300001;
+const int MAXN = 500001;
 const ll nils = 1000000007;
 
 int n,m;
@@ -46,14 +46,25 @@ int main() {
     cin >> n;
 
     vector<pll> P;
+    int index = 0;
+    vi cand;
     rep(c1,0,n){
-        ll a,b;
-        cin >> a >> b;
+        ll a,b,k;
+        cin >> a >> b >> k;
         vl W = choc(a,b);
         trav(w, W){
-            P.push_back({w, c1});
+            P.push_back({w, index});
+        }
+        cand.push_back(index);
+        index++;
+        if (k%2==0) {
+            trav(w, W){
+                P.push_back({w, index});
+            }
+            index++;
         }
     }
+    n = index;
     sort(all(P));
     m = sz(P);
 
@@ -72,7 +83,7 @@ int main() {
 
     ll ans = CS.back();
 
-    rep(c1,0,n){
+    for(auto c1: cand) {
         reverse(all(I[c1]));
         ll s = -1;
         ll temp = CS.back();

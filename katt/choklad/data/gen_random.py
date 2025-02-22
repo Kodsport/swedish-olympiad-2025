@@ -16,17 +16,21 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 maxsz = int(cmdlinearg('maxsz', 1_000_000))
 minsz = int(cmdlinearg('minsz', 1))
+maxk = int(cmdlinearg("maxk", 1000000000))
 same = int(cmdlinearg('same', 0))
+
 print(n)
 
 if same:
     r = random.randint(minsz, maxsz)
     c = random.randint(minsz, maxsz)
     for i in range(n):
-        print(r, c)
+        k = random.randint(1, maxk)
+        print(r, c, k)
     exit(0)
 
 
 for i in range(n):
-    print(random.randint(minsz, maxsz), random.randint(minsz, maxsz))
+    k = random.randint(1, maxk)
+    print(random.randint(minsz, maxsz), random.randint(minsz, maxsz), k)
 

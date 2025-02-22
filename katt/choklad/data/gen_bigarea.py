@@ -14,6 +14,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
+maxk = int(cmdlinearg("maxk", 1000000000))
 print(n)
 
 target = int(cmdlinearg('target'))
@@ -24,9 +25,10 @@ for i in range(n):
     while (target // r > 900000): 
         r = random.randint(100, 1000000)
 
+    k = random.randint(1, maxk)
     c = target // r
     c = random.randint(c - 10, c + 10)
     c = max(min(c, 1000000), 1)
 
-    print(r, c)
+    print(r, c, k)
 

@@ -9,12 +9,13 @@ int main() {
     cin >> n;
 
     vector<pair<ll,ll>> arr(n);
-    rep(i,0,n) cin >> arr[i].first >> arr[i].second;
+    vector<ll> k(n);
+    rep(i,0,n) cin >> arr[i].first >> arr[i].second >> k[i];
 
     ll best = 1e18;
     rep(i,-1,n) {
         priority_queue<pair<ll,pair<ll,ll>>> pq;
-        rep(j,0,n) if (j != i) {
+        rep(j,0,n) if (j != i) rep(K,0,k[j]) {
             auto [a, b] = arr[j];
             if ((a/2)*b < (b/2)*a) swap(a, b);
             

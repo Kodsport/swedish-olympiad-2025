@@ -58,14 +58,19 @@ int main() {
     vector<pll> SI;
     vector<vl> C;
 
+    int index = 0;
     rep(c1,0,n){
-        ll a,b;
-        cin >> a >> b;
+        ll a,b,k;
+        cin >> a >> b >> k;
         vl W = choc(a,b);
-        SI.push_back({score(W), c1});
-        C.push_back(W);
+        int iters = 2 - (k%2);
+        rep(iter,0,iters) {
+            SI.push_back({score(W), index++});
+            C.push_back(W);
+        }
     }
     sort(all(SI));
+    n = index;
 
     vl P;
     rep(c1,0,n-1){

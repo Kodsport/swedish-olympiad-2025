@@ -17,6 +17,7 @@ typedef vector<int> vi;
 void run() {
     int maxn = Arg("maxn");
     int maxsz = Arg("maxsz");
+    int maxk = Arg("maxk");
     int n = Int(1, maxn);
     Endl();
 
@@ -24,6 +25,8 @@ void run() {
         int r = Int(1, maxsz);
         Space();
         int c = Int(1, maxsz);
+        Space();
+        int k = Int(1, maxk);
         Endl();
     }
 

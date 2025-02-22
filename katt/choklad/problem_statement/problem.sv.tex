@@ -15,9 +15,12 @@ De har redan bestämt att Lisa får börja.
 
 
 
-Båda är väldigt glupska, och försöker äta så många rutor choklad som möjligt.
-De är perfekta logiker, och båda vet att den andra också gör drag som maximerar den egna chokladkonsumptionen.
-Olle är dessutom väldigt mån om rättvisa, och vill gärna att de totala antalen rutor choklad de båda äter ska vara så lika som möjligt.
+På grund av syskonkärlek kommer de alltid att välja en chokladkaka från bordet som,
+efter att de delat den i två och lagt tillbaka den större biten,
+innebär att de själva äter så mycket som möjligt i det draget.
+Om det finns flera sådana val väljer de godtyckligt en som maximerar deras framtida chokladkonsumtion.
+Olle är dessutom väldigt mån om rättvisa, 
+och vill gärna att de totala antalen rutor choklad de båda äter ska vara så lika som möjligt.
 För att uppnå detta mål kan han innan de börjar välja att slänga högst en chokladkaka i soptunnan utan att Lisa märker någonting.
 
 
@@ -30,7 +33,7 @@ efter att Olle slängt högst en chokladkaka.
 \section*{Indata}
 På den första raden står talet $N$ ($2 \leq N \leq 10^5$), antalet chokladkakor på bordet.
 
-Därefter följer $N$ rader, där den $i$:te raden har talen $R_i$ och $C_i$ ($1 \leq R_i, C_i \leq 10^6$).
+Därefter följer $N$ rader, där den $i$:te raden har talen $R_i$, $C_i$ och $k_i$ ($1 \leq R_i, C_i \leq 10^6$, $1 \leq k_i \leq 10^9$).
 
 
 \section*{Utdata}
@@ -45,11 +48,13 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $10$       & Alla chokladkakor har samma storlek. \\ \hline
-  $2$    & $16$       & $R_i, C_i \leq 10$ \\ \hline
-  $3$    & $15$       & $N \leq 50$ \\ \hline
-  $4$    & $19$       & $N \leq 500$ \\ \hline
-  $5$    & $40$       & Inga ytterligare begränsningar. \\ \hline
+  $1$    & $4$        & $N = 1$ \\ \hline
+  $2$    & $12$       & $N \leq 50, K_i \leq 5$ \\ \hline
+  $3$    & $15$       & $N \leq 200, K_i \leq 5$ \\ \hline
+  $4$    & $10$       & $R_i, C_i \leq 10$ \\ \hline
+  $5$    & $13$       & $N \leq 200$ \\ \hline
+  $6$    & $16$       & $K_i = 1$ \\ \hline
+  $7$    & $30$       & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
 \section*{Förklaring av exempelfall 1}
