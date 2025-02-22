@@ -128,8 +128,8 @@ def energydist():
             dp[cur] = e[cur]
             continue
         
-        e[cur] =  rand( max(dp[nei] for nei in chi[cur]),  min(maxe,sum(dp[nei] for nei in chi[cur] )) )
-        dp[cur] = sum(dp[nei] for nei in chi[cur])
+        e[cur] =  rand( min(maxe, max(dp[nei] for nei in chi[cur])) ,  min(maxe,sum(dp[nei] for nei in chi[cur] )) )
+        dp[cur] = min(e[cur], sum(dp[nei] for nei in chi[cur]))
     
     return e
 
