@@ -17,21 +17,24 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
-k = int(cmdlinearg("k"))
-num_weights = int(cmdlinearg("num_weights"))
-traintime = int(cmdlinearg("traintime"))
-late_trains = int(cmdlinearg("latetrains", 0))
-max_exp=int(cmdlinearg("max_exp", 9))
+m = int(cmdlinearg("m"))
+t = int(cmdlinearg("t"))
+
+maxe = int(cmdlinearg("maxe", 1e5))
+maxt = int(cmdlinearg("maxt", 1e8))
+
+root0 = int(cmdlinearg("root0",0))
 
 edges = []
 
-ind = 2
+ind = 1
 while len(edges)<n//3:
-    edges.append((1,ind))
+    edges.append((0,ind))
     ind += 1
 
-edges.append((1,ind))
+edges.append((0,ind))
 ind+=1
+
 while len(edges)*3<n*2: # 2/3
     edges.append((ind-1,ind))
     ind+=1
@@ -47,35 +50,39 @@ nodes = set(node for edge in edges for node in edge)
 shuffled_nodes = list(nodes)
 random.shuffle(shuffled_nodes)
 
+if root0:
+    ind = shuffled_nodes.index(0)
+    shuffled_nodes[0], shuffled_nodes[ind] = shuffled_nodes[ind], shuffled_nodes[0]
+
 node_mapping = dict(zip(nodes, shuffled_nodes))
 
 edges = [(node_mapping[edge[0]], node_mapping[edge[1]]) for edge in edges]
+random.shuffle(edges)
+deg = [0]*n
 
-print(n, k)
+print(n, m, t)
 
-weights = []
-for i in range(num_weights):
-    weights.append(int(pow(9.69, rand(1, max_exp))))
+weights = [random.randint(1,maxt) for _ in range(100)]
+for i in range(10000):
+    weights.append(int(pow(9.69, rand(1, 10))))
+weights.sort()
 
-tot_dist = 0
-for e in edges:
-    d = random.choice(weights)
-    tot_dist += d
-    print(e[0], e[1], d)
+while weights[-1] > maxt: weights.pop()
 
+for x,y in edges:
+    deg[x] += 1
+    deg[y] += 1
+    print(x,y,random.choice(weights))
 
-seen_times = set()
-for i in range(k):
-    while 1:
-        time = rand(0, traintime*n)
-        if late_trains:
-            time += tot_dist + 20
-        if time in seen_times:
-            continue
-        seen_times.add(time)
-        a = rand(1,n)
-        b = rand(1,n)
-        while b==a:
-            b = rand(1,n)
-        print(a, b, time, rand(1, traintime))
-        break
+energy = [[random.randint(1,maxe),min(maxe,random.choice(weights))][rand(0,1)] for _ in range(n-1)]
+print(*energy)
+
+nodes = [(deg[x],x) for x in range(1,n)]
+nodes.sort()
+
+if int(cmdlinearg("randrats",0)):
+    rats = random.sample([*range(1,n)],m)
+else:
+    rats = [x for _,x in nodes[:m]]
+print(*rats)
+

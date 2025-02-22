@@ -15,59 +15,76 @@ struct UF {
 	}
 };
 
-
+vector<vector<int>> adj;
+/*
+int dfs(int i, int par, int dist) {
+	if (i == 0)
+		cout << i << "\n";
+	int best = dist;
+	for (auto &nei:adj[i]) {
+		if (nei == par) continue;
+		best = max(best,dfs(nei,i,dist+1));
+	}
+	if (i == 0)
+		cout << i << "\n";
+	return best;
+}
+*/
 
 void run() {
-	int n = Int(1, Arg("maxn"));
+	int maxt = Arg("maxt", 1e8);
+
+	int n = Int(1, Arg("maxn",200000));
 	Space();
-	int k = Int(1, Arg("maxk"));
+	int m = Int(1, Arg("maxm",200000));
+	Space();
+	int t = Int(1, maxt);
 	Endl();
 	
-	int maxt = Arg("maxt");
-	int line = Arg("line", 0);
+	assert(m < n);
 
-	long long tot_dist = 0;
+	
+	int maxdist = Arg("maxdist", 200000);
+
+	vector<vector<int>> temp(n,vector<int>());
+	adj = temp;
+
 	UF uf(n);
 	for (int i = 0; i < n-1; i++)
 	{
-		int a = Int(1,n);
+		int a = Int(0,n-1);
 		Space();
-		int b = Int(1,n);
+		int b = Int(0,n-1);
 		Space();
-		tot_dist += (long long)Int(1, int(1e9));
+		Int(1, maxt);
 		Endl();
-		if (line) assert(a==i+1&&b==i+2);
-		a--; b--;
-		assert(uf.join(a,b));
-	}
-	
-	
-	int latetrains = Arg("latetrains", 0);
 
-	set<int> used_times;
-	for (int i = 0; i < k; i++)
-	{
-		int a = Int(1,n);
-		Space();
-		int b = Int(1,n);
-		Space();
-		int t = Int(0, maxt);
-		Space();
-		int d = Int(1, maxt);
-		Endl();
-		assert(a!=b);
-		if (latetrains)
-		{
-			if (tot_dist+1>t)
-			{
-				cout << t << " " << tot_dist+1 << "\n";
-				assert(t > tot_dist+1);
-			}
-			
-		}
-		assert(used_times.find(t)==used_times.end());
-		used_times.insert(t);
+		adj[a].push_back(b);
+		adj[b].push_back(a);
+
+		assert(uf.join(a,b)); 
 	}
+	
+	vector<int> energy = SpacedInts(n-1, 1, (int) Arg("maxe",100000));
+	
+	vector<int> rats = SpacedInts(m, 1, n-1);
+
+	vector<int> dist(n,-1);
+	dist[0] = 0;
+	vector<int> BFS = {0};
+	while (!BFS.empty()) {
+		vector<int> nxtBFS;
+
+		for (auto &cur:BFS) for (auto &nei:adj[cur]) {
+				if (dist[nei] == -1) dist[nei] = dist[cur]+1, nxtBFS.push_back(nei);
+		}
+		
+		BFS = nxtBFS;
+	}
+	
+
+	for (int i = 0; i < n; i++)
+		assert(dist[i] <= maxdist);
 	
 	Eof();
 }

@@ -14,6 +14,8 @@
 #include <set>
 using namespace std;
 
+#define USAGE "%s: judge_in judge_ans feedback_dir < author_out\n"
+
 // Implemented by you!
 void run();
 

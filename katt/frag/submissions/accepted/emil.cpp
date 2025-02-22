@@ -183,7 +183,7 @@ int main(){
 
     }
 
-    cout << ans;
+    cout << ans << "\n";
 
 
 

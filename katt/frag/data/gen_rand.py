@@ -56,5 +56,5 @@ for i in range(n-1):
 energy = [random.randint(1,maxe) for _ in range(n-1)]
 print(*energy)
 
-rats = random.sample([*range(1,n-1)],m)
+rats = random.sample([*range(1,n)],m)
 print(*rats)
