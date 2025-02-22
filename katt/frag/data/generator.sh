@@ -1,7 +1,7 @@
 #!/bin/bash
 . ../../../testdata_tools/gen.sh
 
-#ulimit -s unlimited
+ulimit -s unlimited
 use_solution emil.cpp
 
 compile gen_rand.py 
@@ -11,6 +11,7 @@ compile gen_starry.py
 compile gen_smalldeg.py pypy3 
 compile gen_binarytree.py
 compile gen_kvast.py
+compile gen_kvast2.py
 compile gen_fishbone.py
 #compile gen_line.py
 #compile gen_line2.py
@@ -43,6 +44,7 @@ tc g1-16 gen_kvast n=200000 l=97000 m=121701 ball=99000 t=100000000 maxt=100 max
 tc g1-17 gen_fishbone n=200000 t=100000000 maxt=100 maxe=1 root0=1
 tc g1-18 gen_fishbone n=200000 t=100000000 maxt=100 maxe=1 root0=1
 
+
 group group2 5
 limits maxm=1
 tc_manual ../manual_data/m1
@@ -61,12 +63,13 @@ tc g2-09 gen_smalldeg n=200000 m=1 t=100000000 maxt=1000
 tc g2-10 gen_binarytree n=200000 m=1 t=100000000 maxt=10000 root0=1
 tc g2-11 gen_kvast n=200000 l=199000 m=1 t=100000000 maxt=10 root0=1
 tc g2-12 gen_fishbone n=200000 m=1 t=100000000 maxt=100 root0=1
+tc g2-13 gen_kvast2 n=200000 l=99000 m=1 ball=100009 t=100000000 maxt=10 root0=1
 
 group group3 10
 include_group group2
 include_group sample
 limits maxm=2
-tc_manual ../manual_data/m2
+#tc_manual ../manual_data/m2
 tc_manual ../manual_data/m3
 tc_manual ../manual_data/m4
 tc g1-02
@@ -83,6 +86,7 @@ tc g3-10 gen_smalldeg n=200000 m=2 t=100000000 maxt=100
 tc g3-11 gen_binarytree n=200000 m=2 t=100000000 maxt=100000 root0=1
 tc g3-12 gen_kvast n=200000 l=197001 m=2 t=100000000 maxt=10 root0=1
 tc g3-13 gen_fishbone n=200000 m=2 t=100000000 maxt=100 root0=1
+tc g3-14 gen_kvast2 n=200000 l=5000 m=2 ball=100109 t=100000000 maxt=10 root0=1
 
 group group4 10
 include_group sample
@@ -108,6 +112,7 @@ tc g4-11 gen_binarytree n=100 m=47 t=100 maxt=4 root0=1
 tc g4-12 gen_kvast n=100 l=60 m=30 t=100 maxt=10 root0=1
 tc g4-13 gen_kvast n=100 l=60 ball=20 m=18 t=100 maxt=10 root0=1
 tc g4-14 gen_fishbone n=100 t=100 maxt=2 root0=1
+tc g4-15 gen_kvast2 n=100 l=30 m=55 ball=40 t=100 maxt=90 root0=1 
 
 group group5 23
 limits maxn=2000
@@ -124,6 +129,7 @@ tc g5-09 gen_binarytree n=2000 m=1999 t=100000000 maxt=4 root0=1
 tc g5-10 gen_kvast n=2000 l=1234 m=700 t=100000000 maxt=10 root0=1
 tc g5-11 gen_kvast n=2000 l=990 ball=990 m=700 t=10000000 maxt=10 root0=1
 tc g5-12 gen_fishbone n=2000 t=100000000 maxt=2 root0=1
+tc g5-13 gen_kvast2 n=2000 l=123 m=1733 ball=1500 t=100000000 maxt=10 root0=1 
 
 group group6 15
 limits maxdist=20
@@ -150,6 +156,7 @@ tc g6-05 gen_binarytree n=200000 m=199999 t=100000000 maxt=10 root0=1
 tc g6-06 gen_binarytree n=200000 m=391 t=100000000 root0=1
 tc g6-07 gen_kvast n=200000 l=17 m=172474 t=100000000 maxt=10 root0=1
 tc g6-08 gen_fishbone n=30 t=100000000 maxt=2 root0=1
+tc g6-09 gen_kvast2 n=200000 l=14 m=86733 t=100000000 maxt=10 root0=1 
 
 group group7 31
 include_group group1
@@ -173,3 +180,4 @@ tc g7-14 gen_kvast n=200000 l=100000 m=22474 t=100000000 maxt=10 root0=1
 tc g7-15 gen_kvast n=200000 l=99990 ball=99999 m=92474 t=100000000 maxt=10 root0=1
 tc g7-16 gen_fishbone n=200000 t=100000000 maxt=1000000 root0=1
 tc g7-17 gen_fishbone n=200000 t=100000000 maxt=8 root0=1
+tc g7-18 gen_kvast2 n=200000 l=2938 m=167023 ball=150000 t=100000000 maxt=100 root0=1 

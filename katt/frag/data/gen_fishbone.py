@@ -94,7 +94,51 @@ for x,y in edges:
     deg[y] += 1
     print(x,y,random.choice(weights))
 
-energy = [[random.randint(1,maxe),min(maxe,random.choice(weights))][rand(0,1)] for _ in range(n-1)]
+
+def energydist():
+    graph = [[] for _ in range(n)]
+
+    assert(len(edges) == n-1), f"{len(edges)=}, {n=}"
+
+    for x,y in edges:
+        graph[x].append(y)
+        graph[y].append(x)
+
+    chi = [[] for _ in range(n)]
+    dis = [-1]*n
+    dis[0] = 0
+    BFS = [0]
+    for cur in BFS:
+        for nei in graph[cur]:
+            if dis[nei] == -1:
+                chi[cur].append(nei)
+                dis[nei] = dis[cur] + 1
+                BFS.append(nei)
+    
+    e = [1]*n
+    dp = [0]*n
+
+    topo = [0]
+    for cur in topo:
+        topo += chi[cur]
+    assert(len(topo) == n), f"{len(topo)=}"
+
+    for cur in topo[::-1]:
+        if len(chi[cur]) == 0:
+            dp[cur] = e[cur]
+            continue
+        
+        e[cur] = min(maxe,max(dp[nei] for nei in chi[cur]) + (len(chi[cur]) > 1)) 
+        dp[cur] = sum(dp[nei] for nei in chi[cur])
+    
+    return e
+
+
+if int(cmdlinearg("specialEnergy",1)):
+    energy = energydist()[1:]
+else:
+    energy = [[random.randint(1,maxe),min(maxe,random.choice(weights))][rand(0,1)] for _ in range(n-1)]
+
 assert(len(energy) == n-1), "Not n-1 energy costs"
 print(*energy)
 
