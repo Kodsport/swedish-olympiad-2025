@@ -5,7 +5,7 @@ PPATH=$(realpath ..)
 
 ulimit -s unlimited
 
-use_solution simd.cpp
+use_solution simd.cpp opt
 
 # graph with many articulation points
 # some cheese i forgot
@@ -32,6 +32,8 @@ compile gen_star.py
 compile gen_path.py
 compile gen_logstar.py
 compile gen_articulation.py
+compile gen_darksouls.py
+compile gen_hardstar.py
 
 samplegroup
 limits maxn=10 maxm=10 maxq=10
@@ -61,6 +63,8 @@ tc g2-7 gen_logstar n=470 q=10000 decay=0.5 focal=0
 tc g2-8 gen_logstar n=470 q=10000 decay=0.5 focal=1
 tc g2-9 gen_logstar n=470 q=10000 decay=0.5 focal=2
 tc g2-10 gen_articulation n=310 q=10000
+tc g2-11 gen_darksouls n=500 q=10000
+tc g2-12 gen_hardstar n=500 q=10000
 
 group group3 20
 limits maxn=100000 maxm=100000 maxq=1 maxdeg=5
@@ -72,6 +76,7 @@ tc g3-5 gen_lowdeg n=100 m=240 maxdeg=5 q=1
 tc g3-6 gen_lowdeg n=100 m=120 maxdeg=5 q=1
 tc g3-7 gen_lowdeg n=100 m=150 maxdeg=5 q=1
 tc g3-8 gen_articulation n=72000 q=1
+tc g3-9 gen_darksouls n=100000 q=1
 
 group group4 23
 limits maxn=100000 maxm=100000 maxq=1
@@ -92,6 +97,8 @@ tc g4-13 gen_logstar n=99000 q=1 decay=0.5 focal=1
 tc g4-14 gen_logstar n=99000 q=1 decay=0.5 focal=2
 tc g4-15 gen_articulation n=72000 q=1
 tc g4-16 gen_articulation n=72000 q=1
+tc g4-17 gen_darksouls n=100000 q=1
+tc g4-18 gen_hardstar n=100000 q=1
 
 group group5 12
 limits maxn=100000 maxm=100000 maxq=100000 samerat=1 samestart=1
@@ -148,6 +155,8 @@ tc g7-7 gen_logstar n=29900 q=100000 decay=0.5 focal=1
 tc g7-8 gen_logstar n=29900 q=100000 decay=0.5 focal=2
 tc g7-9 gen_articulation n=19000 q=100000
 tc samegoal_evil
+tc g7-10 gen_darksouls n=30000 q=100000
+tc g7-11 gen_hardstar n=30000 q=100000
 
 group group8 2
 limits maxn=100000 maxm=100000 maxq=100000
@@ -166,3 +175,5 @@ tc g8-8 gen_logstar n=99000 q=100000 decay=0.5 focal=1
 tc g8-9 gen_logstar n=99000 q=100000 decay=0.5 focal=2
 tc g8-10 gen_articulation n=72000 q=100000
 tc_manual ../manual_data/focused_star
+tc g8-11 gen_darksouls n=100000 q=100000
+tc g8-12 gen_hardstar n=100000 q=100000
