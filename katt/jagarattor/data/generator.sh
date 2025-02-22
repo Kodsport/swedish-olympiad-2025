@@ -115,7 +115,7 @@ tc g5-15 gen_articulation n=72000 q=100000 samestart=1 samerat=1
 
 group group6 17
 limits maxn=100000 maxm=100000 maxq=100000 samegoal=1
-tc_manual ../manual_data/focused_star
+tc_manual ../manual_data/samegoal_evil
 tc g6-1 gen_starry n=75000 m=100000 q=5 samegoal=1 seed=123456 # for python3, use 12345 instead
 tc g6-2 gen_starry n=100 m=500 q=100000 samegoal=1
 tc g6-3 gen_path n=100000 q=100000 samegoal=1
@@ -125,7 +125,6 @@ tc g6-6 gen_rand n=30000 m=100000 q=100000 samegoal=1
 tc g6-13 gen_logstar n=99000 q=100000 decay=0.5 focal=0 samegoal=1
 tc g6-14 gen_logstar n=99000 q=100000 decay=0.5 focal=1 samegoal=1
 tc g6-15 gen_logstar n=99000 q=100000 decay=0.5 focal=2 samegoal=1
-tc_manual ../manual_data/samegoal_evil
 tc tiny_evil
 # random small cases
 tc g6-7 gen_rand n=10 m=30 q=1
@@ -148,6 +147,7 @@ tc g7-6 gen_logstar n=29900 q=100000 decay=0.5 focal=0
 tc g7-7 gen_logstar n=29900 q=100000 decay=0.5 focal=1
 tc g7-8 gen_logstar n=29900 q=100000 decay=0.5 focal=2
 tc g7-9 gen_articulation n=19000 q=100000
+tc samegoal_evil
 
 group group8 2
 limits maxn=100000 maxm=100000 maxq=100000
@@ -165,3 +165,4 @@ tc g8-7 gen_logstar n=99000 q=100000 decay=0.5 focal=0
 tc g8-8 gen_logstar n=99000 q=100000 decay=0.5 focal=1
 tc g8-9 gen_logstar n=99000 q=100000 decay=0.5 focal=2
 tc g8-10 gen_articulation n=72000 q=100000
+tc_manual ../manual_data/focused_star
