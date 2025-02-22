@@ -31,6 +31,8 @@ int dfs(int i, int par, int dist) {
 }
 */
 
+// ./a.out ../../data/secret/group1/015-g1-15.in ../../data/secret/group1/015-g1-15.ans . < ../../data/secret/group1/015-g1-15.ans
+
 void run() {
 	int maxt = Arg("maxt", 1e8);
 

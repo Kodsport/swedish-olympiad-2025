@@ -10,6 +10,7 @@ compile gen_dumbbell.py
 compile gen_starry.py 
 compile gen_smalldeg.py pypy3 
 compile gen_binarytree.py
+compile gen_kvast.py
 #compile gen_line.py
 #compile gen_line2.py
 #compile gen_line3.py
@@ -36,7 +37,8 @@ tc g1-11 gen_starry n=200000 m=194999 t=100000000 maxt=10000 p=0 root0=1 maxe=1
 tc g1-12 gen_starry n=200000 m=123 t=100000000 maxt=10000 p=0.7 root0=1 maxe=1
 tc g1-13 gen_smalldeg n=200000 m=500 t=100000000 maxt=100 maxe=1
 tc g1-14 gen_binarytree n=200000 m=199999 t=100000000 maxt=10 maxe=1 root0=1
-
+tc g1-15 gen_kvast n=200000 l=98000 m=98701 t=100000000 maxt=10 maxe=1 root0=1
+tc g1-16 gen_kvast n=200000 l=97000 m=121701 ball=99000 t=100000000 maxt=100 maxe=1 root0=1
 
 group group2 5
 limits maxm=1
@@ -54,7 +56,7 @@ tc g2-07 gen_starry n=200000 m=1 t=100000000 maxt=10000 p=0 root0=1
 tc g2-08 gen_starry n=200000 m=1 t=100000000 maxt=10000 p=0.5 root0=1 
 tc g2-09 gen_smalldeg n=200000 m=1 t=100000000 maxt=1000 
 tc g2-10 gen_binarytree n=200000 m=1 t=100000000 maxt=10000 root0=1
-
+tc g2-11 gen_kvast n=200000 l=199000 m=1 t=100000000 maxt=10 root0=1
 
 group group3 10
 include_group group2
@@ -75,6 +77,7 @@ tc g3-08 gen_starry n=200000 m=2 t=100000000 maxt=10000 p=0 root0=1
 tc g3-09 gen_starry n=200000 m=2 t=100000000 maxt=10 p=0.5 root0=1 
 tc g3-10 gen_smalldeg n=200000 m=2 t=100000000 maxt=100
 tc g3-11 gen_binarytree n=200000 m=2 t=100000000 maxt=100000 root0=1
+tc g3-12 gen_kvast n=200000 l=197001 m=2 t=100000000 maxt=10 root0=1
 
 
 group group4 10
@@ -98,6 +101,8 @@ tc g4-08 gen_dumbbell n=100 m=99 t=100 maxt=7
 tc g4-09 gen_starry n=100 m=13 t=100 maxt=10 p=0 root0=1 
 tc g4-10 gen_smalldeg n=100 m=22 t=100 maxt=100
 tc g4-11 gen_binarytree n=100 m=47 t=100 maxt=4 root0=1
+tc g4-12 gen_kvast n=100 l=60 m=30 t=100 maxt=10 root0=1
+tc g4-13 gen_kvast n=100 l=60 ball=20 m=18 t=100 maxt=10 root0=1
 
 group group5 23
 limits maxn=2000
@@ -111,6 +116,8 @@ tc g5-06 gen_starry n=2000 m=123 t=100000000 maxt=10000 p=0 root0=1
 tc g5-07 gen_starry n=2000 m=339 t=100000000 maxt=10 p=0.5 root0=1 
 tc g5-08 gen_smalldeg n=2000 m=1422 t=100000000 maxt=10
 tc g5-09 gen_binarytree n=2000 m=1999 t=100000000 maxt=4 root0=1
+tc g5-10 gen_kvast n=2000 l=1234 m=700 t=100000000 maxt=10 root0=1
+tc g5-11 gen_kvast n=2000 l=990 ball=990 m=700 t=10000000 maxt=10 root0=1
 
 group group6 15
 limits maxdist=20
@@ -135,6 +142,7 @@ tc g6-03 gen_path n=20 l=19 m=17 t=100000000 maxt=10000 root0=1
 tc g6-04 gen_starry n=200000 m=20000 t=100000000 maxt=100 p=0 
 tc g6-05 gen_binarytree n=200000 m=199999 t=100000000 maxt=10 root0=1
 tc g6-06 gen_binarytree n=200000 m=391 t=100000000 root0=1
+tc g6-07 gen_kvast n=200000 l=17 m=172474 t=100000000 maxt=10 root0=1
 
 group group7 31
 include_group group1
@@ -154,3 +162,5 @@ tc g7-10 gen_starry n=200000 m=87872 t=100000000 maxt=10  p=0.1
 tc g7-11 gen_starry n=200000 m=20000 t=100000000 maxt=1  p=0 root0=1
 tc g7-12 gen_smalldeg n=200000 m=101929 t=100000000 maxt=1
 tc g7-13 gen_binarytree n=200000 m=199999 t=99999999 
+tc g7-14 gen_kvast n=200000 l=100000 m=22474 t=100000000 maxt=10 root0=1
+tc g7-15 gen_kvast n=200000 l=99990 ball=99999 m=92474 t=100000000 maxt=10 root0=1
