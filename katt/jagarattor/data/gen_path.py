@@ -15,6 +15,7 @@ def cmdlinearg(name, default=None):
         sys.exit(1)
     return default
 
+random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
 samerat = int(cmdlinearg('samerat', 0))
