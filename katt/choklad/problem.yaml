@@ -1,3 +1,4 @@
+uuid: b0663cdb-7f9e-4a9f-833c-c7d005ad2e22
 author: Olle Lapidus
 source: Programmeringsolympiadens KATT 2025
 rights_owner: Programmeringsolympiaden
@@ -7,4 +8,4 @@ type: scoring
 grading:
     show_test_data_groups: yes
 limits:
-  time_multiplier: 2
+  time_multiplier: 3
