@@ -408,7 +408,7 @@ signed main()
 		}
 		reverse(all(topo));
 
-		vector<bitset<80000>> dp(n);
+		vector<bitset<95000>> dp(n);
 
 		rep(i, n) dp[i][i] = 1;
 

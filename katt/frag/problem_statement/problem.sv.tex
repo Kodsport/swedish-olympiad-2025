@@ -4,28 +4,36 @@
 Gustav har köpt en väldigt fin ost. På vägen hem var han så upptagen med att beundra sin ost att han trillade ner i en brunn.
 Han befinner sig i nu ett avloppsystem med $N$ brunnar numrerade från $0$ till $N-1$. Det finns totalt $N-1$ rör som kopplar ihop brunnarna och man kan gå mellan varje par av brunnar genom att gå genom rören.
 Varje rör tar ett visst antal sekunder att gå genom.
-Gustav befinner sig i brunn nummer 0 och i brunnarna $r_1, ..., r_m$ finns det råttor.
-Snart är det natt och när natten börjar kommer råttorna röra sig mot Gustav. Om någon råtta kommer till brunn 0 innan gryningen, som sker $T$ sekunder efter att natten börjat, kommer de äta hans ost och han kommer bli väldigt ledsen.
-För att undvika detta har han hackat sig in i stadens avloppsystem och kan stänga brunnar. Om han stänger en brunn under 1 sekund kan inga råttor 
-gå ut från den brunnen under den sekunden. Råttor kan däremot gå in i en stängd brunn.  Gustav vill hålla vissa brunnar stängda under delar av natten så att ingen råtta når honom innan $T$ sekunder har passerat. 
-För varje brunn finns ett tal $e_i$, energin som krävs för att hålla brunnen stängd i 1 sekund. För att det inte ska märkas att Gustav hackat avloppsystemet vill han förbruka så lite energi som möjligt.
-Vad är den minsta totala energin som han kan förbruka?
+
+Gustav befinner sig i brunn nummer $0$ och i brunnarna $r_1, \dots, r_m$ finns det råttor.
+Snart är det natt och när natten börjar kommer råttorna röra sig mot Gustav. Om någon råtta kommer till brunn $0$
+innan gryningen, som sker $T$ sekunder efter att natten börjat, kommer de äta hans ost och han kommer bli väldigt ledsen.
+
+För att undvika detta har han hackat sig in i stadens avloppsystem och kan stänga brunnar. Om han stänger en brunn under
+$1$ sekund kan inga råttor gå ut från den brunnen under den sekunden. Råttor kan däremot gå in i en stängd brunn.
+Gustav vill hålla vissa brunnar stängda under delar av natten så att ingen råtta når honom innan $T$ sekunder har passerat.
+
+För varje brunn finns ett tal $e_i$, energin som krävs för att hålla brunnen stängd i $1$ sekund. För att det inte ska märkas
+att Gustav hackat avloppsystemet vill han förbruka så lite energi som möjligt. Vad är den minsta totala energin som han kan förbruka?
 
 
 \section*{Indata}
-Den första raden innehåller talen $N, M, T, (1 \leq  M < N \leq 2 \cdot 10^5), (1 \leq T \leq 10^8)$. 
-$N$ antal brunnar, $M$ är antal råttor, och $T$ är antal sekunder som man vill överleva.
+Den första raden innehåller talen $N, M, T$ ($1 \leq  M < N \leq 2 \cdot 10^5$, $1 \leq T \leq 10^8)$,
+antalet brunnar, antalet råttor, antalet sekunder tills det blir gryning.
 
-De följande $N-1$ raderna innehåller talen $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1), (1 \leq t_i \leq 10^8)$ som säger att det finns ett rör mellan
-brunn $a_i$ och brunn $b_i$ och tiden det tar att gå mellan dem är $t_i$, där $a_i \neq b_i$. 
+De följande $N-1$ raderna innehåller talen $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1), (1 \leq t_i \leq 10^8)$
+som säger att det finns ett rör mellan brunn $a_i$ och brunn $b_i$ och tiden det tar att gå mellan dem
+är $t_i$. Det är garanterat att man kan gå mellan varje par av brunnar med hjälp av rören. 
 
-Efter det en rad med $N-1$ heltal, där det tal $i (1 \leq i \leq N-1)$ är talet $e_i$ $(1 \leq e_i \leq 10^5)$.
+Efter det följer en rad med $N-1$ heltal $e_1, \dots, e_N$ $(1 \leq e_i \leq 10^5)$. Notera att Gustavs
+brunn är brunn $0$. Han kan aldrig gynnas av att stänga den brunnen, eftersom råttorna äter osten så fort de kommer
+in i brunnen.
 
-Därefter följer en rader med $M$ heltal, där tal $i$ är talet $r_i$ som talar om att det startar en råtta i brunn $r_i$ $(1 \leq r_i \leq N-1)$. 
-Från början befinner sig inga två råttori samma brunn.
+Därefter följer en rader med $M$ heltal, där tal $i$ är talet $r_i$ som talar om att det startar en råtta i brunn
+$r_i$ $(1 \leq r_i \leq N-1)$. Från början befinner sig inga två råttor i samma brunn.
 
 \section*{Utdata}
-Skriv ut den minsta energin som behövs för att ingen råtta ska komma till dig innan $T$ sekunder paserat. 
+Skriv ut ett heltal: den minsta mängden energin som behövs för att ingen råtta ska komma till Gustav innan $T$ sekunder paserat. 
 
 
 \section*{Poängsättning}
@@ -39,22 +47,27 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $1$ & $6$   & $e_i = 1$ för alla $i$. \\ \hline 
   $2$ & $5$   & $M = 1$ \\ \hline
   $3$ & $10$  & $M \leq 2$ \\ \hline
-  $4$ & $10$ & $N \leq 100, T \leq 100$ \\ \hline
+  $4$ & $10$  & $N \leq 100, T \leq 100$ \\ \hline
   $5$ & $23$  & $N \leq 2000$ \\ \hline
-  $6$ & $15$  & Varje brunn kan nås från brunn 0 med högst 20 rör. \\ \hline %skriv det här bättre
+  $6$ & $15$  & Avståndet mellan brunn $0$ och varje annan brunn är som mest 20 rör. \\ \hline
   $7$ & $31$  & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
-%\section*{Exempelfall}
 
 \section*{Förklaring av exempelfall 1}
 
-För att förbruka så lite energi som möjligt ska Gustav hålla brunn nummer $1$ stängd under den andra, tredje och fjärde sekunden av natten. Råttan som börjar i brunn 2 kommer gå mellan brunn 2 och brunn 1 under nattens första sekund och vara kvar i brunn 1 i 3 sekunder.
-Råttan som börjar i brunn 3 kommer gå mellan brunn 3 och brunn 1 under de första två sekunderna och vara fast i brunn 1 under de två följande sekunderna. Under sekund 5 kommer båda råttor gå mellan brunn 1 och 0. De båda kommer alltså fram till Gustav efter exakt 5 sekunder och hinner inte äta hans ost. 
-Svaret är 9.
+För att förbruka så lite energi som möjligt ska Gustav hålla brunn nummer 1 stängd under den andra, tredje
+och fjärde sekunden av natten. Råttan som börjar i brunn 2 kommer gå mellan brunn 2 och brunn 1 under nattens
+första sekund och vara kvar i brunn 1 i 3 sekunder.
+Råttan som börjar i brunn 3 kommer gå mellan brunn 3 och brunn 1 under de första två sekunderna och vara fast
+i brunn 1 under de två följande sekunderna. Under sekund 5 kommer båda råttor gå mellan brunn 1 och 0. De båda
+kommer alltså fram till Gustav efter exakt 5 sekunder och hinner inte äta hans ost. 
+Svaret är därmed 9.
 
 \section*{Förklaring av exempelfall 2}
 
-I detta fall är det bäst att hålla brunn 2 stängd under första sekunden. Råttan som börjar i brunn 2 är fast där under första sekunden, den går mellan brunn 2 och 1 under andra sekunden och går mellan brunn 1 och 0 under tredje sekunden. råttan som börjar i brunn nummer 3 går mellan brunn 3 och brunn 1 under alla tre sekunder. Svaret är 3.
+I detta fall är det bäst att hålla brunn 2 stängd under första sekunden. Råttan som börjar i brunn 2 är fast
+där under första sekunden, den går mellan brunn 2 och 1 under andra sekunden och går mellan brunn 1 och 0 under
+tredje sekunden. Råttan som börjar i brunn nummer 3 går mellan brunn 3 och brunn 1 under alla tre sekunder. Svaret är därmed 3.
 
 
