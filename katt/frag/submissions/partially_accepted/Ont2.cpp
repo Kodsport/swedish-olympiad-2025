@@ -64,7 +64,7 @@ ll dp(int node, ll time){
 
         
     }
-    memo[time][node] = best;
+    memo[node][time] = best;
     return best;
 
 }
