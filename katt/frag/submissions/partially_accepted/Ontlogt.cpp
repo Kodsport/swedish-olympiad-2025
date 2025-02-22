@@ -99,7 +99,7 @@ ll dp(int node, ll time){
         best += dp(c, time - w - lo);
     }
         
-    memo[time][node] = best;
+    memo[node][time] = best;
     return best;
 
 }
