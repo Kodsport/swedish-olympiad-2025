@@ -40,9 +40,9 @@ void build(int node, ll time){
 }
 
 void add(int node, ll cost){
-    if (cost == 0){  //cheese
-        return;
-    }
+    //if (cost == 0){  //cheese
+    //    return;
+    //}
     ll old = min(e[node], bestchildren[node]);
     bestchildren[node] += cost;
     ll neww = min(e[node], bestchildren[node]);
