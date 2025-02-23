@@ -97,6 +97,7 @@ tc g3-14 gen_kvast2 n=200000 l=5000 m=2 ball=100109 t=100000000 maxt=10 root0=1
 tc g3-15 gen_fishbone2 n=200000 m=2 t=100000000 maxt=10 root0=1
 tc g3-16 gen_fishbone3 n=200000 m=2 t=100000000 maxt=10 root0=1
 tc g3-17 gen_kvast3 n=200000 l=52000 m=2 ball=120009 t=100000000 maxt=5 root0=1
+tc g3-18 gen_kvast3 n=200000 l=110456 m=2 ball=85000 t=99999997 maxt=11 root0=1
 
 group group4 10
 include_group sample
@@ -146,6 +147,7 @@ tc g5-13 gen_kvast2 n=2000 l=123 m=1733 ball=1500 t=100000000 maxt=10 root0=1
 tc g5-14 gen_fishbone2 n=2000 t=100000000 maxt=123 root0=1
 tc g5-15 gen_fishbone3 n=2000 t=100000000 maxt=31 root0=1
 tc g5-16 gen_kvast3 n=2000 l=1800 m=12 t=99999997 maxt=21 root0=1
+tc g5-17 gen_kvast3 n=2000 l=1104 m=700 ball=850 t=99999997 maxt=11 root0=1
 
 group group6 15
 limits maxdist=20
@@ -203,3 +205,4 @@ tc g7-18 gen_kvast2 n=200000 l=2938 m=167023 ball=150000 t=100000000 maxt=100 ro
 tc g7-19 gen_fishbone2 n=200000 t=100000000 maxt=10 root0=1
 tc g7-20 gen_fishbone3 n=200000 t=100000000 maxt=99 root0=1
 tc g7-21 gen_kvast3 n=200000 l=123456 m=70001 ball=70000 t=99999997 maxt=23 root0=1
+tc g7-22 gen_kvast3 n=200000 l=110456 m=70001 ball=85000 t=99999997 maxt=11 root0=1
