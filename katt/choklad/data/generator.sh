@@ -19,7 +19,7 @@ sample 3
 sample 4
 
 group group1 4
-limits maxn=100000 maxsz=1000000 maxk=1000000000
+limits maxn=1 maxsz=1000000 maxk=1000000000
 tc 2
 tc g1-1 gen_random n=1
 tc g1-2 gen_random n=1
@@ -50,7 +50,7 @@ tc g2-9 gen_bigarea n=50 target=1024145000 maxk=5
 tc g2-10 gen_bigarea n=50 target=100001421 maxk=5
 
 group group3 15
-limits maxn=500 maxsz=1000000 maxk=5
+limits maxn=200 maxsz=1000000 maxk=5
 include_group group2
 tc g3-1 gen_random n=200 maxk=5
 tc g3-2 gen_random n=200 maxk=5
