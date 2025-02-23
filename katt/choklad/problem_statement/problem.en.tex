@@ -1,58 +1,58 @@
 \problemname{Eating Chocolate}
 
 \noindent
-Olle and Lisa have received $N$ chocolate bars of various shapes from their parents, which they now plan to eat together (the chocolate bars, not the parents).
-Each chocolate bar is a rectangle consisting of $R_i \times C_i$ squares.
-The chocolate bars are placed on a table, and to eat them, Olle and Lisa will take turns making the following moves:
+Olle and Lisa have received $N$ types chocolate bars of various shapes from their parents, which they now plan to eat together (the chocolate bars, not the parents).  
+Each chocolate bar is a rectangle consisting of $R_i \times C_i$ squares, and they have received $k_i$ identical copies of the $i:th$ type.
+The chocolate bars are placed on a table, and to eat them, they take turns making the following move:  
 \begin{itemize}
   \item Choose a chocolate bar from the table.
-  \item Break it into two parts, so that both parts are rectangles with integer side lengths.
+  \item Break it into two parts so that both parts are rectangles with integer side lengths.
   \item Eat the smaller part.
-  \item Place the remaining part back on the table.
+  \item Put the remaining larger part back on the table.
 \end{itemize}
-If the chosen chocolate bar has a size of $1 \times 1$, they eat it directly and do not place anything back on the table.
-They have already decided that Lisa will start.
+If the chosen chocolate bar has size $1 \times 1$, they eat it directly and do not place anything back on the table.  
+They have already decided that Lisa will start.  
 
+Due to sibling affection, they will always choose a chocolate bar from the table that,  
+after splitting it in two and placing the larger piece back,  
+ensures that they eat as much as possible in that move.  
+If there are multiple such choices, they arbitrarily select one.  
+Additionally, Olle is very concerned about fairness and wants the total number of chocolate squares they eat to be as equal as possible.  
+To achieve this goal, he may choose to throw away at most one chocolate bar in the trash before they begin, without Lisa noticing.  
 
-Due to being siblings, they will both want to eat as much chocolate as possible.
-In each move, they will choose the chocolate bar that, after they have split it and put the bigger part back on the table,
-results in them eating as many squares as possible in that move.
-If multiple such choices are possible, they will arbitrarily choose one of them such that their future chocolate consumtion is maximized.
-Additionally, Olle cares a lot about fairness and would like the total number of squares eaten by both to be as equal as possible.
-To achieve this goal, before they start he can choose to discard at most one chocolate bar into the trash can without Lisa noticing.
-
-Let $V_O$ and $V_L$ be the number of squares eaten by Olle and Lisa, respectively, given that they both eat in a greedy and logical manner.  
-Your task is to determine the minimal difference, that is, $|V_O - V_L|$,  
-after Olle has discarded at most one chocolate bar.
+Let $V_O$ and $V_L$ be the number of squares that Olle and Lisa eat, respectively,  
+given that they both eat in a greedy and logical manner.  
+Your task is to determine the minimum possible difference, i.e., $|V_O - V_L|$,  
+after Olle has thrown away at most one chocolate bar.  
 
 \section*{Input}
-The first line contains the number $N$ ($2 \leq N \leq 10^5$), the number of chocolate bars on the table.
-
-This is followed by $N$ lines, where the $i$:th line contains the numbers $R_i$ and $C_i$ ($1 \leq R_i, C_i \leq 10^6$).
+The first line contains the number $N$ ($2 \leq N \leq 10^5$), the number of chocolate bars on the table.  
+Then follow $N$ lines, where the $i$-th line contains the numbers $R_i$, $C_i$, and $k_i$ ($1 \leq R_i, C_i \leq 10^6$, $1 \leq k_i \leq 10^9$).  
 
 \section*{Output}
-Print a single integer, the minimal value of $|V_O - V_L|$ as described above.
+Print a single integer, the minimum value of $|V_O - V_L|$ as described above.  
 
 \section*{Scoring}
-Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
-a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
-
+Your solution will be tested on a set of test case groups.  
+To receive points for a group, you must pass all test cases in that group.  
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$    & $10$       & All chocolate bars have the same size. \\ \hline
-  $2$    & $16$       & $R_i, C_i \leq 10$ \\ \hline
-  $3$    & $15$       & $N \leq 50$ \\ \hline
-  $4$    & $19$       & $N \leq 500$ \\ \hline
-  $5$    & $40$       & No additional constraints. \\ \hline
+  $1$    & $4$        & $N = 1$ \\ \hline
+  $2$    & $12$       & $N \leq 50, K_i \leq 5$ \\ \hline
+  $3$    & $15$       & $N \leq 200, K_i \leq 5$ \\ \hline
+  $4$    & $10$       & $R_i, C_i \leq 10$ \\ \hline
+  $5$    & $13$       & $N \leq 200$ \\ \hline
+  $6$    & $16$       & $K_i = 1$ \\ \hline
+  $7$    & $30$       & No additional constraints. \\ \hline
 \end{tabular}
 
-\section*{Explanation of Sample 1}
-Olle discards the chocolate bar of size $2 \times 2$.  
-After that, they will each eat one square of chocolate twice, so $V_O = V_L$.
+\section*{Explanation of Sample Case 1}
+Olle throws away the chocolate bar of size $2 \times 2$.  
+Then, they will each eat one square of chocolate twice, meaning $V_O = V_L$.  
 
-\section*{Explanation of Sample 2}
-In this test case, the optimal strategy for Olle is to not discard any chocolate bar.  
-They will then eat exactly the same amount of chocolate.
+\section*{Explanation of Sample Case 2}
+In this test case, it is optimal for Olle not to throw away any chocolate bar.  
+They will then eat exactly the same amount of chocolate.  
