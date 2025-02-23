@@ -19,18 +19,19 @@ att Gustav hackat avloppsystemet vill han förbruka så lite energi som möjligt
 
 \section*{Indata}
 Den första raden innehåller talen $N, M, T$ ($1 \leq  M < N \leq 2 \cdot 10^5$, $1 \leq T \leq 10^8)$,
-antalet brunnar, antalet råttor, antalet sekunder tills det blir gryning.
+antalet brunnar, antalet råttor och antalet sekunder tills det blir gryning.
 
-De följande $N-1$ raderna innehåller talen $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1), (1 \leq t_i \leq 10^8)$
+De följande $N-1$ raderna innehåller talen $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1$, $1 \leq t_i \leq 10^8)$
 som säger att det finns ett rör mellan brunn $a_i$ och brunn $b_i$ och tiden det tar att gå mellan dem
 är $t_i$. Det är garanterat att man kan gå mellan varje par av brunnar med hjälp av rören. 
 
-Efter det följer en rad med $N-1$ heltal $e_1, \dots, e_N$ $(1 \leq e_i \leq 10^5)$. Notera att Gustavs
-brunn är brunn $0$. Han kan aldrig gynnas av att stänga den brunnen, eftersom råttorna äter osten så fort de kommer
+Efter det följer en rad med $N-1$ heltal $e_1, \dots, e_N$ $(1 \leq e_i \leq 10^5)$, där varje $e_i$ beskriver mängden
+energi som krävs för att stänga brunn $i$ en sekund. Notera att Gustavs
+brunn är brunn $0$ och $e_i$ är därmed inte given. Han kan aldrig gynnas av att stänga den brunnen, eftersom råttorna äter osten så fort de kommer
 in i brunnen.
 
-Därefter följer en rader med $M$ heltal, där tal $i$ är talet $r_i$ som talar om att det startar en råtta i brunn
-$r_i$ $(1 \leq r_i \leq N-1)$. Från början befinner sig inga två råttor i samma brunn.
+Därefter följer en rader med $M$ heltal $r_i$ $(1 \leq r_i \leq N-1)$, där varje $r_i$ beskriver att det startar en råtta i brunn
+$r_i$. Från början finns det som mest en råtta i varje brunn.
 
 \section*{Utdata}
 Skriv ut ett heltal: den minsta mängden energin som behövs för att ingen råtta ska komma till Gustav innan $T$ sekunder paserat. 
@@ -47,7 +48,7 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
   $1$ & $6$   & $e_i = 1$ för alla $i$. \\ \hline 
   $2$ & $5$   & $M = 1$ \\ \hline
   $3$ & $10$  & $M \leq 2$ \\ \hline
-  $4$ & $10$  & $N \leq 100, T \leq 100$ \\ \hline
+  $4$ & $10$  & $N, T \leq 100$ \\ \hline
   $5$ & $23$  & $N \leq 2000$ \\ \hline
   $6$ & $15$  & Avståndet mellan brunn $0$ och varje annan brunn är som mest 20 rör. \\ \hline
   $7$ & $31$  & Inga ytterligare begränsningar. \\ \hline
