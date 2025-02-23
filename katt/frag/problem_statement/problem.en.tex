@@ -5,7 +5,7 @@ He now finds himself in a sewer system with $N$ manholes numbered from $0$ to $N
 connecting the manholes, and one can move between any pair of manholes by traveling through the pipes.
 Each pipe takes a certain number of seconds to pass through.
 
-Gustav is located in manhole number $0$, and in the manholes $r_1$, $\dots$, $r_m$, there are rats.
+Gustav is located in manhole number $0$, and in the manholes $r_1$, $\dots$, $r_M$, there are rats.
 Soon, night will fall, and when the night begins, the rats will move toward Gustav. If any rat reaches manhole $0$
 before dawn, which occurs $T$ seconds after night begins, they will eat his cheese, and he will be very sad.
 
@@ -25,11 +25,11 @@ The next $N-1$ lines contain the integers $a_i$, $b_i$, $t_i$ ($0 \leq a_i,b_i \
 indicating that there is a pipe between manhole $a_i$ and manhole $b_i$, and the time required to move between them
 is $t_i$. It is guaranteed that one can travel between every pair of manholes using the pipes.
 
-After that, a line follows with $N-1$ integers $e_1$, $\dots$, $e_N$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being the energy
+After that, a line follows with $N-1$ integers $e_1$, $\dots$, $e_{N-1}$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being the energy
 required to close manhole number $i$ for one second. Note that Gustav's
 manhole is manhole $0$, and $e_0$ is not a given. He can never benefit from closing this manhole since the rats will eat the cheese as soon as they enter it.
 
-Then, a line follows with $M$ integers $r_i$ $(1 \leq r_i \leq N-1)$, where $r_i$ indicates that a rat starts in manhole
+Then, a line follows with $M$ integers $r_1$, $\dots$, $r_M$ $(1 \leq r_i \leq N-1)$, where $r_i$ indicates that a rat starts in manhole
 $r_i$. Initially, there is at most one rat in each manhole.
 
 \section*{Output}
@@ -44,7 +44,7 @@ a set of test cases. To get the points for a test group you need to solve all te
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
-  $1$ & $6$ & $e_i = 1$ for all $i$. \\ \hline
+  $1$ & $6$ & $e_i = 1$ for all $i = 1, \dots, N-1$. \\ \hline
   $2$ & $5$ & $M = 1$ \\ \hline
   $3$ & $10$ & $M \leq 2$ \\ \hline
   $4$ & $10$ & $N, T \leq 100$ \\ \hline
