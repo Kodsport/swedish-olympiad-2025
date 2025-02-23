@@ -18,14 +18,14 @@ To avoid anyone noticing that he has hacked the sewer system, he wants to use as
 What is the minimum total energy he needs to use?
 
 \section*{Input}
-The first line contains the integers $N, M, T$ ($1 \leq M < N \leq 2 \cdot 10^5$, $1 \leq T \leq 10^8)$,
+The first line contains the integers $N$, $M$, $T$ ($1 \leq  M < N \leq 2 \cdot 10^5$, $1 \leq T \leq 10^8$),
 the number of manholes, the number of rats, and the number of seconds until dawn.
 
-The next $N-1$ lines contain the integers $a_i, b_i, t_i$ $(0 \leq a_i,b_i \leq N-1$, $1 \leq t_i \leq 10^8)$,
+The next $N-1$ lines contain the integers $a_i$, $b_i$, $t_i$ ($0 \leq a_i,b_i \leq N-1$, $1 \leq t_i \leq 10^8$),
 indicating that there is a pipe between manhole $a_i$ and manhole $b_i$, and the time required to move between them
 is $t_i$. It is guaranteed that one can travel between every pair of manholes using the pipes.
 
-After that, a line follows with $N-1$ integers $e_1, \dots, e_N$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being the energy
+After that, a line follows with $N-1$ integers $e_1$, $\dots$, $e_N$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being the energy
 required to close manhole number $i$ for one second. Note that Gustav's
 manhole is manhole $0$, and $e_0$ is not a given. He can never benefit from closing this manhole since the rats will eat the cheese as soon as they enter it.
 
