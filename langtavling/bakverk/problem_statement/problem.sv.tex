@@ -1,0 +1,58 @@
+\problemname{Neuralt Bakverk}
+\noindent
+
+Ett neuralt bakverk är en riktad graf med $N$ noder, vars funktion är att baka kakor. 
+I början läggs $X$ enheter ingredienser på nod $1$, medan de andra noderna får noll 
+ingredienser. Därefter sker följande varje sekund för varje nod:
+
+
+\begin{itemize}
+\item Låt $a_v$ vara antalet ingredienser på nod $v$, och låt $d_v$ vara utgraden hos nod $v$.
+\item Om $d_v = 0$ så händer ingenting. Annars, skriv $a_v = d_v\cdot q + r$ där $0 \leq r < d_v$. Skicka sedan $q$ enheter ingredienser till var och en av noderna som $v$ pekar på, och behåll resterande $r$.
+\end{itemize}
+
+Med andra ord så delar varje nod upp ingredienserna lika så gått det går och skickar 
+vidare. Varje sekund så sker allt detta samtidigt för alla noder, så det spelar 
+ingen roll i vilken ordning som noderna betraktas.
+
+De ingredienser som hamnar på nod $N$ är de färdiga kakorna. 
+För att vara ett giltigt neuralt bakverk så måste $d_N = 0$. 
+En nod får inte heller peka på sig själv, eller peka på samma nod mer än en gång.
+
+Du får givet heltalen $X$ och $Y$, och din uppgift är att bygga ett neuralt 
+bakverk sådant att exakt $Y$ kakor bakas om $X$ enheter ingredienser används. 
+Mer specifikt så kommer bakverket att köras i $10^4$ steg, och om nod $N$ då 
+har $Y$ kakor så har du klarat testfallet. Du får poäng beroende på hur litet $N$ är.
+
+
+\section*{Indata}
+
+Indatan består av en rad med två heltal $X$ och $Y$ ($1 \leq X,Y \leq 10^{18}$).
+
+\section*{Utdata}
+
+Om det inte finns något neuralt bakverk som bakar $Y$ kakor med $X$ ingredienser, skriv 
+ut $-1$.
+
+Annars, skriv först ut en rad med två heltal $N,M$, antalet noder och kanter i ditt nätverk. 
+Skriv därefter ut $M$ rader som var och en innehåller två heltal $u_i, v_i$ ($1 \leq u_i, v_i \leq N$),
+som indikerar att en kant går från nod $u_i$ till nod $v_i$.
+
+\section*{Poängsättning}
+
+På var och en av de två testgrupperna kommer du få poäng enligt formeln
+
+$$TODO$$
+
+där $g$ är testgruppens poäng och $N$ är hur många noder ditt nätverk har.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $20$        & $X,Y \leq 20$ \\ \hline
+  $2$    & $80$        & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+
