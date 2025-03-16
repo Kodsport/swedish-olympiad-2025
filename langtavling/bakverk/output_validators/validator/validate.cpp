@@ -95,7 +95,14 @@ int main(int argc, char **argv) {
   if (author_out)
     wrong_answer("trailing output, expected eof");
 
-  double score = min(1.0, (100+FULL_SCORE-n)/100.0); // TODO: better formula
+  double score;
+  if(n < FULL_SCORE){
+    // Also takes care of n = -1
+    score = 1.0;
+  }
+  else{
+    score = min(1.0, 20.0 / (n - FULL_SCORE + 20.0));
+  }
   score = max(score, 0.0);
   score *= 1000;
 

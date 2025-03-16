@@ -16,12 +16,12 @@ vidare. Varje sekund så sker allt detta samtidigt för alla noder, så det spel
 ingen roll i vilken ordning som noderna betraktas.
 
 De ingredienser som hamnar på nod $N$ är de färdiga kakorna. 
-För att vara ett giltigt neuralt bakverk så måste $d_N = 0$. 
-En nod får inte heller peka på sig själv, eller peka på samma nod mer än en gång.
+För att vara ett giltigt neuralt bakverk så får ingen nod peka på 
+sig själv, eller peka på samma nod mer än en gång.
 
 Du får givet heltalen $X$ och $Y$, och din uppgift är att bygga ett neuralt 
 bakverk sådant att exakt $Y$ kakor bakas om $X$ enheter ingredienser används. 
-Mer specifikt så kommer bakverket att köras i $10^4$ steg, och om nod $N$ då 
+Mer specifikt så kommer bakverket att köras i $10^4$ sekunder, och om nod $N$ då 
 har $Y$ kakor så har du klarat testfallet. Du får poäng beroende på hur litet $N$ är.
 
 
@@ -40,11 +40,14 @@ som indikerar att en kant går från nod $u_i$ till nod $v_i$.
 
 \section*{Poängsättning}
 
-På var och en av de två testgrupperna kommer du få poäng enligt formeln
+Det finns två testgrupper som poängsätts separat på följande sätt. Låt $N_{max}$ vara det maximala 
+värdet på $N$ i ditt svar på något av testfallen i testgruppen. Om $N_{max} \leq 30$ så får du 
+full poäng, annars ges poäng enligt formeln
 
-$$TODO$$
+$$ \frac{20 \cdot g}{N_{max} - 10} $$
 
-där $g$ är testgruppens poäng och $N$ är hur många noder ditt nätverk har.
+där $g$ är testgruppens poäng ($20$ respektive $80$). Om du svarar fel på något av testfallen, eller om 
+$N_{max} \geq 200$, så får du noll poäng på testgruppen.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
@@ -54,5 +57,5 @@ där $g$ är testgruppens poäng och $N$ är hur många noder ditt nätverk har.
   $2$    & $80$        & Inga ytterligare begränsningar. \\ \hline
 \end{tabular}
 
-\section*{Förklaring av exempelfall}
+%\section*{Förklaring av exempelfall}
 
