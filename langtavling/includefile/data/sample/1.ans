@@ -1,0 +1,5 @@
+#include "main.hpp"
+    std::cout << "Hello World\n";
+}
+    return 0;
+}
