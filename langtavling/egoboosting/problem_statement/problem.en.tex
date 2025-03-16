@@ -5,29 +5,57 @@ After several years of grinding programming, Tommy has realized that he is not c
 
 To fix this, Tommy would like to boost his ego!
 
-Initially, Tommy has 0 ego. % Change to start with E ego?
+Initially, Tommy has $E$ ego. 
 
-There are $N$ problems, where solving any of the problems will increase Tommy's ego by 1.
+There are $N$ ego-increasing-problems (EP for short), where solving any of the EP will increase Tommy's ego by 1.
+Each EP has a difficulty rating $a_i$.
 
-blah blah blah
+To guarantee that Tommy solves an EP, Tommy must have at least the same amount of ego as the difficulty of the EP. 
+In other words, $E \geq a_i$ must be satisfied for Tommy to be able to solve the $i$'th EP.
+
+%blah blah blah before taking on any problem
+
+Tommy can start solving any problem. 
+But after solving a problem, he can only choose to attempt the closest unsolved problem to the left, or the closest unsolved problem to the right.
+Before attempting any problem, Tommy can eat an ego-cookie to increase his ego by 1 unit. 
+
+What is the minimum amount of ego-cookies Tommy has to eat to be able to solve all EPs?
 
 \section*{Input}
 \noindent
+The first line contains two integers, $N$ $(1 \leq N \leq 5 \cdot 10^5)$ and $E$ $(0 \leq E \leq 10^9)$.
 
+The second line contains $N$ integers, $a_i$ $(1 \leq a_i \leq 10^9)$ for $i = 1,\dots,N$, where the difficulty of the $i$:th EP from left to right is $a_i$.
 
 \section*{Output}
 \noindent
+Print an integer: the minimum amount of ego-cookies Tommy has to eat to be able to solve all EPs.
 
-
-\section*{???}
-
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
+a set of test cases. To get the points for a test group you need to solve all test cases in the test group.
 
 \noindent
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
-
-  $7$    & $32$       & No additional constraints. \\ \hline
+  $1$    & $7$        & $N \leq 3$ \\ \hline
+  $2$    & $12$       & $N \leq 15$ \\ \hline
+  $3$    & $23$       & $N \leq 5000$ \\ \hline
+  $4$    & $17$       & There are at most 2 distinct integers in $a_1, \dots, a_N$. \\ \hline
+  $5$    & $41$       & No additional constraints. \\ \hline
 \end{tabular}
 
-\section*{Example}
+\section*{Example of Sample}
+If we solve the EPs in the order $a_4, a_5, a_3, a_2, a_1, a_6$,
+then 
+\begin{itemize}
+ \item Before solving $a_4 = 2$, Tommy has to eat a cookie to increase his ego to 2. After solving the problem Tommy's ego is 3.
+ \item $a_5 = 3$, which Tommy can solve since his ego is already 3. After solving the problem his ego will become 4.
+ \item Before solving $a_3 = 7$, Tommy has to eat 3 cookies to incerase his ego to 7. After solving the problem his ego becomes 8.
+ \item $a_2 = 4$, which Tommy can solve since his ego is 8. Now his ego is 9.
+ \item $a_1 = 9$, which Tommy can solve. Now his ego is 10.
+ \item $a_6 = 10$, which Tommy can solve. Now his ego is 11.
+\end{itemize}
+
+Tommy eats in total 4 cookies, which can be proven to be the smallest amount of cookies Tommy needs.
