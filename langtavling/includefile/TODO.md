@@ -4,3 +4,4 @@
 - maybe change N \leq 5e5?
 - Write a cheese that only looks at the last 100 layers, no matter the k>100.
 
+- Fix problem statement and pictures
