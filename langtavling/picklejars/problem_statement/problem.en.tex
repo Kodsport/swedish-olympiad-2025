@@ -3,18 +3,20 @@
 
 There are $N$ jars of pickles, and you would like to put them into one single jar.
 
-When you put pickles from one jar to another, it is important to consider the choice of jars, 
-since it will affect the marination process as well as the taste of the pickles.
-
-When you put pickles from jar $i$ to jar $i+1$, the total tastiness increasing by $a_i \oplus a_{i+1}$, where $\oplus$ is defined as the bitwise XOR. 
-(Note that bitwise XOR of two integers $x$ and $y$ is calculated by looking at the binary representations of $x$ and $y$. 
-The $i$'th bit of $x \oplus y$ is 1, if and only if the $i$'th bit of $a$ or $b$ is 1, but not both. Bitwise XOR is available as an operator in both \texttt{C++} and \texttt{Python} as $\^$.)
-After putting all the pickles from jar $i$ to $i+1$, the jar $i$ gets removed from the shelf, and only jar $i+1$ remains. 
-
 You have the option to order the jars of pickles in any order you want on the shelf. 
 Now, you can transfer pickles by choosing a jar $i$ as well as the jar to the right of it $i+1$, and move all pickles from $i$ to $i+1$. 
 You will continue transfering pickles until there is only one single jar remaining.
 
+When you put pickles from one jar to another, it is important to consider the choice of jars, 
+since it will affect the marination process as well as the taste of the pickles.
+
+When you put pickles from jar $i$ to jar $i+1$, the total tastiness increasing by $a_i \oplus a_{i+1}$, where $\oplus$ is defined as the bitwise XOR. 
+Note that bitwise XOR of two integers $x$ and $y$ is calculated by looking at the binary representations of $x$ and $y$. 
+The $i$'th bit of $x \oplus y$ is 1, if and only if the $i$'th bit of $a$ or $b$ is 1, but not both. Bitwise XOR is available as an operator in both \texttt{C++} and \texttt{Python} as $\^$.
+
+After putting all the pickles from jar $i$ to $i+1$, the jar $i$ gets removed from the shelf, and only jar $i+1$ remains. 
+
+As a pickle connoisseur, you would like to maximize the total tastiness after all the operations.
 Please find the an order of the jars and order of transfers such that the total tastiness is maximized. 
 
 
