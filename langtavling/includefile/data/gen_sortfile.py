@@ -42,6 +42,11 @@ if mode == "rev":
 else:
     assert(mode == "none"), f"Mode {mode=} not defined"
 
+move = int(cmdlinearg("move",0))
+for _ in range(move):
+    i,j = random.randint(n//2,n-includes), random.randint(n-includes,n-1)
+    file[i],file[j] = file[j],file[i]
+
 queries = []
 visited = set()
 

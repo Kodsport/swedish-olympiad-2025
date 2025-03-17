@@ -31,12 +31,15 @@ mode = cmdlinearg('mode', "none")
 
 alfa = "qwertyuiopasdfghjklzxcvbnm" + "qwertyuiopasdfghjklzxcvbnm".upper()
 
+header = int(cmdlinearg("header",0))
 file = ["#include \"main.hpp\""]*includes
 
-while len(file)<n:
+while len(file)<n-header:
     file.append("".join([alfa[random.randint(0,len(alfa)-1)] for _ in range(random.randint(random.randint(1,length//2),length))]))
 random.shuffle(file)
 
+if header:
+    file = ["harry"] + file
 
 queries = []
 visited = set()
@@ -92,10 +95,16 @@ for val in include:
 
 
 start = int(cmdlinearg("start", random.randint(1,min(totalLines, INF)-q)))
+if start == -1:
+    ind = include.index(1)
+    A = ind*(k+1)
+    start = min(max(1,A),INF-q)
 for x in range(start,start+q):
     queries.append(x)
 random.shuffle(queries)
 
+if header:
+    queries[-1] = 1
 
 print(n,k,q)
 for line in file:

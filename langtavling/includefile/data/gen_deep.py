@@ -31,11 +31,29 @@ mode = cmdlinearg('mode', "none")
 
 alfa = "qwertyuiopasdfghjklzxcvbnm" + "qwertyuiopasdfghjklzxcvbnm".upper()
 
-file = ["#include \"main.hpp\""]*includes
 
-while len(file)<n:
-    file.append("".join([alfa[random.randint(0,len(alfa)-1)] for _ in range(random.randint(random.randint(1,length//2),length))]))
-random.shuffle(file)
+if int(cmdlinearg("specialFile", 0)):
+    file = ["#include \"main.hpp\""]*includes
+
+    while len(file)<n:
+        file.append("".join([alfa[random.randint(0,len(alfa)-1)] for _ in range(random.randint(random.randint(1,length//2),length))]))
+    file.sort()
+
+    
+    file.reverse()
+    
+
+    move = int(cmdlinearg("move",0))
+    for _ in range(move):
+        i,j = random.randint(n//2,n-includes), random.randint(n-includes,n-1)
+        file[i],file[j] = file[j],file[i]
+
+else:
+    file = ["#include \"main.hpp\""]*includes
+
+    while len(file)<n:
+        file.append("".join([alfa[random.randint(0,len(alfa)-1)] for _ in range(random.randint(random.randint(1,length//2),length))]))
+    random.shuffle(file)
 
 
 queries = []
@@ -88,6 +106,7 @@ prefixInclude = [0] #Prefix over number of includes
 for val in include:
     prefix.append(prefix[-1] + 1 - val)
     prefixInclude.append(prefixInclude[-1] + val)
+
 
 
 

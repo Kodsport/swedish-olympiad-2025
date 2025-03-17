@@ -1,7 +1,8 @@
 #!/bin/bash
 . ../../../testdata_tools/gen.sh
 
-use_solution harry_qlogk.py
+#use_solution harry_qlogk.py
+use_solution gpt.cpp
 
 compile gen_rand.py # Query randomly [1,10^12]
 compile gen_sortfile.py # File is sorted
@@ -59,6 +60,8 @@ tc g2-09 gen_deep n=1000000 k=1 q=1000 inc=1025
 tc g2-10 gen_range n=1000000 k=1 q=1000 inc=30 start=1 
 tc g2-11 gen_range n=1000000 k=1 q=1000 inc=311111 
 tc g2-12 gen_spread n=1000000 k=1 q=1000 inc=500000 scale=3 
+tc g2-13 gen_deep n=1000000 k=1 q=1000 inc=999900 scale=3 
+tc g2-14 gen_deep n=1000000 k=1 q=1000 inc=1000000 scale=3 
 
 group group3 9
 limits minN=2 maxN=2
@@ -129,6 +132,7 @@ tc g5-12 gen_range n=1000 k=100 q=1000 inc=791 start=1
 tc g5-13 gen_range n=1000 k=100 q=1000 inc=13 
 tc g5-14 gen_spread n=1000 k=100 q=1000 inc=500 scale=3
 
+
 group group6 29
 limits maxk=1000
 include_group group2
@@ -149,6 +153,7 @@ tc g6-13 gen_deep n=1000000 k=1000 q=1000 inc=2025 scale=100 mode=dec
 tc g6-14 gen_range n=1000000 k=1000 q=1000 inc=400000 start=1
 tc g6-15 gen_range n=1000000 k=1000 q=1000 inc=102488  
 tc g6-16 gen_spread n=1000000 k=1000 q=1000 inc=500000 scale=3
+tc g6-17 gen_deep n=1000000 k=899 q=1000 inc=250000 length=8 move=50000 specialFile=1
 
 group group7 32
 include_group group1
@@ -167,6 +172,20 @@ tc g7-07 gen_deep n=1000000 k=500000 q=1000 inc=2025 scale=30 mode=dec
 tc g7-08 gen_deep n=1000000 k=500000 q=1000 inc=2025 scale=100 mode=dec
 tc g7-09 gen_deep n=1000000 k=500000 q=1000 inc=2025 scale=700 mode=dec
 tc g7-10 gen_range n=1000000 k=500000 q=1000 inc=200200 start=1
-tc g7-11 gen_range n=1000000 k=499999 q=1000 inc=102488   
+tc g7-11 gen_range n=1000000 k=499999 q=1000 inc=102488 
 tc g7-12 gen_deep n=1000000 k=500000 q=1000 inc=5810 scale=3
 tc g7-13 gen_spread n=1000000 k=500000 q=1000 inc=500000 scale=3
+tc_manual ../manual/3incsk100.in
+tc_manual ../manual/3incsk1000.in
+tc_manual ../manual/3incsk5e5.in
+tc g7-14 gen_deep n=1000000 k=500000 q=1000 inc=10 scale=3 
+tc g7-15 gen_deep n=1000000 k=500000 q=1000 inc=200 scale=3 
+tc g7-16 gen_deep n=1000000 k=500000 q=1000 inc=3000 scale=50 
+tc g7-17 gen_deep n=1000000 k=500000 q=1000 inc=40000 scale=3 
+tc g7-18 gen_deep n=1000000 k=500000 q=1000 inc=500000 scale=3 
+tc g7-19 gen_deep n=1000000 k=500000 q=1000 inc=250000 length=8 move=50000 specialFile=1 scale=3
+tc g7-20 gen_deep n=1000000 k=500000 q=1000 inc=150000 length=8 move=50000 specialFile=1 scale=10
+tc g7-21 gen_deep n=1000000 k=500000 q=1000 inc=150000 length=8 move=50000 specialFile=1 scale=10 mode=dec
+tc g7-22 gen_deep n=1000000 k=500000 q=1000 inc=3 length=8 specialFile=1 scale=10 mode=dec
+tc g7-23 gen_range n=1000000 k=3 q=1000 inc=999995 start=-1
+tc g7-24 gen_range n=1000000 k=2 q=1000 inc=999996 start=-1 header=1
