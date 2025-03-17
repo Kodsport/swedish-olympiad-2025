@@ -12,7 +12,7 @@ typedef vector<int> vi;
 
 void run() {
 
-	int maxk = Arg("maxk", 100000);
+	int maxk = Arg("maxk", 500000);
 	int minN = Arg("minN", 1);
 	int maxN = Arg("maxN", 1000000);
 	int maxQ = Arg("maxQ", 1000);

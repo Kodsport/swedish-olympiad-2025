@@ -162,9 +162,3 @@ for _ in range(q):
 
             assert(query <= n), f"{query = }"
             print(originalFile[query-1])
-
-
-
-
-
-

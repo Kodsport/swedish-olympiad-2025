@@ -66,7 +66,7 @@ for _ in range(q):
     ans = -1
     # Find which k we are in
     currMaxk = k
-
+    
     while currMaxk > 0:
         #print(currMaxk,query)
         if query < ind*(currMaxk+1)+1:
