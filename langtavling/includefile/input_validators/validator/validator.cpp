@@ -37,18 +37,26 @@ void run() {
 
 	__int128_t maxQueryVal = 1e12;
 	__int128_t currLines = 0;
-	rep(i,0,k) {
-		currLines += (__int128_t) powl(incs,i)* (__int128_t)(N-incs);
+	
+	if (incs == 0) currLines = N;
+	else if (incs == 1) currLines = (N-1)*(k+1)+1;
+	else if (N-incs == 0 && N > 1 && k > 100) currLines = maxQueryVal;
+	else {
 		
-		if (currLines >= maxQueryVal){
-			currLines = maxQueryVal;
-			break;
-		}
-	}	
-	if (powl(incs,k) > maxQueryVal) currLines = maxQueryVal;
-	if (currLines < maxQueryVal) currLines += (__int128_t) powl(incs, k);
-	if (currLines < maxQueryVal) currLines *= incs;
-	if (currLines < maxQueryVal) currLines += N-incs;
+		rep(i,0,k) {
+			currLines += (__int128_t) powl(incs,i)* (__int128_t)(N-incs);
+			
+			if (currLines >= maxQueryVal){
+				currLines = maxQueryVal;
+				break;
+			}
+		}	
+		if (powl(incs,k) > maxQueryVal) currLines = maxQueryVal;
+		if (currLines < maxQueryVal) currLines += (__int128_t) powl(incs, k);
+		if (currLines < maxQueryVal) currLines *= incs;
+		if (currLines < maxQueryVal) currLines += N-incs;
+	}
+	
 
 	rep(i,0,Q) {
 		ll query = Int(1,(ll) min(maxQueryVal, currLines));
