@@ -18,7 +18,7 @@ An important feature of \verb|H++| is that it allows files to include themselves
 #include "main.hpp"
 \end{verbatim}
 
-it will cause the file \texttt{main.hpp} to be recursively included, with the content of \texttt{main.hpp}
+It will cause the file \texttt{main.hpp} to be recursively included, with the content of \texttt{main.hpp}
 being copied and pasted again. This creates a self-replicating cycle that can repeat multiple times, potentially resulting in a very large file. 
 To prevent this from becoming an infinite loop, the creator of \verb|H++| introduced a recursion limit, 
 which allows the user to set a maximum number of recursive inclusions (denoted as $k$).
@@ -38,7 +38,7 @@ As a result, Louise needs help to figure out what the error lines in the compile
 
 \section*{Input}
 \noindent
-The first line contains three integers $N$, $k$, and $Q$ ($1 \leq N \leq 10^6$, $1 \leq Q \leq 10^5$, $1 \leq k \leq 10^9$).
+The first line contains three integers $N$, $k$, and $Q$ ($1 \leq N \leq 10^6$, $1 \leq k \leq 10^9$, $1 \leq Q \leq 10^5$).
 $N$ is the number of lines in the original \texttt{main.hpp} file, 
 $k$ is the recursion limit (the maximum number of recursive inclusions), and $Q$ is the number of compile errors.
 
@@ -47,6 +47,7 @@ The following $N$ lines each contain one line of code from \texttt{main.hpp}. Ea
 
 The following $Q$ lines each contain an integer $p_i$ ($1 \leq p_i \leq 10^{12}$), which indicates a line number in the compiled file where an error occurred.
 It is guaranteed that $p_i$ will be a valid row number in the compiled file.
+
 \textbf{Note: } The value of $p_i$ will not fit in a $32$-bit integer, so be aware that it will overflow if you are using C++.
 Also note that there is a large amount of input and output, so it is recommended to use fast IO.
 
@@ -69,37 +70,37 @@ a set of test cases. To get the points for a test group you need to solve all te
   $1$    & $2$        & The line \verb|#include "main.hpp"| shows up exactly once. \\ \hline
   $2$    & $3$        & $k = 1$ \\ \hline
   $3$    & $9$        & $N = 2$ \\ \hline
-  $4$    & $12$       & $N,Q \leq 100$ and $k \leq 10$. \\ \hline % O(NKQ). Doesn't get much slower than that
-  $5$    & $13$       & $N \leq 10^3, Q \leq 10^4$ and $k \leq 100$. \\ \hline % O(Q(k+nlogp))
-  $6$    & $11$       & $Q \leq 10^4$ and $k \leq 500$. \\ \hline % O(Q(k+logplogn))
-  $7$    & $18$       & $k \leq 10^3$ \\ \hline % O(Q(k+logplogn))
-  $8$    & $23$       & $k \leq 5\cdot10^5$ \\ \hline % O(k + Q(logp(logk + logn)))
-  $9$    & $9$       & No additional constraints. \\ \hline % O(Qlogp(logk+logn))
+  $4$    & $12$       & $N,Q \leq 100$ and $k \leq 10$. \\ \hline 
+  $5$    & $13$       & $N \leq 10^3, Q \leq 10^4$ and $k \leq 100$. \\ \hline 
+  $6$    & $11$       & $Q \leq 10^4$ and $k \leq 500$. \\ \hline 
+  $7$    & $18$       & $k \leq 10^3$ \\ \hline 
+  $8$    & $23$       & $k \leq 5\cdot10^5$ \\ \hline 
+  $9$    & $9$       & No additional constraints. \\ \hline 
 \end{tabular}
 
-\section*{Example}
+\section*{Explanation of Samples}
 The first sample has only 1 line of \verb|#include "main.hpp"|. 
-Line 1, 3, and 5 in the compiled file corresponds to line 1,3, and 5 in the original file. 
+Line 1, 3, and 5 in the compiled file corresponds to line 1, 3, and 5 in the original file. 
 Line 8 in the compiled file corresponds to line 4 in the original file.
 Line 13 in the compiled file corresponds to line 5 in the original file.
 
 \begin{figure}[h]
   \centering
 \includegraphics[width=\textwidth]{include1.png}
-  \caption{Illustration of sample 1 with originally 5 lines. The red numbers shows what line each line number in the compiled file corresponds to.}
+  \caption{Illustration of sample 1 with originally 5 lines. The red numbers shows the corresponding line number in the compiled file.}
   \label{fig:include1}
 \end{figure}
 
 \begin{figure}[h]
   \centering
 \includegraphics[width=0.3\textwidth]{include2.png}
-  \caption{Illustration of the compiled file in sample 1. The red numbers shows what line each line number in the compiled file corresponds to.}
+  \caption{Illustration of the compiled file in sample 1. The red numbers shows the corresponding line number in the compiled file.}
   \label{fig:include1}
 \end{figure}
 
 \begin{figure}[h]
   \centering
 \includegraphics[width=0.8\textwidth]{include3.png}
-  \caption{Illustration of sample 3 with originally 3 lines. The red numbers shows what line each line number in the compiled file corresponds to.}
+  \caption{Illustration of sample 3 with originally 3 lines. The red numbers shows the corresponding line number in the compiled file.}
   \label{fig:include1}
 \end{figure}

@@ -10,6 +10,19 @@ compile gen_deep.py # Queries will be put on deep layers
 compile gen_range.py # Queries selected [start,start+q]
 compile gen_spread.py # Includes are spread out evenly
 
+
+#  $1$    & $2$        & The line \verb|#include "main.hpp"| shows up exactly once. \\ \hline
+#  $2$    & $3$        & $k = 1$ \\ \hline
+#  $3$    & $9$        & $N = 2$ \\ \hline
+#  $4$    & $12$       & $N,Q \leq 100$ and $k \leq 10$. \\ \hline % O(NKQ). Doesn't get much slower than that
+#  $5$    & $13$       & $N \leq 10^3, Q \leq 10^4$ and $k \leq 100$. \\ \hline % O(Q(k+nlogp))
+#  $6$    & $11$       & $Q \leq 10^4$ and $k \leq 500$. \\ \hline % O(Q(k+logplogn))
+#  $7$    & $18$       & $k \leq 10^3$ \\ \hline % O(Q(k+logplogn))
+#  $8$    & $23$       & $k \leq 5\cdot10^5$ \\ \hline % O(k + Q(logp(logk + logn)))
+#  $9$    & $9$       & No additional constraints. \\ \hline % O(Qlogp(logk+logn))
+
+
+
 # Generate answers to sample cases
 samplegroup
 sample 1

@@ -54,7 +54,7 @@ if a == 1:
     A = ind*(k+1)
     B = 1
     C = (n-1-ind)*(k+1)
-    #print(A,B,C,A+B+C,lineAmount)
+
     for _ in range(q):
         query = int(input())
         if query == A+B:
@@ -88,7 +88,7 @@ for _ in range(q):
         currMaxk = int(1e5)
 
     while currMaxk > 0:
-        #print(currMaxk,query)
+
         if query < ind*(currMaxk+1)+1:
             ans = (query-1)%ind
             break
@@ -106,7 +106,7 @@ for _ in range(q):
         query -= (currMaxk-lo)*ind
         if lo == 0:
             break
-        #print(query,lo,"before binary search")
+
         #Binary search on layer lo
         #Binary search over which line the current query belongs to
         l = 0
@@ -119,12 +119,9 @@ for _ in range(q):
                 r = m
             else:
                 l = m + 1
-        #print(l)
+
         currRow = l-1 #Zero-index
-        #print(include)
-        #print(prefix)
-        #print(prefixInclude)
-        #print(lineAmount)
+
         if include[currRow] == 0:
             ans = currRow
             break
@@ -132,8 +129,7 @@ for _ in range(q):
             query -= prefix[currRow]+prefixInclude[currRow]*lineAmount[lo]
             currMaxk = lo-1
                 
-    #print(query,ans)
-    #print(lineAmount,lo)
+
 
     if ans != -1:
         print(originalFile[ans])
@@ -141,9 +137,4 @@ for _ in range(q):
 
         assert(query <= n), f"{query = }"
         print(originalFile[query-1])
-
-
-
-
-
 
