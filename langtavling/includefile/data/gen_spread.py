@@ -48,7 +48,7 @@ queries = []
 visited = set()
 
 includes_pow = 1
-for _ in range(k):
+for _ in range(k+1):
     includes_pow *= includes
     if includes_pow > INF:
         break
@@ -56,9 +56,15 @@ for _ in range(k):
 if includes_pow > INF:
     totalLines = INF
 else:
-    totalLines = sum(includes**t for t in range(k))*(n-includes) + includes**k
-    totalLines *= includes
-    totalLines += n-includes
+    totalLines = includes**k
+    for t in range(k):
+        totalLines += (includes**t)*(n-includes)
+        if totalLines > INF:
+            totalLines = INF
+            break
+    else:
+        totalLines *= includes
+        totalLines += n-includes
 
 
 
@@ -80,9 +86,9 @@ for line in file:
 
 #Calculate the number of rows that contains in a include-line when there are k-recursions left
 apowers = [1] 
-for _ in range(k+1):
+for _ in range(min(k+1,int(1e5)+2)):
     apowers.append(apowers[-1] * a) #apowers[k] = a^k
-    if apowers[-1] > INF2:
+    if apowers[-1] > INF:
         apowers[-1] = float("inf")
 
 prefixApowers = [0]
@@ -90,7 +96,7 @@ for num in apowers:
     prefixApowers.append(prefixApowers[-1] + num)
 
 lineAmount = [1]
-for rec in range(1,k+2):
+for rec in range(1,min(k+2,int(1e5)+3)):
     #There are rec recursions left.
     lineAmount.append(prefixApowers[rec]*x + apowers[rec]) #lineAmount[rec] = sum(a**t for t in range(rec))*x + a**rec
 

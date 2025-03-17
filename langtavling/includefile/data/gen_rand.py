@@ -41,19 +41,29 @@ random.shuffle(file)
 
 queries = []
 visited = set()
+if includes>1:
+    includes_pow = 1
+    for _ in range(k+1):
+        includes_pow *= includes
+        if includes_pow > INF:
+            break
 
-includes_pow = 1
-for _ in range(k):
-    includes_pow *= includes
     if includes_pow > INF:
-        break
-
-if includes_pow > INF:
-    totalLines = INF
-else:
-    totalLines = sum(includes**t for t in range(k))*(n-includes) + includes**k
-    totalLines *= includes
-    totalLines += n-includes
+        totalLines = INF
+    else:
+        totalLines = includes**k
+        for t in range(k):
+            totalLines += (includes**t)*(n-includes)
+            if totalLines > INF:
+                totalLines = INF
+                break
+        else:
+            totalLines *= includes
+            totalLines += n-includes
+elif includes == 0:
+    totalLines = n
+elif includes == 1:
+    totalLines = (n-1)*(k+1)+1
 
 for _ in range(q):
     queries.append(random.randint(1,min(totalLines,INF)))

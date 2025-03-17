@@ -1,8 +1,8 @@
-author: Harry Zhang
+author: Harry Zhang, Joshua Andersson
 source: Programmeringsolympiadens Långtävling 2025
 license: cc by-sa
 type: scoring
 grading:
   show_test_data_groups: true
 limits:
-  time_multiplier: 1.5
+  time_multiplier: 1

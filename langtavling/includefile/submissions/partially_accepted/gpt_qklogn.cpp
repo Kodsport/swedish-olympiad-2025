@@ -1,3 +1,4 @@
+// @EXPECTED_GRADES@ TLE AC TLE AC AC AC TLE RTE
 #include <iostream>
 #include <vector>
 #include <string>
