@@ -1,6 +1,11 @@
 \problemname{Neuralt Bakverk}
 \noindent
 
+Arvid håller på att förbereda AI-olympiadens final. Det är mycket som behöver göras, 
+fixa boende, fixa mat, fixa problem, och fixa fika till alla. Stressad som han är råkar
+Arvid blanda ihop de två sistnämnda uppgifterna. Som deltagare i AI-olympiaden måste 
+du lösa det konstiga problemet som blev till.
+
 Ett neuralt bakverk är en riktad graf med $N$ noder, vars funktion är att baka kakor. 
 I början läggs $X$ enheter ingredienser på nod $1$, medan de andra noderna får noll 
 ingredienser. Därefter sker följande varje sekund för varje nod:
@@ -8,7 +13,7 @@ ingredienser. Därefter sker följande varje sekund för varje nod:
 
 \begin{itemize}
 \item Låt $a_v$ vara antalet ingredienser på nod $v$, och låt $d_v$ vara utgraden hos nod $v$.
-\item Om $d_v = 0$ så händer ingenting. Annars, skriv $a_v = d_v\cdot q + r$ där $0 \leq r < d_v$. Skicka sedan $q$ enheter ingredienser till var och en av noderna som $v$ pekar på, och behåll resterande $r$.
+\item Om $d_v = 0$ så händer ingenting. Annars, låt $a_v = d_v\cdot q + r$ där $0 \leq r < d_v$. Skicka sedan $q$ enheter ingredienser till var och en av noderna som $v$ pekar på, och behåll resterande $r$.
 \end{itemize}
 
 Med andra ord så delar varje nod upp ingredienserna lika så gått det går och skickar 
