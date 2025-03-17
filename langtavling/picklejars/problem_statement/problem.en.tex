@@ -1,32 +1,35 @@
 \problemname{Pickle Jars}
 \noindent
 
-There are $N$ jars of pickles, and you would like to put them into one single jar.
+There are $N$ jars of pickles on your shelf, and you would like to put all pickles into a single jar.
 
-You have the option to order the jars of pickles in any order you want on the shelf. 
-Now, you can transfer pickles by choosing a jar $i$ as well as the jar to the right of it $i+1$, and move all pickles from $i$ to $i+1$. 
+You can first reorder the jars of pickles in any order you want. To transfer pickles, you first choose two adjacent jars.
+Then, you move all pickles from the right jar to the left jar, and finally remove the right jar.
 You will continue transfering pickles until there is only one single jar remaining.
 
-When you put pickles from one jar to another, it is important to consider the choice of jars, 
-since it will affect the marination process as well as the taste of the pickles.
+You can freely change the initial order of jars and how to combine them. Depending on how this process is done,
+you will end up with different amounts of \textit{tastiness} of the final jar of pickles.
 
-When you put pickles from jar $i$ to jar $i+1$, the total tastiness increasing by $a_i \oplus a_{i+1}$, where $\oplus$ is defined as the bitwise XOR. 
+Every jar $i$ has brine value $a_i$. When you put pickles from jar $j$ to jar $i$, the tastiness of the final batch
+of pickles will be increased by
+$a_i \oplus a_j$, where $\oplus$ is defined as the bitwise XOR. 
 Note that bitwise XOR of two integers $x$ and $y$ is calculated by looking at the binary representations of $x$ and $y$. 
-The $i$'th bit of $x \oplus y$ is 1, if and only if the $i$'th bit of $a$ or $b$ is 1, but not both. Bitwise XOR is available as an operator in both \texttt{C++} and \texttt{Python} as $\^$.
-
-After putting all the pickles from jar $i$ to $i+1$, the jar $i$ gets removed from the shelf, and only jar $i+1$ remains. 
+The $i$'th bit of $x \oplus y$ is 1, if and only if exactly one if the $i$'th bits of $a$ and $b$ is 1. Bitwise XOR is
+available as an operator in both \texttt{C++} and \texttt{Python} as $\^$.
 
 As a pickle connoisseur, you would like to maximize the total tastiness after all the operations.
 Please find the an order of the jars and order of transfers such that the total tastiness is maximized. 
 
 
 \section*{Input}
-\noindent
+The first line of input contains the integer $N$ ($1 \leq N \leq 5 \cdot 10^5$), the number of jars pickles.
 
+The following line contains $N$ space separated integers $a_1, a_2, \dots, a_N$ ($1 \leq a_i \leq 10^{12}$),
+describing the brine values of the pickle jars.
 
 \section*{Output}
 \noindent
-
+Print an integer: the maximum possible tastiness value achievable.
 
 \section*{???}
 
