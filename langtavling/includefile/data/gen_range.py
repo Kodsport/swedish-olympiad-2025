@@ -44,7 +44,13 @@ if header:
 queries = []
 visited = set()
 
-if includes**k > INF:
+includes_pow = 1
+for _ in range(k):
+    includes_pow *= includes
+    if includes_pow > INF:
+        break
+
+if includes_pow > INF:
     totalLines = INF
 else:
     totalLines = sum(includes**t for t in range(k))*(n-includes) + includes**k

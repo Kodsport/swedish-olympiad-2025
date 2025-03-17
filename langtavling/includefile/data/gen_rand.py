@@ -33,6 +33,7 @@ mode = cmdlinearg('mode', "")
 alfa = "qwertyuiopasdfghjklzxcvbnm" + "qwertyuiopasdfghjklzxcvbnm".upper()
 
 file = ["#include \"main.hpp\""]*includes
+assert len(file) <= n
 
 while len(file)<n:
     file.append("".join([alfa[random.randint(0,len(alfa)-1)] for _ in range(random.randint(1,3))]))
@@ -41,9 +42,13 @@ random.shuffle(file)
 queries = []
 visited = set()
 
+includes_pow = 1
+for _ in range(k):
+    includes_pow *= includes
+    if includes_pow > INF:
+        break
 
-
-if includes**k > INF:
+if includes_pow > INF:
     totalLines = INF
 else:
     totalLines = sum(includes**t for t in range(k))*(n-includes) + includes**k
