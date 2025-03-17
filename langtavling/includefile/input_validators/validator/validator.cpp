@@ -12,10 +12,10 @@ typedef vector<int> vi;
 
 void run() {
 
-	int maxk = Arg("maxk", 500000);
+	int maxk = Arg("maxk", 1000000000);
 	int minN = Arg("minN", 1);
 	int maxN = Arg("maxN", 1000000);
-	int maxQ = Arg("maxQ", 1000);
+	int maxQ = Arg("maxQ", int(1e5));
 
 	ll N = Int(minN, maxN); Space();
 	ll k = Int(1, maxk); Space();
@@ -28,6 +28,8 @@ void run() {
 	ll incs = 0;
 	rep(i,0,N) {
 		string line = Line();
+		assert(line.size() <= 35);
+		for (char c : line) assert(isprint(c));
 		if (line == "#include \"main.hpp\"") incs++;
 	}
 

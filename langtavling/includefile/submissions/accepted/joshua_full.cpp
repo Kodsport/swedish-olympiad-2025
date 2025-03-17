@@ -1,4 +1,3 @@
-// cheese is line 218: walk leftmost in fast loop until we don't go leftmost once
 #include <bits/stdc++.h>
 using namespace std;
 
