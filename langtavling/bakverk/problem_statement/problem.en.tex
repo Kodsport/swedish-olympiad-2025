@@ -1,0 +1,59 @@
+\problemname{Neural Bakework}
+\noindent
+
+Arvid is preparing for the AI Olympiad final. There's much to do: arranging accommodations, organizing food, preparing problems, and setting up snacks for everyone. 
+Stressed out, Arvid accidentally mixes up the last two tasks. As a participant in the AI Olympiad, you must solve the strange problem that arose.
+
+A neural bakework is a directed graph with $N$ nodes, designed to bake cookies.  
+Initially, $X$ units of ingredients are placed on node $1$, while all other nodes start with zero ingredients.  
+Every second, the following occurs simultaneously for all nodes:
+
+\begin{itemize}
+  \item Let $a_v$ be the number of ingredients on node $v$, and $d_v$ be its out-degree.
+  \item If $d_v = 0$, nothing happens. Otherwise, let $a_v = d_v \cdot q + r$ where $0 \leq r < d_v$. Afterwards send $q$ units of ingredients to each node pointed to by $v$, and keep the remainder $r$.
+\end{itemize}
+
+In other words, each node splits its ingredients as evenly as possible and forwards 
+the result. All updates happen simultaneously across all nodes 
+each second, so the processing order of nodes does not matter.
+
+The ingredients reaching node $N$ become finished cookies.  
+For the neural bakework to be valid, no node may point to itself, 
+and no node may have multiple edges to the same target.
+
+Given integers $X$ and $Y$, your task is to construct a 
+neural bakework that produces exactly $Y$ cookies when $X$ units 
+of ingredients are used. Specifically, the bakework will run 
+for $10^4$ seconds, and if node $N$ ends up with $Y$ cookies, 
+the test case is solved. Your score depends on minimizing $N$.
+
+\section*{Input}
+The input consists of a single line with two integers $X$ and $Y$ ($1 \leq X, Y \leq 10^{18}$).
+
+\section*{Output}
+If no valid neural bakework can produce $Y$ cookies from $X$ ingredients, output $-1$.  
+
+Otherwise, output first a line with two integers $N$ and $M$, the number of nodes and edges in your network.
+Then output $M$ lines, each containing two integers $u_i, v_i$ ($1 \leq u_i, v_i \leq N$), 
+representing an edge from node $u_i$ to $v_i$.
+
+\section*{Scoring}
+There are two test groups that scores indepenedently. Each test group contains
+a set of test cases. 
+ 
+Let $N_{max}$ be the maximum value of $N$ in your solution across all test cases in a group. 
+If $N_{max} \leq 30$ then you get full points for the group, 
+otherwise, points are calculated as:  
+$$\frac{20 \cdot g}{N_{max} - 10}$$  
+
+where $g$ is the group's total points ($20$ or $80$).
+
+If $N_{max} \geq 200$ or your answer is incorrect for any test case, you get 0 points for the group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$        & $X, Y \leq 20$ \\ \hline
+  $2$    & $80$        & No additional constraints. \\ \hline
+\end{tabular}
