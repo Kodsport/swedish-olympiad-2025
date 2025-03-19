@@ -4,7 +4,7 @@
 There are $N$ jars of pickles on your shelf, and you would like to put all pickles into a single jar.
 
 You can first reorder the jars of pickles in any order you want. To transfer pickles, you first choose two adjacent jars.
-Then, you move all pickles from the right jar to the left jar, and finally remove the right jar.
+Then, you move all pickles from the left jar to the right jar, and finally remove the left jar.
 You will continue transfering pickles until there is only one single jar remaining.
 
 You can freely change the initial order of jars and how to combine them. Depending on how this process is done,
@@ -23,14 +23,25 @@ Please find the an order of the jars and order of transfers such that the total 
 
 
 \section*{Input}
-The first line of input contains the integer $N$ ($1 \leq N \leq 5 \cdot 10^5$), the number of jars pickles.
+The first line of input contains the integer $N$ ($1 \leq N \leq 5 \cdot 10^5$), the number of jars of pickles.
 
-The following line contains $N$ space separated integers $a_1, a_2, \dots, a_N$ ($1 \leq a_i \leq 10^{12}$),
+The following line contains $N$ space separated integers $a_0, a_1, \dots, a_{N-1}$ ($1 \leq a_i \leq 10^{12}$),
 describing the brine values of the pickle jars.
 
 \section*{Output}
 \noindent
-Print an integer: the maximum possible tastiness value achievable.
+First, print an integer: the maximum possible tastiness value achievable.
+
+To get full points, you also need to print a permutation and order of collisions that achieves this tastiness value.
+If get $75\%$ of the points for a given subtask, it suffices to only print the tastiness value.
+
+On the second line, print the permutation of pickle jars. The $i$:th integer is the index of the pickle jar that should
+be placed at position $i$.
+
+On the third line, print the integers $p_1, p_2, \dots, p_{N-1}$ describing the order that pickles should be transferred. First, assume that the jars have been permuted according
+to your permutation and then relabeled from $0$ to $N-1$ left to right. Then, each $p_i$ means that in transfer number $i$, the left jar is jar number $p_i$.
+Note that after jars are removed, the remaining jars are \textbf{not} relabeled.
+
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -46,4 +57,14 @@ a set of test cases. To get the points for a test group you need to solve all te
   $4$    & $16$        & No additional constraints. \\ \hline 
 \end{tabular}
 
-\section*{Example}
+\section*{Explanation of Samples}
+In sample 1, we place the pickle jars in the order $[2,5,1]$. We then transfer jar $0$ to jar $1$, adding a tastiness of $2 \oplus 5=7$. Finally, we transfer
+jar $1$ to jar $2$, adding a tastiness of $5 \oplus 1=4$, resulting in $7+4=11$ tastiness in total. There is more than one way to achieve this amount of tastiness.
+
+In sample 2, it suffices to use the order given in the input. Then, the transfers are as follows:
+\begin{itemize}
+  \item Transfer jar $0$ to jar $1$, adding tastiness $5 \oplus 2=7$. The jars left have brine values $[2,2,5]$.
+  \item Transfer jar $2$ to jar $3$, adding tastiness $2 \oplus 5=7$. The jars left have brine values $[2,5]$.
+  \item Transfer jar $1$ to jar $3$, adding tastiness $2 \oplus 5=7$. The jar left has brine values $[5]$.
+\end{itemize}
+Resulting in $7+7+7=21$ total tastiness. Once again, there is more than one way to achieve this amount of tastiness.

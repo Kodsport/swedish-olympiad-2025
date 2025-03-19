@@ -245,11 +245,7 @@ void solve() {
     scanf("%d", &a[i]);
   }
   greedy();
-  int m;
-  scanf("%d", &m);
-  if (m == 1) {
-    print_ans();
-  }
+  print_ans();
 }
 
 int main() {

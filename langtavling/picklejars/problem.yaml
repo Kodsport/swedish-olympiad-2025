@@ -1,7 +1,9 @@
 source: Programmeringsolympiadens långtävling 2025
+validation: custom score
 license: permission
 type: scoring
 grading:
   show_test_data_groups: true
 limits:
-  time_multiplier: 1.5
+  time_multiplier: 3
+  output: 16

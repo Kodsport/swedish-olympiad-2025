@@ -174,6 +174,7 @@ signed main() {
   cout << cost << '\n';
   copy(order.rbegin(), order.rend(), ostream_iterator<int>(cout, " "));
   cout << '\n';
+  collisions.pop_back();
   for (int i=0; i<(int)collisions.size(); ++i)
     cout << (n - 1) - collisions[i] << ' ';
   cout << '\n';
