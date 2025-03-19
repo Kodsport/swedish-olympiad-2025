@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 
 assert sys.argv[1] == "rescale"
