@@ -12,13 +12,13 @@ In \verb|H++|, which is an object-oriented language, you can include external fi
 When the compiler encounters this line, it includes the contents of the specified file (\texttt{file.hpp}) into the current file at the location of the \verb|#include| statement. 
 Essentially, the content of \texttt{file.hpp} is copied and pasted where the \verb|#include| command appears, replacing that line in the file.
 
-An important feature of \verb|H++| is that it allows files to include themselves. This means that if a file called \texttt{main.hpp} contains a line like:
+An important feature of \verb|H++| is that it allows files to include themselves. This means that if a file called \texttt{main.hpp} contains the following line:
 
 \begin{verbatim}
 #include "main.hpp"
 \end{verbatim}
 
-It will cause the file \texttt{main.hpp} to be recursively included, with the content of \texttt{main.hpp}
+then it will cause the file \texttt{main.hpp} to be recursively included, with the content of \texttt{main.hpp}
 being copied and pasted again. This creates a self-replicating cycle that can repeat multiple times, potentially resulting in a very large file. 
 To prevent this from becoming an infinite loop, the creator of \verb|H++| introduced a recursion limit, 
 which allows the user to set a maximum number of recursive inclusions (denoted as $k$).
