@@ -1,4 +1,3 @@
-// @EXPECTED_GRADES@ TLE AC TLE AC AC AC AC RTE
 // Chatgpt translated from harry.py
 #include <iostream>
 #include <vector>
