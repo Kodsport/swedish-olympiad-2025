@@ -202,6 +202,7 @@ class Submission:
         """Returns the expected grade on secret group i."""
         if self.type == SubmissionType.AC:
             return Grade.AC
+        print(self._expected_grades, i)
         return self._expected_grades[i]
 
     def __init__(self, problempath, stype: SubmissionType, name: str):
@@ -416,6 +417,8 @@ class Problem:
 
             if sub.has_expected_grades():
                 summary = []
+                assert len(sub._expected_grades) == 0 or len(self.groups) == len(sub._expected_grades), \
+                    f"Mismatch between expected grades and number of groups for submission {sub}"
                 for i in self.groups:
                     if sub.expected_grade(i) == sub.verdict[i].grade:
                         summary.append("\033[32my\033[0m")
