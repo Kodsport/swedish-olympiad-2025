@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 n,k,q = map(int,input().split())
 lines = [input() for _ in range(n)]
 
