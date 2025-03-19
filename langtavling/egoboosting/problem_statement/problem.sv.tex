@@ -1,0 +1,63 @@
+\problemname{Egoökning}
+\noindent
+
+Efter flera år av intensivt programmeringsslipande har Tommy insett att han inte alls känner sig självsäker.
+
+För att lösa detta vill Tommy öka sitt självförtroende och ego!
+
+Initialt har Tommy $E$ ego.
+
+Det finns $N$ ego-ökningsproblem (förkortat EP), där lösandet av ett EP ökar Tommys ego med 1.
+Varje EP har ett ID som är ett unikt heltal från $1$ till $N$, och en svårighetsgrad $a_i$.
+
+För att garantera att Tommy kan lösa ett EP måste hans ego vara minst lika stort som svårighetsgraden av EP:t.
+Med andra ord måste $E \geq a_i$ gälla för att Tommy ska kunna lösa det $i$:te EP:t.
+
+Tommy kan börja med att lösa vilket som helst av de givna $N$ EP:n.
+Men efter att ha löst ett EP med etikett $x$ kan han bara välja att nästa EP som ska lösas är:
+\begin{itemize}
+  \item Det olösta EP:t med den största ID som är mindre än $x$, eller
+  \item Det olösta EP:t med den minsta ID som är större än $x$.
+\end{itemize}
+
+Vid vilken tidpunkt som helst under sin resa kan Tommy äta en ego-kaka för att öka sitt ego med 1 enhet.
+
+Vad är det minsta antalet ego-kakor Tommy måste äta för att kunna lösa alla EP:n?
+
+\section*{Indata}
+\noindent
+Den första raden innehåller två heltal, $N$ $(1 \leq N \leq 5 \cdot 10^5)$ och $E$ $(0 \leq E \leq 10^9)$.
+
+Den andra raden innehåller $N$ heltal $a_1, a_2, \dots, a_N$ $(1 \leq a_i \leq 10^9)$, där $a_i$ är svårighetsgraden för EP:t med ID $i$.
+
+\section*{Utdata}
+\noindent
+Skriv ut ett heltal: det minsta antalet ego-kakor Tommy måste äta för att kunna lösa alla EP:n.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $7$        & $N \leq 3$ \\ \hline
+  $2$    & $12$       & $N \leq 15$ \\ \hline
+  $3$    & $23$       & $N \leq 5000$ \\ \hline
+  $4$    & $17$       & Det finns högst 2 olika heltal i $a_1, \dots, a_N$. \\ \hline
+  $5$    & $41$       & Inga ytterligare begränsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall}
+Om vi löser EP:n i ordningen $a_4, a_5, a_3, a_2, a_1, a_6$ går processen till på följande sätt:  
+\begin{itemize}
+ \item Innan $a_4 = 2$ löses äter Tommy 1 kaka för att öka sitt ego till 2. Efter att ha löst EP:t blir hans ego 3.
+ \item För $a_5 = 3$ är Tommys ego redan 3, så han löser det utan kakor. Efteråt blir hans ego 4.
+ \item Innan $a_3 = 7$ löses äter Tommy 3 kakor för att höja sitt ego till 7. Efter lösning blir hans ego 8.
+ \item För $a_2 = 4$ är Tommys ego 8 (inga kakor behövs). Efter lösning blir det 9.
+ \item För $a_1 = 9$ löser Tommy det direkt. Hans ego ökar till 10.
+ \item Slutligen, för $a_6 = 10$ löser Tommy det med sitt nuvarande ego på 10. Efteråt blir det 11.
+\end{itemize}
+
+Totalt äter Tommy 4 kakor, vilket är det minsta antal som krävs för att lösa alla EP:n.

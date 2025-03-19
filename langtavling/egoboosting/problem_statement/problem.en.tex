@@ -22,7 +22,7 @@ But after solving an EP labeled $x$, he can only choose to attempt either
 
 At any time during his ego-increasing journey, Tommy can eat an ego-cookie to increase his ego by 1 unit. 
 
-What is the minimum amount of ego-cookies Tommy has to eat to be able to solve all EPs?
+What is the minimum number of ego-cookies Tommy has to eat to be able to solve all EPs?
 
 \section*{Input}
 \noindent
@@ -33,7 +33,7 @@ where the difficulty of the EP labeled $i$ is $a_i$.
 
 \section*{Output}
 \noindent
-Print an integer: the minimum amount of ego-cookies Tommy has to eat to be able to solve all EPs.
+Print an integer: the minimum number of ego-cookies Tommy has to eat to be able to solve all EPs.
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -51,15 +51,14 @@ a set of test cases. To get the points for a test group you need to solve all te
 \end{tabular}
 
 \section*{Explanation of Samples}
-If we solve the EPs in the order $a_4, a_5, a_3, a_2, a_1, a_6$,
-then 
+If we solve the EPs in the order $a_4, a_5, a_3, a_2, a_1, a_6$, the process is as follows:  
 \begin{itemize}
- \item Before solving $a_4 = 2$, Tommy has to eat a cookie to increase his ego to 2. After solving the EP Tommy's ego is 3.
- \item $a_5 = 3$, which Tommy can solve since his ego is already 3. After solving the EP his ego will become 4.
- \item Before solving $a_3 = 7$, Tommy has to eat 3 cookies to incerase his ego to 7. After solving the EP his ego becomes 8.
- \item $a_2 = 4$, which Tommy can solve since his ego is 8. Now his ego is 9.
- \item $a_1 = 9$, which Tommy can solve. Now his ego is 10.
- \item $a_6 = 10$, which Tommy can solve. Now his ego is 11.
+ \item Before solving $a_4 = 2$, Tommy eats 1 cookie to increase his ego to 2. After solving the EP, his ego becomes 3.
+ \item For $a_5 = 3$, Tommy's ego is already 3, so he solves it without eating a cookie. His ego increases to 4.
+ \item Before solving $a_3 = 7$, Tommy eats 3 cookies to raise his ego to 7. After solving the EP, his ego becomes 8.
+ \item For $a_2 = 4$, Tommy's ego is 8 (no cookies needed). After solving it, his ego becomes 9.
+ \item For $a_1 = 9$, Tommy solves it directly. His ego increases to 10.
+ \item Finally, for $a_6 = 10$, Tommy solves it with his current ego of 10. His ego becomes 11.
 \end{itemize}
 
-Tommy eats in total 4 cookies, which can be proven to be the smallest amount of cookies Tommy needs.
+In total, Tommy eats 4 cookies, which is the minimum number required to solve all EPs.
