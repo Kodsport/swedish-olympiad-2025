@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 MOD = int(1e9 + 7)
 
 dp = []
