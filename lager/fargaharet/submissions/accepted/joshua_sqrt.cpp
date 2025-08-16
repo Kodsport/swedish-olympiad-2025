@@ -1,4 +1,5 @@
 #pragma GCC optimize("Ofast")
+#include <bits/allocator.h>
 #pragma GCC target("avx2")
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,5 +1,6 @@
 // saves factor 2 by building segtree in O(N) + faster matrix mult
 #pragma GCC optimize("Ofast,inline")
+#include <bits/allocator.h>
 #pragma GCC target("avx2")
 #include <bits/stdc++.h>
 using namespace std;

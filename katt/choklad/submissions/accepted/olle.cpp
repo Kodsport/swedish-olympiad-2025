@@ -1,5 +1,5 @@
 #pragma GCC optimize("O3")
-#include <bitset>
+#include <bits/allocator.h>
 #pragma GCC target("avx2")
 
 using namespace std;
