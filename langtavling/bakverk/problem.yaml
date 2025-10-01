@@ -4,6 +4,6 @@ source: Programmeringsolympiadens långtävling 2025
 license: cc by-sa
 type: scoring
 grading:
-    show_test_data_groups: yes
+    show_test_data_groups: true
 validation: custom score
 
