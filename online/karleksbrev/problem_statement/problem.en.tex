@@ -76,13 +76,13 @@ look at the number of characters in $E$, not the contents of $E$.
 \section*{Reference Implementations}
 All reference implementations in the attachments implement the following protocol: \texttt{encode} sends each 
 letter in $S$ 5 times in a row. \texttt{decode} then takes each group of 5 characters and says that the value 
-of the letter in $S$ is the one in the middle of the group. This protocol does not work, but it shows what the implementation 
-of a protocol might look like.
+of the letter in $S$ is the one in the middle of the group. This protocol does not work, but it shows what
+the implementation of a protocol might look like.
 
 It is important that your solution does not read or write from standard input/output. If your solution does this, 
 you will likely get a strange error message. For some languages, the filename is important, so do not change it. Also, 
-do not change the names of functions and classes if they exist. Rust requires extra steps to work, which you can read about 
-in the file rust/readme.txt in karleksbrev.zip.
+do not change the names of functions and classes if they exist. Rust requires extra steps to work, which you can
+read about in the file rust/readme.txt in karleksbrev.zip.
 
 \section*{Scoring}
 Your solution will be tested on a set of test groups, each worth a number of points. Each test group contains
@@ -126,7 +126,8 @@ Consider the following input to the judge:
 1 3
 \end{verbatim}
 
-When the example program is run, the following happens. Note that the example program \textbf{does not} solve the problem in this case.
+When the example program is run, the following happens. Note that the example program \textbf{does not} solve the
+problem in this case.
 
 \begin{table}[htbp]
   \centering
@@ -134,8 +135,10 @@ When the example program is run, the following happens. Note that the example pr
       \hline
       \textbf{Event} & \textbf{Result} \\ \hline
       \texttt{encode(01011)} is called & \texttt{encode} returns \texttt{0000011111000001111111111} \\ \hline
-      The judge corrupts the return value of \texttt{encode(01011)} & The corrupted message becomes \texttt{0\textbf{111}011111000001111111111} \\ \hline
+      The judge corrupts the return value of \texttt{encode(01011)} & The corrupted message becomes
+      \texttt{0\textbf{111}011111000001111111111} \\ \hline
       \texttt{decode(0111011111000001111111111)} is called & \texttt{decode} returns \texttt{11011} \\ \hline
-      The judge compares \texttt{01011} and the return value of \texttt{decode} & Since they differ, the solution gets ``Wrong Answer'' \\ \hline 
+      The judge compares \texttt{01011} and the return value of \texttt{decode} & Since they differ, the solution
+      gets ``Wrong Answer'' \\ \hline 
   \end{tabular}
 \end{table}

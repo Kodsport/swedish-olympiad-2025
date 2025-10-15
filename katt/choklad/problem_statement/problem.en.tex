@@ -1,8 +1,9 @@
 \problemname{Eating Chocolate}
 
 \noindent
-Olle and Lisa have received $N$ types of chocolate bars of various shapes from their parents, which they now plan to eat together (the chocolate bars, not the parents).  
-Each chocolate bar is a rectangle consisting of $R_i \times C_i$ squares, and they have received $k_i$ identical copies of the $i$:th type.
+Olle and Lisa have received $N$ types of chocolate bars of various shapes from their parents, which they
+now plan to eat together (the chocolate bars, not the parents). Each chocolate bar is a rectangle consisting
+of $R_i \times C_i$ squares, and they have received $k_i$ identical copies of the $i$:th type.
 The chocolate bars are placed on a table, and to eat them, they take turns making the following move:  
 \begin{itemize}
   \item Choose a chocolate bar from the table.
@@ -17,8 +18,9 @@ Due to sibling affection, they will always choose a chocolate bar from the table
 after splitting it in two and placing the larger piece back,  
 ensures that they eat as much as possible in that move.  
 If there are multiple such choices, they arbitrarily select one.  
-Additionally, Olle is very concerned about fairness and wants the total number of chocolate squares they eat to be as equal as possible.  
-To achieve this goal, he may choose to throw away at most one chocolate bar in the trash before they begin, without Lisa noticing.  
+Additionally, Olle is very concerned about fairness and wants the total number of chocolate squares they eat to be as
+equal as possible. To achieve this goal, he may choose to throw away at most one chocolate bar in the trash before they
+begin, without Lisa noticing.  
 
 Let $V_O$ and $V_L$ be the number of squares that Olle and Lisa eat, respectively,  
 given that they both eat in a gluttonous manner.  
@@ -26,9 +28,10 @@ Your task is to determine the minimum possible difference, i.e., $|V_O - V_L|$,
 after Olle has thrown away at most one chocolate bar.  
 
 \section*{Input}
-The first line contains the number $N$ ($1 \leq N \leq 10^5$), the number of chocolate bars on the table.  
-Then follow $N$ lines, where the $i$-th line contains the numbers $R_i$, $C_i$, and $k_i$ ($1 \leq R_i, C_i \leq 10^6$, $1 \leq k_i \leq 10^9$),
-whose meaning is described above.
+The first line contains the number $N$ ($1 \leq N \leq 10^5$), the number of chocolate bars on the table.
+
+Then follow $N$ lines, where the $i$-th line contains the numbers $R_i$, $C_i$, and
+$k_i$ ($1 \leq R_i, C_i \leq 10^6$, $1 \leq k_i \leq 10^9$), whose meaning is described above.
 
 \section*{Output}
 Print an integer: the minimum value of $|V_O - V_L|$ as described above.  

@@ -3,8 +3,8 @@
 
 There are $N$ jars of pickles on your shelf, and you would like to put all pickles into a single jar.
 
-You can first reorder the jars of pickles in any order you want. To transfer pickles, you first choose two adjacent jars.
-Then, you move all pickles from the left jar to the right jar, and finally remove the left jar.
+You can first reorder the jars of pickles in any order you want. To transfer pickles, you first choose two
+adjacent jars. Then, you move all pickles from the left jar to the right jar, and finally remove the left jar.
 You will continue transfering pickles until there is only one single jar remaining.
 
 You can freely change the initial order of jars and how to combine them. Depending on how this process is done,
@@ -12,7 +12,8 @@ you will end up with different amounts of \textit{tastiness} of the final jar of
 
 Every jar $i$ has brine value $a_i$. When you put pickles from jar $j$ to jar $i$, the tastiness of the final batch
 of pickles will be increased by
-$a_i \oplus a_j$, where $\oplus$ is defined as the bitwise XOR \footnote{\href{https://en.wikipedia.org/wiki/Exclusive_or}{Wikipedia: Bitwise XOR}}.
+$a_i \oplus a_j$, where $\oplus$ is defined as the bitwise XOR
+\footnote{\href{https://en.wikipedia.org/wiki/Exclusive_or}{Wikipedia: Bitwise XOR}}.
 
 The bitwise XOR of two integers $x$ and $y$ is calculated by looking at the binary representations of $x$ and $y$. 
 The $i$'th bit of $x \oplus y$ is 1, if and only if exactly one if the $i$'th bits of $a$ and $b$ is 1. Bitwise XOR is
@@ -38,9 +39,11 @@ Otherwise, to achieve $75\%$ of the points for a given subtask, it suffices to o
 On the second line, print the permutation of pickle jars. The $i$:th integer is the index of the pickle jar that should
 be placed at position $i$.
 
-On the third line, print the integers $p_1, p_2, \dots, p_{N-1}$ describing the order that pickles should be transferred. First, assume that the jars have been permuted according
-to your permutation and then relabeled from $0$ to $N-1$ left to right. Then, each $p_i$ means that in transfer number $i$, the left jar is jar number $p_i$.
-Note that after jars are removed, the remaining jars are \textbf{not} relabeled.
+On the third line, print the integers $p_1, p_2, \dots, p_{N-1}$ describing the order that pickles
+should be transferred. First, assume that the jars have been permuted according to your permutation
+and then relabeled from $0$ to $N-1$ left to right. Then, each $p_i$ means that in transfer number
+$i$, the left jar is jar number $p_i$. Note that after jars are removed, the remaining jars are
+\textbf{not} relabeled.
 
 
 \section*{Scoring}
@@ -58,8 +61,9 @@ a set of test cases. To get the points for a test group you need to solve all te
 \end{tabular}
 
 \section*{Explanation of Samples}
-In sample 1, we place the pickle jars in the order $[2,5,1]$. We then transfer jar $0$ to jar $1$, adding a tastiness of $2 \oplus 5=7$. Finally, we transfer
-jar $1$ to jar $2$, adding a tastiness of $5 \oplus 1=4$, resulting in $7+4=11$ tastiness in total. There is more than one way to achieve this amount of tastiness.
+In sample 1, we place the pickle jars in the order $[2,5,1]$. We then transfer jar $0$ to jar $1$, adding a tastiness
+of $2 \oplus 5=7$. Finally, we transfer jar $1$ to jar $2$, adding a tastiness of $5 \oplus 1=4$, resulting in $7+4=11$
+tastiness in total. There is more than one way to achieve this amount of tastiness.
 
 In sample 2, it suffices to use the order given in the input. Then, the transfers are as follows:
 \begin{itemize}

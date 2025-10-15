@@ -4,7 +4,8 @@ Boschua is not very good at cybersecurity. Last month, he turned off the firewal
 let him download cat pictures. Unfortunately, this led to him getting a virus. The virus did something
 very strange: it added a bunch of letters to all the filenames.
 
-For example, it might have changed the filename \texttt{katt.png} to \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
+For example, it might have changed the filename \texttt{katt.png} to
+\texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
 The virus can add letters but can never remove letters.
 
 Now he is searching for a file named $F$, but he has many files on his computer. Can you write a
@@ -19,7 +20,8 @@ Let $|F|$ be the number of characters in $F$, and similarly for $|H|$.
 Then, it holds that $1 \le |F| \le |H| \le 32$.
 
 Both $F$ and $H$ contain only the letters \texttt{a}-\texttt{z} and the period.
-It is guaranteed that $F$ contains exactly one period. The virus can add periods and letters from \texttt{a}-\texttt{z}.
+It is guaranteed that $F$ contains exactly one period. The virus can add periods and letters from
+\texttt{a}-\texttt{z}.
 
 \section*{Output}  
 Print ``Ja'' if $H$ could be the file Boschua is looking for, otherwise print ``Nej''.
@@ -47,4 +49,5 @@ In sample 2, the virus could have made the following transformation to convert $
 \texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
 
 
-In sample 3, $F$ and $H$ differ at \texttt{png} and \texttt{pgn}. Since the virus cannot change the order of letters, it could not have transformed $F$ into $H$.
+In sample 3, $F$ and $H$ differ at \texttt{png} and \texttt{pgn}. Since the virus cannot change the order of letters,
+it could not have transformed $F$ into $H$.

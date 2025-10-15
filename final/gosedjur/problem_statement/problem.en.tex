@@ -14,18 +14,21 @@ forming a contiguous shape.
 In other words, you can draw each stuffed animal with a thick pen without lifting it from the paper.
 
 In a single move, 
-Olivia can choose a stuffed animal that does not have any other stuffed animal directly above it and lift it out of the claw machine. 
+Olivia can choose a stuffed animal that does not have any other stuffed animal directly above it and
+lift it out of the claw machine. 
 Since Olivia hasn't asked Anton about his favorite animal yet, 
 she wants to know, for each stuffed animal, 
 how many moves she will need to make in total before she can lift it.
 
 \section*{Input}
-The first line contains the integers $N$, $R$, and $C$ ($1 \leq N \leq R \times C \leq 4 \times 10^5$).  
-The next $R$ lines describe the grid. 
-The first line corresponds to the top of the claw machine, 
-and the last line corresponds to the bottom.  
-The $i$-th rows contains $C$ integers $a_{i,1}, a_{i,2}, ..., a_{i,C}$ ($1 \leq a_{i,j} \leq N$).  
-Stuffed animal number $x$ consists of all cells $(i, j)$ such that $a_{i,j} = x$.  
+The first line contains the integers $N$, $R$, and $C$ ($1 \leq N \leq R \times C \leq 4 \times 10^5$).
+
+The next $R$ lines describe the grid.
+The first line corresponds to the top of the claw machine,
+and the last line corresponds to the bottom.
+The $i$-th rows contains $C$ integers $a_{i,1}, a_{i,2}, ..., a_{i,C}$ ($1 \leq a_{i,j} \leq N$).
+
+Stuffed animal number $x$ consists of all cells $(i, j)$ such that $a_{i,j} = x$.
 It is guaranteed that each stuffed animal consists of at least one cell and forms a contiguous region.
 
 \section*{Output}
@@ -73,5 +76,5 @@ Here is how it looks after lifting stuffed animal $3$:
 
 \section*{Explanation of Sample 4}
 Neither stuffed animal $1$ nor $2$ has anything above them, so the answers for both are $0$.  
-To lift stuffed animal $3$, Olivia first needs to lift $4$, but to lift $4$, she needs to lift $3$, creating a loop.  
+To lift stuffed animal $3$, Olivia first needs to lift $4$, but to lift $4$, she needs to lift $3$, creating a loop.
 Thus, the answer for both $3$ and $4$ is $-1$, as it is impossible to lift them.

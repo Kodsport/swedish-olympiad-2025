@@ -10,18 +10,22 @@ This terrifying creature can have heads of three different colors. Initially, th
     \item $B$ blue heads.
 \end{itemize}
 
-Each time the hunter cuts off a head of a particular color, two new heads instantly grow back - one of each of the other two colors. 
-For example, if the hunter cuts off a red head, then a green and a blue head will grow back immediately.
+Each time the hunter cuts off a head of a particular color, two new heads instantly grow back - one of
+each of the other two colors. For example, if the hunter cuts off a red head, then a green and a blue
+head will grow back immediately.
 
-Driven by courage and ambition, the hunter not only wants to defeat the Hydra but also leave a lasting trace of the journey. 
-To do this, the hunter wants as much red as possible to be visible on the Hydra - the goal is to maximize the number of red heads!
+Driven by courage and ambition, the hunter not only wants to defeat the Hydra but also leave a
+lasting trace of the journey. To do this, the hunter wants as much red as possible to be visible
+on the Hydra - the goal is to maximize the number of red heads cut off!
 
-Before the Hydra launches its attack, the hunter has enough time to make at most $k$ moves, where each move involves cutting off a single head.
+Before the Hydra launches its attack, the hunter has enough time to make at most $k$ moves,
+where each move involves cutting off a single head.
 
 What is the maximum number of red heads the Hydra can have after at most $k$ moves?
 
 \section*{Input}
-The input consists of a single line containing four integers $R$, $G$, $B$, and $k$ ($0 \leq R, G, B, k \leq 10^{18}$), where:
+The input consists of a single line containing four integers $R$, $G$, $B$, and
+$k$ ($0 \leq R, G, B, k \leq 10^{18}$), where:
 \begin{itemize}
     \item $R$ is the number of red heads,
     \item $G$ is the number of green heads,
@@ -31,7 +35,8 @@ The input consists of a single line containing four integers $R$, $G$, $B$, and 
 
 It is guaranteed that the Hydra has at least one head initially, i.e., $R + G + B \geq 1$.
 
-(Note that the numbers $R, G, B, k$ are very large, and in languages like C++, you will need to use \texttt{long long} instead of \texttt{int}.)
+(Note that the numbers $R, G, B, k$ are very large, and in languages like C++, you will need to
+use \texttt{long long} instead of \texttt{int}.)
 
 \section*{Output}
 Print a single integer: the maximum number of red heads the Hydra can have after at most $k$ moves.
@@ -58,8 +63,10 @@ No more moves can be performed, which means that 1 red head is the maximum numbe
 
 
 The Hydra has 4 red heads, 3 green heads, and 2 blue heads, and the hunter can make at most 1 move. 
-The hunter can, for example, choose to cut off a green head, which results in 5 red heads, 2 green heads, and 3 blue heads. 
+The hunter can, for example, choose to cut off a green head, which results in 5 red heads, 2 green heads,
+and 3 blue heads. 
 After this move, no further moves can be performed. There is no way to get more than 5 red heads, so the answer is 5.
 
 
-The Hydra has 10 heads of each color. Since the hunter cannot make any moves (as $k = 0$), the number of red heads remains 10.
+The Hydra has 10 heads of each color. Since the hunter cannot make any moves (as $k = 0$), the number of red
+heads remains 10.

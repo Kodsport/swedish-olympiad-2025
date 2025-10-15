@@ -5,22 +5,29 @@ Harry älskar sina små gula ankor från Kodsport och har nyligen skaffat en sto
 
 
 \noindent
-Men olyckligtvis har några av dem försvunnit! Ankorna har gömt sig i det höga gräset längs en linje, och gräset är så högt att Harry inte kan se var de befinner sig.
+Men olyckligtvis har några av dem försvunnit! Ankorna har gömt sig i det höga gräset längs en linje, och
+gräset är så högt att Harry inte kan se var de befinner sig.
 
-Det finns $N$ ankor som gömmer sig på heltalspositioner inom intervallet $[0, 10^9]$, där varje position kan innehålla högst en anka. Problemet är att Harry inte vet hur många ankor som har försvunnit.
+Det finns $N$ ankor som gömmer sig på heltalspositioner inom intervallet $[0, 10^9]$, där varje position
+kan innehålla högst en anka. Problemet är att Harry inte vet hur många ankor som har försvunnit.
 
 Harry har dock möjlighet att utföra följande handling upp till $Q$ gånger:
 
 \begin{itemize}
-    \item \textbf{Kvacka från en position:} Harry kan ställa sig på en heltalsposition på linjen $[-10^9, 2 \cdot 10^9]$ och börja kvacka.
+    \item \textbf{Kvacka från en position:} Harry kan ställa sig på en heltalsposition på linjen
+    $[-10^9, 2 \cdot 10^9]$ och börja kvacka.
     \begin{itemize}
-        \item Den närmaste ankan kommer då att kvacka tillbaka, vilket låter Harry bestämma positionen för just den ankan.
-        \item Om det finns flera ankor som är lika nära Harry, kommer ankan med lägre position att kvacka tillbaka först. På så sätt får Harry endast information om ankan med lägre position.
-        \item Notera att ankorna inte rör sig eller försvinner efter att Harry har hittat dem; de stannar kvar på sina positioner tills alla ankor har identifierats.
+        \item Den närmaste ankan kommer då att kvacka tillbaka, vilket låter Harry bestämma positionen för
+        just den ankan.
+        \item Om det finns flera ankor som är lika nära Harry, kommer ankan med lägre position att kvacka
+        tillbaka först. På så sätt får Harry endast information om ankan med lägre position.
+        \item Notera att ankorna inte rör sig eller försvinner efter att Harry har hittat dem; de stannar
+        kvar på sina positioner tills alla ankor har identifierats.
     \end{itemize}
 \end{itemize}
 
-Ditt uppdrag är att hjälpa Harry hitta alla ankor genom att bestämma antalet ankor som gömmer sig, samt ange de exakta positionerna för dessa ankor.
+Ditt uppdrag är att hjälpa Harry hitta alla ankor genom att bestämma antalet ankor som gömmer sig, samt ange
+de exakta positionerna för dessa ankor.
 
 \begin{figure}[h!]
   \centering
@@ -29,36 +36,40 @@ Ditt uppdrag är att hjälpa Harry hitta alla ankor genom att bestämma antalet 
 \end{figure}
 
 \section*{Interaktion}
-Det här är ett interaktivt problem, där du kan ställa Harry på en heltalspostition inom intervallet $[-10^9,2\cdot10^9]$ upp till $Q$ gånger. 
-Notera att både $N$ och $Q$ är hemliga tal.
+Det här är ett interaktivt problem, där du kan ställa Harry på en heltalspostition inom intervallet
+$[-10^9,2\cdot10^9]$ upp till $Q$ gånger. Notera att både $N$ och $Q$ är hemliga tal.
 
 Ditt program börjar med att läsa in ett heltal $T$ ($1 \leq T \leq 6$), där $T$ är numret på testgruppen. 
 Anledningen till att $T$ är givet i input är för att göra det lättare att ta delpoäng.
 
-Därefter får du börja ställa Harry på en valfri heltalspostion $x_h$ inom intervallet $[-10^9,2\cdot10^9]$. Du ställer frågan genom att skriva ut 
+Därefter får du börja ställa Harry på en valfri heltalspostion $x_h$ inom intervallet $[-10^9,2\cdot10^9]$.
+Du ställer frågan genom att skriva ut 
 $$? \; x_h$$
 
 
 Sedan ska ditt program läsa in ett heltal $x_a$, positionen av den närmaste ankan. 
-%Om du positionen du skriver ut $x_h$ inte är giltigt, kommer $x_a = -1$. När ditt program läser in $-1$, ska ditt program avslutas direkt.
 Om ditt program inte avslutas kan du få felaktiga bedömningar som \texttt{Run-Time Error}.
 
-Du får ställa ut Harry upp till $Q$ gånger. Men när du har hittat alla $N$ ankors positioner $x_1 \; x_2 \; x_3 \; \dots \; x_N$, ska du skriva ut två rader. Först en rad med ett utropstecken samt talet $N$, antalet ankor som gömmer sig:
+Du får ställa ut Harry upp till $Q$ gånger. Men när du har hittat alla $N$ ankors positioner
+$x_1 \; x_2 \; x_3 \; \dots \; x_N$, ska du skriva ut två rader. Först en rad med ett utropstecken
+samt talet $N$, antalet ankor som gömmer sig:
 $$! \; N$$
 Sedan ska du skriva ut en ny rad med $N$ heltal, postionerna av de $N$ ankorna i valfri ordning:
 $$x_1 \; x_2 \; x_3 \; \dots \; x_N$$
 
 Därefter ska ditt program avslutas, och inget mer ska skrivas ut.    
 
-Det är garanterat att antalet borttappade ankor $N$ samt deras positioner i varje testfall är bestämd på förhand och inte ändras adaptivt i respons till dina utskrivningar.
+Det är garanterat att antalet borttappade ankor $N$ samt deras positioner i varje testfall är bestämd
+på förhand och inte ändras adaptivt i respons till dina utskrivningar.
 
 Se till att flusha outputen efter \textbf{varje utskrivning}, annars kan du få \textit{Time Limit Exceeded}.
 I C++ kan detta göras med exempelvis \texttt{cout << flush;}
 eller \texttt{fflush(stdout);},
-i Python görs detta automatiskt när du använder \texttt{input()}, men annars behöver man använda \texttt{sys.stdout.flush()},
-och i Java med \texttt{System.out.flush();}.
+i Python görs detta automatiskt när du använder \texttt{input()}, men annars behöver man använda
+\texttt{sys.stdout.flush()}, och i Java med \texttt{System.out.flush();}.
 
-Notera även att om ditt program skriver ut ett ogiltigt tal, alternativt felaktigt svar, kommer du få bedömningen som \texttt{Wrong Answer}, om inget annat händer innan det som kan påverka din bedömning. % Är det här tydligt?
+Notera även att om ditt program skriver ut ett ogiltigt tal, alternativt felaktigt svar, kommer du få bedömningen
+som \texttt{Wrong Answer}, om inget annat händer innan det som kan påverka din bedömning. % Är det här tydligt?
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -101,7 +112,8 @@ Programmet får då informationen om att ankan närmast position $9$ är en anka
 \end{figure}
 
 Därefter testar programmet att ställa Harry på position $2$ och kvackar.
-Notera att det finns $2$ olika ankor som befinner sig på samma avstånd till Harry i det här fallet. Men programmet får endast veta om ankan med det lägre positionen, i detta fall ankan vid position $0$. 
+Notera att det finns $2$ olika ankor som befinner sig på samma avstånd till Harry i det här fallet. Men programmet
+får endast veta om ankan med det lägre positionen, i detta fall ankan vid position $0$. 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.5\textwidth]{sample2-p4.png}

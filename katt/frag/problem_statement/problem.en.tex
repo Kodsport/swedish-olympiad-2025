@@ -11,7 +11,8 @@ before dawn, which occurs $T$ seconds after night begins, they will eat his chee
 
 To prevent this, he has hacked into the city's sewer system and can close manholes. If he closes a manhole for
 $1$ second, no rats can exit that manhole during that second. However, rats can still enter a closed manhole.
-Gustav wants to keep certain manholes closed during parts of the night so that no rat reaches him before $T$ seconds have passed.
+Gustav wants to keep certain manholes closed during parts of the night so that no rat reaches him before $T$ seconds
+have passed.
 
 Each manhole has a value $e_i$, representing the energy required to keep the manhole closed for $1$ second.
 To avoid anyone noticing that he has hacked the sewer system, he wants to use as little energy as possible.
@@ -25,12 +26,13 @@ The next $N-1$ lines contain the integers $a_i$, $b_i$, $t_i$ ($0 \leq a_i,b_i \
 indicating that there is a pipe between manhole $a_i$ and manhole $b_i$, and the time required to move between them
 is $t_i$. It is guaranteed that one can travel between every pair of manholes using the pipes.
 
-After that, a line follows with $N-1$ integers $e_1$, $\dots$, $e_{N-1}$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being the energy
-required to close manhole number $i$ for one second. Note that Gustav's
-manhole is manhole $0$, and $e_0$ is not a given. He can never benefit from closing this manhole since the rats will eat the cheese as soon as they enter it.
+After that, a line follows with $N-1$ integers $e_1$, $\dots$, $e_{N-1}$ $(1 \leq e_i \leq 10^5)$, each $e_i$ being
+the energy required to close manhole number $i$ for one second. Note that Gustav's manhole is manhole $0$, and $e_0$
+is not a given. He can never benefit from closing this manhole since the rats will eat the cheese as soon as they
+enter it.
 
-Then, a line follows with $M$ integers $r_1$, $\dots$, $r_M$ $(1 \leq r_i \leq N-1)$, where $r_i$ indicates that a rat starts in manhole
-$r_i$. Initially, there is at most one rat in each manhole.
+Then, a line follows with $M$ integers $r_1$, $\dots$, $r_M$ $(1 \leq r_i \leq N-1)$, where $r_i$ indicates that a
+rat starts in manhole $r_i$. Initially, there is at most one rat in each manhole.
 
 \section*{Output}
 Print an integer: the minimum amount of energy required to prevent any rat from reaching Gustav before

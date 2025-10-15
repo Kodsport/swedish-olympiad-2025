@@ -5,53 +5,61 @@
 Louise has spent the past year preparing for an upcoming programming contest. 
 Interestingly, this contest only allows participants to use an ancient programming language called \verb|H++|.
 
-In \verb|H++|, which is an object-oriented language, you can include external files in your program during compilation by writing the line:
+In \verb|H++|, which is an object-oriented language, you can include external files in your program during compilation
+by writing the line:
 
 \begin{verbatim}
 #include "file.hpp"
 \end{verbatim}
 
-When the compiler encounters this line, it includes the contents of the specified file (\texttt{file.hpp}) into the current file at the location of the \verb|#include| statement. 
-Essentially, the content of \texttt{file.hpp} is copied and pasted where the \verb|#include| command appears, replacing that line in the file.
+When the compiler encounters this line, it includes the contents of the specified file (\texttt{file.hpp}) into the
+current file at the location of the \verb|#include| statement. Essentially, the content of \texttt{file.hpp} is copied
+and pasted where the \verb|#include| command appears, replacing that line in the file.
 
-An important feature of \verb|H++| is that it allows files to include themselves. This means that if a file called \texttt{main.hpp} contains the following line:
+An important feature of \verb|H++| is that it allows files to include themselves. This means that if a file called
+\texttt{main.hpp} contains the following line:
 
 \begin{verbatim}
 #include "main.hpp"
 \end{verbatim}
 
 then it will cause the file \texttt{main.hpp} to be recursively included, with the content of \texttt{main.hpp}
-being copied and pasted again. This creates a self-replicating cycle that can repeat multiple times, potentially resulting in a very large file. 
-To prevent this from becoming an infinite loop, the creator of \verb|H++| introduced a recursion limit, 
-which allows the user to set a maximum number of recursive inclusions (denoted as $k$).
+being copied and pasted again. This creates a self-replicating cycle that can repeat multiple times, potentially
+resulting in a very large file. To prevent this from becoming an infinite loop, the creator of \verb|H++| introduced
+a recursion limit, which allows the user to set a maximum number of recursive inclusions (denoted as $k$).
 
 This means that if the file is in the $k$-th level of recursion, 
 it will only include the line \verb|#include "main.hpp"| on that specific level of the file. 
 Thus, after $k$ layers of inclusion, the recursion stops.
 
-When the file is compiled, each line in the resulting file is assigned a unique line number, starting from line number 1.
+When the file is compiled, each line in the resulting file is assigned a unique line number, starting
+from line number 1.
 
 However, when Louise tries using this feature, she encounters a lot of compile errors. 
-Specifically, she gets $Q$ compile errors, each specifying a line number in the final compiled file where an error occurred. 
-These line numbers correspond to the compiled file, where the content from \texttt{main.hpp} has been copied multiple times due to the recursive inclusions.
+Specifically, she gets $Q$ compile errors, each specifying a line number in the final compiled file where
+an error occurred. These line numbers correspond to the compiled file, where the content from \texttt{main.hpp}
+has been copied multiple times due to the recursive inclusions.
 
-The issue is that these line numbers are based on the compiled version of the file, not the original file. 
-As a result, Louise needs help to figure out what the error lines in the compiled file actually correspond to in the original code.
+The issue is that these line numbers are based on the compiled version of the file, not the original file.
+As a result, Louise needs help to figure out what the error lines in the compiled file actually correspond
+to in the original code.
 
 \section*{Input}
 \noindent
-The first line contains three integers $N$, $k$, and $Q$ ($1 \leq N \leq 10^6$, $1 \leq k \leq 10^9$, $1 \leq Q \leq 10^5$).
+The first line contains three integers $N$, $k$, and $Q$
+($1 \leq N \leq 10^6$, $1 \leq k \leq 10^9$, $1 \leq Q \leq 10^5$), where
 $N$ is the number of lines in the original \texttt{main.hpp} file, 
 $k$ is the recursion limit (the maximum number of recursive inclusions), and $Q$ is the number of compile errors.
 
 The following $N$ lines each contain one line of code from \texttt{main.hpp}. Each of these lines consist of at most
 35 printable ASCII characters. \texttt{main.hpp} will not include files other than \texttt{main.hpp}.
 
-The following $Q$ lines each contain an integer $p_i$ ($1 \leq p_i \leq 10^{12}$), which indicates a line number in the compiled file where an error occurred.
-It is guaranteed that $p_i$ will be a valid row number in the compiled file.
+The following $Q$ lines each contain an integer $p_i$ ($1 \leq p_i \leq 10^{12}$), which indicates a line number in
+the compiled file where an error occurred. It is guaranteed that $p_i$ will be a valid row number in the compiled file.
 
-\textbf{Note: } The value of $p_i$ will not fit in a $32$-bit integer, so be aware that it will overflow if you are using C++.
-Also note that there is a large amount of input and output, so it is recommended to use fast IO.
+\textbf{Note: } The value of $p_i$ will not fit in a $32$-bit integer, so be aware that it will
+overflow if you are using C++. Also note that there is a large amount of input and output, so it is
+recommended to use fast IO.
 
 \section*{Output}
 \noindent
@@ -89,20 +97,23 @@ Line 13 in the compiled file corresponds to line 5 in the original file.
 \begin{figure}[h]
   \centering
 \includegraphics[width=\textwidth]{include1.png}
-  \caption{Illustration of sample 1 with originally 5 lines. The red numbers shows the corresponding line number in the compiled file.}
+  \caption{Illustration of sample 1 with originally 5 lines. The red numbers shows the corresponding line number in
+  the compiled file.}
   \label{fig:include1}
 \end{figure}
 
 \begin{figure}[h]
   \centering
 \includegraphics[width=0.3\textwidth]{include2.png}
-  \caption{Illustration of the compiled file in sample 1. The red numbers shows the corresponding line number in the compiled file.}
+  \caption{Illustration of the compiled file in sample 1. The red numbers shows the corresponding line number in
+  the compiled file.}
   \label{fig:include1}
 \end{figure}
 
 \begin{figure}[h]
   \centering
 \includegraphics[width=0.8\textwidth]{include3.png}
-  \caption{Illustration of sample 3 with originally 3 lines. The red numbers shows the corresponding line number in the compiled file.}
+  \caption{Illustration of sample 3 with originally 3 lines. The red numbers shows the corresponding line number
+  in the compiled file.}
   \label{fig:include1}
 \end{figure}

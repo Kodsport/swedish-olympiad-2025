@@ -10,7 +10,8 @@ Exempelvis skulle ett byte kunna vara 2 äpplen och 3 päron mot en apelsin. For
 $$
 C_{i,0} \cdot F_0 + C_{i,1} \cdot F_1 + \dots + C_{i,N-1} \cdot F_{N-1} \implies 1 \cdot F_{r_i}.
 $$
-Här representerar $C_{i,j}$ koefficienten för $F_j$ i byte $i$. Alltså innebär $C_{i,j}$ antalet $F_j$ man behöver för att utföra detta bytet. $r_i$ är det föremål som du får som resultat av byte $i$. 
+Här representerar $C_{i,j}$ koefficienten för $F_j$ i byte $i$. Alltså innebär $C_{i,j}$ antalet $F_j$ man behöver för
+att utföra detta bytet. $r_i$ är det föremål som du får som resultat av byte $i$. 
 Observera att alla föremål inte behöver ingå i ett visst byte; för dessa föremål är $C_{i,j} = 0$.
 
 Varje byte kan utföras valfritt antal gånger. Ditt mål är att beräkna hur många gem som behövs för att få ett hus.
@@ -18,17 +19,22 @@ Varje byte kan utföras valfritt antal gånger. Ditt mål är att beräkna hur m
 Föremålet $F_0$ representerar gemet, och föremålet $F_{N-1}$ representerar huset.
 
 \section*{Indata}
-Den första raden innehåller två heltal $N$ och $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), antalet föremål och antalet byten.
+Den första raden innehåller två heltal $N$ och $M$ ($2 \leq N \leq 10^5$, $1 \leq M \leq 10^5$), antalet
+föremål och antalet byten.
 
-Därefter beskrivs de $M$ bytena. Varje beskrivning börjar med två heltal $r_i$ ($0 \leq r_i < N$) och $k_i$ ($1 \leq k_i \leq N$),
+Därefter beskrivs de $M$ bytena. Varje beskrivning börjar med två heltal $r_i$ ($0 \leq r_i < N$) och
+$k_i$ ($1 \leq k_i \leq N$),
 där $r_i$ är föremålet man får av byte $i$, och $k_i$ är antalet olika föremål som används i bytet.
-Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$) och $j$ ($0 \leq j < N$), 
+
+Därefter följer $k_i$ rader, där varje rad innehåller två heltal $C_{i,j}$ ($1 \leq C_{i,j} \leq 100$)
+och $j$ ($0 \leq j < N$), 
 som anger att koefficienten $C_{i,j}$ hör till föremålet $F_j$ i bytet. Notera att 
 föremål med koefficient $0$ inte finns med i indatan.
 
 Låt $K$ vara summan av $k_i$ över alla byten. Det gäller att $K \leq 10^5$.
 
-Det är garanterat att det går att få tag på alla föremål genom att bara starta med gem och man kan köpa varje föremål för
+Det är garanterat att det går att få tag på alla föremål genom att bara starta med gem och man kan köpa
+varje föremål för
 som mest $10^9$ gem vardera.
 
 

@@ -9,24 +9,25 @@ $$LCS(G,P)$$
 där $LCS(G,P)$ är längden på den längsta gemensamma delsekvsensen av $G$ och $P$. Den längsta gemensamma
 delsekvsensen av två strängar $G$ och $P$ är definierad på följande vis: låt oss beteckna alla delsekvenser av
 en sträng $S$ med mängden av alla strängar som man kan få genom ta bort noll eller flera bokstäver
-från $S$ samtidigt som man behåller den relativa ordningen av de kvarvarande bokstäverna. $LCS(G,P)$ är längden på den längsta
-strängen som förekommer i både $G$ och $P$:s delsekvenser.
+från $S$ samtidigt som man behåller den relativa ordningen av de kvarvarande bokstäverna. $LCS(G,P)$ är längden
+på den längsta strängen som förekommer i både $G$ och $P$:s delsekvenser.
 
 Till exempel: om $P=$''\texttt{abc}'' är dess delsekvenser \{'''', ''\texttt{a}'', ''\texttt{b}'', ''\texttt{c}'',
 ''\texttt{ab}'', ''\texttt{ac}'', ''\texttt{bc}'', ''\texttt{abc}''\}.
-Om $G=$''ac'' är dess delsekvenser \{'''', ''\texttt{a}'', ''\texttt{c}'', ''\texttt{ac}''\}. Då är deras längsta gemensamma delsekvens
-''\texttt{ac}'', och således är $LCS(G,P)=2$.
+Om $G=$''ac'' är dess delsekvenser \{'''', ''\texttt{a}'', ''\texttt{c}'', ''\texttt{ac}''\}. Då är deras längsta
+gemensamma delsekvens ''\texttt{ac}'', och således är $LCS(G,P)=2$.
 
-Några fler exempel: längsta gemensamma delsekvsensen av ''\texttt{aggtab}'' och ''\texttt{gxtxayb}'' är ''\texttt{gtab}''. Därmed
-är $LCS($''\texttt{aggtab}'', ''\texttt{gxtxayb}''$) = 4$. Två till exempel är att $LCS($''\texttt{abc}'', ''\texttt{cba}''$) = 1$ och 
-$LCS($''\texttt{po}'', ''\texttt{trakigt}''$) = 0$.
+Några fler exempel: längsta gemensamma delsekvsensen av ''\texttt{aggtab}'' och ''\texttt{gxtxayb}'' är
+''\texttt{gtab}''. Därmed är $LCS($''\texttt{aggtab}'', ''\texttt{gxtxayb}''$) = 4$. Två till exempel är
+att $LCS($''\texttt{abc}'', ''\texttt{cba}''$) = 1$ och $LCS($''\texttt{po}'', ''\texttt{trakigt}''$) = 0$.
 
-Du får nu göra upp till 10000 gissningar innan systemet låser sig. Varje gissning består av att du ger din dator $G$, och den
-svarar med $LCS(G,P)$. Dessutom vill du helst använda få gissningar så att du kan komma tillbaka in i tävlingen så snart som möjligt.
+Du får nu göra upp till 10000 gissningar innan systemet låser sig. Varje gissning består av att du ger din
+dator $G$, och den svarar med $LCS(G,P)$. Dessutom vill du helst använda få gissningar så att du kan komma
+tillbaka in i tävlingen så snart som möjligt.
 
 \section*{Interaktion}
-Ditt program ska först läsa in två heltal $N$ och $K$ ($1 \leq N \leq 100$, $1 \leq K \leq 26$): antalet bokstäver i lösenordet och
-hur många unika bokstäver det kan innehålla.
+Ditt program ska först läsa in två heltal $N$ och $K$ ($1 \leq N \leq 100$, $1 \leq K \leq 26$), antalet bokstäver
+i lösenordet och hur många unika bokstäver det kan innehålla.
 Mer exakt består lösenordet $P$ av exakt $N$ stycken bokstäver valda från de $K$ första små bokstäverna i alfabetet.
 
 För att göra en gissning ska du skriva ut en rad på formatet \texttt{? G}. $G$ måste tillfredställa $1 \le |G| \le N$
@@ -37,15 +38,16 @@ När du ska göra din slutgiltiga gissning, skriv ut en rad med tecknet \texttt{
 din gissning av lösenordet. Efter detta ska ditt programmet avslutas och inget mer ska skrivas ut.
 Denna gissningen räknas inte in i gränsen av 10000 gissningar.
 
-Det är garanterat att strängen $P$ i varje testfall är bestämd på förhand och inte ändras adaptivt i respons till dina mätningar.
-Det finns inga garantier på $P$ såsom att det är ett riktigt ord eller dylikt, då det är ett starkt lösenord. 
+Det är garanterat att strängen $P$ i varje testfall är bestämd på förhand och inte ändras adaptivt i respons
+till dina mätningar. Det finns inga garantier på $P$ såsom att det är ett riktigt ord eller dylikt, då det är
+ett starkt lösenord. 
 
 
 Se till att flusha outputen efter \textbf{varje utskrivning}, annars kan du få \textit{Time Limit Exceeded}.
 I C++ kan detta göras med exempelvis \texttt{cout << flush;}
 eller \texttt{fflush(stdout);},
-i Python görs detta automatiskt när du använder \texttt{input()}, men annars behöver man använda \texttt{sys.stdout.flush()},
-och i Java med \texttt{System.out.flush();}.
+i Python görs detta automatiskt när du använder \texttt{input()}, men annars behöver man använda
+\texttt{sys.stdout.flush()}, och i Java med \texttt{System.out.flush();}.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper. Om du misslyckas med att
@@ -55,7 +57,8 @@ Om gruppen är värd $P$ poäng får du då
 
 $$\left \lfloor{P \cdot \min(1, \frac{666}{g})}\right \rfloor $$
 
-poäng för den gruppen. Du får 100 poäng på hela problemet om du aldrig använder mer än 666 gissningar för ett testfall.
+poäng för den gruppen. Du får 100 poäng på hela problemet om du aldrig använder mer än $666$ gissningar
+för ett testfall.
 
 Tabellen nedan visar värdet på $\frac{666}{g}$ avrundat nedåt för olika antal gissningar.
 

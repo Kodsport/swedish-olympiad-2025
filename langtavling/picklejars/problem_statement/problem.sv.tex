@@ -7,16 +7,17 @@ Du kan först omordna burkarna i valfri ordning. För att överföra gurkor väl
 Därefter flyttar du alla gurkor från den vänstra burken till den högra burken och tar sedan bort den vänstra burken.
 Du fortsätter att överföra gurkor tills endast en enda burk återstår.
 
-Du kan fritt välja den ursprungliga ordningen på burkarna och hur du kombinerar dem. Beroende på hur denna process genomförs
-kommer du att få olika mängder av \textit{smakrikhet} i den slutliga burken med gurkor.
+Du kan fritt välja den ursprungliga ordningen på burkarna och hur du kombinerar dem. Beroende på hur denna process
+genomförs kommer du att få olika mängder av \textit{smakrikhet} i den slutliga burken med gurkor.
 
 Varje burk $i$ har ett saltlakevärde $a_i$. När du flyttar gurkor från burk $j$ till burk $i$, ökar smakrikheten
 hos den slutliga satsen gurkor med
-$a_i \oplus a_j$, där $\oplus$ definieras som bitvis XOR \footnote{\href{https://en.wikipedia.org/wiki/Exclusive_or}{Wikipedia: Bitwise XOR}}.
+$a_i \oplus a_j$, där $\oplus$ definieras som bitvis XOR
+\footnote{\href{https://en.wikipedia.org/wiki/Exclusive_or}{Wikipedia: Bitwise XOR}}.
 
-Den bitvisa XOR-operationen mellan två heltal $x$ och $y$ beräknas genom att jämföra de binära representationerna av $x$ och $y$.
-Den $i$:te biten av $x \oplus y$ är 1 om och endast om exakt en av de $i$:te bitarna i $a$ och $b$ är 1. Bitvis XOR
-finns som en operator i både \texttt{C++} och \texttt{Python} som \verb|^|.
+Den bitvisa XOR-operationen mellan två heltal $x$ och $y$ beräknas genom att jämföra de binära representationerna av
+$x$ och $y$. Den $i$:te biten av $x \oplus y$ är 1 om och endast om exakt en av de $i$:te bitarna i $a$ och $b$ är 1.
+Bitvis XOR finns som en operator i både \texttt{C++} och \texttt{Python} som \verb|^|.
 
 Som en gurkkännare vill du maximera den totala smakrikheten efter alla operationer.
 Hitta en ordning av burkarna och en ordning av överföringar som maximerar den totala smakrikheten.
@@ -32,14 +33,15 @@ som beskriver saltlakevärdena för gurkburkarna.
 \noindent
 Först ska du skriva ut ett heltal: den maximala möjliga smakrikheten som kan uppnås.
 
-För att få full poäng behöver du även skriva ut en permutation och en ordning av sammanslagningar som uppnår denna smakrikheten.
-Annars, för $75\%$ av poängen för en viss deluppgift räcker det att endast skriva ut smakrikheten.
+För att få full poäng behöver du även skriva ut en permutation och en ordning av sammanslagningar som uppnår denna
+smakrikheten. Annars, för $75\%$ av poängen för en viss deluppgift räcker det att endast skriva ut smakrikheten.
 
-På den andra raden, skriv ut permutationen av burkarna. Det $i$:te heltalet är indexet för burken som ska placeras på position $i$.
+På den andra raden, skriv ut permutationen av burkarna. Det $i$:te heltalet är indexet för burken som ska placeras
+på position $i$.
 
-På den tredje raden, skriv ut heltalen $p_1, p_2, \dots, p_{N-1}$ som beskriver ordningen av överföringarna. Först, anta att burkarna
-har blivit omordnade enligt din permutation och sedan ommärkta från $0$ till $N-1$ från vänster till höger. Därefter betyder varje
-$p_i$ att vid överföring nummer $i$, så är den vänstra burken burk nummer $p_i$.
+På den tredje raden, skriv ut heltalen $p_1, p_2, \dots, p_{N-1}$ som beskriver ordningen av överföringarna. Först,
+anta att burkarna har blivit omordnade enligt din permutation och sedan ommärkta från $0$ till $N-1$ från vänster
+till höger. Därefter betyder varje $p_i$ att vid överföring nummer $i$, så är den vänstra burken burk nummer $p_i$.
 Observera att efter att burkar tas bort, ommärks inte de återstående burkarnas index.
 
 \section*{Poängsättning}
@@ -59,7 +61,8 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \section*{Förklaring av exempelfall}
 I exempel 1 placerar vi gurkburkarna i ordningen $[2,5,1]$. Vi överför sedan burk $0$ till burk $1$, vilket
 lägger till en smakrikhet på $2 \oplus 5=7$. Slutligen överför vi burk $1$ till burk $2$, vilket lägger till en
-smakrikhet på $5 \oplus 1=4$, vilket resulterar i $7+4=11$ total smakrikhet. Det finns fler än ett sätt att uppnå denna smakrikheten.
+smakrikhet på $5 \oplus 1=4$, vilket resulterar i $7+4=11$ total smakrikhet. Det finns fler än ett sätt att uppnå
+denna smakrikheten.
 
 I exempel 2 räcker det att använda den ordning som ges i indata. Överföringarna sker enligt följande:
 \begin{itemize}

@@ -13,7 +13,8 @@ ingredienser. Därefter sker följande varje sekund för varje nod:
 
 \begin{itemize}
 \item Låt $a_v$ vara antalet ingredienser på nod $v$, och låt $d_v$ vara utgraden hos nod $v$.
-\item Om $d_v = 0$ så händer ingenting. Annars, låt $a_v = d_v\cdot q + r$ där $0 \leq r < d_v$. Skicka sedan $q$ enheter ingredienser till var och en av noderna som $v$ pekar på, och behåll resterande $r$.
+\item Om $d_v = 0$ så händer ingenting. Annars, låt $a_v = d_v\cdot q + r$ där $0 \leq r < d_v$.
+Skicka sedan $q$ enheter ingredienser till var och en av noderna som $v$ pekar på, och behåll resterande $r$.
 \end{itemize}
 
 Med andra ord så delar varje nod upp ingredienserna lika så gått det går och skickar 

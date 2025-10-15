@@ -73,9 +73,9 @@ Du ska \textbf{inte} skapa en main-funktion. Istället ska du implementera följ
 
 \texttt{encode} och \texttt{decode} får \textbf{endast} kommunicera genom parametrarna de anropas med, $S$ och $M$.
 Därför kommer ditt program att startas om mellan anropat av vardera funktion. \texttt{encode} och \texttt{decode} 
-måste vara snabba nog för att kunna anropas 50 gånger vardera inom tidsgränsen. Dessutom är domaren inte \textit{adaptiv}.
-Detta innebär att hur den väljer $S$ inte beror på vad du väljer att skicka som $E$. När den ska välja vilket intervall
-att fördärva kollar den bara på antalet tecken i $E$, inte innehållet av $E$.
+måste vara snabba nog för att kunna anropas 50 gånger vardera inom tidsgränsen. Dessutom är domaren inte
+\textit{adaptiv}. Detta innebär att hur den väljer $S$ inte beror på vad du väljer att skicka som $E$. När den ska
+välja vilket intervall att fördärva kollar den bara på antalet tecken i $E$, inte innehållet av $E$.
 
 \section*{Referensimplementationer}
 Alla referensimplementationer i attachments implementerar följande protokoll: \texttt{encode} skickar varje bokstav
@@ -144,11 +144,13 @@ Om man kör exempelprogrammet som tillhandahålls sker följande. Notera att exe
       \hline
       \texttt{encode(01011)} anropas & \texttt{encode} returnerar \texttt{0000011111000001111111111} \\
       \hline
-      Domaren fördärvar retuvärdet av \texttt{encode(01011)} & Det fördärvade meddelandet blir \texttt{0\textbf{111}011111000001111111111} \\
+      Domaren fördärvar retuvärdet av \texttt{encode(01011)} & Det fördärvade meddelandet blir
+      \texttt{0\textbf{111}011111000001111111111} \\
       \hline
       \texttt{decode(0111011111000001111111111)} anropas & \texttt{decode} returnerar \texttt{11011} \\
       \hline
-      Domaren jämför \texttt{01011} och returvärdet av \texttt{decode} & Eftersom dessa skiljer sig åt får lösningen ''Wrong Answer'' \\
+      Domaren jämför \texttt{01011} och returvärdet av \texttt{decode} & Eftersom dessa skiljer sig åt får lösningen
+      ''Wrong Answer'' \\
       \hline 
   \end{tabular}
 \end{table}

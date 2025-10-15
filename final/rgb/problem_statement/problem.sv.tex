@@ -11,13 +11,16 @@ Den här skräckinjagande varelsen kan ha huvuden av tre olika färger. Från b�
 \item $B$ blåa huvuden.
 \end{itemize}
 
-Varje gång jägaren hugger av ett huvud av en viss färg från Hydran, växer det genast ut \textbf{två nya huvuden} - ett av varje av de andra två färgerna.
-Till exempel, om jägaren hugger av ett rött huvud, växer det ut ett grönt och ett blått huvud genast.
+Varje gång jägaren hugger av ett huvud av en viss färg från Hydran, växer det genast ut \textbf{två nya huvuden}
+- ett av varje av de andra två färgerna. Till exempel, om jägaren hugger av ett rött huvud, växer det ut ett grönt
+och ett blått huvud genast.
 
-Jägaren, driven av sitt mod och sin ambition, vill inte bara besegra Hydran utan också lämna ett bestående spår av sin resa.
-För att göra det vill jägaren att så mycket rött som möjligt ska synas på Hydran - målet är att maximera antalet röda huvuden!
+Jägaren, driven av sitt mod och sin ambition, vill inte bara besegra Hydran utan också lämna ett bestående
+spår av sin resa. För att göra det vill jägaren att så mycket rött som möjligt ska synas på Hydran - målet
+är att maximera antalet röda huvuden som huggs av!
 
-Innan Hydran går till anfall hinner jägaren utföra som mest $k$ drag, där varje drag innebär att ett enda huvud huggs av.
+Innan Hydran går till anfall hinner jägaren utföra som mest $k$ drag, där varje drag innebär att ett enda
+huvud huggs av.
 
 Vad är det maximala antalet röda huvuden som Hydran kan ha efter högst $k$ drag?
 
@@ -32,7 +35,8 @@ Indatan består av en rad med 4 heltal $R$, $G$, $B$, och $k$ ($0 \leq R, G, B, 
 
 Det är garanterat att Hydran har åtminstone ett huvud från början, det vill säga att $R + G + B \geq 1$.
 
-(Notera även att talen $R,G,B,k$ är väldigt stora, och i t.ex. \texttt{C++} kommer det behövas användas \texttt{long long} istället för \texttt{int}.)
+(Notera även att talen $R,G,B,k$ är väldigt stora, och i t.ex. \texttt{C++} kommer det behövas användas
+\texttt{long long} istället för \texttt{int}.)
 
 \section*{Utdata}
 Skriv ut ett heltal: det maximala antalet röda huvuden som Hydran kan ha efter högst $k$ drag.
@@ -55,7 +59,8 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \section*{Förklaring av exempelfall}
 I det första exempelfallet har Hydran endast $1$ blått huvud, och jägaren hinner göra max $1$ drag. 
-Det enda draget som kan göras är att hugga av det blåa huvudet, vilket resulterar i att Hydran har $1$ rött huvud och $1$ grönt huvud. 
+Det enda draget som kan göras är att hugga av det blåa huvudet, vilket resulterar i att Hydran har $1$ rött
+huvud och $1$ grönt huvud. 
 Inga fler drag kan utföras, vilket innebär att $1$ rött huvud är det maximala antalet.
 
 

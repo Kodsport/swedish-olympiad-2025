@@ -1,8 +1,9 @@
 \problemname{Neural Bakework}
 \noindent
 
-Arvid is preparing for the AI Olympiad final. There's much to do: arranging accommodations, organizing food, preparing problems, and setting up snacks for everyone. 
-Stressed out, Arvid accidentally mixes up the last two tasks. As a participant in the AI Olympiad, you must solve the strange problem that arose.
+Arvid is preparing for the AI Olympiad final. There's much to do: arranging accommodations, organizing food, preparing
+problems, and setting up snacks for everyone. Stressed out, Arvid accidentally mixes up the last two tasks. As a
+participant in the AI Olympiad, you must solve the strange problem that arose.
 
 A neural bakework is a directed graph with $N$ nodes, designed to bake cookies.  
 Initially, $X$ units of ingredients are placed on node $1$, while all other nodes start with zero ingredients.  
@@ -10,7 +11,8 @@ Every second, the following occurs simultaneously for all nodes:
 
 \begin{itemize}
   \item Let $a_v$ be the number of ingredients on node $v$, and $d_v$ be its out-degree.
-  \item If $d_v = 0$, nothing happens. Otherwise, let $a_v = d_v \cdot q + r$ where $0 \leq r < d_v$. Afterwards send $q$ units of ingredients to each node pointed to by $v$, and keep the remainder $r$.
+  \item If $d_v = 0$, nothing happens. Otherwise, let $a_v = d_v \cdot q + r$ where $0 \leq r < d_v$. Afterwards
+  send $q$ units of ingredients to each node pointed to by $v$, and keep the remainder $r$.
 \end{itemize}
 
 In other words, each node splits its ingredients as evenly as possible and forwards 

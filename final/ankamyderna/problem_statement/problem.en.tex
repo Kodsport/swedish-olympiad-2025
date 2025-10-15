@@ -10,7 +10,8 @@ A duck pyramid is built in layers, where the bottom layer is layer 1, the next i
 To make the pyramid look nice, Kalle has decided that each layer should consist of ducks of the same color. 
 He has also decided which color each layer should have.
 
-If the pyramid has height $H$, then layer $i$ must contain exactly $(H-i+1)^2$ ducks. For example, in a pyramid with height 3:
+If the pyramid has height $H$, then layer $i$ must contain exactly $(H-i+1)^2$ ducks. For example,
+in a pyramid with height 3:
 \begin{itemize}
     \item Layer 1 (bottom) needs $3^2 = 9$ ducks.
     \item Layer 2 (middle) needs $2^2 = 4$ ducks.
@@ -20,19 +21,24 @@ If the pyramid has height $H$, then layer $i$ must contain exactly $(H-i+1)^2$ d
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.5\textwidth]{ankamyd.png}
-    \caption{Harry's reaction when he sees a duck pyramid where layer 1 consists of $9$ yellow ducks, layer 2 consists of $4$ blue ducks, and layer 3 consists of $1$ green duck.}
+    \caption{Harry's reaction when he sees a duck pyramid where layer 1 consists of $9$ yellow ducks,
+    layer 2 consists of $4$ blue ducks, and layer 3 consists of $1$ green duck.}
 \end{figure}
 
 Help Kalle calculate how tall the pyramid can be! Note that the height $H$ cannot exceed $M$.
 
 \section*{Input}
-On the first line, there are two integers $N$ and $M$ ($1 \le N, M \le 10^5$), the number of different colors and the number of layers in the pyramid.
+On the first line, there are two integers $N$ and $M$ ($1 \le N, M \le 10^5$), the number of different colors
+and the number of layers in the pyramid.
 
-On the second line, there are $N$ integers $a_1, a_2, ..., a_N$ ($0 \le a_j \le 10^{18}$), where $a_j$ indicates the number of ducks of color $j$.
+On the second line, there are $N$ integers $a_1, a_2, ..., a_N$ ($0 \le a_j \le 10^{18}$), where $a_j$ indicates
+the number of ducks of color $j$.
 
-On the third line, there are $M$ integers $c_1, c_2, ..., c_M$ ($1 \le c_i \le N$), where $c_i$ indicates which color should be used in layer $i$.
+On the third line, there are $M$ integers $c_1, c_2, ..., c_M$ ($1 \le c_i \le N$), where $c_i$ indicates which
+color should be used in layer $i$.
 
-Note that even though Kalle has decided which colors all layers should have, he may build a pyramid that does not use all $M$ layers.
+Note that even though Kalle has decided which colors all layers should have, he may build a pyramid that does
+not use all $M$ layers.
 
 \section*{Output}
 Print an integer: the maximum height $H$ the pyramid can have.
@@ -53,13 +59,15 @@ a set of test cases. To get the points for a test group you need to solve all te
 \end{tabular}
 
 \section*{Explanation of Samples}
-In the first example, Kalle only has ducks of one color, and he has 17 of them. The pyramid stand allows up to 5 layers. To build a pyramid of height 3, the following ducks are needed:
+In the first example, Kalle only has ducks of one color, and he has 17 of them. The pyramid stand allows up
+to 5 layers. To build a pyramid of height 3, the following ducks are needed:
 \begin{itemize}
     \item 9 ducks in layer 1
     \item 4 ducks in layer 2
     \item 1 duck in layer 3
 \end{itemize}
-A total of 14 ducks are used. It is not possible to build a pyramid with height 4, because that would require $4^2 + 3^2 + 2^2 + 1^2 = 30$ ducks, which is more than the 17 ducks available.
+A total of 14 ducks are used. It is not possible to build a pyramid with height 4, because that would
+require $4^2 + 3^2 + 2^2 + 1^2 = 30$ ducks, which is more than the 17 ducks available.
 
 In the second example, Kalle has:
 \begin{itemize}
@@ -73,4 +81,5 @@ The color order in the layers is: 2, 3, 2, 1, 2. A pyramid of height 3 can be bu
     \item 4 ducks of color 3 in layer 2
     \item 1 duck of color 2 in layer 3
 \end{itemize}
-This uses 10 ducks of color 2 and 4 ducks of color 3, which is within the available limits. A taller pyramid is not possible with the given restrictions.
+This uses 10 ducks of color 2 and 4 ducks of color 3, which is within the available limits. A taller pyramid
+is not possible with the given restrictions.

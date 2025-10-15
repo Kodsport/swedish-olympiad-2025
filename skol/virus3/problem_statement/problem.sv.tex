@@ -9,9 +9,9 @@ Viruset gjorde något väldigt konstigt: det lade till en massa bokstäver i all
 Exempelvis kan det ha ändrat filnamnet \texttt{katt.png} till \texttt{k\textbf{atteg}att\textbf{o}.p\textbf{i}ng}.
 Viruset kan alltså lägga till bokstäver, men aldrig ta bort bokstäver.
 
-Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som läser in filnamnet $F$ och namnet på en fil $H$
-på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset? Det vill säga, är det möjligt att
-viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
+Han letar nu  efter filen som heter $F$, men han har jättemånga filer. Kan du skriva ett program som läser in
+filnamnet $F$ och namnet på en fil $H$ på hans dator, och avgör om $F$ kan ha gjorts om till $H$ av viruset?
+Det vill säga, är det möjligt att viruset tog filnamnet $F$ och lade till bokstäver så att filen nu heter $H$?
 
 
 \section*{Indata}
@@ -20,7 +20,8 @@ Den första raden av indata innehåller strängen $F$ och den andra raden inneh�
 Låt $|F|$ vara antalet bokstäver i $F$, och detsamma för $|H|$.
 Då håller det att $1 \le |F| \le |H| \le 32$. $F$ och $H$ innehåller endast bokstäver \texttt{a}-\texttt{z} och punkt.
 
-Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från \texttt{a}-\texttt{z} som helst.
+Det är garanterat att $F$ innehåller exakt en punkt. Viruset kan lägga till punkter och vilken bokstav från
+\texttt{a}-\texttt{z} som helst.
 
 
 \section*{Utdata}
@@ -51,5 +52,5 @@ I exempelfall 2 kan viruset ha gjort följande förändring för att göra om $F
 \texttt{antivirus.exe} $\Rightarrow$ \texttt{a\textbf{aa}ntiv\textbf{is}i\textbf{i}ru\textbf{i}s.e\textbf{g}xe}.
 
 
-I exempelfall 3 skiljer sig $F$ och $H$ vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra ordningen på bokstäver
-kan det inte ha ändrat $F$ till $H$. 
+I exempelfall 3 skiljer sig $F$ och $H$ vid \texttt{png} och \texttt{pgn}. Eftersom viruset inte kan ändra
+ordningen på bokstäver kan det inte ha ändrat $F$ till $H$. 
