@@ -17,10 +17,6 @@ typedef pair<int, int> p2;
 
 inline void fast() { cin.tie(0)->sync_with_stdio(0); }
 
-#if _LOCAL
-#define assert(x) if (!(x)) __debugbreak()
-#endif
-
 signed main()
 {
     fast();
